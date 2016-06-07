@@ -1,0 +1,4 @@
+ pk | employee_id | first_name | middle_name | last_name | email_address | business_email_address | position | level | department | archived | date_created 
+----+-------------+------------+-------------+-----------+---------------+------------------------+----------+-------+------------+----------+--------------
+(0 rows)
+

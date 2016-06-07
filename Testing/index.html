@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="onload">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="Career Hunter Recruitment Solutions, Time Tracking System">
+	<meta name="author" content="CHRS IT">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CHRS | Integrity</title>
+ 
+    <!-- start: Css -->
+    <link rel="stylesheet" type="text/css" href="./ASSETS/css/bootstrap.min.css">
+
+    <!-- plugins -->
+    <link rel="stylesheet" type="text/css" href="./ASSETS/css/plugins/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="./ASSETS/css/plugins/simple-line-icons.css"/>
+    <link rel="stylesheet" type="text/css" href="./ASSETS/css/plugins/animate.min.css"/>
+	<link rel="stylesheet" type="text/css" href="./ASSETS/css/style.css">
+
+    <link rel="stylesheet" type="text/css" href="./ASSETS/js/plugins/dialog/ngDialog.min.css" >
+    <link rel="stylesheet" type="text/css" href="./ASSETS/js/plugins/dialog/ngDialog-theme-plain.min.css" >
+    <link rel="stylesheet" type="text/css" href="./ASSETS/js/plugins/dialog/ngDialog-theme-default.min.css" >
+    <link rel="stylesheet" type="text/css" href="./ASSETS/js/plugins/dialog/ngDialog-custom-width.css" >
+
+    <link rel="stylesheet" type="text/css" href="./ASSETS/js/plugins/dropdown/isteven-multi-select.css" >
+
+    <link rel="stylesheet" type="text/css" href="./ASSETS/js/plugins/notification/angular-ui-notification.min.css" >
+	<!-- end: Css -->
+	
+    <link rel="shortcut icon" href="./ASSETS/img/time.ico">
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+    .custom-menu li a {
+        color: #2196f3 !important;
+    }
+
+    .custom-menu li:hover{
+        background-color: #e7e7e7;
+    }
+
+    body>footer {
+        /*background-color: #eee;*/
+        font-size: 11px;
+        position: fixed;
+        bottom: 0;
+        padding: 8px;
+        /*width: 100%;*/
+        width: 400px;
+
+        max-height: 450px;
+        display: block;
+
+        /*additional remove to make a footer and uncomment comments above*/
+        margin-left: 75%;
+    }
+
+    body>footer .footer-main {
+        width: 100%;
+        text-align: right;   
+    }
+
+    .div2 {
+        height: 450px;
+        cursor: pointer;
+    }
+
+    .div2 .bubble img {
+        width: 300px;
+        margin-right: 150px;
+    }
+
+    .div2 .msg {
+        font-size: 20px !important;
+        width: 250px;
+        height: 100px;
+        z-index: 99999;
+        position: absolute;
+        margin-top: 50px;
+        margin-left: 30px;
+    }
+
+    .div1 {
+        padding-right: 60px;
+    }
+
+    .div1 textarea {
+        font-size: 15px;
+    }
+    </style>
+</head>
+
+<body id="mimin" class="dashboard">
+    <div class="m-app-loading" ng-animate-children>
+        <!--
+        HACKY CODE WARNING: I'm putting Style block inside directive so that it
+        will be removed from the DOM when we remove the directive container.
+        -->
+        <style type="text/css">
+         
+        div.m-app-loading {
+            position: absolute;
+        }
+         
+        div.m-app-loading div.animated-container {
+            background-color: #333333 ;
+            bottom: 0px ;
+            left: 0px ;
+            opacity: 1.0 ;
+            position: fixed;
+            right: 0px ;
+            top: 0px ;
+            z-index: 999999 ;
+        }
+         
+        /* Used to initialize the ng-leave animation state. */
+        div.m-app-loading div.animated-container.ng-leave {
+            opacity: 1.0 ;
+            transition: all linear 200ms ;
+            -webkit-transition: all linear 200ms ;
+        }
+         
+        /* Used to set the end properties of the ng-leave animation state. */
+        div.m-app-loading div.animated-container.ng-leave-active {
+            opacity: 0 ;
+        }
+         
+        div.m-app-loading div.messaging {
+            color: #FFFFFF ;
+            font-family: monospace ;
+            left: 0px ;
+            margin-top: -37px ;
+            position: absolute ;
+            right: 0px ;
+            text-align: center ;
+            top: 50% ;
+        }
+         
+        div.m-app-loading h1 {
+            font-size: 26px ;
+            line-height: 35px ;
+            margin: 0px 0px 20px 0px ;
+        }
+         
+        div.m-app-loading p {
+            font-size: 18px ;
+            line-height: 14px ;
+            margin: 0px 0px 0px 0px ;
+        }
+
+
+        </style>
+
+        <!-- BEGIN: Actual animated container. -->
+        <div class="animated-container">
+            <div class="messaging">
+                <p>
+                    Please stand by while Integrity is initializing ...
+                </p>
+            </div>
+        </div>
+        <!-- END: Actual animated container. -->
+    </div>
+    <!-- END: App-Loading Screen. -->
+
+    <!-- start: Header -->
+    <nav class="navbar navbar-default header navbar-fixed-top">
+        <div class="col-md-12 nav-wrapper">
+            <div class="navbar-header" style="width:100%;" ng-controller="Header">
+                <a href="#/" class="navbar-brand"> 
+                    <b>Integrity</b>
+                </a>
+                <ul class="nav navbar-nav navbar-left user-nav custom-menu">
+                    <li ng-class="menu.home">
+                        <a href="#/" ng-click="menuclicked('home')">Home</a>
+                    </li>
+                    <li ng-class="menu.timesheet">
+                        <a href="#/timesheet" ng-click="menuclicked('timesheet')">Timesheet</a>
+                    </li>
+                    <!-- <li class="dropdown" ng-class="menu.manual">
+                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Manual<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a style="cursor:pointer;" ng-click="manual_log()">Manual Log</a></li>
+                        </ul>
+                    </li> -->
+                    <li ng-class="menu.employees">
+                        <a href="#/employees" ng-click="menuclicked('employees')">Employees</a>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right user-nav" style="margin-right:20px;" >
+                    <li class="user-name"><span>{{ profile.first_name + " " + profile.last_name }}</span></li>
+                    <li class="dropdown avatar-dropdown">
+                        <img src="./ASSETS/img/LogoRGB_254.png" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
+                        <ul class="dropdown-menu user-dropdown">
+                            <!-- <li><a href="#"><span class="fa fa-user"></span> My Profile</a></li>
+                            <li><a href="#"><span class="fa fa-calendar"></span> My Calendar</a></li>
+                            <li role="separator" class="divider"></li> -->
+                            <li class="more">
+                                <ul>
+                                    <li><a href=""><span class="fa fa-cogs"></span></a></li>
+                                    <li alt="Change Password"><a href="" ng-click="change_password()"><span class="fa fa-key"></span></a></li>
+                                    <li alt="Log out"><a href="" ng-click="logout()"><span class="fa fa-power-off"></span></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- <li style="padding-top:10px; padding-left:5px;">
+                        <img src="./ASSETS/img/new2.gif" style="width:60px; cursor:pointer;" title="View the Latest Updates" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
+                        <ul class="dropdown-menu user-dropdown" style="max-height:400px; overflow-y:auto;">
+                            <li style="padding: 10px;">
+                                <span class="fa fa-genderless"></span>
+                                Added menu button for latest updates
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li style="padding: 10px;">
+                                <span class="fa fa-genderless"></span>
+                                Added option to show/hide the comment box
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li style="padding: 10px;">
+                                <span class="fa fa-genderless"></span>
+                                Comment Box. Once you have already submitted your comment, the callouts will always start with Let's start now so you can submit more comments.
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li style="padding: 10px;">
+                                <span class="fa fa-genderless"></span>
+                                Log in page. The Enter key can now be used to log in.
+                            </li>
+                        </ul>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- end: Header -->
+
+    <div class="container-fluid mimin-wrapper">
+        <!-- start:Left Menu -->
+        
+        <!-- end: Left Menu -->
+
+        <div ng-view=""></div>
+    </div>  
+
+    <!-- <footer >
+        <div class="footer-main" ng-controller="Footer">
+            <img src="./ASSETS/img/close.png" style="margin-bottom: 5px; cursor:pointer; margin-right:60px;" ng-click="temp_close()" ng-if="done"/>
+            <img src="./ASSETS/img/comment.png" style="margin-bottom: 5px; cursor:pointer; margin-right:60px;" ng-click="temp_open()" ng-if="!done"/>
+            <div class="div1" ng-if="comment && done">
+
+                <textarea style="width:100%;" rows="10" ng-model="comments.comment"></textarea>
+                <button class="btn ripple btn-outline btn-primary" style="width:100%;" ng-click="submit_comment()">
+                    <div>
+                        <span>SUBMIT</span>
+                    </div>
+                </button>
+            </div>
+            <div class="div2" ng-click="next_slide()" ng-if="!comment">
+                <div class="msg">
+                    <span>{{current_msg}}</span>
+                    <br />
+                    <img src="./ASSETS/img/arrow-down2.gif" style="width:20px;"/>
+                </div>
+                <div class="bubble">
+                    <img src="./ASSETS/img/bubble.png" style="height:200px;"/>
+                </div>
+                <div class="mascot">
+                    <img src="./ASSETS/img/mascot.png" style="height:200px;"/>
+                </div>
+                
+            </div>
+        </div>
+    </footer> -->
+
+    <!-- start: Javascript -->
+    <script src="./ASSETS/js/jquery.min.js"></script>
+    <script src="./ASSETS/js/jquery.ui.min.js"></script>
+    <script src="./ASSETS/js/bootstrap.min.js"></script>
+   
+    <!-- Angular.js Libraries -->
+    <script src="./ASSETS/js/angularjs/angular.min.js"></script>
+    <script src="./ASSETS/js/angularjs/angular-route.min.js"></script>
+    <script src="./ASSETS/js/angularjs/angular-cookies.min.js"></script>
+    <script src="./ASSETS/js/angularjs/angular-md5.js"></script>
+
+    <!-- MODULE -->
+    <script src="./JS/module.js"></script>
+
+    <!-- CONTROLLERS -->
+    <script src="./JS/controllers/Header.js"></script>
+    <script src="./JS/controllers/Footer.js"></script>
+    <script src="./JS/controllers/Dashboard.js"></script>
+    <script src="./JS/controllers/Timesheet.js"></script>
+    <script src="./JS/controllers/Timelogs.js"></script>
+    <script src="./JS/controllers/Employees.js"></script>
+    <script src="./JS/controllers/New_Employees.js"></script>
+
+    <!-- FACTORIES -->
+    <script src="./JS/factories/SessionFactory.js"></script>
+    <script src="./JS/factories/EmployeesFactory.js"></script>  
+    <script src="./JS/factories/TimelogFactory.js"></script>  
+
+    <!-- DIRECTIVES -->
+    <script src="./JS/directives/splash.js"></script>
+    <script src="./JS/directives/isNumber.js"></script>
+
+    <!-- plugins -->
+    <script src="./ASSETS/js/plugins/moment.min.js"></script>
+    <script src="./ASSETS/js/plugins/jquery.nicescroll.js"></script>
+    <script src="./ASSETS/js/plugins/md5/angular-md5.js"></script>
+    <script src="./ASSETS/js/plugins/dialog/ngDialog.js"></script>
+    <script src="./ASSETS/js/plugins/dropdown/isteven-multi-select.js"></script>
+    <script src="./ASSETS/js/plugins/notification/angular-ui-notification.min.js"></script>
+
+    <!-- custom -->
+    <script src="./ASSETS/js/main.js"></script>
+
+    <script type="text/ng-template" id="ConfirmModal">
+        <div class="ngdialog-message" style="width: 100%;">
+            <div style="margin-top: -15px;">
+                <h3><span style="color:#0c79be;">{{ modal.title }}</span></h3>                
+            </div>
+            <div>
+                <h4>{{ modal.message }}</h4>
+            </div>
+        </div>
+        <div class="ngdialog-buttons">
+            <button type="button" class="ngdialog-button ngdialog-button-secondary" data-ng-click="confirm(1)">{{modal.close}}</button>
+            <button type="button" class="ngdialog-button ngdialog-button-primary" data-ng-click="closeThisDialog('Save')">{{modal.save}}</button>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="PasswordModal">
+        <div class="ngdialog-message" style="width: 500px;">
+            <div style="margin-top: -15px;">
+                <h3><span style="color:#0c79be;">{{ modal.title }}</span></h3>
+            </div>
+            <div>
+                <table style="width: 85%;">
+                    <thead>
+                        <tr>
+                            <td>
+                                Current Password :
+                            </td>
+                            <td>
+                                <input type="password" ng-model="modal.data.old_password" maxlength="20"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                New Password :
+                            </td>
+                            <td>
+                                <input type="password" ng-model="modal.data.new_password" maxlength="20"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Confirm Password :
+                            </td>
+                            <td>
+                                <input type="password" ng-model="modal.data.confirm_password" maxlength="20"/>
+                            </td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <div class="ngdialog-buttons">
+            <button type="button" class="ngdialog-button ngdialog-button-secondary" data-ng-click="confirm(1)">{{modal.close}}</button>
+            <button type="button" class="ngdialog-button ngdialog-button-primary" data-ng-click="closeThisDialog('Save')">{{modal.save}}</button>
+        </div>
+    </script>
+
+    <script type="text/ng-template" id="ManualLogModal">
+        <div class="ngdialog-message" style="width: 500px;">
+            <div style="margin-top: -15px;">
+                <h3><span style="color:#0c79be;">{{ modal.title }}</span></h3>
+                
+            </div>
+            <div>
+                <table style="width: 85%;">
+                    <thead>
+                        <tr>
+                            <td>
+                                Type :
+                            </td>
+                            <td>
+                                <select ng-model="modal.data.type">
+                                    <option value="In">Log In</option>
+                                    <option value="Out">Log Out</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Date :
+                            </td>
+                            <td>
+                                <input type="text" ng-model="modal.data.date" maxlength="10" style="width:110px;"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Time
+                            </td>
+                            <td>
+                                <input type="text" ng-model="modal.data.time" maxlength="5" style="width:70px;"/>
+                            </td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <div class="ngdialog-buttons">
+            <button type="button" class="ngdialog-button ngdialog-button-secondary" data-ng-click="confirm(1)">{{modal.close}}</button>
+            <button type="button" class="ngdialog-button ngdialog-button-primary" data-ng-click="closeThisDialog('Save')">{{modal.save}}</button>
+        </div>
+    </script>
+    
+  </body>
+</html>

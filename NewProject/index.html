@@ -1,0 +1,131 @@
+<html>
+
+<h1>Welcome to Jobber</h1>
+  <div class="box">
+    <div>
+      <tr>
+        <td>
+          <a class="button" href="#popup1">Job Recruiter</a>
+        </td>
+
+        <td>
+          <a class="button" href="#popup1">Job Seeker</a>
+        </td>
+      </tr>
+    </div>
+</div>
+
+<div id="popup1" class="overlay">
+  <div class="popup">
+    <h2>Here i am</h2>
+    <a class="close" href="#">&times;</a>
+    <div class="content">
+      blah blah.
+    </div>
+  </div>
+</div>
+
+<style>
+
+body {
+  font-family: Arial, sans-serif;
+  background: #00522f;
+  background-size: cover;
+  height: 80vh;
+}
+
+h1 {
+  text-align: center;
+  font-family: Tahoma, Arial, sans-serif;
+  font-size: 50px;
+  color: #fff;
+  margin: 80px 0;
+}
+
+.box {
+  width: 400px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.18);
+  padding: 35px;
+  border: 2px solid #fff;
+  border-radius: 200px/10px;
+  background-clip: padding-box;
+  text-align: center;
+}
+
+.button {
+  font-size: 1em;
+  padding: 15px;
+  color: #fff;
+  background: #00002f;
+  border: 2px solid #9fffff;
+  border-radius: 50px/400px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  margin: 5px;
+}
+.button:hover {
+  background:  #fffff9;
+  color: #00522f;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}
+</style>
+</html>
