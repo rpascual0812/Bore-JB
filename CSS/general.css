@@ -12,12 +12,22 @@ body, html {
 	height: 100%;
 	width: 100%;
 	overflow-x:hidden;
+	font-family: "Gotham", Helvetica, Arial, sans-serif;
 }
 
 .quotes {
 	margin: 0;
 	font-size: 1.2em;
 	font-family: "Quotes", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 300;
+	letter-spacing: 0px;
+	margin-top: 10px;
+}
+
+.gotham {
+	margin: 0;
+	font-size: 1.2em;
+	font-family: "Gotham", Helvetica, Arial, sans-serif;
 	font-weight: 300;
 	letter-spacing: 0px;
 	margin-top: 10px;

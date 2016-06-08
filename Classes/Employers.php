@@ -1,12 +1,15 @@
 <?php
-require_once('../../Classes/ClassParent.php');
+require_once('../../../Classes/ClassParent.php');
 class Employers extends ClassParent{
     var $pin            = NULL;
     var $name           = NULL;
+    var $currencies_pk  = NULL;
+    var $plans_pk  = NULL;
 
     public function __construct(
                                     $pin,
-                                    $name
+                                    $name,
+                                    $plans_pk
                                 ){
         
         $fields = get_defined_vars();
@@ -30,13 +33,16 @@ class Employers extends ClassParent{
             insert into employees
             (
                 pin,
-                name
+                name,
+                currencies_pk,
+                plans_pk
             )
             values
             (
-                '$this->ntlogin',
-                '$this->employeeid',
-                '$this->name'
+                '$this->pin',
+                '$this->name',
+                '$this->currencies_pk',
+                '$this->plans_pk'
             )
             ;
 EOT;
@@ -45,8 +51,71 @@ EOT;
         return ClassParent::insert($sql);
     }
 
-    
+    public function profile(){
+        $sql = <<<EOT
+            select 
+                employers.pin,
+                employers.name,
+                employers.currencies_pk,
+                (select currencies.currency from currencies where pk = employers.currencies_pk) as currency,
+                plans_pk,
+                (select plan from plans where plans.pk = employers.plans_pk) as plan,
+                credits.available
+            from employers
+            left join credits on (employers.pin = credits.pin)
+            where md5(employers.pin) = '$this->pin'
+EOT;
 
-    
+        return ClassParent::get($sql);
+    }
+
+    public function update_credit($post){
+        $pin        = $post['pin'];
+        $deduction  = $post['deduction'];
+
+        $sql = <<<EOT
+            update credits set
+            (available)
+            =
+            (available - $deduction)
+            where pin = '$pin'
+EOT;
+
+        return ClassParent::update($sql);
+    }
+
+    public function get_employer_bucket($post){
+        $pin = $post['pin'];
+
+        $sql = <<<EOT
+            select
+                *
+            from employers_bucket
+            where pin = '$pin'
+            ;
+EOT;
+
+        return ClassParent::get($sql);
+    }
+
+    public function update_employer_bucket($post){
+        $pin            = $post['pin'];
+        $applicant_id   = $post['applicant_id'];
+
+        $sql = <<<EOT
+            insert into employers_bucket
+            (
+                pin,
+                applicant_id
+            )
+            values
+            (
+                '$pin',
+                '$applicant_id'
+            );
+EOT;
+
+        return ClassParent::update($sql);
+    }
 }
 ?>

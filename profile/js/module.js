@@ -11,14 +11,9 @@ app.config(function($routeProvider){
         controller: 'Login',
         templateUrl: 'templates/login.html'
     })
-    .when('/',
-    {
-        controller: 'Candidates',
-        templateUrl: 'templates/candidates.html'
-    })
     .when('/:pin',
     {
-        controller: 'Candidates',
+        controller: 'Profile',
         templateUrl: 'templates/profile.html'
     })
     .otherwise(

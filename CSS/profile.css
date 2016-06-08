@@ -1,0 +1,29 @@
+body {
+	height: 100%;
+	width: 100%;
+  	font-family: "Gotham", "Lato", Helvetica, Arial, sans-serif;
+  	font-size: 16px;
+  	line-height: 1.72222;
+  	color: #34495e;
+  	background-color: #ffffff;
+}
+
+.main {
+	width: 100%;
+	height: auto;
+	padding-left: 102px;
+	margin-top: 70px;
+
+}
+
+.div-profile {
+	width: 93%;
+	background-color: #FFF;
+
+	padding: 2%;
+}
+
+.div-profile .leftside {
+	width: 30%;
+	background-color: #EEE;
+}

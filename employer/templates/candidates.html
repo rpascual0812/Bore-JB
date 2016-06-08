@@ -2,7 +2,7 @@
 <div>
 	<div>
 		<nav id="sidebar-wrapper" style="margin-top:-20px;">
-	        <ul class="sidebar-nav">
+			<ul class="sidebar-nav">
 	            <li>
 	                <a href="#top" ng-click="logout()">Logout</a>
 	            </li>
@@ -23,9 +23,16 @@
 	                	JOBBER
 	                </a>
 	                <input type="text" class="searchbar" placeholder="Search candidates here" maxlength="60" data-ng-model="searchbox.text" data-ng-change="searchbig()" />
+
+	                <span class="credit">
+	                	<span class="label">Available Credit:</span>
+	                	<span class="label count">{{employer.currency}} {{employer.available}}</span>
+	                </span>
 	            </div>
 	            <!-- Collect the nav links, forms, and other content for toggling -->
 	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	            	
+
 	                <ul class="nav navbar-nav navbar-right">
 	                    <li>
 	                        <a>About</a>
@@ -48,6 +55,7 @@
 		<input type="text" class="searchbar" placeholder="Search..." maxlength="60" data-ng-model="searchbox.text" data-ng-change="searchbig()" />
 	</div> -->
 	<div style="clear:both;"></div>
+
 	<div class="main">
 		<div class="searchresults" data-ng-if="candidates.status">
 			<div>
@@ -74,7 +82,7 @@
 						<span style="float:right;">
 							<img src="../ASSETS/img/follow.png" style="width:42px; cursor:pointer;" title="FOLLOW"/>
 							<img src="../ASSETS/img/stalk.png" style="width:42px; cursor:pointer;" title="STALK"/>
-							<a href="../profile/#/CHRS-{{v.applicant_id}}">
+							<a ng-click="request_cv(v.applicant_id)" >
 								<img src="../ASSETS/img/go.png" style="width:42px; cursor:pointer;" title="Request for CV" />
 							</a>
 						</span>

@@ -42,3 +42,15 @@ app.config(function($routeProvider){
         }
     };
 });
+
+function contains(a, obj) {
+    var i = a.length;
+    while (i--) {
+        console.log(a[i] +" <> "+ obj);
+        if (a[i] === obj) {
+            return true;
+        }
+    }
+
+    return false;
+}
