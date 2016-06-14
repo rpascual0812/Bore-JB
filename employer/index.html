@@ -16,8 +16,11 @@
 	<!-- <link href="../CSS/employer.css" rel="stylesheet"> -->
 	
 	<link href='../CSS/fonts.css' rel='stylesheet' type='text/css'>
+	<link href='../CSS/employer_login.css' rel='stylesheet' type='text/css'>
 	
 	<link rel="shortcut icon" href="../ASSETS/img/icon/favicon.ico">
+
+	
 </head>
 
 <body data-ng-app="onload" style="background-color:#71e1af;">
@@ -44,6 +47,21 @@
 	        </ul>
 	    </nav>
 	</div>
+	<div>
+	<p class="welcome-emp">WELCOME !</p>
+	<input type="text" data-ng-model="user.pin" class="username" maxlength="20" placeholder="PIN" enter-key="onKeypress();"/>
+	<input type="password" data-ng-model="user.password" class="password" maxlength="20" placeholder="PASSWORD" enter-key="onKeypress();" />
+	<input type="button" class="login" value="LOGIN" enter-key="onKeypress();" data-ng-click="login()">
+
+	<img class="c-briefcase" src="../ASSETS/img/briefcase_employer.png"/>
+	<img class="jonathan" src="../ASSETS/img/jonathan.gif"/>
+
+	<div class="message-spacing">
+		<span class="message">Professionalism? Commitment?</span>
+		<span class="message-2">Let Jonathan do the Job!</span>
+		<span style="color:#FF0000; font-size: 12px">{{user.error_msg}}</span>
+	</div>
+</div>	
     
 </body>
 

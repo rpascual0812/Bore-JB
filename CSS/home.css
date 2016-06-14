@@ -1,0 +1,157 @@
+.c-jumbotron-footer-box{
+	margin-bottom:0px;
+	text-align:center;
+}
+.c-jumbotron-footer {
+  padding:0px 20% 3% 20%;
+  text-align:center;
+  font-size: 90%;
+  font-weight: 200;
+  color: #ffffff;
+  font-family: Arial;
+  font-style: italic;
+}
+.c-jumbotron-footer-author {
+  padding:0px 13% 10% 0px;
+  text-align:right;
+  font-size: 90%;
+  font-weight: 200;
+  color: #ffffff;
+  font-family: Arial;
+}
+
+@media (min-width: 768px) {
+  .c-jumbotron-footer-author {
+    font-size:105%;
+    font-weight: 110%;
+    padding-right:25%;
+    padding-left:60%;
+  }
+  .c-jumbotron-footer {
+  	padding:0px 12% 0.4% 12%;
+    font-size:105%;
+    font-weight: 110%;
+  }
+}
+@media (min-width: 992px) {
+  .c-jumbotron-footer-author {
+    font-size:110%;
+    font-weight: 115%;
+    padding-right:25%;
+    padding-left:62.25%;
+  }
+  .c-jumbotron-footer {
+  	padding:0px 20% 0.4% 20%;
+    font-size:110%;
+    font-weight: 115%;
+  }
+}
+@media (min-width: 1200px) {
+  .c-jumbotron-footer-author {
+    font-size:115%;
+    font-weight: 125%;
+    padding-right:30%;
+    padding-left:60%;
+  }
+  .c-jumbotron-footer {
+  	padding:0px 20% 0.4% 20%;
+    font-size:112%;
+    font-weight: 125%;
+  }
+}	
+
+
+.c-btn-back-left{
+	margin:60% 10% 0% 16.5%;
+	width:70%;
+	padding:0% 0% 0% 0%;
+
+}
+.c-btn-back-right{
+	margin:0% 10% -5% 16.5%;
+	width:70%;
+	padding:0% 0% 0% 0%;
+
+}
+
+.c-logo-design{
+	padding: 0% 0% 0% 0%;
+	margin:-138% 27% 5% 27%;
+	width:55%;
+}
+/*
+.c-logo-design-xs{
+	padding-left:25%;
+	padding-right:47%;
+	padding-bottom:5%;
+	padding-top:9%;
+	width:130%;
+	display: block;
+	z-index:-2
+}*/
+
+@media (min-width: 768px) {
+	.c-btn-back-left{
+	margin:9% 0.25% 0% 8%;
+	width:42%;
+	}
+
+}
+@media (min-width: 992px) {
+	.c-btn-back-left{
+	margin:7% 0.25% 0% 11.5%;
+	width:38.5%;
+	}
+
+}
+@media (min-width: 1200px) {
+	.c-btn-back-left{
+	margin:5% 0.25% 0% 15%;
+	width:35%;
+	}
+}
+
+
+
+@media (min-width: 768px) {
+	.c-btn-back-right{
+	margin:9.35% 5% 0% 0.25%;
+	width:42%;
+	}
+
+}
+@media (min-width: 992px) {
+	.c-btn-back-right{
+	margin:7.35% 10.5% 0% 0.25%;
+	width:38.5%;
+	}
+
+}
+@media (min-width: 1200px) {
+	.c-btn-back-right{
+	margin:5.35% 14% 0% 0.25%;
+	width:35%;
+	}
+}
+
+@media (min-width: 768px) {
+	.c-logo-design{
+	margin:-9.25% 36.75% 3% 36.75%;
+	width:34.5%;
+	}
+
+}
+@media (min-width: 992px) {
+	.c-logo-design{
+	margin:-8.25% 38% 3% 38%;
+	width:31%;
+	}
+
+}
+@media (min-width: 1200px) {
+	.c-logo-design{
+	margin:-7.25% 40% 3% 40%;
+	width:26.5%;
+	}
+}
+
