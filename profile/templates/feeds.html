@@ -21,16 +21,18 @@
 	                <a class="navbar-brand topnav" href="#/home">
 	                	JOBBER
 	                </a>
+	                <input type="text" class="searchbar" placeholder="Search jobs here" maxlength="60" data-ng-model="searchbox.text" data-ng-change="searchbig()" />
 	                
 	            </div>
 	            <!-- Collect the nav links, forms, and other content for toggling -->
+
 	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	                <ul class="nav navbar-nav navbar-right">
 	                    <li>
 	                        <a href="#/">Jobs</a>
 	                    </li>
 	                    <li>
-	                    	<a href="#/{{profile.pin}}">Profile</a>
+	                    	<a href="#/CHRS-{{profile.pin}}">Profile </a>
 	                    </li>
 	                    <li>
 	                        <a>Help</a>
@@ -80,104 +82,53 @@
 				</div>
 			</div>
 			<div class="left">
-				<div class="basic">
+				<div class="break"></div>
+
+				<div>
 					<div>
-						<div style="clear:both;"></div>
-						<div class="details">
+						<!-- <input type="text" class="input-no-style" title="Make a pitch" /> -->
+						<!-- <div aria-autocomplete="list" aria-expanded="false" aria-haspopup="false" aria-owns="js_f" class="_5rpu" contenteditable="true" role="combobox" spellcheck="true" style="outline: none; white-space: pre-wrap; word-wrap: break-word;" aria-describedby="placeholder-adkfp"><div data-contents="true"><div class="" data-block="true" data-editor="adkfp" data-offset-key="e4k0l-0-0"><div data-offset-key="e4k0l-0-0" class="_1mf _1mj"><span  id="pitch" data-offset-key="e4k0l-0-0" style="color:#AAA;">{{pitch}}</span></div></div></div></div> -->
+
+						<div id="input" contenteditable class="pitchbox" data-ng-click="pitch_focus()">{{pitch}}</div>
+					</div>
+
+					<div style="margin-top:20px; margin-left:5px; margin-right:5px; text-align: right;">
+						<button class="btn btn-default">POST</button>
+					</div>
+				</div>
+
+				<div class="break"></div>
+
+				<div class="feeds">
+					<div class="post">
+						<div class="feed-data" data-ng-repeat="(k,v) in feeds.data">
 							<div>
-								<div>
-									<span class="name">{{profile.data.first_name}} {{profile.data.last_name}}</span>
+								<div style="float:left; width:85%;">
+									<span class="header4">{{v.title}}</span>
 								</div>
-								<div class="status">
-									<span class="font14">{{profile.data.status}}</span>
+								<div style="float:left; width:15%;">
+									<span class="sub">{{v.time_passed}}</span>
 								</div>
-							</div>
+								<div style="clear:both;"></div>
+							</div>							
+
 							<div>
-								<img src="../ASSETS/img/key.png" style="width:16px;">
-								<span class="font14">{{profile.pin}}</span>
+								<span class="header2">{{v.experience}}</span>
+								<p>
+									{{v.skills}}
+								</p>
 							</div>
-							<div>
-								<img src="../ASSETS/img/map.png" style="width:16px;">
-								<span class="font14">4828 V. Baltazar St. Pinagbuhatan, Pasig City</span>
-							</div>
-							<div>
-								<img src="../ASSETS/img/phone.png" style="width:16px;">
-								<span class="font14">{{profile.data.contact_number}}</span>
-							</div>
-							<div>
-								<img src="../ASSETS/img/gmail.png" style="width:16px;">
-								<span class="font14">{{profile.data.email_address}}</span>
-							</div>
-							
+							<div class="break"></div>
 						</div>
-						<div class="picture">
-							<div>
-								<img class="img-circle" src="../ASSETS/Uploads/rafael1.jpg">
-							</div>
-							<div class="selftitle">
-								<span class="font12">"IdealProgrammer"</span>
-							</div>
-						</div>
-						<div style="clear:both;"></div>
-					</div>
+					</div>			
 				</div>
-
-				<div class="break"></div>
-
-				<div class="background font14">
-					<span class="header1">Achievements</span>
-
-					<div>
-						<span class="header2">Class Valedictorian</span>
-					</div>
-				</div>
-
-				<div class="break"></div>
-
-				<div class="background font14">
-					<span class="header1">Work Experiences</span>
-
-					<div>
-						<span class="header2">JuanLab</span>
-						<p>
-							Responsible with the overall IT Operations.
-						</p>
-					</div>
-				</div>
-
-				<div class="break"></div>
-
-				<div class="background font14">
-					<span class="header1">Education</span>
-
-					<div>
-						<span class="header2">Pamantasan ng Lungsod ng Pasig</span>
-						<div>
-							Bachelor of Science in Information Technology
-						</div>
-					</div>
-
-					<div class="top-spacer">
-						<span class="header2">Rizal High School</span>
-						<div class="font12">
-							June 1999 - March 2003
-						</div>
-						<div class="font12">
-							Class Valedictorian
-						</div>
-					</div>
-				</div>
-
-				
 			</div>
 
 			<div class="right">
 				<div class="statistics">
-					<span class="header3">Statistics</span>
-
 					<div>
-						<img src="../ASSETS/img/view.png" style="width:16px;">
-						<span class="font12">Viewed 1,500 times since May 10</span>
+						<img src="../ASSETS/img/attache.png" style="width:16px;">
+						<span class="font12 link">35 Jobs Matches your profile</span>
 					</div>
 					<div>
 						<img src="../ASSETS/img/heart.png" style="width:16px;">
@@ -185,20 +136,15 @@
 					</div>
 					<div>
 						<img src="../ASSETS/img/feedback.png" style="width:16px;">
-						<span class="font12 link">Receives 5 Recuitment Feedback</span>
+						<span class="font12 link">You have 5 Recuitment Feedback</span>
 					</div>
 				</div>
 
 				<div class="break"></div>
 
 				<div>
-					<button type="button" class="btn btn-default" style="width:100%; margin-bottom:5px;">Edit Profile</button>
-
-					<button type="button" class="btn btn-default" style="width:100%; margin-bottom:5px;">Search for a job that suits you</button>
-
 					<button type="button" class="btn btn-default" style="width:100%; margin-bottom:5px;">Recommended Jobs</button>
-
-					<button type="button" class="btn btn-default" style="width:100%; margin-bottom:5px;">Export CV</button>
+					<button type="button" class="btn btn-danger" style="width:100%; margin-bottom:5px;">Logout</button>
 				</div>
 
 				<div class="break"></div>

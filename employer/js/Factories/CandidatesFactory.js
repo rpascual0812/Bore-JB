@@ -1,19 +1,19 @@
 app.factory('CandidatesFactory', function($http){
-    var factory = {};           
+    var factory = {};
     
     factory.logout = function(data){
         var promise = $http({
-            url:'../Functions/destroysession.php',
-            method: 'GET'
+            url : '../Functions/destroysession.php',
+            method : 'GET'
         })
 
         return promise;
-    };
+    }
 
     factory.search_candidates = function(data){
         var promise = $http({
-            url:'./functions/candidates/search_candidates.php',
-            method: 'POST',
+            url : './functions/candidates/search_candidates.php',
+            method : 'POST',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             transformRequest: function(obj) {
                 var str = [];
@@ -25,7 +25,7 @@ app.factory('CandidatesFactory', function($http){
         })
 
         return promise;
-    };
+    }
     
     return factory;
 });

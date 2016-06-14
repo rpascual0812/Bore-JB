@@ -16,9 +16,14 @@ app.config(function($routeProvider){
         controller: 'Profile',
         templateUrl: 'templates/profile.html'
     })
+    .when('/',
+    {
+        controller: 'Feeds',
+        templateUrl: 'templates/feeds.html'
+    })
     .otherwise(
     {
-        redirectTo: '/'
+        redirectTo: '/login'
     })
 })
 

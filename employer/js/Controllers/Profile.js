@@ -6,16 +6,29 @@ app.controller('Profile', function(
                                     ProfileFactory
 								){
 
-    $scope.apppin = md5.createHash('APPPIN');
+    $scope.emppin = md5.createHash('PIN');
+
+    $scope.searchbox = {};
+    $scope.user = {
+        applicant : {
+            status : false,
+            pin : null
+        },
+        employer : {
+            status : false,
+            pin : null
+        }
+    };
 
 	$scope.profile = {};
     
     init();
 
     function init(){
-        $scope.profile.pin = $routeParams.pin;
+
+        $scope.profile.pin = $routeParams.apppin;
         var filter = {
-            applicant_id : $routeParams.pin.replace('CHRS-', '')
+            applicant_id : $routeParams.apppin.replace('CHRS-', '')
         }
         
         var promise = ProfileFactory.profile(filter);
@@ -28,5 +41,6 @@ app.controller('Profile', function(
             $scope.profile.status = false;
         });
     }
+
     
 });

@@ -102,7 +102,8 @@ EOT;
         $pin            = $post['pin'];
         $applicant_id   = $post['applicant_id'];
 
-        $sql = <<<EOT
+        $sql = "begin;";
+        $sql .= <<<EOT
             insert into employers_bucket
             (
                 pin,
@@ -114,6 +115,21 @@ EOT;
                 '$applicant_id'
             );
 EOT;
+
+        $sql .= <<<EOT
+            insert into employers_logs
+            (
+                pin,
+                log
+            )
+            values
+            (
+                '$pin',
+                'Added new candidate to bucket'
+            );
+EOT;
+
+        $sql .= "commit;";
 
         return ClassParent::update($sql);
     }

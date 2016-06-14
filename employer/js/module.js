@@ -11,6 +11,11 @@ app.config(function($routeProvider){
         controller: 'Login',
         templateUrl: 'templates/login.html'
     })
+    .when('/candidate/:apppin',
+    {
+        controller: 'Profile',
+        templateUrl: 'templates/profile.html'
+    })
     .when('/',
     {
         controller: 'Candidates',

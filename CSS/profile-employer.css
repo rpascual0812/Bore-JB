@@ -80,7 +80,7 @@ body {
 }
 
 .sub {
-	font-size: 12px;
+	font-size: 10px;
 	color: #c5c5c5;
 }
 
@@ -99,12 +99,6 @@ body {
 	color: #a3a3a3;
 	font-weight: bold;
 	font-size: 1.2em;
-}
-
-.header4 {
-	color: #000;
-	font-weight: bold;
-	font-size: 1.3em;
 }
 
 .news {
@@ -138,39 +132,17 @@ body {
 }
 
 .main .profile {
-	width: 100%;
+	width: 80%;
 	margin: 0 auto;
-}
-
-/*MENU*/
-
-.profile .menu {
-	float: left;
-	width: 17%; 
-	min-height: 300px;
-	margin-top:10px;
-	margin-left: 1%;
-	background-color: #FFF;
-
-	padding: 1.5em;
-
-	border: 1px solid #CCC;
-    box-shadow: 0 4px 8px -2px #000;
-    -moz-box-shadow: 0 4px 8px -2px #000;
-    -webkit-box-shadow: 0 4px 8px -2px #000;
-    border-radius: 4px;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
 }
 
 /*LEFT SIDE*/
 
 .profile .left {
 	float: left;
-	width: 55%; 
+	width: 69%; 
 	min-height: 450px;
 	margin-top:10px;
-	margin-left: 1%;
 	background-color: #FFF;
 
 	padding: 1.5em;
@@ -241,18 +213,14 @@ body {
 	padding-left: 10px;
 }
 
-.left .feeds .post {
-
-}
-
 /*RIGHT SIDE*/
 
 .profile .right {
 	float: left;
-	width: 24%; 
+	width: 29%; 
 	min-height: 300px;
 	margin-top:10px;
-	margin-left: 1%;
+	margin-left: 2%;
 	background-color: #FFF;
 
 	padding: 1.5em;
@@ -278,55 +246,4 @@ body {
 .right .updates {
 	width: 100%;
 	height: auto;
-}
-
-.pitchbox {
-	padding: 10px;
-	height: 50px;
-	color: #AAA;
-}
-
-.pitchbox:active {
-	color: #000;
-	border: 0px;
-	outline: none;
-	border: none;
-}
-
-.pitchbox:focus {
-	color: #000;
-	border: 0px;
-	outline: none;
-	border: none;
-}
-
-.feed-data {
-	-webkit-animation: hideAndShow 2000ms ease;
-    -moz-animation: hideAndShow 2000ms ease;
-    -ms-animation: hideAndShow 2000ms ease;
-}
-
-@-webkit-keyframes hideAndShow{
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-@-moz-keyframes hideAndShow{
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}    
-@-ms-keyframes hideAndShow{
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
 }

@@ -1,6 +1,7 @@
+<link href="../CSS/profile-employer.css" rel="stylesheet">
 <div>
 	<div>
-		<nav id="sidebar-wrapper" class="active" style="margin-top:-20px;">
+		<nav id="sidebar-wrapper" style="margin-top:-20px;">
 			<ul class="sidebar-nav">
 	            <li>
 	                <a href="#top" ng-click="logout()">Logout</a>
@@ -21,19 +22,20 @@
 	                <a class="navbar-brand topnav" href="#/home">
 	                	JOBBER
 	                </a>
+	                <input type="text" class="searchbar" placeholder="Search candidates here" maxlength="60" data-ng-model="searchbox.text" data-ng-change="searchbig()" />
 	                
 	            </div>
 	            <!-- Collect the nav links, forms, and other content for toggling -->
 	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	                <ul class="nav navbar-nav navbar-right">
 	                    <li>
-	                        <a href="#/">Jobs</a>
+	                        <a>About</a>
 	                    </li>
 	                    <li>
-	                    	<a href="#/{{profile.pin}}">Profile</a>
+	                        <a>Services</a>
 	                    </li>
 	                    <li>
-	                        <a>Help</a>
+	                    	<a id="menu-toggle" href="#">Profile</a>
 	                    </li>
 	                </ul>
 	            </div>
@@ -48,37 +50,13 @@
 	</div> -->
 	<div style="clear:both;"></div>
 
-	<!-- <div class="news">
+	<div class="news">
 		<div class="details"></div>
-	</div> -->
-
-	<div style="height:20px;"></div>
+	</div>
 
 	<div class="main">
 		<div style="clear:both;"></div>
 		<div class="profile">
-			<div class="menu">
-				<div>
-					<img src="../ASSETS/img/profile.png" style="width:16px;">
-					<span class="font12 link">Profile</span>
-				</div>
-				<div>
-					<img src="../ASSETS/img/attache.png" style="width:16px;">
-					<span class="font12 link">Applications</span>
-				</div>
-				<div>
-					<img src="../ASSETS/img/message.png" style="width:16px;">
-					<span class="font12 link">Messages</span>
-				</div>
-				<div>
-					<img src="../ASSETS/img/bookmark.png" style="width:16px;">
-					<span class="font12 link">Bookmarks</span>
-				</div>
-				<div>
-					<img src="../ASSETS/img/star.png" style="width:16px;">
-					<span class="font12 link">Talent Acquisition</span>
-				</div>
-			</div>
 			<div class="left">
 				<div class="basic">
 					<div>
@@ -192,13 +170,13 @@
 				<div class="break"></div>
 
 				<div>
-					<button type="button" class="btn btn-default" style="width:100%; margin-bottom:5px;">Edit Profile</button>
+					<button type="button" class="btn btn-danger" style="width:100%; margin-bottom:5px;">FOLLOW</button>
 
-					<button type="button" class="btn btn-default" style="width:100%; margin-bottom:5px;">Search for a job that suits you</button>
+					<button type="button" class="btn btn-info" style="width:100%; margin-bottom:5px;">NONAME</button>
+					
+					<button type="button" class="btn btn-warning" style="width:100%; margin-bottom:5px;">SEND FEEDBACK</button>
 
-					<button type="button" class="btn btn-default" style="width:100%; margin-bottom:5px;">Recommended Jobs</button>
-
-					<button type="button" class="btn btn-default" style="width:100%; margin-bottom:5px;">Export CV</button>
+					<button type="button" class="btn btn-default" style="width:100%; margin-bottom:5px;">EXPORT CV</button>
 				</div>
 
 				<div class="break"></div>

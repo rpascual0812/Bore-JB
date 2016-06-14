@@ -102,6 +102,13 @@ create table employers (
 alter table employers owner to chrs;
 create unique index employers_name on employers (name);
 
+create table employers_logs (
+	pin text not null,
+	log text not null,
+	datecreated timestamptz
+);
+alter table employers_logs owner to chrs;
+
 create table accounts (
 	pin text not null references employers(pin),
 	password text not null
@@ -141,6 +148,15 @@ create table candidates (
 	statuses_pk int references statuses(pk)
 );
 alter table candidates owner to chrs;
+create unique index candidates_pin on candidates (pin);
+
+create table candidates_accounts (
+	pin text not null,
+	email_address text not null,
+	password text not null
+);
+alter table candidates_accounts owner to chrs;
+create unique index candidates_accounts_pin on candidates_accounts (pin);
 
 create table candidates_log(
 	pin text not null references candidates(pin),

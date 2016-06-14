@@ -141,14 +141,14 @@ app.controller('Candidates', function(
                     update_employer_bucket(applicant_id);
                 }
 
-                window.location = '../profile/#/CHRS-'+applicant_id;
+                window.location = '#/candidate/CHRS-'+applicant_id;
             }
             else {
                 alert('Low credit balance');
             }
         }
         else if($scope.employer.plan == 'Premium'){
-            window.location = '../profile/#/CHRS-'+applicant_id;
+            window.location = '#/candidate/CHRS-'+applicant_id;
         }
     }
 

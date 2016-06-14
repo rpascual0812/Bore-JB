@@ -1,4 +1,4 @@
-
+<link href="../CSS/employer.css" rel="stylesheet">
 <div>
 	<div>
 		<nav id="sidebar-wrapper" style="margin-top:-20px;">
@@ -23,6 +23,17 @@
 	                	JOBBER
 	                </a>
 	                <input type="text" class="searchbar" placeholder="Search candidates here" maxlength="60" data-ng-model="searchbox.text" data-ng-change="searchbig()" />
+
+					<!-- <div class="dropdown">
+					    <ul class="result">
+					      <li>Suggestions</li>
+					      <li>Suggestions</li>
+					      <li>Suggestions</li>
+					      <li>Suggestions</li>
+					      <li>Suggestions</li>
+					    </ul>
+					</div> -->
+
 
 	                <span class="credit">
 	                	<span class="label">Available Credit:</span>
@@ -57,21 +68,18 @@
 	<div style="clear:both;"></div>
 
 	<div class="main">
-		<div class="searchresults" data-ng-if="candidates.status">
-			<div>
-				<nav role="navigation" class="navbar navbar-default" style="background-color:#fff; color:#000;">
-				    <!-- Collection of nav links and other content for toggling -->
-				    <div id="navbarCollapse" class="collapse navbar-collapse">
-				        <ul class="nav navbar-nav" style="color:#000 !important;">
-				            <li><a href="#">All</a></li>
-				            <li class="active"><a>Actively looking</a></li>
-				            <li><a>Inactively looking</a></li>
-				        </ul>
-				    </div>
-				</nav>
-			</div>
-
-			<div class="results">
+		<div class="searchresults">
+			<nav role="navigation" class="navbar navbar-default" style="background-color:#fff; color:#000; width:69%;">
+			    <!-- Collection of nav links and other content for toggling -->
+			    <div id="navbarCollapse" class="collapse navbar-collapse">
+			        <ul class="nav navbar-nav" style="color:#000 !important;">
+			            <li><a href="#">All</a></li>
+			            <li class="active"><a>Actively looking</a></li>
+			            <li><a>Inactively looking</a></li>
+			        </ul>
+			    </div>
+			</nav>
+			<div class="left">
 				<div class="data" ng-repeat="(k,v) in candidates.data">
 					<div class="pin">
 						<span>CHRS-{{v.applicant_id}}</span>
@@ -94,9 +102,22 @@
 					</div>
 				</div>
 			</div>
-			
+			<div>
+				<div style="padding-left: 100px;">
+					<img src="../ASSETS/Uploads/signavio.png" />
+				</div>
+				
+			</div>
 		</div>
 	</div>
+
+	<!-- <div class="main">
+		<div class="searchresults" data-ng-if="candidates.status">
+			sdfa
+			
+			
+		</div>
+	</div> -->
 </div>
 
 <script>

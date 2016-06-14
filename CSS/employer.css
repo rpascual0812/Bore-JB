@@ -15,7 +15,7 @@ body {
 	border-bottom: solid 1px #CCC;
 	border-radius: 0.5;
 
-	width: 500px;
+	width: 400px;
 	height: 40px;
 	font-size: 15px;
 	padding: 5px;
@@ -38,12 +38,31 @@ body {
 .main {
 	width: 100%;
 	height: auto;
-	padding-left: 102px;
-	margin-top: 70px;
+	/*padding-left: 102px;*/
+	margin-top: 60px;
 }
 
 .main .searchresults {
-	width: 70%;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.main .searchresults .left {
+	float: left;
+	width: 69%; 
+	min-height: 450px;
+	
+	background-color: #FFF;
+
+	padding: 1.5em;
+
+    border: 1px solid #CCC;
+    box-shadow: 0 4px 8px -2px #000;
+    -moz-box-shadow: 0 4px 8px -2px #000;
+    -webkit-box-shadow: 0 4px 8px -2px #000;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
 }
 
 .results {
@@ -97,4 +116,44 @@ a {
 
 .credit .count {
 	color: #FFD700;
+}
+
+
+
+/*
+Auto complete
+*/
+
+.dropdown{
+    position:absolute;
+    
+    color: #000;
+    width: 400px;
+
+}
+
+.autosuggest, .dropdown, .result {
+    margin:0;
+    padding:0;
+    border:0;
+    width:250px;
+    margin-left: 45px;
+}
+
+.result {
+	background-color: #FFF;
+	width: 400px;
+	list-style:none;
+}
+
+.result li {
+	padding:5px;
+	border:1px solid #000;
+	border-top:0;
+	cursor: pointer;
+}
+
+.result li:hover {
+	background-color: #CCC;
+	color:#fff;
 }
