@@ -25,12 +25,12 @@ body{
 	}
 
 	.welcome-emp{
-		width: 60%;
+		width: 70%;
 		height: 5%;
 		position:absolute;
-		margin:31.25% 0% 0% 35.75%;
+		margin:31.25% 0% 0% 30.75%;
 
-		font-size: 250%;
+		font-size: 220%;
 		font-style:bold;	
 		border-radius: 5px;
 		border: 0;
@@ -86,7 +86,7 @@ body{
 		position:absolute;
 		margin:0% 0% 0% 0%;
 
-		font-size: 90%;
+		font-size: 78%;
 		border-radius: 5px;
 		border: 0;
 		text-align: center;

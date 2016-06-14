@@ -30,7 +30,7 @@ body{
 		position:absolute;
 		margin:25% 0% 0% 1%;
 
-		font-size: 250%;
+		font-size: 220%;
 		font-style:bold;	
 		border-radius: 5px;
 		border: 0;
@@ -77,7 +77,7 @@ body{
 		text-align: center;
 	}
 	.message-spacing{
-		margin:-97% 0% 0% -10%;
+		margin:-98% 0% 0% -11%;
 	}
 
 	.message{
@@ -86,7 +86,7 @@ body{
 		position:absolute;
 		margin:0% 0% 0% -4%;
 
-		font-size: 90%;	
+		font-size: 83%;	
 		border-radius: 5px;
 		border: 0;
 		text-align: center;
@@ -100,7 +100,7 @@ body{
 		position:absolute;
 		margin:4% 0% 0% 11.75%;
 
-		font-size: 90%;	
+		font-size: 83%;	
 		border-radius: 5px;
 		border: 0;
 		text-align: center;
