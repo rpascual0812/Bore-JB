@@ -62,7 +62,7 @@ body {
 	border-top: 1px solid #CCC;
 	
 	margin: 0 auto;
-	margin-top: 1em;
+	margin-top: 2em;
 	margin-bottom: 1em;
 }
 
@@ -320,204 +320,202 @@ body {
 		margin-top:10px;
 	}
 }
+
 	.left .basic {
+		margin-top:0%;
 		width: 100%;
 		height: auto;
-	}
-	.left .basic .details {
-		margin-top:0px;
-		float: left;
-		margin-left: 5px;
-		padding-top: 230px;
-		width: 100%;
-	}
-	.left .basic .details .name {
-		font-size: 1.5em;
-		font-weight: bold;
-		margin-left:12px;
-	}
-
-	.left .basic .details .status {
-		margin-top: -15px;
-		padding-left: 2px;
-		margin-right: 50%;
-		margin-left:60px;
-		padding-bottom: 0px;
-		color: #00a51c;
-		font-weight: bold;
+		padding-bottom:15%;
 	}
 	.left .basic .picture {
-		float: left;
-		margin:0px -4% 0px -100%;
+		width:100%;
+		float:right;
+		padding-left:auto;
+		padding-right:auto;
+		padding-bottom:0%;
 	}
-
 	.left .basic .picture .img-circle {
-	    border-radius: 50%;
-	    width: 200px;
-	    height: 200px;
-	    margin:0px 0% 0px 0%;
+		display: block;
+	    margin-left: auto;
+	    margin-right: auto;
+	    margin-bottom: 10px;
+		border:8px solid #A0FFD1;
+		border-radius:100%;
+		width:200px;
+		height:200px;
 	}
 	.left .basic .picture .selftitle {
-		width: 100%;
-		margin-top: 10px;
-		margin-right: 0%;
-		margin-left: 8%;
-		font-size: 110%;
-	}
-	.left .basic .details .c-more{
-		margin:0% 0% 0% 1%;
+		text-align: center;
+		font-size: 120%;
 	}
 
+	/*Name and Status*/
+	.left .basic .details {
+		letter-spacing: 0.15px;
+		width:100%;
+		float:top;
+		margin: 30px auto auto auto;
+	}
+	.left .basic .details .name {
+		font-size: 200%;
+		line-height: 70%;
+		/*added*/
+	}
+	.left .basic .details .status {	
+		color: #00a51c;
+	}
+	
+	/*Others*/
+	.left .basic .details .c-more{
+	}
 	.left .basic .picture .c-border {
-		visibility: hidden;
 	}
 @media(min-width: 768px){
 	.left .basic {
-		width: 100%;
+		margin-top:-5%;
+		width: 108%;
 		height: auto;
-	}
-	.left .basic .details {
-		margin-top:0px;
-		float: left;
-		margin-left: 5px;
-		padding-top: 0px;
-		width: 55%;
-	}
-	.left .basic .details .name {
-		font-size: 1.5em;
-		font-weight: bold;
-	}
-
-	.left .basic .details .status {
-		margin-top: -15px;
-		padding-left: 2px;
-		padding-bottom: 0px;
-		color: #00a51c;
-		font-weight: bold;
+		padding-bottom:50%;
 	}
 	.left .basic .picture {
-		float: left;
-		margin:0px -4px 0px 9%;
+		width:100%;
+		float:right;
+		padding-left:48%;
+		padding-right:auto;
+		padding-bottom:0%;
 	}
-
 	.left .basic .picture .img-circle {
-	    border-radius: 50%;
-	    width: 130px;
-	    height: 130px;
+		display: block;
+	    margin-left: auto;
+	    margin-right: auto;
+	    margin-bottom: 10px;
+		border:8px solid #A0FFD1;
+		border-radius:100%;
+		width:150px;
+		height:150px;
 	}
 	.left .basic .picture .selftitle {
-		width: 100%;
-		margin-top: 10px;
-		margin-right: 0%;
-		margin-left: 2.25%;
-		font-size: 75%;
-	}
-	.left .basic .details .c-more{
-		margin:0% -0% 0% -0%;
+		text-align: center;
+		font-size: 80%;
 	}
 
+	/*Name and Status*/
+	.left .basic .details {
+		letter-spacing: 0.15px;
+		width:52%;
+		float:left;
+		margin: -165px 0% auto -1%;
+	}
+	.left .basic .details .name {
+		font-size: 150%;
+		line-height: 70%;
+	}
+	.left .basic .details .status {	
+		color: #00a51c;
+	}
+	
+	/*Others*/
+	.left .basic .details .c-more{
+	}
 	.left .basic .picture .c-border {
-		visibility: hidden;
 	}
 }
 @media(min-width: 992px){
 	.left .basic {
-		width: 100%;
+		margin-top:-5%;
+		width: 108%;
 		height: auto;
-	}
-	.left .basic .details {
-		margin-top:0px;
-		float: left;
-		margin-left: 10px;
-		padding-top: 0px;
-		width: 65%;
-	}
-	.left .basic .details .name {
-		font-size: 1.75em;
-		font-weight: bold;
-	}
-
-	.left .basic .details .status {
-		margin-top: -15px;
-		padding-left: 2px;
-		padding-bottom: 0px;
-		color: #00a51c;
-		font-weight: bold;
+		padding-bottom:15%;
 	}
 	.left .basic .picture {
-		float: left;
-		margin:0px -4px 0px 8%;
+		width:100%;
+		float:right;
+		padding-left:50%;
+		padding-right:auto;
+		padding-bottom:0%;
 	}
-
 	.left .basic .picture .img-circle {
-	    border-radius: 50%;
-	    width: 120px;
-	    height: 120px;
+		display: block;
+	    margin-left: auto;
+	    margin-right: auto;
+		border:10px solid #A0FFD1;
+		border-radius:100%;
+		width:195px;
+		height:195px;
 	}
 	.left .basic .picture .selftitle {
-		width: 100%;
-		margin-top: 10px;
-		font-size: 75%;
-	}
-	.left .basic .details .c-more{
-		margin:0% -0% 0% -0%;
+		text-align: center;
+		font-size: 120%;
 	}
 
+	/*Name and Status*/
+	.left .basic .details {
+		width:52%;
+		float:left;
+		margin: -210px 0% auto 1%;
+	}
+	.left .basic .details .name {
+		font-size: 185%;
+		line-height: 70%;
+	}
+	.left .basic .details .status {	
+		color: #00a51c;
+	}
+	
+	/*Others*/
+	.left .basic .details .c-more{
+	}
 	.left .basic .picture .c-border {
-		visibility: hidden;
 	}
 }
 @media(min-width: 1200px){
 	.left .basic {
-		width: 100%;
+		margin-top:-5%;
+		width: 108%;
 		height: auto;
-	}
-	.left .basic .details {
-		margin-top:0px;
-		float: left;
-		margin-left: 20px;
-		padding-top: 0px;
-		width: 75%;
-	}
-	.left .basic .details .name {
-		font-size: 2em;
-		font-weight: bold;
-	}
-
-	.left .basic .details .status {
-		margin-top: -20px;
-		padding-left: 2px;
-		padding-bottom: 0px;
-		color: #00a51c;
-		font-weight: bold;
+		padding-bottom:10%;
 	}
 	.left .basic .picture {
-		float: left;
-		margin:0px 20px 0px -2%;
+		width:100%;
+		float:right;
+		padding-left:52%;
+		padding-right:auto;
+		padding-bottom:0%;
 	}
-
 	.left .basic .picture .img-circle {
-	    border-radius: 50%;
-	    width: 130px;
-	    height: 130px;
+		display: block;
+	    margin-left: auto;
+	    margin-right: auto;
+		border:10px solid #A0FFD1;
+		border-radius:100%;
+		width:210px;
+		height:210px;
 	}
 	.left .basic .picture .selftitle {
-		width: 100%;
-		margin-top: 10px;
-		font-size: 75%;
-	}
-	.left .basic .details .c-more{
-		margin:0% -0% 0% -0%;
+		text-align: center;
+		font-size: 120%;
 	}
 
+	/*Name and Status*/
+	.left .basic .details {
+		width:52%;
+		float:left;
+		margin: -210px 0% auto 1%;
+	}
+	.left .basic .details .name {
+		font-size: 195%;
+		line-height: 70%;
+	}
+	.left .basic .details .status {	
+		color: #00a51c;
+	}
+	
+	/*Others*/
+	.left .basic .details .c-more{
+	}
 	.left .basic .picture .c-border {
-		visibility: hidden;
 	}
 }
-
-
-
-
 
 .left .basic .details img {
 	margin-right: 10px;
