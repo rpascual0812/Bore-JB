@@ -1,36 +1,23 @@
 body{
 	font-family: "Gotham", "Lato", Helvetica, Arial, sans-serif;
-}	
-	.messagepop{
-		width:50%;
-		height:10%;
-		position:absolute;
-		top:90%;
-		left:32%;
-		font-size: 100%;
-		color: red;
-		transition: all 1s ease-in-out;
-	}
-
+}
 	.c-briefcase{
-	width:100%;
-	margin:56.5% 0% 0% 0%;
-	padding:0%;
+		width:100%;
+		margin:57.5% 0% 0% 0%;
+		padding:0%;
 	}
-
 	.jonathan {
-	width:53%;
-	margin:-193% 20% 0% -2%;
-	padding:0%;
+		width:48%;
+		margin:-190% 0% 0% -4%;
+		padding:0%;
 	}
-
 	.welcome-emp{
-		width: 70%;
+		width: 60%;
 		height: 5%;
 		position:absolute;
-		margin:31.25% 0% 0% 30.75%;
+		margin:32.25% 0% 0% 33.75%;
 
-		font-size: 220%;
+		font-size: 190%;
 		font-style:bold;	
 		border-radius: 5px;
 		border: 0;
@@ -40,462 +27,439 @@ body{
 		text-align: center;
 		display:block;
 	}
-
 	.username {
 		width:80%;
 		height:6%;
 		position:absolute;
-		margin:79.75% 0% 0% 13%;
-
-		font-size: 170%;
+		margin:85.75% 0% 0% 13%;
+		font-size: 150%;
 		border-radius: 5px;
 		border: 0;
 		text-align: center;
 	}
-
 	.password {
 		width:80%;
 		height:6%;
 		position:absolute;
-		margin:90.2% 0% 0% 13%;
-
-		font-size: 170%;
+		margin:98.2% 0% 0% 13%;
+		font-size: 150%;
 		border-radius: 5px;
 		border: 0;
 		text-align: center;
 	}
-
 	.login {
 		width:40%;
 		height:9%;
 		position:absolute;
+		margin:128.5% 0% 0% 32%;
+		font-size: 150%;
+		border-radius: 5px;
+		border: 0;
+		text-align: center;
+	}
+	.message-spacing{
+		margin:-93% 0% 0% 37.25%;
+	}
+	.message{
+		width: 70%;
+		height: 5%;
+		position:absolute;
+		margin:0% 0% 0% -10%;
+
+		font-size: 65%;
+		border-radius: 5px;
+		border: 0;
+		text-align: center;
+
+		color: #ffffff;		
+		text-align: center;
+	}
+@media(min-width: 375px){
+	.c-briefcase{
+		margin:57.5% 0% 0% 0%;
+	}
+	.jonathan {
+		margin:-190% 0% 0% -2%;
+	}
+	.welcome-emp{
+		margin:34.25% 0% 0% 33.75%;
+		font-size: 220%;
+	}
+	.username {
+		margin:80.75% 0% 0% 13%;
+		font-size: 150%;
+	}
+	.password {
+		margin:91.2% 0% 0% 13%;
+		font-size: 150%;
+	}
+	.login {
+		height:9%;
 		margin:105.5% 0% 0% 32%;
-
-		font-size: 190%;
-		border-radius: 5px;
-		border: 0;
-		text-align: center;
+		font-size: 150%;
 	}
 	.message-spacing{
-		margin:-92% 0% 0% 25.25%;
+		margin:-90% 0% 0% 37.25%;
 	}
-
 	.message{
-		width: 80%;
-		height: 5%;
-		position:absolute;
-		margin:0% 0% 0% 0%;
-
+		font-size: 70%;
+	}
+}
+@media(min-width: 425px){
+	.c-briefcase{
+		margin:47.5% 0% 0% 0%;
+	}
+	.jonathan {
+		margin:-190% 0% 0% -2%;
+	}
+	.welcome-emp{
+		margin:24.25% 0% 0% 33.75%;
+		font-size: 230%;
+	}
+	.username {
+		margin:74.75% 0% 0% 13%;
+	}
+	.password {
+		margin:85.2% 0% 0% 13%;
+	}
+	.login {
+		height:9%;
+		margin:99.5% 0% 0% 32%;
+	}
+	.message-spacing{
+		margin:-90% 0% 0% 37.25%;
+	}
+	.message{
 		font-size: 78%;
-		border-radius: 5px;
-		border: 0;
-		text-align: center;
-
-		color: #ffffff;		
-		text-align: center;
-	}
-	.message-2{
-		width: 60%;
-		height: 5%;
-		position:absolute;
-		margin:4% 0% 0% 14%;
-
-		font-size: 90%;
-		border-radius: 5px;
-		border: 0;
-		text-align: center;
-
-		color: #ffffff;		
-		text-align: center;
-	}
-@media (min-width:768px) {
-	.c-briefcase{
-	width:65%;
-	margin:11% 20% 0% 29%;
-	padding:0%;
-	}
-
-	.jonathan {
-	width:32%;
-	margin:-30% 20% 0% 4.5%;
-	padding:0%;
-	}
-
-
-	.welcome-emp{
-		display:none;
-	}
-
-	.username {
-		width: 50%;
-		height: 4.75%;
-		position:absolute;
-		margin:35.5% 0% 0% 38%;
-
-		font-size: 160%;	
-		border-radius: 5px;
-		border: 0;
-		text-align: center;
-	}
-
-	.password {
-		width: 50%;
-		height: 4.75%;
-		position:absolute;
-		margin:40.5% 0% 0% 38%;
-
-		font-size:160%;	
-		border-radius: 5px;
-		border: 0;
-		text-align: center;
-	}
-
-	.login {
-		width: 25%;
-		height: 4.75%;
-		position:absolute;
-		margin:45.5% 0% 0% 52%;
-
-		font-size: 160%;	
-		border-radius: 5px;
-		border: 0;
-		text-align: center;
-	}
-	.message-spacing{
-		margin:-33% 0% 0% 31.5%;
-	}
-
-	.message{
-		width: 65%;
-		height: 5.5%;
-		position:absolute;
-		margin:0% 0% 0% 0%;
-
-		font-size: 127%;	
-		border-radius: 5px;
-		border: 0;
-		text-align: center;
-
-		color: #71e1af;		
-		text-align: center;
-	}
-	.message-2{
-		width: 40%;
-		height: 7%;
-		position:absolute;
-		margin:3% 0% 0% 1.5%;
-
-		font-size: 180%;	
-		border-radius: 5px;
-		border: 0;
-		text-align: center;
-
-		color: #71e1af;		
-		text-align: center;
 	}
 }
-@media (min-width: 992px) {
+@media (min-width: 768px) {
 	.c-briefcase{
-	width:65%;
-	margin:6.5% 20% 0% 30%;
-	padding:0%;
+		width:72%;
+		margin:8.5% 0% 0% 23.75%;
 	}
-
 	.jonathan {
-	width:32%;
-	margin:-30% 20% 0% 4.5%;
-	padding:0%;
+		width:35%;
+		margin:-32% 0% 0% -1%;
 	}
-
-
 	.welcome-emp{
 		display:none;
 	}
-
-	.username {
-		width: 45%;
-		height: 6%;
-		position:absolute;
-		margin:30.5% 0% 0% 43%;
-
-		font-size: 180%;	
-		border-radius: 5px;
-		border: 0;
-		text-align: center;
-	}
-
-	.password {
-		width: 45%;
-		height: 6%;
-		position:absolute;
-		margin:35.5% 0% 0% 43%;
-
-		font-size:180%;	
-		border-radius: 5px;
-		border: 0;
-		text-align: center;
-	}
-
-	.login {
-		width: 25%;
-		height: 6%;
-		position:absolute;
-		margin:40.5% 0% 0% 53%;
-
-		font-size: 180%;	
-		border-radius: 5px;
-		border: 0;
-		text-align: center;
-	}
-	.message-spacing{
-		margin:-33% 0% 0% 35.5%;
-	}
-
-	.message{
-		width: 60%;
-		height: 4%;
-		position:absolute;
-		margin:0% 0% 0% 0%;
-
-		font-size: 150%;	
-		border-radius: 5px;
-		border: 0;
-		text-align: center;
-
-		color: #71e1af;		
-		text-align: center;
-	}
-	.message-2{
-		width: 40%;
-		height: 7%;
-		position:absolute;
-		margin:3% 0% 0% 1.5%;
-
-		font-size: 180%;	
-		border-radius: 5px;
-		border: 0;
-		text-align: center;
-
-		color: #71e1af;		
-		text-align: center;
-	}
-}
-@media (min-width: 1200px) {
-	.c-briefcase{
-	width:60%;
-	margin:2.5% 20% 0% 27.75%;
-	padding:0%;
-	}
-
-	.jonathan {
-	width:27%;
-	margin:-26% 20% 0% 7%;
-	padding:0%;
-	}
-
-
-	.welcome-emp{
-		display:none;
-	}
-
 	.username {
 		width: 35%;
-		height: 7%;
-		position:absolute;
-		margin:25.5% 0% 0% 45%;
-
-		font-size: 200%;	
-		border-radius: 5px;
-		border: 0;
-		text-align: center;
+		height: 6%;
+		margin:35% 0% 0% 45%;
+		font-size: 150%;
 	}
-
 	.password {
 		width: 35%;
-		height: 7%;
-		position:absolute;
-		margin:30.5% 0% 0% 45%;
-
-		font-size: 200%;	
-		border-radius: 5px;
-		border: 0;
-		text-align: center;
+		height: 6%;
+		margin:39.75% 0% 0% 45%;
+		font-size: 150%;
 	}
-
 	.login {
 		width: 15%;
 		height: 7%;
-		position:absolute;
-		margin:35.5% 0% 0% 55%;
-
-		font-size: 200%;	
-		border-radius: 5px;
-		border: 0;
-		text-align: center;
+		margin:46.5% 0% 0% 55%;
+		font-size: 150%;
 	}
 	.message-spacing{
-		margin:-31.5% 0% 0% 35%;
+		margin:-38.5% 0% 0% 26.5%;
 	}
-
+	.message{
+		width: 70%;
+		height: 7%;
+		margin:0% 0% 0% 0%;
+		font-size: 130%;
+	}
+}
+@media (min-width: 850px) {
+	.c-briefcase{
+		width:65%;
+		margin:7.5% 0% 0% 25.75%;
+	}
+	.jonathan {
+		width:32%;
+		margin:-27% 0% 0% 3%;
+	}
+	.welcome-emp{
+		display:none;
+	}
+	.username {
+		width: 35%;
+		height: 7%;
+		margin:31% 0% 0% 44%;
+		font-size: 150%;
+	}
+	.password {
+		width: 35%;
+		height: 7%;
+		margin:36.25% 0% 0% 44%;
+		font-size: 150%;
+	}
+	.login {
+		width: 15%;
+		height: 9%;
+		margin:41.5% 0% 0% 54%;
+		font-size: 150%;
+	}
+	.message-spacing{
+		margin:-35.5% 0% 0% 36%;
+	}
 	.message{
 		width: 50%;
-		height: 6%;
-		position:absolute;
-		margin:0% 0% 0% 0%;
-
-		font-size: 180%;	
-		border-radius: 5px;
-		border: 0;
-		text-align: center;
-
-		color: #71e1af;		
-		text-align: center;
-	}
-	.message-2{
-		width: 40%;
 		height: 7%;
-		position:absolute;
-		margin:3% 0% 0% 1.5%;
-
-		font-size: 180%;	
-		border-radius: 5px;
-		border: 0;
-		text-align: center;
-
-		color: #71e1af;		
-		text-align: center;
-	}
-}
-
-@media (min-width: 768px) {
-	.messagepop{
-		width:50%;
-		height:30%;
-		position:absolute;
-		top:59.8%;
-		left:48.8%;
-		font-size: 140%;
-		color: red;
-		transition: all 1s ease-in-out;
-	}
-}
-@media (min-width: 800px) {
-	.messagepop{
-		width:50%;
-		height:30%;
-		position:absolute;
-		top:62%;
-		left:49.8%;
-		font-size: 140%;
-		color: red;
-		transition: all 1s ease-in-out;
-	}
-}
-@media (min-width: 832px) {
-	.messagepop{
-		width:50%;
-		height:30%;
-		position:absolute;
-		top:64.75%;
-		left:50.8%;
-		font-size: 140%;
-		color: red;
-		transition: all 1s ease-in-out;
-	}
-}
-@media (min-width: 864px) {
-	.messagepop{
-		width:50%;
-		height:30%;
-		position:absolute;
-		top:67.5%;
-		left:51.2%;
-		font-size: 140%;
-		color: red;
-		transition: all 1s ease-in-out;
-	}
-}
-@media (min-width: 896px) {
-	.messagepop{
-		width:50%;
-		height:30%;
-		position:absolute;
-		top:70%;
-		left:51.75%;
-		font-size: 140%;
-		color: red;
-		transition: all 1s ease-in-out;
-	}
-}
-@media (min-width: 928px) {
-	.messagepop{
-		width:50%;
-		height:30%;
-		position:absolute;
-		top:73%;
-		left:51.7%;
-		font-size: 140%;
-		color: red;
-		transition: all 1s ease-in-out;
-	}
-}
-@media (min-width: 960px) {
-	.messagepop{
-		width:50%;
-		height:30%;
-		position:absolute;
-		top:75%;
-		left:52.3%;
-		font-size: 140%;
-		color: red;
-		transition: all 1s ease-in-out;
+		margin:0% 0% 0% 0%;
+		font-size: 130%;
 	}
 }
 @media (min-width: 992px) {
-	.messagepop{
-		width:50%;
-		height:30%;
-		position:absolute;
-		top:70%;
-		left:53.8%;
-		font-size: 140%;
-		color: red;
-		transition: all 1s ease-in-out;
+	.c-briefcase{
+		width:65%;
+		margin:2.5% 0% 0% 27.75%;
 	}
-}
-@media (min-width: 1006px) {
-	.messagepop{
-		width:50%;
-		height:30%;
-		position:absolute;
-		top:71.75%;
-		left:53.8%;
-		font-size: 140%;
-		color: red;
-		transition: all 1s ease-in-out;
+	.jonathan {
+		width:32%;
+		margin:-28% 0% 0% 5%;
 	}
-}
-@media (min-width: 1055px) {
-	.messagepop{
-		width:50%;
-		height:30%;
-		position:absolute;
-		top:75%;
-		left:54.6%;
-		font-size: 140%;
-		color: red;
-		transition: all 1s ease-in-out;
+	.welcome-emp{
+		display:none;
+	}
+	.username {
+		width: 35%;
+		height: 7%;
+		margin:26.5% 0% 0% 46%;
+		font-size: 200%;
+	}
+	.password {
+		width: 35%;
+		height: 7%;
+		margin:31.5% 0% 0% 46%;
+		font-size: 200%;
+	}
+	.login {
+		width: 15%;
+		height: 9%;
+		margin:36.5% 0% 0% 56%;
+		font-size: 200%;
+	}
+	.message-spacing{
+		margin:-34.5% 0% 0% 38%;
+	}
+	.message{
+		width: 50%;
+		height: 7%;
+		margin:0% 0% 0% 0%;
+		font-size: 150%;
 	}
 }
 @media (min-width: 1200px) {
+	.c-briefcase{
+		width:60%;
+		margin:2.5% 0% 0% 29.75%;
+	}
+	.jonathan {
+		width:30%;
+		margin:-28% 0% 0% 7%;
+	}
+	.welcome-emp{
+		display:none;
+	}
+	.username {
+		width: 35%;
+		height: 7%;
+		margin:25.5% 0% 0% 45%;
+		font-size: 200%;
+	}
+	.password {
+		width: 35%;
+		height: 7%;
+		margin:30.5% 0% 0% 45%;
+		font-size: 200%;
+	}
+	.login {
+		width: 15%;
+		height: 7%;
+		margin:35.5% 0% 0% 55%;
+		font-size: 200%;
+	}
+	.message-spacing{
+		margin:-31% 0% 0% 36.5%;
+	}
+	.message{
+		width: 50%;
+		height: 7%;
+		margin:0% 0% 0% 0%;
+		font-size: 200%;
+	}
+}
+
+.messagepop{
+	width:118%;
+	height:10%;
+	float:right;
+	margin-top: 170%;
+	font-size: 14px;
+	color: red;
+	transition: all 1s ease-in-out;
+}
+
+@media(min-width: 331px){
 	.messagepop{
-		width:50%;
-		height:20%;
-		position:absolute;
-		top:80%;
-		left:53.6%;
-		font-size: 140%;
-		color: red;
-		transition: all 1s ease-in-out;
+		width:117%;
+	}
+}
+@media(min-width: 341px){
+	.messagepop{
+		width:116%;
+	}
+}
+@media(min-width: 351px){
+	.messagepop{
+		width:115%;
+		margin-top: 165%;
+	}
+}
+@media(min-width: 361px){
+	.messagepop{
+		width:114%;
+		margin-top: 165%;
+	}
+}
+@media(min-width: 375px){
+	.messagepop{
+		width:111.58%;
+		margin-top: 135%;
+	}
+}
+@media(min-width: 401px){
+	.messagepop{
+		width:111.58%;
+		margin-top: 130%;
+	}
+}
+@media(min-width: 426px){
+	.messagepop{
+		width:107%;
+		margin-top: 130%;
+	}
+}
+@media(min-width: 451px){
+	.messagepop{
+		width:107%;
+		margin-top: 132%;
+		font-size:16px;
+	}
+}
+@media(min-width: 501px){
+	.messagepop{
+		width:106%;
+		margin-top: 131%;
+		font-size:16px;
+	}
+}
+@media(min-width: 551px){
+	.messagepop{
+		width:106%;
+		margin-top: 133%;
+		font-size:16px;
+	}
+}
+@media(min-width: 601px){
+	.messagepop{
+		width:104%;
+		margin-top: 133%;
+		font-size:17px;
+	}
+}
+@media(min-width: 651px){
+	.messagepop{
+		width:102%;
+		margin-top: 133%;
+		font-size:17px;
+	}
+}
+@media(min-width: 701px){
+	.messagepop{
+		width:101%;
+		margin-top: 133%;
+		font-size:17px;
+	}
+}
+@media(min-width: 768px){
+	.messagepop{
+		width:70%;
+		margin-top: 46%;
+		font-size:17px;
+	}
+}
+@media(min-width: 831px){
+	.messagepop{
+		width:67%;
+		margin-top: 46%;
+		font-size:17px;
+	}
+}
+@media(min-width: 850px){
+	.messagepop{
+		width:78%;
+		margin-top: 50%;
+		font-size:18px;
+	}
+}
+@media(min-width: 992px){
+	.messagepop{
+		width:78%;
+		margin-top: 50%;
+		font-size:20px;
+	}
+}
+@media(min-width: 1101px){
+	.messagepop{
+		width:78%;
+		margin-top: 50%;
+		font-size:22px;
+	}
+}
+@media(min-width: 1200px){
+	.messagepop{
+		width:75%;
+		margin-top: 47%;
+		font-size:22px;
+	}
+}
+@media(min-width: 1500px){
+	.messagepop{
+		width:75%;
+		margin-top: 47%;
+		font-size:24px;
+	}
+}
+@media(min-width: 1600px){
+	.messagepop{
+		width:75%;
+		margin-top: 47%;
+		font-size:27px;
+	}
+}
+@media(min-width: 1800px){
+	.messagepop{
+		width:75%;
+		margin-top: 47%;
+		font-size:30px;
+	}
+}
+@media(min-width: 2000px){
+	.messagepop{
+		width:75%;
+		margin-top: 49%;
+		font-size:33px;
+	}
+}
+@media(min-width: 2400px){
+	.messagepop{
+		width:75%;
+		margin-top: 49%;
+		font-size:40px;
 	}
 }
