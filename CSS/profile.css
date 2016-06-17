@@ -15,25 +15,20 @@ body {
 	border-bottom: solid 1px #CCC;
 	border-radius: 0.5;
 
-	width: 70%;
+	width: 65%;
 	height: 40px;
 	font-size: 15px;
 	padding: 5px;
 	margin-top: 5px;
 }
+@media(min-width: 381px){
+	.searchbar {
+	width: 70%;
+	}
+}
 @media(min-width: 768px){
 	.searchbar {
-	border: 0;
-	background-color: #1b3033;
-	color: #FFF;
-	border-bottom: solid 1px #CCC;
-	border-radius: 0.5;
-
 	width: 400px;
-	height: 40px;
-	font-size: 15px;
-	padding: 5px;
-	margin-top: 5px;
 	}
 }
 
@@ -205,7 +200,7 @@ body {
 	visibility:visible;
 	width: 100%; 
 	min-height: 20px;
-	padding-left: 3px;
+	padding-left: 0px;
 	background-color: #f1f3f5;
 	border: 1px solid #CCC;
     /*box-shadow: 0 4px 8px -2px #000;*/
@@ -253,8 +248,24 @@ body {
 .c-menu li a {
     display: block;
     text-align: center;
-    padding: 10px 37px 8px 37px;
+    padding: 10px 28px 8px 28px;
     text-decoration: none;
+}
+@media(min-width: 375px){
+	.c-menu li a {
+	    display: block;
+	    text-align: center;
+	    padding: 10px 34px 8px 34px;
+	    text-decoration: none;
+	}
+}
+@media(min-width: 425px){
+	.c-menu li a {
+	    display: block;
+	    text-align: center;
+	    padding: 10px 40px 8px 40px;
+	    text-decoration: none;
+	}
 }
 
 .c-menu li a:focus{
@@ -427,7 +438,7 @@ body {
 	}
 
 	.left .basic .details .status {
-		margin-top: -20px;
+		margin-top: -15px;
 		padding-left: 2px;
 		padding-bottom: 0px;
 		color: #00a51c;
