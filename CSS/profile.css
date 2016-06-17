@@ -325,7 +325,7 @@ body {
 		margin-top:0%;
 		width: 100%;
 		height: auto;
-		padding-bottom:15%;
+		padding-bottom:8%;
 	}
 	.left .basic .picture {
 		width:100%;
@@ -356,17 +356,21 @@ body {
 		float:top;
 		margin: 30px auto auto auto;
 	}
-	.left .basic .details .name {
+	.details .name {
+		text-align: center;
 		font-size: 200%;
-		line-height: 70%;
+		line-height: 100%;
 		/*added*/
 	}
-	.left .basic .details .status {	
+	.left .basic .details .status {
+		text-align: center;	
 		color: #00a51c;
+		margin-bottom: 50px;
 	}
 	
 	/*Others*/
-	.left .basic .details .c-more{
+	.left .basic .details .c-center{
+
 	}
 	.left .basic .picture .c-border {
 	}
@@ -407,11 +411,14 @@ body {
 		margin: -165px 0% auto -1%;
 	}
 	.left .basic .details .name {
+		text-align: left;
 		font-size: 150%;
-		line-height: 70%;
+		line-height: 100%;
 	}
 	.left .basic .details .status {	
+		text-align: left;
 		color: #00a51c;
+		margin-bottom: 0px;
 	}
 	
 	/*Others*/
@@ -455,11 +462,14 @@ body {
 		margin: -210px 0% auto 1%;
 	}
 	.left .basic .details .name {
+		text-align: left;
 		font-size: 185%;
-		line-height: 70%;
+		line-height: 100%;
 	}
-	.left .basic .details .status {	
+	.left .basic .details .status {
+		text-align: left;	
 		color: #00a51c;
+		margin-bottom: 0px;
 	}
 	
 	/*Others*/
@@ -503,11 +513,14 @@ body {
 		margin: -210px 0% auto 1%;
 	}
 	.left .basic .details .name {
+		text-align: left;
 		font-size: 195%;
-		line-height: 70%;
+		line-height: 100%;
 	}
-	.left .basic .details .status {	
+	.left .basic .details .status {
+		text-align: left;	
 		color: #00a51c;
+		margin-bottom: 0px;
 	}
 	
 	/*Others*/
