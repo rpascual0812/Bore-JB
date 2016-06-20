@@ -1,0 +1,227 @@
+<div>
+	<div>
+	    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+	        <div class="container topnav" style="color:#FFF !important;">
+	            <!-- Brand and toggle get grouped for better mobile display -->
+	            <div class="navbar-header">
+	                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	                    <span class="sr-only">Toggle navigation</span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                </button>
+	                <a class="navbar-brand topnav" href="#/home">
+	                	JOBBER
+	                </a>
+	                <input type="text" class="searchbar" placeholder="Search candidates here" maxlength="60" data-ng-model="searchbox.text" data-ng-change="searchbig()" />
+	                
+	            </div>
+	            <!-- Collect the nav links, forms, and other content for toggling -->
+	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	            	
+
+	                <!-- <ul class="nav navbar-nav navbar-right">
+	                    <li>
+	                        <a>About</a>
+	                    </li>
+	                    <li>
+	                        <a>Services</a>
+	                    </li>
+	                    <li>
+	                    	<a id="menu-toggle" href="#">Profile</a>
+	                    </li>
+	                </ul> -->
+	            </div>
+	            <!-- /.navbar-collapse -->
+	        </div>
+	        <!-- /.container -->
+	    </nav>
+	</div>
+
+	<!-- <div style="width:100%; height: 50px; text-align:center; padding-top: 30px;">
+		<input type="text" class="searchbar" placeholder="Search..." maxlength="60" data-ng-model="searchbox.text" data-ng-change="searchbig()" />
+	</div> -->
+	<div style="clear:both;"></div>
+
+	<div class="main">
+		<div style="clear:both;"></div>
+		<div class="profile">
+			<div class="menu">
+				<div>
+					<img src="../ASSETS/Uploads/employers/accenture.png" style="width: 180px;"/>
+				</div>
+				<div class="employer-name">
+					<span class="font14">{{employer.name}}</span>
+				</div>
+
+				
+				
+				<div>
+					<img src="../ASSETS/img/attache.png" style="width:16px;">
+					<a href="#/posts"><span class="font12 link">Job Posts</span></a>
+				</div>
+				<div>
+					<img src="../ASSETS/img/message.png" style="width:16px;">
+					<span class="font12 link">Messages</span>
+				</div>
+				<div>
+					<img src="../ASSETS/img/bookmark.png" style="width:16px;">
+					<span class="font12 link">Admired Candidates</span>
+				</div>
+
+				<div class="credit">
+					<span class="font14 label">Available Credit</span> <br />
+					<span class="amount">{{employer.currency}} {{employer.available}}</span>
+				</div>
+			</div>
+			<div class="left">
+				
+
+				<div class="candidates-updates">
+					<div>
+						<!-- <div class="feed-filter">
+							<ul>
+								<li class="active">
+									<a>All</a>
+								</li>
+								<li>
+									<a>Admired</a>
+								</li>
+							</ul>
+						</div> -->
+						<div style="clear:both;"></div>
+						<div class="break"></div>
+						<div class="feed-data" data-ng-repeat="(k,v) in candidates.data">
+							<div style="width:100%;">
+								<div class="avatar">
+									<!-- <img class="img-circle" src="../ASSETS/img/jonathan.png" /> -->
+									<img class="img-circle" src="../ASSETS/Uploads/rafael1.jpg">
+								</div>
+								<div class="candidate-details">
+									<div>
+										<div style="float:left; width:55%;">
+											<span class="header4">APPPIN-{{v.applicant_id}}</span>
+										</div>
+										<div style="float:left; width:45%; text-align:right;">
+											<span class="status">{{v.external_status}}</span>
+										</div>
+										<div style="clear:both;"></div>
+									</div>							
+
+									<div>
+										<span>Skills: </span><span class="header3">{{v.tags}}</span>
+										
+									</div>
+									<div>
+   										<div ng-if="v.ad.type == 'gif'">
+   											<img src="{{v.ad.link}}" style="max-width: 560px;"/>
+   										</div>
+   										<div ng-if="v.ad.type == 'image'">
+   											<img src="{{v.ad.link}}" style="max-width: 560px;"/>
+   										</div>
+   										<div ng-if="v.ad.type == 'youtube'">
+
+   											<iframe src="https://www.youtube.com/embed/n9EgH-QxaUI" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+   										</div>
+									</div>
+									<!-- <div class="break"></div> -->
+								</div>
+								<div style="clear:both;"></div>
+							</div>
+
+
+							<div style="text-align:right; margin-top: 20px;">
+								<button type="button" class="btn btn-danger" style="width:100px; margin-bottom:5px;">ADMIRE</button>
+								<button type="button" class="btn btn-primary" style="width:100px; margin-bottom:5px;" ng-click="request_cv(v.applicant_id)">VIEW</button>
+							</div>
+							<div style="clear:both;"></div>
+							<div class="break"></div>
+						</div>
+					</div>
+				</div>
+
+				<!-- <div class="break"></div> -->
+
+				<div class="feeds">
+					<div class="post">
+						<div class="feed-data" data-ng-repeat="(k,v) in feeds.data">
+							<div>
+								<div style="float:left; width:85%;">
+									<span class="header4">{{v.title}}</span>
+								</div>
+								<div style="float:left; width:15%;">
+									<span class="sub">{{v.time_passed}}</span>
+								</div>
+								<div style="clear:both;"></div>
+							</div>							
+
+							<div>
+								<span class="header2">{{v.experience}}</span>
+								<p>
+									{{v.skills}}
+								</p>
+							</div>
+							<div class="break"></div>
+						</div>
+					</div>			
+				</div>
+			</div>
+
+			<div class="right">
+				<div class="statistics">
+					<div>
+						<img src="../ASSETS/img/heart.png" style="width:16px;">
+						<span class="font12">Admired by 105 candidates</span>
+					</div>
+					<div>
+						<img src="../ASSETS/img/attache.png" style="width:16px;">
+						<span class="font12 link">Received 35 Responses</span>
+					</div>
+					
+					<div>
+						<img src="../ASSETS/img/feedback.png" style="width:16px;">
+						<span class="font12 link">You have 5 Recuitment Feedback</span>
+					</div>
+				</div>
+
+				<div class="break"></div>
+
+				<div>
+					<img src="../ASSETS/Uploads/signavio.png" style="width:275px;">
+				</div>
+
+				<div class="break"></div>
+
+				<div class="updates">
+					<span class="header3">Latest Updates</span>
+
+					<div>
+						<div>
+							<span class="sub">June 10, 2016 12:00 PM</span>
+						</div>
+						<div style="margin-top:-10px;">
+							<span class="font12">Updated profile picture</span>
+						</div>
+					</div>
+					<div>
+						<div>
+							<span class="sub">May 31, 2016 06:00 PM</span>
+						</div>
+						<div style="margin-top:-10px;">
+							<span class="font12">Added new employer</span>
+						</div>
+					</div>
+					<div>
+						<div>
+							<span class="sub">January 01, 2016 08:00 PM</span>
+						</div>
+						<div style="margin-top:-10px;">
+							<span class="font12">Receives Recruitment Feedback</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div style="clear:both;"></div>
+		</div>
+	</div>
+</div>

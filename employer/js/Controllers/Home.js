@@ -1,4 +1,4 @@
-app.controller('Candidates', function(
+app.controller('Home', function(
 									$scope,
                                     md5,
                                     $cookies,
@@ -8,9 +8,7 @@ app.controller('Candidates', function(
                                     SearchService
 								){
 
-    // $scope.pin = md5.createHash('PIN');
-
-	$scope.searchbox = {};
+    $scope.searchbox = {};
     $scope.candidates = {
         data : [],
         status : false
@@ -35,8 +33,26 @@ app.controller('Candidates', function(
     	}
         else {
             get_profile();
-            set_search_box();
+
+            feeds();
+            //set_search_box();
         }
+    }
+
+    function feeds(){
+        var filter = {
+            archived : false
+        };
+
+        var promise = CandidatesFactory.feeds(filter);
+        promise.then(function(data){
+            $scope.candidates.data = [];
+            $scope.candidates.data = data.data.result;
+            $scope.candidates.status = true;
+        })
+        .then(null, function(data){
+            $scope.candidates.status = false;
+        });
     }
 
     $scope.logout = function(){

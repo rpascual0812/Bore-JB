@@ -74,7 +74,7 @@
 				</div>
 				<div>
 					<img src="../ASSETS/img/bookmark.png" style="width:16px;">
-					<span class="font12 link">Bookmarks</span>
+					<span class="font12 link">Saved Job Posts</span>
 				</div>
 				<div>
 					<img src="../ASSETS/img/star.png" style="width:16px;">
@@ -84,16 +84,62 @@
 			<div class="left">
 				<div class="break"></div>
 
-				<div>
-					<div>
-						<!-- <input type="text" class="input-no-style" title="Make a pitch" /> -->
-						<!-- <div aria-autocomplete="list" aria-expanded="false" aria-haspopup="false" aria-owns="js_f" class="_5rpu" contenteditable="true" role="combobox" spellcheck="true" style="outline: none; white-space: pre-wrap; word-wrap: break-word;" aria-describedby="placeholder-adkfp"><div data-contents="true"><div class="" data-block="true" data-editor="adkfp" data-offset-key="e4k0l-0-0"><div data-offset-key="e4k0l-0-0" class="_1mf _1mj"><span  id="pitch" data-offset-key="e4k0l-0-0" style="color:#AAA;">{{pitch}}</span></div></div></div></div> -->
+				<div class="feeds">
+					<div class="post">
+						<div class="feed-data">
+							<div style="width:100%;">
+								<div class="employer-logo">
+									<img src="{{feeds.data[0].image}}" />
+								</div>
+								<div class="employer-details">
+									<div>
+										<div style="float:left; width:85%;">
+											<span class="header4">{{feeds.data[0].title}}</span>
+										</div>
+										<div style="float:left; width:15%;">
+											<span class="sub">AD</span>
+										</div>
+										<div style="clear:both;"></div>
+									</div>							
 
-						<div id="input" contenteditable class="pitchbox" data-ng-click="pitch_focus()">{{pitch}}</div>
-					</div>
+									<div>
+										<span class="header2">{{feeds.data[0].experience}}</span>
+										<p>
+											{{feeds.data[0].skills}}
+										</p>
+									</div>
+									<div>
+   										<div ng-if="feeds.data[0].ad.type == 'gif'">
+   											<img src="{{feeds.data[0].ad.link}}" style="max-width: 560px;"/>
+   										</div>
+   										<div ng-if="feeds.data[0].ad.type == 'image'">
+   											<img src="{{feeds.data[0].ad.link}}" style="max-width: 560px;"/>
+   										</div>
+   										<div ng-if="feeds.data[0].ad.type == 'youtube'">
 
-					<div style="margin-top:20px; margin-left:5px; margin-right:5px; text-align: right;">
-						<button class="btn btn-default">POST</button>
+   											<iframe src="https://www.youtube.com/embed/n9EgH-QxaUI" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+   										</div>
+									</div>
+									<!-- <div class="break"></div> -->
+								</div>
+								<div style="clear:both;"></div>
+							</div>
+
+
+							<div style="text-align:right; margin-top: 20px;">
+								<div style="float:left;">
+									<button type="button" class="btn btn-info" style="width:100px; margin-bottom:5px;">SAVE</button>
+								</div>
+								<div style="float:right;">
+									<button type="button" class="btn btn-warning" style="width:100px; margin-bottom:5px;">REFER</button>
+									<button type="button" class="btn btn-primary" style="width:100px; margin-bottom:5px;">APPLY</button>
+								</div>
+								<div style="clear:both;"></div>
+									
+							</div>
+							<div style="clear:both;"></div>
+							<div class="break"></div>
+						</div>
 					</div>
 				</div>
 
@@ -102,24 +148,61 @@
 				<div class="feeds">
 					<div class="post">
 						<div class="feed-data" data-ng-repeat="(k,v) in feeds.data">
-							<div>
-								<div style="float:left; width:85%;">
-									<span class="header4">{{v.title}}</span>
+							<div style="width:100%;">
+								<div class="employer-logo">
+									<img src="{{v.image}}" />
 								</div>
-								<div style="float:left; width:15%;">
-									<span class="sub">{{v.time_passed}}</span>
+								<div class="employer-details">
+									<div>
+										<div style="float:left; width:85%;">
+											<span class="header4">{{v.title}}</span>
+										</div>
+										<div style="float:left; width:15%;">
+											<span class="sub">{{v.time_passed}}</span>
+										</div>
+										<div style="clear:both;"></div>
+									</div>							
+
+									<div>
+										<span class="header2">{{v.experience}}</span>
+										<p>
+											{{v.skills}}
+										</p>
+									</div>
+									<div>
+   										<div ng-if="v.ad.type == 'gif'">
+   											<img src="{{v.ad.link}}" style="max-width: 560px;"/>
+   										</div>
+   										<div ng-if="v.ad.type == 'image'">
+   											<img src="{{v.ad.link}}" style="max-width: 560px;"/>
+   										</div>
+   										<div ng-if="v.ad.type == 'youtube'">
+
+   											<iframe src="https://www.youtube.com/embed/n9EgH-QxaUI" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+   										</div>
+									</div>
+									<!-- <div class="break"></div> -->
 								</div>
 								<div style="clear:both;"></div>
-							</div>							
-
-							<div>
-								<span class="header2">{{v.experience}}</span>
-								<p>
-									{{v.skills}}
-								</p>
 							</div>
+
+
+							<div style="text-align:right; margin-top: 20px;">
+								<div style="float:left;">
+									<button type="button" class="btn btn-info" style="width:100px; margin-bottom:5px;">SAVE</button>
+								</div>
+								<div style="float:right;">
+									<button type="button" class="btn btn-warning" style="width:100px; margin-bottom:5px;">REFER</button>
+									<button type="button" class="btn btn-primary" style="width:100px; margin-bottom:5px;">APPLY</button>
+								</div>
+								<div style="clear:both;"></div>
+									
+							</div>
+							<div style="clear:both;"></div>
 							<div class="break"></div>
 						</div>
+						<div style="clear:both;"></div>
+
 					</div>			
 				</div>
 			</div>
@@ -132,7 +215,7 @@
 					</div>
 					<div>
 						<img src="../ASSETS/img/heart.png" style="width:16px;">
-						<span class="font12">Followed by 105 employers</span>
+						<span class="font12">Admired by 105 employers</span>
 					</div>
 					<div>
 						<img src="../ASSETS/img/feedback.png" style="width:16px;">
