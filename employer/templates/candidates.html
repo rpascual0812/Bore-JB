@@ -13,12 +13,7 @@
 	        <div class="container topnav" style="color:#FFF !important;">
 	            <!-- Brand and toggle get grouped for better mobile display -->
 	            <div class="navbar-header">
-	                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-	                    <span class="sr-only">Toggle navigation</span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                </button>
+	               
 	                <a class="navbar-brand topnav" href="#/home">
 	                	JOBBER
 	                </a>
@@ -35,17 +30,14 @@
 					</div> -->
 
 
-	                <span class="credit">
-	                	<span class="label">Available Credit:</span>
-	                	<span class="label count">{{employer.currency}} {{employer.available}}</span>
-	                </span>
+	                
 	            </div>
 	            <!-- Collect the nav links, forms, and other content for toggling -->
 	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	            	
 
-	                <ul class="nav navbar-nav navbar-right">
-	                    <li>
+	                <ul class="nav navbar-nav navbar-right adjust">
+	                    <li >
 	                        <a>About</a>
 	                    </li>
 	                    <li>
@@ -58,6 +50,10 @@
 	            </div>
 	            <!-- /.navbar-collapse -->
 	        </div>
+	        <div class="credit">
+	                	<span class="label">Available Credit:</span>
+	                	<span class="label count">{{employer.currency}} {{employer.available}}</span>
+	        </div>
 	        <!-- /.container -->
 	    </nav>
 	</div>
@@ -68,9 +64,37 @@
 	<div style="clear:both;"></div>
 
 	<div class="main">
+		<div style="clear:both;"></div>
+		<div class="profile">
+
+		<div class="c-menu megamenu">
+				<ul>
+					<li  class="active">
+						<a href="#/">
+							<img src="../ASSETS/img/profile.png">
+						</a>
+					</li>
+					<li>
+						<a>
+							<img src="../ASSETS/img/attache.png">
+						</a>
+					</li>
+					<li>
+						<a>
+							<img src="../ASSETS/img/message.png">
+						</a>
+					</li>
+					<li>
+						<a>
+							<img src="../ASSETS/img/bookmark.png">
+						</a>
+					</li>
+				</ul>
+			</div>
+
 		<div class="searchresults">
-			<nav role="navigation" class="navbar navbar-default" style="background-color:#fff; color:#000; width:69%;">
-			    <!-- Collection of nav links and other content for toggling -->
+			<!-- <nav role="navigation" class="navbar navbar-default" style="background-color:#fff; color:#000; width:69%;">
+			    
 			    <div id="navbarCollapse" class="collapse navbar-collapse">
 			        <ul class="nav navbar-nav" style="color:#000 !important;">
 			            <li><a href="#">All</a></li>
@@ -78,7 +102,7 @@
 			            <li><a>Inactively looking</a></li>
 			        </ul>
 			    </div>
-			</nav>
+			</nav> -->
 			<div class="left">
 				<div class="data" ng-repeat="(k,v) in candidates.data">
 					<div class="pin">
@@ -103,13 +127,14 @@
 				</div>
 			</div>
 			<div>
-				<div style="padding-left: 100px;">
+				<div class="c-adds">
 					<img src="../ASSETS/Uploads/signavio.png" />
 				</div>
 				
 			</div>
 		</div>
 	</div>
+</div>
 
 	<!-- <div class="main">
 		<div class="searchresults" data-ng-if="candidates.status">

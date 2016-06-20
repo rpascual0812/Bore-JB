@@ -8,32 +8,7 @@ body {
   	background-color: #ffffff;
 }
 
-.searchbar {
-	border: 0;
-	background-color: #1b3033;
-	color: #FFF;
-	border-bottom: solid 1px #CCC;
-	border-radius: 0.5;
 
-	width: 400px;
-	height: 40px;
-	font-size: 15px;
-	padding: 5px;
-	margin-top: 5px;
-}
-
-.searchbar:focus {
-	border: 0;
-	text-decoration: none;
-	outline: none;
-	border-bottom: solid 1px #CCC;
-	color: #FFF;
-}
-
-.searchbar:hover {
-	border: solid 1px #CCC;
-
-}
 
 .main {
 	width: 100%;
@@ -42,16 +17,31 @@ body {
 	margin-top: 60px;
 }
 
-.main .searchresults {
-	width: 80%;
-	margin: 0 auto;
+.main .profile .searchresults {
+	width: 98%;
+	margin: 0 1% 0 1%;
+	padding-right:0px;
+}
+@media(min-width: 768px){
+	.main .profile .searchresults {
+		width: 95%;
+		margin: 0 auto 0 2%;
+		padding-right:10px;
+	}
+}
+@media(min-width: 1200px){
+	.main .profile .searchresults {
+		margin: 0 auto 0 8%;
+		padding-right:10px;
+		width: 91%;
+	}
 }
 
-.main .searchresults .left {
+.main .profile .searchresults .left {
 	float: left;
-	width: 69%; 
+	width: 100%; 
 	min-height: 450px;
-	
+	margin-top:62px;
 	background-color: #FFF;
 
 	padding: 1.5em;
@@ -64,6 +54,14 @@ body {
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
 }
+@media(min-width: 768px){
+	.main .profile .searchresults .left {
+		width: 69%; 
+		margin-top:0px;
+	}
+}
+
+
 
 .results {
 	width: 100%; 
@@ -106,19 +104,6 @@ a {
 	cursor: pointer;
 }
 
-.credit {
-	margin-left: 30px;
-}
-
-.credit .label {
-	color: #CCC;
-}
-
-.credit .count {
-	color: #FFD700;
-}
-
-
 
 /*
 Auto complete
@@ -157,3 +142,321 @@ Auto complete
 	background-color: #CCC;
 	color:#fff;
 }
+
+.main .profile {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.profile .c-menu {
+	position:fixed;
+	display:inline-block;
+	visibility:visible;
+	width: 100%; 
+	min-height: 20px;
+	padding-left: 0px;
+	background-color: #f1f3f5;
+	border: 1px solid #CCC;
+    /*box-shadow: 0 4px 8px -2px #000;*/
+    /*-moz-box-shadow: 0 4px 8px -2px #000;
+    -webkit-box-shadow: 0 4px 8px -2px #000;*/
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+@media(min-width: 768px){
+	.profile .c-menu {
+		display:none;
+		visibility:hidden;
+	}
+}
+@media(min-width: 992px){
+	.profile .c-menu {
+		display:none;
+		visibility:hidden;
+	}
+}
+@media(min-width: 1200px){
+	.profile .c-menu {
+		display:none;
+		visibility:hidden;
+	}
+}
+/*.c-menu li a img{
+	width:8%;
+	margin: 0;
+    padding: 0;
+}*/
+.c-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.c-menu li {
+    float: left;
+}
+
+.c-menu li a {
+    display: block;
+    text-align: center;
+    padding: 23px 28px 8px 28px;
+    text-decoration: none;
+}
+@media(min-width: 375px){
+	.c-menu li a {
+	    display: block;
+	    text-align: center;
+	    padding: 23px 34px 8px 34px;
+	    text-decoration: none;
+	}
+}
+@media(min-width: 425px){
+	.c-menu li a {
+	    display: block;
+	    text-align: center;
+	    padding: 23px 40px 8px 40px;
+	    text-decoration: none;
+	}
+}
+
+.c-menu li a:focus{
+    background-color: #21e8b7;
+}
+
+.c-menu .active{
+    background-color: #21e8b7;
+}
+
+.c-menu li a img{
+    width:20px;
+}
+.searchresults .c-adds{
+	display: none;
+	visibility:hidden;
+	padding-left: 100px;
+}
+.searchresults .c-adds img{
+	width:80%;
+}
+
+@media(min-width: 768px){
+	.searchresults  .c-adds{
+		display: block;
+		visibility:visible;
+		padding-left: 0px;
+		margin:0 0 0 70%;
+	}
+	.searchresults .c-adds img{
+		width:106%;
+	}
+}
+@media(min-width: 1200px){
+	.searchresults .c-adds{
+		display: block;
+		visibility:visible;
+	}
+	.searchresults .c-adds img{
+		width:80%;
+	}
+}
+
+.adjust{
+	margin-right: -30%;
+	font-size: 14px;
+}
+@media(min-width: 768px){
+	.adjust{
+		margin-right: -3.5%;
+		font-size: 13px;
+	}
+}
+@media(min-width: 800px){
+	.adjust{
+		margin-right: -8%;
+		font-size: 13px;
+	}
+}
+@media(min-width: 840px){
+	.adjust{
+		margin-right: -13%;
+		font-size: 13px;
+	}
+}
+@media(min-width: 880px){
+	.adjust{
+		margin-right: -19%;
+		font-size: 14px;
+	}
+}
+@media(min-width: 915px){
+	.adjust{
+		margin-right: -24%;
+		font-size: 14px;
+	}
+}
+@media(min-width: 960px){
+	.adjust{
+		margin-right: -30%;
+		font-size: 14px;
+	}
+}
+@media(min-width: 992px){
+	.adjust{
+		margin-right: -1.5%;
+	}
+}
+@media(min-width: 1022px){
+	.adjust{
+		margin-right: -6%;
+	}
+}
+@media(min-width: 1070px){
+	.adjust{
+		margin-right: -11%;
+	}
+}
+@media(min-width: 1134px){
+	.adjust{
+		margin-right: -18%;
+	}
+}
+@media(min-width: 1200px){
+	.adjust{
+		margin-right: 0%;
+	}
+}
+@media(min-width: 1440px){
+	.adjust{
+		margin-right: -10%;
+	}
+}
+@media(min-width: 1600px){
+	.adjust{
+		margin-right: -32%;
+	}
+}
+@media(min-width: 1851px){
+	.adjust{
+		margin-right: -50%;
+	}
+}
+@media(min-width: 2151px){
+	.adjust{
+		margin-right: -70%;
+	}
+}
+@media(min-width: 2481px){
+	.adjust{
+		margin-right: -90%;
+	}
+}
+
+
+
+.credit {
+		margin-left: 8px;
+		margin-top: 0%;
+		margin-right: 0px;
+		padding: 0px;
+		font-size:auto;
+}
+@media(min-width: 768px){
+	.credit {
+		margin-left: 40%;
+		margin-top: -37px;
+		margin-right: 0px;
+		font-size: 15px;
+	}
+}
+@media(min-width: 840px){
+	.credit {
+		margin-left: 48%;
+		margin-top: -37px;
+		margin-right: 0px;
+	}
+}
+@media(min-width: 900px){
+	.credit {
+		margin-left: 450px;
+		margin-top: -37px;
+		margin-right: 0px;
+		font-size:14px;
+	}
+}
+@media(min-width: 992px){
+	.credit {
+		margin-left: 475px;
+		margin-top: -37px;
+		margin-right: 0px;
+		font-size:auto;
+	}
+}
+@media(min-width: 1200px){
+	.credit {
+		margin-left: 48.5%;
+		margin-top: -37px;
+		margin-right: 0px;
+		font-size:auto;
+	}
+}
+
+.credit .label {
+	color: #CCC;
+}
+
+.credit .count {
+	color: #FFD700;
+}
+
+
+.searchbar {
+	border: 0;
+	background-color: #1b3033;
+	color: #FFF;
+	border-bottom: solid 1px #CCC;
+	border-radius: 0.5;
+
+	width: 60%;
+	height: 40px;
+	font-size: 15px;
+	padding: 5px;
+	margin: 5px 5px 5px 5px;
+}
+@media(min-width: 390px){
+	.searchbar {
+	width: 70%;
+	}
+}
+@media(min-width: 768px){
+	.searchbar {
+	width: 200px;
+	}
+}
+@media(min-width: 840px){
+	.searchbar {
+	width: 300px;
+	}
+}
+@media(min-width: 1200px){
+	.searchbar {
+	width: 400px;
+	}
+}
+
+.searchbar:focus {
+	border: 0;
+	text-decoration: none;
+	outline: none;
+	border-bottom: solid 1px #CCC;
+	color: #FFF;
+}
+
+.searchbar:hover {
+	border: solid 1px #CCC;
+
+}
+
+
