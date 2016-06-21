@@ -8,9 +8,6 @@ body {
   	background-color: #ffffff;
 }
 
-<<<<<<< HEAD
-
-=======
 .searchbar input {
 	border: 0;
 	background-color: #1b3033;
@@ -37,7 +34,6 @@ body {
 	border: solid 1px #CCC;
 
 }
->>>>>>> updates
 
 .font12 {
 	font-size: 12px;
@@ -171,6 +167,20 @@ body {
 }
 
 <<<<<<< HEAD
+
+
+.main .profile {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.main .profile .searchresults .left {
+	float: left;
+	width: 100%; 
+	min-height: 450px;
+	margin-top:62px;
+}
+
 .main .profile .searchresults {
 	width: 98%;
 	margin: 0 1% 0 1%;
@@ -191,16 +201,6 @@ body {
 	}
 }
 
-.main .profile .searchresults .left {
-	float: left;
-	width: 100%; 
-	min-height: 450px;
-	margin-top:62px;
-=======
-.main .profile {
-	width: 100%;
-	margin: 0 auto;
-}
 
 /*MENU*/
 
@@ -239,7 +239,6 @@ body {
 	min-height: 450px;
 	margin-top:10px;
 	margin-left: 1%;
->>>>>>> updates
 	background-color: #FFF;
 
 	padding: 1.5em;
@@ -258,8 +257,6 @@ body {
 		margin-top:0px;
 	}
 }
-
-
 
 .left .basic {
 	width: 100%;
@@ -415,8 +412,6 @@ body {
 	border: none;
 }
 
-<<<<<<< HEAD
-=======
 .pitchbox:focus {
 	color: #000;
 	border: 0px;
@@ -467,7 +462,6 @@ body {
 	margin: 0px;
 
 }
->>>>>>> updates
 
 .feed-filter ul li {
 	float: left;
@@ -500,7 +494,6 @@ body {
 	text-decoration: underline;
 }
 
-<<<<<<< HEAD
 .result li:hover {
 	background-color: #CCC;
 	color:#fff;
@@ -822,8 +815,6 @@ body {
 
 }
 
-
-=======
 .feed-filter .active {
 	color: #00709e;
 	cursor: pointer;
@@ -902,4 +893,3 @@ body {
     float: left; /* IE 9 Fix */
     outline: none; 
 }
->>>>>>> updates
