@@ -20,9 +20,11 @@ app.controller('Profile', function(
         
         var promise = ProfileFactory.profile(filter);
         promise.then(function(data){
-            console.log(data.data.result[0]);
             $scope.profile.status = true;
             $scope.profile.data = data.data.result[0];
+
+            $scope.profile.data.currency = 'PHP';
+            $scope.profile.data.available = '0.00';
         })
         .then(null, function(data){
             $scope.profile.status = false;

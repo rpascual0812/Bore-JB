@@ -102,6 +102,10 @@
 											<span class="header4">APPPIN-{{v.applicant_id}}</span>
 										</div>
 										<div style="float:left; width:45%; text-align:right;">
+											<img ng-if="v.online == 't'" src="../ASSETS/img/online.png" style="width:12px; margin-right: 10px;" />
+
+											<img ng-if="v.online == 'f'" src="../ASSETS/img/offline.png" style="width:12px; margin-right: 10px;" />
+
 											<span class="status">{{v.external_status}}</span>
 										</div>
 										<div style="clear:both;"></div>
@@ -130,8 +134,15 @@
 
 
 							<div style="text-align:right; margin-top: 20px;">
-								<button type="button" class="btn btn-danger" style="width:100px; margin-bottom:5px;">ADMIRE</button>
-								<button type="button" class="btn btn-primary" style="width:100px; margin-bottom:5px;" ng-click="request_cv(v.applicant_id)">VIEW</button>
+								<div style="float:left;">
+									<button ng-if="v.online == 't'" type="button" class="btn btn-warning" style="width:130px; margin-bottom:5px;">VIDEO CHAT</button>
+								</div>
+								<div style="float:right;">
+									<button type="button" class="btn btn-danger" style="width:100px; margin-bottom:5px;">ADMIRE</button>
+
+									<button type="button" class="btn btn-primary" style="width:100px; margin-bottom:5px;" ng-click="request_cv(v.applicant_id)">VIEW</button>
+								</div>
+								<div style="clear:both;"></div>
 							</div>
 							<div style="clear:both;"></div>
 							<div class="break"></div>
@@ -169,6 +180,10 @@
 			<div class="right">
 				<div class="statistics">
 					<div>
+						<img src="../ASSETS/img/online.png" style="width:16px;">
+						<span class="font12">1,205 candidates are online</span>
+					</div>
+					<div>
 						<img src="../ASSETS/img/heart.png" style="width:16px;">
 						<span class="font12">Admired by 105 candidates</span>
 					</div>
@@ -179,14 +194,18 @@
 					
 					<div>
 						<img src="../ASSETS/img/feedback.png" style="width:16px;">
-						<span class="font12 link">You have 5 Recuitment Feedback</span>
+						<span class="font12 link">You have 5 Candidate Feedback</span>
 					</div>
 				</div>
 
 				<div class="break"></div>
 
+				<div style="margin-bottom: 5px;">
+					<img src="../ASSETS/Uploads/ads/signavio.png" style="width:275px;">
+				</div>
+
 				<div>
-					<img src="../ASSETS/Uploads/signavio.png" style="width:275px;">
+					<img src="../ASSETS/Uploads/ads/collabs.jpg" style="width:275px;">
 				</div>
 
 				<div class="break"></div>

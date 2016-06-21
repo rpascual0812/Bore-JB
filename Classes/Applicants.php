@@ -146,7 +146,8 @@ EOT;
                         where applicants_external_status.applicants_pk = applicants.pk
                         order by applicants_external_status.date_created desc limit 1
                     ) as external_status,
-                    array_to_string(applicants_tags.tags, ',') as tags
+                    array_to_string(applicants_tags.tags, ',') as tags,
+                    case when trunc(random() * 2) = 1 then true else false end as online
                 from applicants
                 left join applicants_logs on (applicants.pk = applicants_logs.applicants_pk)
                 left join applicants_tags on (applicants.pk = applicants_tags.applicants_pk)

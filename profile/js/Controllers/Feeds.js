@@ -25,6 +25,10 @@ app.controller('Feeds', function(
             ad : {
                 link : 'https://www.youtube.com/embed/n9EgH-QxaUI',
                 type : 'youtube'
+            },
+            fee : {
+                currency : 'PHP',
+                amount : '1,000.00'
             }
         },
         {
@@ -36,6 +40,10 @@ app.controller('Feeds', function(
             ad : {
                 link : '../ASSETS/Uploads/ads/ad1.gif',
                 type : 'gif'
+            },
+            fee : {
+                currency : 'PHP',
+                amount : '5,000.00'
             }
         },
         {
@@ -47,6 +55,10 @@ app.controller('Feeds', function(
             ad : {
                 link : 'https://13blackandwhitescribbles.files.wordpress.com/2015/09/uhg.jpg',
                 type : 'image'
+            },
+            fee : {
+                currency : 'PHP',
+                amount : '500.00'
             }
         }
     ];
@@ -55,16 +67,20 @@ app.controller('Feeds', function(
 
     function init(){
         $scope.profile.pin = UserService.get();
+
+        var pin = $cookies.get(md5.createHash('APPPIN'));
         
         var filter = {
-            tags : ''
+            applicant_id : pin
         }
 
         var promise = ProfileFactory.profile(filter);
         promise.then(function(data){
-            console.log(data.data.result[0]);
             $scope.profile.status = true;
             $scope.profile.data = data.data.result[0];
+
+            $scope.profile.data.currency = 'PHP';
+            $scope.profile.data.available = '0.00';
         })
         .then(null, function(data){
             $scope.profile.status = false;
@@ -102,6 +118,14 @@ app.controller('Feeds', function(
             '1 years related work experience'
         ];
 
+        var fee = [
+            '1,000.00',
+            '2,000.00',
+            '3,000.00',
+            '4,000.00',
+            '5,000.00'
+        ];
+
         var timer = [
             10000,
             5000,
@@ -113,7 +137,11 @@ app.controller('Feeds', function(
             title : job_titles[[Math.floor(Math.random() * job_titles.length)]],
             time_passed : 'Just now',
             experience : years[[Math.floor(Math.random() * logos.length)]],
-            skills : skills[[Math.floor(Math.random() * logos.length)]]
+            skills : skills[[Math.floor(Math.random() * logos.length)]],
+            fee : {
+                currency : 'PHP',
+                amount : fee[[Math.floor(Math.random() * logos.length)]]
+            }
         });
 
         var to = $timeout(function() {

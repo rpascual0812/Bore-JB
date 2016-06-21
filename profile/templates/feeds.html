@@ -18,7 +18,7 @@
 	                    <span class="icon-bar"></span>
 	                    <span class="icon-bar"></span>
 	                </button> -->
-	                <a class="navbar-brand topnav" href="#/home">
+	                <a class="navbar-brand topnav" href="#/">
 	                	JOBBER
 	                </a>
 	                <input type="text" class="searchbar" placeholder="Search jobs here" maxlength="60" data-ng-model="searchbox.text" data-ng-change="searchbig()" />
@@ -27,7 +27,7 @@
 	            <!-- Collect the nav links, forms, and other content for toggling -->
 
 	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	                <ul class="nav navbar-nav navbar-right">
+	                <!-- <ul class="nav navbar-nav navbar-right">
 	                    <li>
 	                        <a href="#/">Jobs</a>
 	                    </li>
@@ -37,7 +37,7 @@
 	                    <li>
 	                        <a>Help</a>
 	                    </li>
-	                </ul>
+	                </ul> -->
 	            </div>
 	            <!-- /.navbar-collapse -->
 	        </div>
@@ -88,7 +88,7 @@
 			<div class="menu">
 				<div>
 					<img src="../ASSETS/img/profile.png" style="width:16px;">
-					<span class="font12 link">Profile</span>
+					<a href="#/{{profile.pin}}"><span class="font12 link">Profile</span></a>
 				</div>
 				<div>
 					<img src="../ASSETS/img/attache.png" style="width:16px;">
@@ -104,7 +104,12 @@
 				</div>
 				<div>
 					<img src="../ASSETS/img/star.png" style="width:16px;">
-					<span class="font12 link">Talent Acquisition</span>
+					<span class="font12 link">Referrals</span>
+				</div>
+
+				<div class="credit">
+					<span class="font14 label">Available Wallet</span> <br />
+					<span class="amount">{{profile.data.currency}} {{profile.data.available}}</span>
 				</div>
 			</div>
 			<div class="left">
@@ -157,7 +162,7 @@
 									<button type="button" class="btn btn-info" style="width:100px; margin-bottom:5px;">SAVE</button>
 								</div>
 								<div style="float:right;">
-									<button type="button" class="btn btn-warning" style="width:100px; margin-bottom:5px;">REFER</button>
+									<button type="button" class="btn btn-warning" style="width:170px; margin-bottom:5px;">REFER <span style="font-size:10px;">({{ feeds.data[0].fee.currency + " " + feeds.data[0].fee.amount }})</span></button>
 									<button type="button" class="btn btn-primary" style="width:100px; margin-bottom:5px;">APPLY</button>
 								</div>
 								<div style="clear:both;"></div>
@@ -218,7 +223,7 @@
 									<button type="button" class="btn btn-info" style="width:100px; margin-bottom:5px;">SAVE</button>
 								</div>
 								<div style="float:right;">
-									<button type="button" class="btn btn-warning" style="width:100px; margin-bottom:5px;">REFER</button>
+									<button type="button" class="btn btn-warning" style="width:170px; margin-bottom:5px;">REFER <span style="font-size:10px;">({{ v.fee.currency + " " + v.fee.amount }})</span></button>
 									<button type="button" class="btn btn-primary" style="width:100px; margin-bottom:5px;">APPLY</button>
 								</div>
 								<div style="clear:both;"></div>
@@ -251,9 +256,12 @@
 
 				<div class="break"></div>
 
+				<div style="margin-bottom: 5px;">
+					<img src="../ASSETS/Uploads/ads/post1.jpg" style="width:275px;">
+				</div>
+
 				<div>
-					<button type="button" class="btn btn-default" style="width:100%; margin-bottom:5px;">Recommended Jobs</button>
-					<button type="button" class="btn btn-danger" style="width:100%; margin-bottom:5px;">Logout</button>
+					<img src="../ASSETS/Uploads/ads/post2.jpg" style="width:275px;">
 				</div>
 
 				<div class="break"></div>
