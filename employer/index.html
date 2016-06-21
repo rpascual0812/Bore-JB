@@ -12,9 +12,12 @@
 
 	<link href="../CSS/bootstrap.min.css" rel="stylesheet">
 	<link href="../CSS/stylish-portfolio.css" rel="stylesheet">
-	<!-- <link href="../CSS/employer.css" rel="stylesheet"> -->
+	<link href="../CSS/employer.css" rel="stylesheet">
 
 	<link href='../CSS/fonts.css' rel='stylesheet' type='text/css'>
+
+	<link href="../JS/angularjs/3rdparty/textAngular/textAngular.css"  rel='stylesheet' type='text/css'>
+	<link href="../JS/angularjs/3rdparty/autocomplete/autocomplete.css"  rel='stylesheet' type='text/css'>
 
 	<link rel="shortcut icon" href="../ASSETS/img/icon/favicon.ico">
 
@@ -63,9 +66,10 @@
 <!-- CONTROLLERS -->
 <script src="./js/Controllers/Login.js"></script> 
 <script src="./js/Controllers/Users.js"></script>
-<script src="./js/Controllers/Header.js"></script>
-<script src="./js/Controllers/Candidates.js"></script>
+<!-- <script src="./js/Controllers/Header.js"></script> -->
+<script src="./js/Controllers/Home.js"></script>
 <script src="./js/Controllers/Profile.js"></script>
+<script src="./js/Controllers/Posts.js"></script>
 
 <!-- FACTORIES -->
 <script src="./js/Factories/EmployersFactory.js"></script>
@@ -74,24 +78,20 @@
 
 <!-- DIRECTIVES -->
 <script src="../JS/angularjs/Directives/enterkey.js"></script> 
+<script src="../JS/angularjs/Directives/contenteditable.js"></script> 
+<!-- <script src="../JS/angularjs/3rdparty/angular-contenteditable.js"></script>  -->
+
+<!-- 3RD Party -->
+<script src="../JS/angularjs/3rdparty/textAngular/textAngular-rangy.min.js"></script> 
+<script src="../JS/angularjs/3rdparty/textAngular/textAngular-sanitize.min.js"></script> 
+<script src="../JS/angularjs/3rdparty/textAngular/textAngular.min.js"></script> 
+
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+<script src="../JS/angularjs/3rdparty/autocomplete/autocomplete.js"></script>
+
 
 <!-- SERVICES -->
 <script src="./js/Services/Employer.js"></script>
 <script src="./js/Services/Search.js"></script>
 
-<script type="text/javascript">
-	// Closes the sidebar menu
-    $("#menu-close").click(function(e) {
-        e.preventDefault();
-        $("#sidebar-wrapper").toggleClass("active");
-    });
 
-    // Opens the sidebar menu
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#sidebar-wrapper").toggleClass("active");
-    });
-</script>
-
-
-</html>

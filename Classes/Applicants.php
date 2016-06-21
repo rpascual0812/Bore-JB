@@ -126,6 +126,35 @@ EOT;
         return ClassParent::get($sql);
     }
 
-    
+    function employer_feeds(){
+        $sql = <<<EOT
+                select
+                    *,
+                    (
+                        select 
+                            status 
+                        from statuses
+                        left join applicants_status on (statuses.pk = applicants_status.statuses_pk) 
+                        where applicants_status.applicants_pk = applicants.pk
+                        order by applicants_status.date_created desc limit 1
+                    ) as status,
+                    (
+                        select 
+                            status 
+                        from external_statuses
+                        left join applicants_external_status on (external_statuses.pk = applicants_external_status.external_statuses_pk) 
+                        where applicants_external_status.applicants_pk = applicants.pk
+                        order by applicants_external_status.date_created desc limit 1
+                    ) as external_status,
+                    array_to_string(applicants_tags.tags, ',') as tags
+                from applicants
+                left join applicants_logs on (applicants.pk = applicants_logs.applicants_pk)
+                left join applicants_tags on (applicants.pk = applicants_tags.applicants_pk)
+                order by applicants_logs.date_created desc
+                ;
+EOT;
+
+        return ClassParent::get($sql);
+    }
 }
 ?>

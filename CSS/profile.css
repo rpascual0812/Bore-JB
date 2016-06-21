@@ -552,6 +552,25 @@ body {
 
 }
 
+.left .feeds .post .feed-data {
+	width: 100%;
+	height: auto;
+}
+
+.left .feeds .post .feed-data .employer-logo {
+	width: 20%;
+	float: left;
+}
+
+.left .feeds .post .feed-data .employer-logo img {
+	width: 125px;
+}
+
+.left .feeds .post .feed-data .employer-details {
+	width: 80%;
+	float: left;
+}
+
 /*RIGHT SIDE*/
 
 .profile .right {
@@ -636,25 +655,31 @@ body {
 
 @-webkit-keyframes hideAndShow{
     from {
+    	-webkit-transform: translateY(-40%);
         opacity: 0;
     }
     to {
+    	-webkit-transform: translateY(0%);
         opacity: 1;
     }
 }
 @-moz-keyframes hideAndShow{
     from {
+    	-moz-transform: translateY(-40%);
         opacity: 0;
     }
     to {
+    	-moz-transform: translateY(0%);
         opacity: 1;
     }
 }    
 @-ms-keyframes hideAndShow{
     from {
+    	-ms-transform: translateY(-40%);
         opacity: 0;
     }
     to {
+    	-ms-transform: translateY(0%);
         opacity: 1;
     }
 }

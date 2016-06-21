@@ -17,22 +17,37 @@ app.controller('Feeds', function(
     $scope.feeds.data = 
     [
         {
+            image : '../ASSETS/Uploads/employers/accenture3.png',
             title : 'Senior Web Developer',
             time_passed : '1 week ago',
             experience : '4 years related work experience',
-            skills : 'Skills Required: PHP, JQuery, Angular JS, PostgreSQL, Mongo DB'
+            skills : 'Skills Required: PHP, JQuery, Angular JS, PostgreSQL, Mongo DB',
+            ad : {
+                link : 'https://www.youtube.com/embed/n9EgH-QxaUI',
+                type : 'youtube'
+            }
         },
         {
+            image : '../ASSETS/Uploads/employers/ibex2.png',
             title : 'Junior Web Developer',
             time_passed : '1 month ago',
             experience : '1 years related work experience',
-            skills : 'Skills Required: PHP, Javascript, MySQL'
+            skills : 'Skills Required: PHP, Javascript, MySQL',
+            ad : {
+                link : '../ASSETS/Uploads/ads/ad1.gif',
+                type : 'gif'
+            }
         },
         {
+            image : '../ASSETS/Uploads/employers/uhg2.jpeg',
             title : 'Server Administrator',
             time_passed : '2 months ago',
             experience : '5 years related work experience',
-            skills : 'Skills Required: Linux, PostgreSQL'
+            skills : 'Skills Required: Linux, PostgreSQL',
+            ad : {
+                link : 'https://13blackandwhitescribbles.files.wordpress.com/2015/09/uhg.jpg',
+                type : 'image'
+            }
         }
     ];
     
@@ -59,11 +74,46 @@ app.controller('Feeds', function(
     }
     
     function reload_feeds(){
+        var job_titles = [
+            'Game Developer',
+            'Customer Service Representative',
+            'Technical Support Representative',
+            'Web Designer'
+        ];
+
+        var logos = [
+            '../ASSETS/Uploads/employers/accenture3.png',
+            '../ASSETS/Uploads/employers/ibex2.png',
+            '../ASSETS/Uploads/employers/uhg2.jpeg'
+        ];
+
+        var skills = [
+            'Skills Required: Maya, 3D SMAX',
+            'Skills Required: Good Communication Skills',
+            'Skills Required: Excellent Communication Skills, Basic Troubleshooting',
+            'Skills Required: CSS3, HTML5'
+        ];
+
+        var years = [
+            '5 years related work experience',
+            '4 years related work experience',
+            '3 years related work experience',
+            '2 years related work experience',
+            '1 years related work experience'
+        ];
+
+        var timer = [
+            10000,
+            5000,
+            7000
+        ];
+
         $scope.feeds.data.unshift({
-            title : 'Senior Game Developer',
-            time_passed : '1 week ago',
-            experience : '4 years related work experience',
-            skills : 'Skills Required: PHP, JQuery, Angular JS, PostgreSQL, Mongo DB'
+            image : logos[[Math.floor(Math.random() * logos.length)]],
+            title : job_titles[[Math.floor(Math.random() * job_titles.length)]],
+            time_passed : 'Just now',
+            experience : years[[Math.floor(Math.random() * logos.length)]],
+            skills : skills[[Math.floor(Math.random() * logos.length)]]
         });
 
         var to = $timeout(function() {
@@ -71,7 +121,7 @@ app.controller('Feeds', function(
             
             reload_feeds();
 
-        }, 3000);
+        }, timer[[Math.floor(Math.random() * timer.length)]]);
     }
 
     $scope.pitch_focus = function(){

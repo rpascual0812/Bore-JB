@@ -1,7 +1,9 @@
 var app = angular.module('onload', [
                                     'ngRoute',
                                     'ngCookies',
-                                    'angular-md5'
+                                    'angular-md5',
+                                    'textAngular',
+                                    'autocomplete'
                                 ]);
 
 app.config(function($routeProvider){
@@ -16,10 +18,15 @@ app.config(function($routeProvider){
         controller: 'Profile',
         templateUrl: 'templates/profile.html'
     })
+    .when('/posts',
+    {
+        controller: 'Posts',
+        templateUrl: 'templates/posts.html'
+    })
     .when('/',
     {
-        controller: 'Candidates',
-        templateUrl: 'templates/candidates.html'
+        controller: 'Home',
+        templateUrl: 'templates/home.html'
     })
     .otherwise(
     {
