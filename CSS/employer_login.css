@@ -17,7 +17,7 @@ body{
 		position:absolute;
 		margin:31% 0% 0% 2.5%;
 
-		font-size: 190%;
+		font-size: 180%;
 		font-style:bold;	
 		border-radius: 5px;
 		border: 0;
@@ -33,7 +33,7 @@ body{
 		position:absolute;
 		margin:90.75% 0% 0% 12.5%;
 
-		font-size: 170%;
+		font-size: 160%;
 		border-radius: 5px;
 		border: 0;
 		text-align: center;
@@ -44,7 +44,7 @@ body{
 		position:absolute;
 		margin:104.2% 0% 0% 12.5%;
 
-		font-size: 170%;
+		font-size: 160%;
 		border-radius: 5px;
 		border: 0;
 		text-align: center;
@@ -55,7 +55,7 @@ body{
 		position:absolute;
 		margin:133.5% 0% 0% 32%;
 
-		font-size: 190%;
+		font-size: 180%;
 		border-radius: 5px;
 		border: 0;
 		text-align: center;
@@ -69,7 +69,7 @@ body{
 		position:absolute;
 		margin:0% 0% 0% -4%;
 
-		font-size: 70%;	
+		font-size: 60%;	
 		border-radius: 5px;
 		border: 0;
 		text-align: center;
@@ -83,7 +83,7 @@ body{
 		position:absolute;
 		margin:4% 0% 0% 11.75%;
 
-		font-size: 70%;	
+		font-size: 60%;	
 		border-radius: 5px;
 		border: 0;
 		text-align: center;
@@ -101,7 +101,7 @@ body{
 	}
 	.welcome-emp{
 		margin:25% 0% 0% 1%;
-		font-size: 245%;
+		font-size: 2.1em;
 	}
 	.username {
 		margin:79.75% 0% 0% 13%;
@@ -117,10 +117,10 @@ body{
 		margin:-97% 0% 0% -11%;
 	}
 	.message{
-		font-size: 83%;
+		font-size: 0.78em;
 	}
 	.message-2{
-		font-size: 83%;
+		font-size: 0.78em;
 	}
 }
 @media(min-width: 425px){
@@ -132,7 +132,7 @@ body{
 	}
 	.welcome-emp{
 		margin:25% 0% 0% 1%;
-		font-size: 260%;
+		font-size: 2.3em;
 	}
 	.username {
 		margin:76.75% 0% 0% 13%;
@@ -148,10 +148,10 @@ body{
 		margin:-95% 0% 0% -11%;
 	}
 	.message{
-		font-size: 83%;
+		font-size: 0.78em;
 	}
 	.message-2{
-		font-size: 83%;
+		font-size: 0.78em;
 	}
 }
 @media (min-width:768px) {
@@ -170,34 +170,34 @@ body{
 		width:48%;
 		height: 4.5%;
 		margin:34.5% 0% 0% 18%;
-		font-size: 150%;
+		font-size: 1.1em;
 	}
 	.password {
 		width:48%;
 		height: 4.5%;
 		margin:39.5% 0% 0% 18%;
-		font-size: 150%;
+		font-size: 1.1em;
 	}
 	.login {
 		width: 28%;
-		height: 4.5%;
+		height: 2.2em;
 		margin:44.5% 0% 0% 28%;
-		font-size: 150%;
+		font-size: 1.1em;
 	}
 	.message-spacing{
-		margin:-37.75% 0% 0% 23.55%;
+		margin:-38.75% 0% 0% 23.55%;
 	}
 	.message{
 		width: 40%;
 		height: 5%;
 		margin:0% 0% 0% 0%;
-		font-size: 130%;
+		font-size: 1em;
 	}
 	.message-2{
 		width: 40%;
 		height: 5%;
 		margin:3% 0% 0% 0%;
-		font-size: 130%;
+		font-size: 1em;
 	}
 }
 @media (min-width: 850px) {
@@ -215,20 +215,20 @@ body{
 	.username {
 		width: 40%;
 		height: 6%;
-		margin:35.5% 0% 0% 23%;
-		font-size: 200%;
+		margin:29.5% 0% 0% 23%;
+		font-size: 1.1em;
 	}
 	.password {
 		width:40%;
 		height: 6%;
-		margin:40.5% 0% 0% 23%;
-		font-size: 200%;
+		margin:34.5% 0% 0% 23%;
+		font-size: 1.1em;
 	}
 	.login {
 		width: 20%;
-		height: 6%;
-		margin:45.5% 0% 0% 33%;
-		font-size: 200%;
+		height: 2.2em;
+		margin:39.5% 0% 0% 33%;
+		font-size: 1.1em;
 	}
 	.message-spacing{
 		margin:-38% 0% 0% 19.25%;
@@ -237,13 +237,13 @@ body{
 		width: 50%;
 		height: 7%;
 		margin:0% 0% 0% 0%;
-		font-size: 150%;
+		font-size: 1em;
 	}
 	.message-2{
 		width: 50%;
 		height: 7%;
 		margin:3% 0% 0% 0%;
-		font-size: 150%;
+		font-size: 1em;
 	}
 }
 @media (min-width: 992px) {
@@ -261,20 +261,20 @@ body{
 	.username {
 		width: 40%;
 		height: 6%;
-		margin:33.5% 0% 0% 23%;
-		font-size: 200%;
+		margin:28.5% 0% 0% 23%;
+		font-size: 1.5em;
 	}
 	.password {
 		width:40%;
 		height: 6%;
-		margin:38.5% 0% 0% 23%;
-		font-size: 200%;
+		margin:33.5% 0% 0% 23%;
+		font-size: 1.5em;
 	}
 	.login {
 		width: 20%;
-		height: 6%;
-		margin:43.5% 0% 0% 33%;
-		font-size: 200%;
+		height: 2em;
+		margin:38.5% 0% 0% 33%;
+		font-size: 1.5em;
 	}
 	.message-spacing{
 		margin:-38% 0% 0% 19.25%;
@@ -323,19 +323,19 @@ body{
 		font-size: 200%;
 	}
 	.message-spacing{
-		margin:-32.5% 0% 0% 30%;
+		margin:-33.5% 0% 0% 22%;
 	}
 	.message{
-		width: 30%;
+		width: 50%;
 		height: 7%;
 		margin:0% 0% 0% 0%;
-		font-size: 150%;
+		font-size: 2em;
 	}
 	.message-2{
-		width: 30%;
+		width: 50%;
 		height: 7%;
 		margin:3% 0% 0% 0.5%;
-		font-size: 150%;
+		font-size: 2em;
 	}
 }
 @media (min-width: 1307px) {
@@ -369,16 +369,16 @@ body{
 		font-size: 200%;
 	}
 	.message-spacing{
-		margin:-32.5% 0% 0% 30%;
+		margin:-32.5% 0% 0% 22%;
 	}
 	.message{
-		width: 30%;
+		width: 50%;
 		height: 7%;
 		margin:0% 0% 0% 0%;
 		font-size: 180%;
 	}
 	.message-2{
-		width: 30%;
+		width: 50%;
 		height: 7%;
 		margin:3% 0% 0% 0.5%;
 		font-size: 180%;

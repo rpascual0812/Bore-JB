@@ -45,32 +45,59 @@
 	<div class="main">
 		<div style="clear:both;"></div>
 		<div class="profile">
+
+			<div class="c-menu megamenu">
+				<ul>
+					<li>
+						<a  href="#/home">
+							<img src="../ASSETS/img/profile.png">
+						</a>
+					</li>
+					<li class="active">
+						<a href="#/..">
+							<img src="../ASSETS/img/attache.png">
+						</a>
+					</li>
+					<li>
+						<a>
+							<img src="../ASSETS/img/message.png">
+						</a>
+					</li>
+					<li>
+						<a>
+							<img src="../ASSETS/img/bookmark.png">
+						</a>
+					</li>
+				</ul>
+			</div>
+
 			<div class="menu">
-				<div>
-					<img src="../ASSETS/Uploads/employers/accenture.png" style="width: 180px;"/>
+				<div class="ccimageblock">
+					<img src="../ASSETS/Uploads/employers/accenture.png" class="cccompany"/>
 				</div>
 				<div class="employer-name">
 					<span class="font14">{{employer.name}}</span>
 				</div>
 
 				
-				
-				<div>
-					<img src="../ASSETS/img/attache.png" style="width:16px;">
-					<a href="#/posts"><span class="font12 link">Job Posts</span></a>
-				</div>
-				<div>
-					<img src="../ASSETS/img/message.png" style="width:16px;">
-					<span class="font12 link">Messages</span>
-				</div>
-				<div>
-					<img src="../ASSETS/img/bookmark.png" style="width:16px;">
-					<span class="font12 link">Admired Candidates</span>
-				</div>
+				<div class="cbox">
+					<div>
+						<img src="../ASSETS/img/attache.png" style="width:16px;">
+						<a href="#/posts"><span class="font12 link">Job Posts</span></a>
+					</div>
+					<div>
+						<img src="../ASSETS/img/message.png" style="width:16px;">
+						<span class="font12 link">Messages</span>
+					</div>
+					<div>
+						<img src="../ASSETS/img/bookmark.png" style="width:16px;">
+						<span class="font12 link">Admired Candidates</span>
+					</div>
 
-				<div class="credit">
-					<span class="font14 label">Available Credit</span> <br />
-					<span class="amount">{{employer.currency}} {{employer.available}}</span>
+					<div class="credit">
+						<span class="font14 label">Available Credit</span> <br />
+						<span class="amount">{{employer.currency}} {{employer.available}}</span>
+					</div>
 				</div>
 			</div>
 			<div class="left">
@@ -200,12 +227,12 @@
 
 				<div class="break"></div>
 
-				<div style="margin-bottom: 5px;">
-					<img src="../ASSETS/Uploads/ads/signavio.png" style="width:275px;">
+				<div class="ccimageblock">
+					<img src="../ASSETS/Uploads/ads/signavio.png" class="ccborder">
 				</div>
 
-				<div>
-					<img src="../ASSETS/Uploads/ads/collabs.jpg" style="width:275px;">
+				<div class="ccimageblock">
+					<img src="../ASSETS/Uploads/ads/collabs.jpg" class="ccborder">
 				</div>
 
 				<div class="break"></div>
