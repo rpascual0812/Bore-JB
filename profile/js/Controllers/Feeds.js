@@ -14,6 +14,7 @@ app.controller('Feeds', function(
 	$scope.profile = {};
 
     $scope.feeds = {};
+    $scope.feeds.ad = {};
     $scope.feeds.data = 
     [
         {
@@ -62,6 +63,62 @@ app.controller('Feeds', function(
             }
         }
     ];
+
+    $scope.job_titles = [
+        'Game Developer',
+        'Customer Service Representative',
+        'Technical Support Representative',
+        'Web Designer',
+        'CSR - Media & Publishing',
+        'Bank Compliance Officer',
+        'Nurse Practitioner Representative',
+        'Business Development Managers',
+        'USRN Clinical Analyst',
+        'AX Functional Consultant',
+        'Functional Consultant'
+    ];
+
+    $scope.logos = [
+        '../ASSETS/Uploads/employers/accenture3.png',
+        '../ASSETS/Uploads/employers/ibex2.png',
+        '../ASSETS/Uploads/employers/uhg2.jpeg',
+        '../ASSETS/Uploads/employers/CSSCORP.png',
+        '../ASSETS/Uploads/employers/exl.jpg',
+        '../ASSETS/Uploads/employers/inner-works-logo-thumb.jpg',
+        '../ASSETS/Uploads/employers/logo.jpg',
+        '../ASSETS/Uploads/employers/logo_8773_banner_0_9226.jpeg',
+        '../ASSETS/Uploads/employers/perks_17.png',
+        '../ASSETS/Uploads/employers/teleperformance-philippines.png'
+    ];
+
+    $scope.skills = [
+        'Skills Required: Maya, 3D SMAX',
+        'Skills Required: Good Communication Skills',
+        'Skills Required: Excellent Communication Skills, Basic Troubleshooting',
+        'Skills Required: CSS3, HTML5'
+    ];
+
+    $scope.years = [
+        '5 years related work experience',
+        '4 years related work experience',
+        '3 years related work experience',
+        '2 years related work experience',
+        '1 years related work experience'
+    ];
+
+    $scope.fee = [
+        '1,000.00',
+        '2,000.00',
+        '3,000.00',
+        '4,000.00',
+        '5,000.00'
+    ];
+
+    $scope.timer = [
+        10000,
+        5000,
+        7000
+    ];
     
     init();
 
@@ -86,70 +143,48 @@ app.controller('Feeds', function(
             $scope.profile.status = false;
         });
 
+        reload_ads();
         reload_feeds();
+    }
+
+    function reload_ads(){
+        $scope.feeds.ad.image = $scope.logos[[Math.floor(Math.random() * $scope.logos.length)]];
+        $scope.feeds.ad.title = $scope.job_titles[[Math.floor(Math.random() * $scope.job_titles.length)]];
+        $scope.feeds.ad.time_passed = 'Just now';
+        $scope.feeds.ad.experience = $scope.years[[Math.floor(Math.random() * $scope.logos.length)]];
+        $scope.feeds.ad.skills = $scope.skills[[Math.floor(Math.random() * $scope.logos.length)]];
+        $scope.feeds.ad.fee = {
+            currency : 'PHP',
+            amount : $scope.fee[[Math.floor(Math.random() * $scope.logos.length)]]
+        }
+
+        var to1 = $timeout(function() {
+            $timeout.cancel(to1);
+            
+            reload_ads();
+
+        }, 20000);
     }
     
     function reload_feeds(){
-        var job_titles = [
-            'Game Developer',
-            'Customer Service Representative',
-            'Technical Support Representative',
-            'Web Designer'
-        ];
-
-        var logos = [
-            '../ASSETS/Uploads/employers/accenture3.png',
-            '../ASSETS/Uploads/employers/ibex2.png',
-            '../ASSETS/Uploads/employers/uhg2.jpeg'
-        ];
-
-        var skills = [
-            'Skills Required: Maya, 3D SMAX',
-            'Skills Required: Good Communication Skills',
-            'Skills Required: Excellent Communication Skills, Basic Troubleshooting',
-            'Skills Required: CSS3, HTML5'
-        ];
-
-        var years = [
-            '5 years related work experience',
-            '4 years related work experience',
-            '3 years related work experience',
-            '2 years related work experience',
-            '1 years related work experience'
-        ];
-
-        var fee = [
-            '1,000.00',
-            '2,000.00',
-            '3,000.00',
-            '4,000.00',
-            '5,000.00'
-        ];
-
-        var timer = [
-            10000,
-            5000,
-            7000
-        ];
-
         $scope.feeds.data.unshift({
-            image : logos[[Math.floor(Math.random() * logos.length)]],
-            title : job_titles[[Math.floor(Math.random() * job_titles.length)]],
+            image : $scope.logos[[Math.floor(Math.random() * $scope.logos.length)]],
+            title : $scope.job_titles[[Math.floor(Math.random() * $scope.job_titles.length)]],
             time_passed : 'Just now',
-            experience : years[[Math.floor(Math.random() * logos.length)]],
-            skills : skills[[Math.floor(Math.random() * logos.length)]],
+            experience : $scope.years[[Math.floor(Math.random() * $scope.logos.length)]],
+            skills : $scope.skills[[Math.floor(Math.random() * $scope.logos.length)]],
             fee : {
                 currency : 'PHP',
-                amount : fee[[Math.floor(Math.random() * logos.length)]]
+                amount : $scope.fee[[Math.floor(Math.random() * $scope.logos.length)]]
             }
         });
 
-        var to = $timeout(function() {
-            $timeout.cancel(to);
+        var to2 = $timeout(function() {
+            $timeout.cancel(to2);
             
             reload_feeds();
 
-        }, timer[[Math.floor(Math.random() * timer.length)]]);
+        }, $scope.timer[[Math.floor(Math.random() * $scope.timer.length)]]);
     }
 
     $scope.pitch_focus = function(){

@@ -116,6 +116,7 @@
 
 							<div style="width:100%;">
 
+
 								<div class="cbox2">
 									<div class="cad">
 										<div class="cad-circle">
@@ -124,7 +125,7 @@
 									</div>
 
 									<div class="employer-logo">
-										<img src="{{feeds.data[0].image}}" />
+										<img src="{{feeds.ad.image}}" />
 									</div>
 								</div>
 
@@ -132,55 +133,56 @@
 										<button type="button" class="btn btn-info ccsave">SAVE</button>
 										<button type="button" class="btn btn-primary ccapply">APPLY</button>
 										<button type="button" class="btn btn-warning ccrefer">REFER 
-											<div>{{feeds.data[0].fee.currency}} ({{feeds.data[0].fee.amount}})</div>
+											<div>{{feeds.ad.fee.currency}} ({{feeds.ad.fee.amount}})</div>
 										</button>
 								</div>
-
+								
 								<div class="employer-details">
-
 									<div class="ctitleup">
-										<span class="header4 ctitle">{{feeds.data[0].title}}</span>
-									</div>
+										<a class="link"><span class="ctitle header4">{{feeds.ad.title}}</span></a>
+									</div>							
 
 									<div class="cdetailsup">
-										<span class="header2 cdetails">{{feeds.data[0].experience}}</span>
-										<p class="cdetails">{{feeds.data[0].skills}}</p>
+										<span class="cdetails header2">{{feeds.ad.experience}}</span>
+										<p class="cdetails">{{feeds.ad.skills}}</p>
 									</div>
-		
+
 									<div style="clear:both;"></div>
 
 									<div class="cimageblock">
-											<div ng-if="feeds.data[0].ad.type == 'gif'">
-												<img src="{{feeds.data[0].ad.link}}" class="cimage"/>
-											</div>
-											<div ng-if="feeds.data[0].ad.type == 'image'">
-												<img src="{{feeds.data[0].ad.link}}" class="cimage"/>
-											</div>
-											<div ng-if="feeds.data[0].ad.type == 'youtube'">
-												<iframe src="https://www.youtube.com/embed/n9EgH-QxaUI" class="cvideo"frameborder="0" allowfullscreen></iframe>
-											</div>
+   										<div ng-if="feeds.ad.ad.type == 'gif'">
+   											<img src="{{feeds.ad.ad.link}}" class="cimage" />
+   										</div>
+   										<div ng-if="feeds.ad.ad.type == 'image'">
+   											<img src="{{feeds.ad.ad.link}}" class="cimage" />
+   										</div>
+   										<div ng-if="feeds.ad.ad.type == 'youtube'">
+
+   											<iframe src="https://www.youtube.com/embed/n9EgH-QxaUI" frameborder="0" allowfullscreen class="cvideo"></iframe>
+   										</div>
 									</div>
 								</div>
 
 								<div class="ccimageblock">
-									<div ng-if="feeds.data[0].ad.type == 'gif'">
-										<img src="{{feeds.data[0].ad.link}}" class="ccimage"/>
+									<div ng-if="feeds.ad.ad.type == 'gif'">
+										<img src="{{feeds.ad.ad.link}}" class="ccimage" />
 									</div>
-									<div ng-if="feeds.data[0].ad.type == 'image'">
-										<img src="{{feeds.data[0].ad.link}}" class="ccimage"/>
+									<div ng-if="feeds.ad.ad.type == 'image'">
+										<img src="{{feeds.ad.ad.link}}" class="ccimage" />
 									</div>
-									<div ng-if="feeds.data[0].ad.type == 'youtube'">
-										<iframe src="https://www.youtube.com/embed/n9EgH-QxaUI" class="ccvideo"frameborder="0" allowfullscreen></iframe>
+									<div ng-if="feeds.ad.ad.type == 'youtube'">
+
+										<iframe src="https://www.youtube.com/embed/n9EgH-QxaUI" frameborder="0" allowfullscreen class="ccvideo"></iframe>
 									</div>
 								</div>
 
 								<div class="cbuttons">
-									<span><button type="button" class="btn btn-info csave">SAVE</button>
+									<button type="button" class="btn btn-info csave">SAVE</button>
 									<button type="button" class="btn btn-primary capply">APPLY</button>
 									<button type="button" class="btn btn-warning crefer">REFER 
-										<span>{{feeds.data[0].fee.currency}}</span>
-										<span>({{feeds.data[0].fee.amount}})</span>
-									</button></span>
+										<span>{{feeds.ad.fee.currency}}</span>
+										<span>({{feeds.ad.fee.amount}})</span>
+									</button>
 								</div>
 
 								<div style="clear:both;"></div>
@@ -199,10 +201,11 @@
 
 							<div style="width:100%;">
 
+
 								<div class="cbox2">
 									<div class="cad">
 										<div class="cad-circle">
-											<span>{{v.time_passed}}</span>
+											<span>{{v.data.time_passed}}</span>
 										</div>
 									</div>
 
@@ -215,62 +218,63 @@
 										<button type="button" class="btn btn-info ccsave">SAVE</button>
 										<button type="button" class="btn btn-primary ccapply">APPLY</button>
 										<button type="button" class="btn btn-warning ccrefer">REFER 
-											<div>{{v.fee.currency}} ({{v.fee.amount}})</div>
+											<div>{{v.data.fee.currency}} ({{v.data.fee.amount}})</div>
 										</button>
 								</div>
-
+								
 								<div class="employer-details">
-
 									<div class="ctitleup">
-										<span class="header4 ctitle">{{v.title}}</span>
-									</div>
+										<a class="link"><span class="ctitle header4">{{v.title}}</span></a>
+									</div>							
 
 									<div class="cdetailsup">
-										<span class="header2 cdetails">{{v.experience}}</span>
+										<span class="cdetails header2">{{v.experience}}</span>
 										<p class="cdetails">{{v.skills}}</p>
 									</div>
-		
+
 									<div style="clear:both;"></div>
 
 									<div class="cimageblock">
-											<div ng-if="v.ad.type == 'gif'">
-												<img src="{{v.ad.link}}" class="cimage"/>
-											</div>
-											<div ng-if="v.ad.type == 'image'">
-												<img src="{{v.ad.link}}" class="cimage"/>
-											</div>
-											<div ng-if="v.ad.type == 'youtube'">
+   										<div ng-if="v.ad.type == 'gif'">
+   											<img src="{{v.ad.link}}" class="cimage" />
+   										</div>
+   										<div ng-if="v.ad.type == 'image'">
+   											<img src="{{v.ad.link}}" class="cimage" />
+   										</div>
+   										<div ng-if="v.ad.type == 'youtube'">
 
-												<iframe src="https://www.youtube.com/embed/n9EgH-QxaUI" class="cvideo" frameborder="0" allowfullscreen></iframe>
-											</div>
+   											<iframe src="https://www.youtube.com/embed/n9EgH-QxaUI" frameborder="0" allowfullscreen class="cvideo"></iframe>
+   										</div>
 									</div>
 								</div>
 
 								<div class="ccimageblock">
 									<div ng-if="v.ad.type == 'gif'">
-										<img src="{{v.ad.link}}" class="ccimage"/>
+										<img src="{{v.ad.link}}" class="ccimage" />
 									</div>
 									<div ng-if="v.ad.type == 'image'">
-										<img src="{{v.ad.link}}" class="ccimage"/>
+										<img src="{{v.ad.link}}" class="ccimage" />
 									</div>
 									<div ng-if="v.ad.type == 'youtube'">
 
-										<iframe src="https://www.youtube.com/embed/n9EgH-QxaUI" class="ccvideo" frameborder="0" allowfullscreen></iframe>
+										<iframe src="https://www.youtube.com/embed/n9EgH-QxaUI" frameborder="0" allowfullscreen class="ccvideo"></iframe>
 									</div>
 								</div>
 
 								<div class="cbuttons">
-									<span><button type="button" class="btn btn-info csave">SAVE</button>
+									<button type="button" class="btn btn-info csave">SAVE</button>
 									<button type="button" class="btn btn-primary capply">APPLY</button>
 									<button type="button" class="btn btn-warning crefer">REFER 
-											<span>{{v.fee.currency}}</span>
-											<span>({{v.fee.amount}})</span>
-									</button></span>
+										<span>{{v.fee.currency}}</span>
+										<span>({{v.fee.amount}})</span>
+									</button>
 								</div>
+
 								<div style="clear:both;"></div>
 								<div style="clear:both;"></div>
 								<div class="cbreak"></div>
 							</div>
+							<div class="break"></div>
 						</div>
 					</div>			
 				</div>
@@ -367,6 +371,7 @@
 
     // Scrolls to the selected menu item on the page
     $(function() {
+
         $('a[href*=#]:not([href=#])').click(function() {
             if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
 

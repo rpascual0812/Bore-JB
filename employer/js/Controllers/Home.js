@@ -193,4 +193,8 @@ app.controller('Home', function(
             //do nothing for now
         })   
     }
+
+    $scope.videochat = function(){
+        window.open('https://apprtc.appspot.com/r/chrswebrtc');
+    }
 });
