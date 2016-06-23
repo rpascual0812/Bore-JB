@@ -260,9 +260,11 @@ body {
 	background-color: #EEE;
 }
 .profile .menu .cbox{
+	padding:12%;
 	display:block;
 	margin-left:auto;
 	margin-right:auto;
+	margin-top:-40px;
 }
 
 
