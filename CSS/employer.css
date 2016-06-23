@@ -789,3 +789,16 @@ body {
     float: left; /* IE 9 Fix */
     outline: none; 
 }
+
+.credit {
+	text-align: center;
+	font-size: 20px;
+}
+
+.credit .label {
+	color: #000;
+}
+
+.credit .amount {
+	color: #daa520;
+}
