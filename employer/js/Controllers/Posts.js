@@ -20,6 +20,9 @@ app.controller('Posts', function(
         post : false
     };
 
+    $scope.prices = {};
+    $scope.employer_bucket = [];
+
     $scope.movies = ["The Wolverine", "The Smurfs 2", "The Mortal Instruments: City of Bones", "Drinking Buddies", "All the Boys Love Mandy Lane", "The Act Of Killing", "Red 2", "Jobs", "Getaway", "Red Obsession", "2 Guns", "The World's End", "Planes", "Paranoia", "The To Do List", "Man of Steel"];
 
     $scope.feeds.data = 
@@ -58,6 +61,19 @@ app.controller('Posts', function(
             }
         }
     ];
+
+    $scope.tinymceOptions = {
+        menubar : false,
+        plugins: 'link image code advlist lists',
+        toolbar: 'styleselect formatselect fontselect fontsizeselect | undo redo | cut copy paste | bold italic underline | bullist numlist alignleft aligncenter alignright alignjustify '
+        
+    };
+
+    /*
+    toolbar: "bold italic underline strikethrough| undo redo",//" | cut copy paste | styleselect print forecolor backcolor",
+    toolbar1: "bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect",
+    toolbar2: "cut copy paste | bullist numlist | outdent indent blockquote | undo redo | anchor | forecolor backcolor",
+    */
 
     init();
 

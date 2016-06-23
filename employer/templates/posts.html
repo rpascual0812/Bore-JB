@@ -192,12 +192,12 @@
 										</tr>
 										<tr>
 											<td style="padding-top: 5px;">
-												<textarea class="form-control" placeholder="Job Requirements"></textarea>
+												<textarea ui-tinymce="tinymceOptions" ng-model="requirements" class="form-control" placeholder="Job Requirements"></textarea>
 											</td>
 										</tr>
 										<tr>
 											<td style="padding-top: 5px;">
-												<textarea class="form-control" placeholder="Job Qualifications"></textarea>
+												<textarea ui-tinymce="tinymceOptions" ng-model="qualifications" class="form-control" placeholder="Job Qualifications"></textarea>
 											</td>
 										</tr>
 										<tr>
@@ -268,11 +268,11 @@
 
 							<div style="text-align:right; margin-top: 20px;">
 								<div style="float:left;">
-									<button type="button" class="btn btn-info" style="width:100px; margin-bottom:5px;">SAVE</button>
+									<!-- <button type="button" class="btn btn-info" style="width:100px; margin-bottom:5px;">SAVE</button> -->
 								</div>
 								<div style="float:right;">
-									<button type="button" class="btn btn-warning" style="width:100px; margin-bottom:5px;">REFER</button>
-									<button type="button" class="btn btn-primary" style="width:100px; margin-bottom:5px;">APPLY</button>
+									<button type="button" class="btn btn-danger" style="width:100px; margin-bottom:5px;">CLOSE</button>
+									<button type="button" class="btn btn-primary" style="width:100px; margin-bottom:5px;">EDIT</button>
 								</div>
 								<div style="clear:both;"></div>
 									

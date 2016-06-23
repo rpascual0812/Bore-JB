@@ -3,7 +3,8 @@ var app = angular.module('onload', [
                                     'ngCookies',
                                     'angular-md5',
                                     'textAngular',
-                                    'autocomplete'
+                                    'autocomplete',
+                                    'ui.tinymce'
                                 ]);
 
 app.config(function($routeProvider){
