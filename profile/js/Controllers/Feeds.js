@@ -151,11 +151,11 @@ app.controller('Feeds', function(
         $scope.feeds.ad.image = $scope.logos[[Math.floor(Math.random() * $scope.logos.length)]];
         $scope.feeds.ad.title = $scope.job_titles[[Math.floor(Math.random() * $scope.job_titles.length)]];
         $scope.feeds.ad.time_passed = 'Just now';
-        $scope.feeds.ad.experience = $scope.years[[Math.floor(Math.random() * $scope.logos.length)]];
-        $scope.feeds.ad.skills = $scope.skills[[Math.floor(Math.random() * $scope.logos.length)]];
+        $scope.feeds.ad.experience = $scope.years[[Math.floor(Math.random() * $scope.years.length)]];
+        $scope.feeds.ad.skills = $scope.skills[[Math.floor(Math.random() * $scope.skills.length)]];
         $scope.feeds.ad.fee = {
             currency : 'PHP',
-            amount : $scope.fee[[Math.floor(Math.random() * $scope.logos.length)]]
+            amount : $scope.fee[[Math.floor(Math.random() * $scope.fee.length)]]
         }
 
         var to1 = $timeout(function() {
@@ -171,11 +171,11 @@ app.controller('Feeds', function(
             image : $scope.logos[[Math.floor(Math.random() * $scope.logos.length)]],
             title : $scope.job_titles[[Math.floor(Math.random() * $scope.job_titles.length)]],
             time_passed : 'Just now',
-            experience : $scope.years[[Math.floor(Math.random() * $scope.logos.length)]],
-            skills : $scope.skills[[Math.floor(Math.random() * $scope.logos.length)]],
+            experience : $scope.years[[Math.floor(Math.random() * $scope.years.length)]],
+            skills : $scope.skills[[Math.floor(Math.random() * $scope.skills.length)]],
             fee : {
                 currency : 'PHP',
-                amount : $scope.fee[[Math.floor(Math.random() * $scope.logos.length)]]
+                amount : $scope.fee[[Math.floor(Math.random() * $scope.fee.length)]]
             }
         });
 
