@@ -179,6 +179,8 @@ app.controller('Feeds', function(
             }
         });
 
+        console.log($scope.feeds.data.fee);
+
         var to2 = $timeout(function() {
             $timeout.cancel(to2);
             
