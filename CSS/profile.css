@@ -639,7 +639,7 @@ body {
 	width:25%;
 	margin:10px 0% 0px 75%;
 	text-align:right;
-	padding:8px;
+	padding:8px 12px 8px 8px;
 	border-left:4px solid #e4ebe0;
 	border-bottom:2px solid #e4ebe0;
 
@@ -1070,7 +1070,7 @@ body {
 		margin-right:3px;
 	}
 	.left .feeds .post .feed-data .Cupperbox .Cad{
-		width:66%;
+		width:66.25%;
 		margin-left:33%;
 	}
 	.left .feeds .post .feed-data .Clowerbox .ClowerboxUp{
@@ -1345,8 +1345,9 @@ body {
 		margin-right:3px;
 	}
 	.left .feeds .post .feed-data .Cupperbox .Cad{
-		width:67%;
+		width:66%;
 		margin-left:33%;
+		border-radius: 30% 30% 0 0;
 	}
 	.left .feeds .post .feed-data .Clowerbox .ClowerboxUp{
 		width:67%;
@@ -1434,13 +1435,24 @@ body {
 	.left .feeds .post .feed-data .Clowerbox .ClowerboxMiddle .Cadbox .Cvideo{
 		height:550px;
 	}
+	.left .feeds .post .feed-data .Cupperbox .Cad{
+		width:66.5%;
+		margin-left:32.85%;
+		border-radius: 30% 30% 0 0;
+	}
 }
 @media(min-width: 1800px){
 	.left .feeds .post .feed-data .Cupperbox .Cad{
 		font-size:1.25em;
 		padding-top: 10px;
 	}
+	.left .feeds .post .feed-data .Cupperbox .Cad{
+		width:66.5%;
+		margin-left:33%;
+		border-radius: 30% 30% 0 0;
+	}
 }
+
 @media(min-width: 2000px){
 
 	.left .feeds .post .feed-data .Cupperbox .Cad{
