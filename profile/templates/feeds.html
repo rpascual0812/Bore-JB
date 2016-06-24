@@ -58,6 +58,7 @@
 
 	<div class="main">
 		<div style="clear:both;"></div>
+
 		<div class="profile">
 
 			<div class="c-menu megamenu">
@@ -106,186 +107,185 @@
 					<img src="../ASSETS/img/star.png" style="width:16px;">
 					<span class="font12 link">Talent Acquisition</span>
 				</div>
-
-				<div class="credit">
-					<span class="font14 label">Available Wallet</span> <br />
-					<span class="amount">{{profile.data.currency}} {{profile.data.available}}</span>
-				</div>
 			</div>
 
 			<div class="left">
-				<div class="cbreak"></div>
+
+				<div class="CbreakSec"></div>
+
 				<div class="feeds">
 					<div class="post">
+
 						<div class="feed-data">
 
-							<div style="width:100%;">
+							<div class="Cupperbox">
+								<div class="Cad";>
+									<span>AD</span>
+								</div>
+								<div class="Clogo">
+									<img src="{{feeds.ad.image}}"/>
+								</div>
+							</div>
 
-
-								<div class="cbox2">
-									<div class="cad">
-										<div class="cad-circle">
-											<span>AD</span>
-										</div>
-									</div>
-
-									<div class="employer-logo">
-										<img src="{{feeds.ad.image}}" />
-									</div>
+							<div class="CupperboxSec">
+								<div class="CadSec";>
+									<span>AD</span>
 								</div>
 
-								<div class="ccbuttons">
-										<button type="button" class="btn btn-info ccsave">SAVE</button>
-										<button type="button" class="btn btn-primary ccapply">APPLY</button>
-										<button type="button" class="btn btn-warning ccrefer">REFER 
+								<div class="ClowerboxBottomSec">
+									<div class="CbuttonsboxSec">
+										<button type="button" class="btn btn-info CsaveSec">SAVE</button>
+										<button type="button" class="btn btn-primary CapplySec">APPLY</button>
+										<button type="button" class="btn btn-warning CreferSec">REFER 
 											<div>{{feeds.ad.fee.currency}} ({{feeds.ad.fee.amount}})</div>
 										</button>
+									</div>
+									<div class="ClogoSec">
+										<img src="{{feeds.ad.image}}"/>
+									</div>
 								</div>
-								
-								<div class="employer-details">
-									<div class="ctitleup">
-										<a class="link"><span class="ctitle header4">{{feeds.ad.title}}</span></a>
+							</div>
+
+							<div class="Cbreak"></div>
+
+							<div class="Clowerbox">
+								<div class="ClowerboxUp">
+									<div class="Ctitlebox">
+										<a class="link"><span class="Ctitle header4">{{feeds.ad.title}}</span></a>
 									</div>							
 
-									<div class="cdetailsup">
-										<span class="cdetails header2">{{feeds.ad.experience}}</span>
-										<p class="cdetails">{{feeds.ad.skills}}</p>
+									<div class="Cdetailsbox">
+										<span class="Cdetails header2">{{feeds.ad.experience}}</span>
+										<p class="Cdetails">{{feeds.ad.skills}}</p>
 									</div>
 
 									<div style="clear:both;"></div>
+								</div>
 
-									<div class="cimageblock">
-   										<div ng-if="feeds.ad.ad.type == 'gif'">
-   											<img src="{{feeds.ad.ad.link}}" class="cimage" />
-   										</div>
-   										<div ng-if="feeds.ad.ad.type == 'image'">
-   											<img src="{{feeds.ad.ad.link}}" class="cimage" />
-   										</div>
-   										<div ng-if="feeds.ad.ad.type == 'youtube'">
+								<div class="Cbreak"></div>
 
-   											<iframe src="https://www.youtube.com/embed/n9EgH-QxaUI" frameborder="0" allowfullscreen class="cvideo"></iframe>
-   										</div>
+								<div class="ClowerboxMiddle">
+									<div class="Cadbox">
+										<div ng-if="feeds.ad.ad.type == 'gif'" class="Cimage" >
+											<img src="{{feeds.ad.ad.link}}"/>
+										</div>
+										<div ng-if="feeds.ad.ad.type == 'image'" class="Cimage">
+											<img src="{{feeds.ad.ad.link}}"/>
+										</div>
+										<div ng-if="feeds.ad.ad.type == 'youtube'">
+
+											<iframe src="https://www.youtube.com/embed/n9EgH-QxaUI" frameborder="0" allowfullscreen class="Cvideo"></iframe>
+										</div>
 									</div>
 								</div>
 
-								<div class="ccimageblock">
-									<div ng-if="feeds.ad.ad.type == 'gif'">
-										<img src="{{feeds.ad.ad.link}}" class="ccimage" />
-									</div>
-									<div ng-if="feeds.ad.ad.type == 'image'">
-										<img src="{{feeds.ad.ad.link}}" class="ccimage" />
-									</div>
-									<div ng-if="feeds.ad.ad.type == 'youtube'">
+								<div class="Cbreak"></div>
 
-										<iframe src="https://www.youtube.com/embed/n9EgH-QxaUI" frameborder="0" allowfullscreen class="ccvideo"></iframe>
+								<div class="ClowerboxBottom">
+									<div class="Cbuttonsbox">
+										<button type="button" class="btn btn-info Csave">SAVE</button>
+										<button type="button" class="btn btn-primary Capply">APPLY</button>
+										<button type="button" class="btn btn-warning Crefer">REFER 
+											<div>{{feeds.ad.fee.currency}} ({{feeds.ad.fee.amount}})</div>
+										</button>
 									</div>
 								</div>
-
-								<div class="cbuttons">
-									<button type="button" class="btn btn-info csave">SAVE</button>
-									<button type="button" class="btn btn-primary capply">APPLY</button>
-									<button type="button" class="btn btn-warning crefer">REFER 
-										<span>{{feeds.ad.fee.currency}}</span>
-										<span>({{feeds.ad.fee.amount}})</span>
-									</button>
-								</div>
-
-								<div style="clear:both;"></div>
-								<div style="clear:both;"></div>
-								<div class="cbreak"></div>
 							</div>
 						</div>
+
+						<div style="clear:both;"></div>
+						<div class="CbreakSec"></div>
 					</div>			
 				</div>
-
-				<div class="break"></div>
 
 				<div class="feeds">
 					<div class="post">
 						<div class="feed-data" data-ng-repeat="(k,v) in feeds.data">
 
-							<div style="width:100%;">
+							<div class="CbreakSec"></div>
 
-
-								<div class="cbox2">
-									<div class="cad">
-										<div class="cad-circle">
-											<span>{{v.time_passed}}</span>
-										</div>
-									</div>
-
-									<div class="employer-logo">
-										<img src="{{v.image}}" />
-									</div>
-								</div>
-
-								<div class="ccbuttons">
-										<button type="button" class="btn btn-info ccsave">SAVE</button>
-										<button type="button" class="btn btn-primary ccapply">APPLY</button>
-										<button type="button" class="btn btn-warning ccrefer">REFER 
-											<div>{{v.fee.currency}} ({{v.fee.amount}})</div>
-										</button>
+							<div class="Cupperbox">
+								<div class="Cad";>
+									<span>{{v.time_passed}}</span>
 								</div>
 								
-								<div class="employer-details">
-									<div class="ctitleup">
-										<a class="link"><span class="ctitle header4">{{v.title}}</span></a>
+								<div class="Clogo">
+									<img src="{{v.image}}"/>
+								</div>
+							</div>
+
+							<div class="CupperboxSec">
+								<div class="CadSec";>
+									<span>{{v.time_passed}}</span>
+								</div>
+
+								<div class="ClowerboxBottomSec">
+									<div class="CbuttonsboxSec">
+										<button type="button" class="btn btn-info CsaveSec">SAVE</button>
+										<button type="button" class="btn btn-primary CapplySec">APPLY</button>
+										<button type="button" class="btn btn-warning CreferSec">REFER 
+											<div>{{v.data.fee.currency}} ({{v.data.fee.amount}})</div>
+										</button>
+									</div>
+									<div class="ClogoSec">
+										<img src="{{v.image}}"/>
+									</div>
+								</div>
+
+							</div>
+
+							<div class="Cbreak"></div>
+
+							<div class="Clowerbox">
+								<div class="ClowerboxUp">
+									<div class="Ctitlebox">
+										<a class="link"><span class="Ctitle header4">{{v.title}}</span></a>
 									</div>							
 
-									<div class="cdetailsup">
-										<span class="cdetails header2">{{v.experience}}</span>
-										<p class="cdetails">{{v.skills}}</p>
+									<div class="Cdetailsbox">
+										<span class="Cdetails header2">{{v.experience}}</span>
+										<p class="Cdetails">{{v.skills}}</p>
 									</div>
 
 									<div style="clear:both;"></div>
+								</div>
 
-									<div class="cimageblock">
-   										<div ng-if="v.ad.type == 'gif'">
-   											<img src="{{v.ad.link}}" class="cimage" />
+								<div class="Cbreak"></div>
+
+								<div class="ClowerboxMiddle">
+									<div class="Cadbox">
+										<div ng-if="v.ad.type == 'gif'" class="Cimage" >
+   											<img src="{{v.ad.link}}"/>
    										</div>
-   										<div ng-if="v.ad.type == 'image'">
-   											<img src="{{v.ad.link}}" class="cimage" />
+   										<div ng-if="v.ad.type == 'image'" class="Cimage" >
+   											<img src="{{v.ad.link}}"/>
    										</div>
    										<div ng-if="v.ad.type == 'youtube'">
 
-   											<iframe src="https://www.youtube.com/embed/n9EgH-QxaUI" frameborder="0" allowfullscreen class="cvideo"></iframe>
-   										</div>
+											<iframe src="https://www.youtube.com/embed/n9EgH-QxaUI" frameborder="0" allowfullscreen class="Cvideo"></iframe>
+										</div>
 									</div>
 								</div>
 
-								<div class="ccimageblock">
-									<div ng-if="v.ad.type == 'gif'">
-										<img src="{{v.ad.link}}" class="ccimage" />
-									</div>
-									<div ng-if="v.ad.type == 'image'">
-										<img src="{{v.ad.link}}" class="ccimage" />
-									</div>
-									<div ng-if="v.ad.type == 'youtube'">
+								<div class="Cbreak"></div>
 
-										<iframe src="https://www.youtube.com/embed/n9EgH-QxaUI" frameborder="0" allowfullscreen class="ccvideo"></iframe>
+								<div class="ClowerboxBottom">
+									<div class="Cbuttonsbox">
+										<button type="button" class="btn btn-info Csave">SAVE</button>
+										<button type="button" class="btn btn-primary Capply">APPLY</button>
+										<button type="button" class="btn btn-warning Crefer">REFER 
+											<div>{{v.data.fee.currency}} ({{v.data.fee.amount}})</div>
+										</button>
 									</div>
 								</div>
-
-								<div class="cbuttons">
-									<button type="button" class="btn btn-info csave">SAVE</button>
-									<button type="button" class="btn btn-primary capply">APPLY</button>
-									<button type="button" class="btn btn-warning crefer">REFER 
-										<span>{{v.fee.currency}}</span>
-										<span>({{v.fee.amount}})</span>
-									</button>
-								</div>
-
-								<div style="clear:both;"></div>
-								<div style="clear:both;"></div>
-								<div class="cbreak"></div>
 							</div>
-							<div class="break"></div>
 						</div>
+
+						<div style="clear:both;"></div>
+						<div class="CbreakSec"></div>
 					</div>			
 				</div>
 			</div>
-
-				<!-- Cut Part -->
 
 			<div class="right">
 				<div class="statistics">
@@ -304,15 +304,15 @@
 				</div>
 
 				<div class="break"></div>
+				<div class="CClowerboxMiddle">
+					<div class="CCadbox">
+						<img src="../ASSETS/Uploads/ads/post1.jpg" class="CCimage">
+					</div>
 
-				<div class="ccimageblock">
-					<img src="../ASSETS/Uploads/ads/post1.jpg" class="ccborder">
+					<div class="CCadbox">
+						<img src="../ASSETS/Uploads/ads/post2.jpg" class="CCimage">
+					</div>
 				</div>
-
-				<div class="ccimageblock">
-					<img src="../ASSETS/Uploads/ads/post2.jpg" class="ccborder">
-				</div>
-
 				<div class="break"></div>
 
 				<div class="updates">
