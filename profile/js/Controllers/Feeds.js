@@ -30,7 +30,8 @@ app.controller('Feeds', function(
             fee : {
                 currency : 'PHP',
                 amount : '1,000.00'
-            }
+            },
+            background : '../ASSETS/Uploads/employers/backgrounds/12.png'
         },
         {
             image : '../ASSETS/Uploads/employers/ibex2.png',
@@ -45,7 +46,8 @@ app.controller('Feeds', function(
             fee : {
                 currency : 'PHP',
                 amount : '5,000.00'
-            }
+            },
+            background : '../ASSETS/Uploads/employers/backgrounds/11.png'
         },
         {
             image : '../ASSETS/Uploads/employers/uhg2.jpeg',
@@ -60,7 +62,8 @@ app.controller('Feeds', function(
             fee : {
                 currency : 'PHP',
                 amount : '500.00'
-            }
+            },
+            background : '../ASSETS/Uploads/employers/backgrounds/10.png'
         }
     ];
 
@@ -114,6 +117,21 @@ app.controller('Feeds', function(
         '5,000.00'
     ];
 
+    $scope.background = [
+        '../ASSETS/Uploads/employers/backgrounds/1.png',
+        '../ASSETS/Uploads/employers/backgrounds/2.png',
+        '../ASSETS/Uploads/employers/backgrounds/3.png',
+        '../ASSETS/Uploads/employers/backgrounds/4.png',
+        '../ASSETS/Uploads/employers/backgrounds/5.png',
+        '../ASSETS/Uploads/employers/backgrounds/6.png',
+        '../ASSETS/Uploads/employers/backgrounds/7.png',
+        '../ASSETS/Uploads/employers/backgrounds/8.png',
+        '../ASSETS/Uploads/employers/backgrounds/9.png',
+        '../ASSETS/Uploads/employers/backgrounds/10.png',
+        '../ASSETS/Uploads/employers/backgrounds/11.png',
+        '../ASSETS/Uploads/employers/backgrounds/12.png'
+    ];
+
     $scope.timer = [
         10000,
         5000,
@@ -157,6 +175,7 @@ app.controller('Feeds', function(
             currency : 'PHP',
             amount : $scope.fee[[Math.floor(Math.random() * $scope.fee.length)]]
         }
+        $scope.feeds.ad.background = $scope.background[[Math.floor(Math.random() * $scope.skills.length)]];
 
         var to1 = $timeout(function() {
             $timeout.cancel(to1);
@@ -176,10 +195,9 @@ app.controller('Feeds', function(
             fee : {
                 currency : 'PHP',
                 amount : $scope.fee[[Math.floor(Math.random() * $scope.fee.length)]]
-            }
+            },
+            background : $scope.background[[Math.floor(Math.random() * $scope.skills.length)]]
         });
-
-        console.log($scope.feeds.data.fee);
 
         var to2 = $timeout(function() {
             $timeout.cancel(to2);

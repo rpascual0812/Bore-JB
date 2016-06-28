@@ -1,4 +1,30 @@
-<div>
+<style type="text/css">
+#container {
+	margin-right: 10px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  pointer-events: none;
+}
+.chat {
+  border: 1px solid #999;
+  display: inline-block;
+  vertical-align: bottom;
+  position: relative;
+  margin: 0 5px;
+  pointer-events: auto;
+}
+
+.color-picker {
+	width: 30px;
+	height: 30px;
+	float: left;
+	cursor: pointer;
+}
+
+</style>
+
+<div ng-controller="Background" style="background-color: {{background}}">
 	<div>
 	    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
 	        <div class="container topnav" style="color:#FFF !important;">
@@ -17,7 +43,6 @@
 	            </div>
 	            <!-- Collect the nav links, forms, and other content for toggling -->
 	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	            	
 
 	                <!-- <ul class="nav navbar-nav navbar-right">
 	                    <li>
@@ -269,4 +294,15 @@
 			<div style="clear:both;"></div>
 		</div>
 	</div>
+
+	<div id="container">
+	  	<div class="chat">
+	    	<div class="chatbox">
+	    		<input type="text" placeholder="HEX Color" ng-model="custom" ng-change="custom_changed()" />
+	    		<div class="color-picker" ng-repeat="(k,v) in list.color" style="background-color: {{ v }}" ng-click="change_color(v)">{{k + 1}}</div>
+	    	</div>
+	  	</div>
+	</div>
 </div>
+
+	

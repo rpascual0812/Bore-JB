@@ -107,6 +107,11 @@
 					<img src="../ASSETS/img/star.png" style="width:16px;">
 					<span class="font12 link">Talent Acquisition</span>
 				</div>
+
+				<div class="credit">
+					<span class="font14 label">Available Credit</span> <br />
+					<span class="amount">{{profile.data.currency}} {{profile.data.available}}</span>
+				</div>
 			</div>
 
 			<div class="left">
@@ -116,7 +121,7 @@
 				<div class="feeds">
 					<div class="post">
 
-						<div class="feed-data">
+						<div class="feed-data" style="background: url({{feeds.ad.background}});">
 
 							<div class="Cupperbox">
 								<div class="Cad";>
@@ -194,13 +199,13 @@
 						</div>
 
 						<div style="clear:both;"></div>
-						<div class="CbreakSec"></div>
+						<!-- <div class="CbreakSec"></div> -->
 					</div>			
 				</div>
 
 				<div class="feeds">
 					<div class="post">
-						<div class="feed-data" data-ng-repeat="(k,v) in feeds.data">
+						<div class="feed-data" data-ng-repeat="(k,v) in feeds.data" style="background: url({{v.background}}); background-repeat: no-repeat;">
 
 							<div class="CbreakSec"></div>
 

@@ -64,9 +64,8 @@ app.controller('Posts', function(
 
     $scope.tinymceOptions = {
         menubar : false,
-        plugins: 'link image code advlist lists',
+        plugins: 'link image code advlist lists placeholder',
         toolbar: 'styleselect formatselect fontselect fontsizeselect | undo redo | cut copy paste | bold italic underline | bullist numlist alignleft aligncenter alignright alignjustify '
-        
     };
 
     /*
