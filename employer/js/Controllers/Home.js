@@ -18,6 +18,20 @@ app.controller('Home', function(
     $scope.prices = {};
     $scope.employer_bucket = [];
 
+    $scope.pics = [
+        '../ASSETS/Uploads/jobseeker/rafael1.jpg',
+        '../ASSETS/Uploads/jobseeker/eli.png',
+        '../ASSETS/Uploads/jobseeker/greg.jpg',
+        '../ASSETS/Uploads/jobseeker/ken.jpg',
+        '../ASSETS/Uploads/jobseeker/super_happy.png',
+        '../ASSETS/Uploads/jobseeker/happy.png',
+        '../ASSETS/Uploads/jobseeker/tongue.png',
+        '../ASSETS/Uploads/jobseeker/female1.jpg',
+        '../ASSETS/Uploads/jobseeker/female2.png',
+        '../ASSETS/Uploads/jobseeker/female3.png'
+    ];
+    //
+
     init();
 
     $scope.$watch(EmployerService.get(), function(newVal, oldVal) {
@@ -48,6 +62,11 @@ app.controller('Home', function(
         promise.then(function(data){
             $scope.candidates.data = [];
             $scope.candidates.data = data.data.result;
+
+            for(var i in $scope.candidates.data){
+                $scope.candidates.data[i].pic = $scope.pics[[Math.floor(Math.random() * $scope.pics.length)]];
+            }
+
             $scope.candidates.status = true;
         })
         .then(null, function(data){
