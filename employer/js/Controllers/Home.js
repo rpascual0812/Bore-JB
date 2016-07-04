@@ -32,6 +32,8 @@ app.controller('Home', function(
     ];
     //
 
+    $scope.movies = ["The Wolverine", "The Smurfs 2", "The Mortal Instruments: City of Bones", "Drinking Buddies", "All the Boys Love Mandy Lane", "The Act Of Killing", "Red 2", "Jobs", "Getaway", "Red Obsession", "2 Guns", "The World's End", "Planes", "Paranoia", "The To Do List", "Man of Steel"];
+
     init();
 
     $scope.$watch(EmployerService.get(), function(newVal, oldVal) {

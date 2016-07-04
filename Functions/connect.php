@@ -1,3 +1,3 @@
 <?php
-pg_connect("host=localhost dbname=chrs_jobber user=chrs password=chrs");
+pg_connect("host=localhost dbname=chrs_joberfied user=chrs password=chrs");
 ?>
