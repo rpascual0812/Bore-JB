@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Gotham';
+    src: url('../ASSETS/fonts/gotham_rounded/GothamRounded-Bold.otf');
+    font-weight: 900;
+    font-style: normal;
+}
+
+.parent {
+    width:100%;
+    font-family: "Gotham", Helvetica, Arial, sans-serif;
+}
+
+.parent .box {
+    margin: 0 auto; 
+    width: 50%;
+
+    border: solid 1px #e30000;
+
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+
+    padding: 10%;
+}
