@@ -157,6 +157,7 @@ create table candidates_accounts (
 );
 alter table candidates_accounts owner to chrs;
 create unique index candidates_accounts_pin on candidates_accounts (pin);
+create unique index candidates_accounts_email_address on candidates_accounts (email_address);
 
 create table candidates_log(
 	pin text not null references candidates(pin),
