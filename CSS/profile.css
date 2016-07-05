@@ -160,6 +160,8 @@ body {
 	margin: 0 auto;
 }
 
+
+
 /*MENU*/
 
 .profile .menu {
@@ -1778,4 +1780,24 @@ body {
 
 #share-buttons img:hover {
 	outline: none;
+}
+
+.main .profile .fullpage {
+	width: 68%;
+	
+	margin: 0 auto;
+	margin-top:40px;
+
+	min-height: 450px;
+	background-color: #FFF;
+
+	padding: 3.5em 1.5em 1.5em 1.5em;
+
+    border: 1px solid #CCC;
+    box-shadow: 0 4px 8px -2px #000;
+    -moz-box-shadow: 0 4px 8px -2px #000;
+    -webkit-box-shadow: 0 4px 8px -2px #000;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
 }

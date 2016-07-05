@@ -21,6 +21,11 @@ app.config(function($routeProvider){
         controller: 'Feeds',
         templateUrl: 'templates/feeds.html'
     })
+    .when('/confirm/:code',
+    {
+        controller: 'Confirm',
+        templateUrl: 'templates/confirm.html'
+    })
     .otherwise(
     {
         redirectTo: '/login'
