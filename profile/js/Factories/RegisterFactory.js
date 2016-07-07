@@ -3,7 +3,7 @@ app.factory('RegisterFactory', function($http){
 
     factory.save = function(data){
         var promise = $http({
-            url:'./functions/registration/register.php',
+            url:'./functions/profile/register.php',
             method: 'POST',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             transformRequest: function(obj) {

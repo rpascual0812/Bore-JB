@@ -29,8 +29,9 @@ class Candidates extends ClassParent{
         return(true);
     }
 
-    public function save(){
+    public function create(){
         $sql = <<<EOT
+            begin;
             insert into candidates
             (
                 pin,
@@ -55,6 +56,7 @@ class Candidates extends ClassParent{
                 '$this->email_address',
                 md5('$this->password')
             );
+            commit;
 EOT;
 
         return ClassParent::insert($sql);
