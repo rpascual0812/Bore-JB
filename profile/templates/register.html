@@ -1,0 +1,24 @@
+<div>
+	<fieldset>
+		<legend>Registration</legend>
+
+		<label for="firstName">First Name: </label>
+		<input id="firstName" type="text" ng-model="form.firstName" /><br>
+
+		<label for="lastName">Last Name: </label>
+		<input id="lastName" type="text" ng-model="form.lastName" /><br>
+		
+		<label for="email">Email: </label>
+		<input id="email" type="text" ng-model="form.email" /><br>
+		
+		<label for="password1">Password: </label>
+		<input id="password1" type="password" ng-model="form.password1" /><br>
+		
+		<label for="password2">Confirm Password: </label>
+		<input id="password2" type="password" ng-model="form.password2" /><br>
+
+
+		<input type="button" value="Register" ng-click="register()"/>
+
+	</fieldset>
+</div>
