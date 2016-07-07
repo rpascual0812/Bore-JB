@@ -1,79 +1,90 @@
 body{
 	font-family: "Gotham", "Lato", Helvetica, Arial, sans-serif;
 }
-	.c-briefcase{
-		width:100%;
-		margin:57.5% 0% 0% 0%;
-		padding:0%;
-	}
-	.jonathan {
-		width:48%;
-		margin:-190% 0% 0% -4%;
-		padding:0%;
-	}
-	.welcome-emp{
-		width: 60%;
-		height: 5%;
-		position:absolute;
-		margin:32.25% 0% 0% 33.75%;
+.c-briefcase{
+	width:100%;
+	margin:57.5% 0% 0% 0%;
+	padding:0%;
+}
+.jonathan {
+	width:48%;
+	margin:-190% 0% 0% -4%;
+	padding:0%;
+}
+.welcome-emp{
+	width: 60%;
+	height: 5%;
+	position:absolute;
+	margin:32.25% 0% 0% 33.75%;
 
-		font-size: 190%;
-		font-style:bold;	
-		border-radius: 5px;
-		border: 0;
-		text-align: center;
+	font-size: 190%;
+	font-style:bold;
+	border-radius: 5px;
+	border: 0;
+	text-align: center;
 
-		color: #ffffff;		
-		text-align: center;
-		display:block;
-	}
-	.username {
-		width:80%;
-		height:6%;
-		position:absolute;
-		margin:85.75% 0% 0% 13%;
-		font-size: 150%;
-		border-radius: 5px;
-		border: 0;
-		text-align: center;
-	}
-	.password {
-		width:80%;
-		height:6%;
-		position:absolute;
-		margin:98.2% 0% 0% 13%;
-		font-size: 150%;
-		border-radius: 5px;
-		border: 0;
-		text-align: center;
-	}
-	.login {
-		width:40%;
-		height:9%;
-		position:absolute;
-		margin:128.5% 0% 0% 32%;
-		font-size: 150%;
-		border-radius: 5px;
-		border: 0;
-		text-align: center;
-	}
-	.message-spacing{
-		margin:-93% 0% 0% 37.25%;
-	}
-	.message{
-		width: 70%;
-		height: 5%;
-		position:absolute;
-		margin:0% 0% 0% -10%;
+	color: #ffffff;
+	text-align: center;
+	display:block;
+}
+.username {
+	width:80%;
+	height:6%;
+	position:absolute;
+	margin:85.75% 0% 0% 13%;
+	font-size: 150%;
+	border-radius: 5px;
+	border: 0;
+	text-align: center;
+}
+.password {
+	width:80%;
+	height:6%;
+	position:absolute;
+	margin:98.2% 0% 0% 13%;
+	font-size: 150%;
+	border-radius: 5px;
+	border: 0;
+	text-align: center;
+}
+.login {
+	width:40%;
+	height:9%;
+	position:absolute;
+	margin:128.5% 0% 0% 32%;
+	font-size: 150%;
+	border-radius: 5px;
+	border: 0;
+	text-align: center;
+}
+.signup{width:40%;
+	height:9%;
+	position:absolute;
+	margin:128.5% 0% 0% 32%;
+	font-size: 150%;
+	border-radius: 5px;
+	border: 0;
+	text-align: center;
 
-		font-size: 65%;
-		border-radius: 5px;
-		border: 0;
-		text-align: center;
+}
 
-		color: #ffffff;		
-		text-align: center;
-	}
+.message-spacing{
+	margin:-93% 0% 0% 37.25%;
+}
+.message{
+	width: 70%;
+	height: 5%;
+	position:absolute;
+	margin:0% 0% 0% -10%;
+
+	font-size: 65%;
+	border-radius: 5px;
+	border: 0;
+	text-align: center;
+
+	color: #ffffff;
+	text-align: center;
+}
 @media(min-width: 375px){
 	.c-briefcase{
 		margin:57.5% 0% 0% 0%;
@@ -97,6 +108,11 @@ body{
 		height:9%;
 		margin:105.5% 0% 0% 32%;
 		font-size: 150%;
+	}
+	.signup{
+		height:7%;
+		margin:40% 0% 0% 50%;
+		font-size: 200%;
 	}
 	.message-spacing{
 		margin:-90% 0% 0% 37.25%;
@@ -125,6 +141,10 @@ body{
 	.login {
 		height:9%;
 		margin:99.5% 0% 0% 32%;
+	}
+	.signup{
+		height:7%;
+		margin:40% 0% 0% 50%;
 	}
 	.message-spacing{
 		margin:-90% 0% 0% 37.25%;
@@ -162,6 +182,12 @@ body{
 		height: 7%;
 		margin:46.5% 0% 0% 55%;
 		font-size: 150%;
+	}
+	.signup{
+		width:15%;
+		height:7%;
+		margin:40% 0% 0% 50%;
+		font-size: 200%;
 	}
 	.message-spacing{
 		margin:-38.5% 0% 0% 26.5%;
@@ -203,6 +229,12 @@ body{
 		margin:41.5% 0% 0% 54%;
 		font-size: 150%;
 	}
+	.signup{
+		width:15%;
+		height:7%;
+		margin:40% 0% 0% 50%;
+		font-size: 200%;
+	}
 	.message-spacing{
 		margin:-35.5% 0% 0% 36%;
 	}
@@ -243,6 +275,12 @@ body{
 		margin:36.5% 0% 0% 56%;
 		font-size: 200%;
 	}
+	.signup{
+		width:15%;
+		height:7%;
+		margin:40% 0% 0% 50%;
+		font-size: 200%;
+	}
 	.message-spacing{
 		margin:-34.5% 0% 0% 38%;
 	}
@@ -280,7 +318,13 @@ body{
 	.login {
 		width: 15%;
 		height: 7%;
-		margin:35.5% 0% 0% 55%;
+		margin:35.5% 0% 0% 65%;
+		font-size: 200%;
+	}
+	.signup{
+		width:15%;
+		height: 7%;
+		margin:35.5% 0% 0% 45%;
 		font-size: 200%;
 	}
 	.message-spacing{

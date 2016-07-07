@@ -11,6 +11,11 @@ app.config(function($routeProvider){
         controller: 'Login',
         templateUrl: 'templates/login.html'
     })
+    .when('/register',
+        {
+            controller: 'Register',
+            templateUrl: 'templates/register.html'
+        })
     .when('/:pin',
     {
         controller: 'Profile',
