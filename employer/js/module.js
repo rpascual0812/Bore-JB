@@ -24,6 +24,11 @@ app.config(function($routeProvider){
         controller: 'Posts',
         templateUrl: 'templates/posts.html'
     })
+    .when('/register',
+    {
+        controller: 'Register',
+        templateUrl: 'templates/registration.html'
+    })
     .when('/',
     {
         controller: 'Home',

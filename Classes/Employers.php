@@ -5,11 +5,21 @@ class Employers extends ClassParent{
     var $name           = NULL;
     var $currencies_pk  = NULL;
     var $plans_pk  = NULL;
+    var $contact_person  = NULL;
+    var $contact_number  = NULL;
+    var $best_time  = NULL;
+    var $email  = NULL;
+
 
     public function __construct(
                                     $pin,
                                     $name,
-                                    $plans_pk
+                                    $currencies_pk,
+                                    $plans_pk,
+                                    $contact_person,
+                                    $contact_number,
+                                    $best_time,
+                                    $email
                                 ){
         
         $fields = get_defined_vars();
@@ -30,19 +40,29 @@ class Employers extends ClassParent{
         // $sql = "begin;";
 
         $sql = <<<EOT
-            insert into employees
+            insert into employers
             (
                 pin,
                 name,
                 currencies_pk,
-                plans_pk
+                plans_pk,              
+                contact_person,
+                contact_number,
+                best_time,
+                email
             )
             values
             (
                 '$this->pin',
                 '$this->name',
-                '$this->currencies_pk',
-                '$this->plans_pk'
+                1,
+                '$this->plans_pk',
+                '$this->contact_person',
+                '$this->contact_number',
+                '$this->best_time',
+                '$this->email'
+
+
             )
             ;
 EOT;
