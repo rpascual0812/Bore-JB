@@ -1,24 +1,27 @@
-<div>
-	<fieldset>
+<div class="container">
+	<form role="form">
 		<legend>Registration</legend>
 
 		<label for="firstName">First Name: </label>
-		<input id="firstName" type="text" ng-model="form.firstName" /><br>
+		<input required id="firstName" type="text" ng-model="form.firstName" placeholder="First Name"/>
+		<div class="help-block with-errors"></div><br>
 
 		<label for="lastName">Last Name: </label>
-		<input id="lastName" type="text" ng-model="form.lastName" /><br>
-		
-		<label for="email">Email: </label>
-		<input id="email" type="text" ng-model="form.email" /><br>
+		<input required id="lastName" type="text" ng-model="form.lastName" placeholder="Last Name"/>
+		<div class="help-block with-errors"></div><br>
+
+		<label for="email">Email Address:</label>
+		<input required id="email" type="email" ng-model="form.email" placeholder="Email Address"/> 
+		<div class="help-block with-errors"></div><br>
 		
 		<label for="password1">Password: </label>
-		<input id="password1" type="password" ng-model="form.password1" /><br>
+		<input required id="password1" type="password" ng-model="form.password1" placeholder="Password"/>
+		<div class="help-block with-errors"></div><br>
 		
-		<label for="password2">Confirm Password: </label>
-		<input id="password2" type="password" ng-model="form.password2" /><br>
+		<input required id="password2" type="password" ng-model="form.password2" data-match="#password1" data-match-error="The password doesn't match." placeholder="Confirm Password"/>
+		<div class="help-block with-errors"></div><br>
 
 
-		<input type="button" value="Register" ng-click="register()"/>
-
-	</fieldset>
+		<input type="submit" value="submit" ng-click="register()">
+	</form>
 </div>

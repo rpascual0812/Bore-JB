@@ -20,17 +20,17 @@ app.controller('Register', function(
 
         
         if (errCtr > 0) {
-            alert('Register Failed..' + errCtr);
+            console.log('Register Failed..' + errCtr);
         }
         else {
             var promise = RegisterFactory.save($scope.form);
             promise.then(function(data){
-                alert('Registration Successful');
+                console.log('Registration Successful');
                 
             })
             .then(null, function(data){
                 //failed to save
-                alert('Register Failed');
+                console.log('Register Failed');
             });
         }
     };
