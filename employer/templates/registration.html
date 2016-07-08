@@ -1,0 +1,63 @@
+<style type="text/css">
+#container {
+	margin-right: 10px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  pointer-events: none;
+}
+.chat {
+  border: 1px solid #999;
+  display: inline-block;
+  vertical-align: bottom;
+  position: relative;
+  margin: 0 5px;
+  pointer-events: auto;
+}
+
+.chat input {
+	width: 100px;
+	height: 30px;
+}
+
+.color-picker {
+	width: 30px;
+	height: 30px;
+	float: left;
+	cursor: pointer;
+}
+
+</style>
+
+<link href='../CSS/employer_register.css' rel='stylesheet' type='text/css'>
+
+<div ng-controller="Background" style="background-color: {{background}}">
+	<p class="welcome-emp">WELCOME !</p>
+	<input type="text" class="name" ng-model="form.name" placeholder="COMPANY NAME"/>
+	<input type="text" class="person" ng-model="form.contact_person" placeholder="CONTACT PERSON"/>
+	<input type="text" class="number" ng-model="form.contact_number" placeholder="CONTACT NUMBER"/>
+	<input type="time" class="time" ng-model="form.best_time"/>
+	<input type="text" class="email" ng-model="form.email" placeholder="EMAIL"/>
+	<input type="button" class="register" value="REGISTER" ng-click="register()">
+
+	<img class="c-briefcase" src="../ASSETS/img/briefcase_employer.png"/>
+	<img class="jonathan" src="../ASSETS/img/jonathan.gif"/>
+
+	<div class="message-spacing">
+		<span class="message">WELCOME TO CHRS</span>
+		<span class="message-2">PLEASE FILL UP THE FF.</span>
+		<span class="messagepop">{{user.error_msg}}</span>
+	</div>
+
+	<div id="container">
+	  	<div class="chat">
+	    	<div class="chatbox">
+	    		<input type="text" placeholder="HEX Color" ng-model="custom" ng-change="custom_changed()" />
+	    		<div class="color-picker" ng-repeat="(k,v) in list.color" style="background-color: {{ v }}" ng-click="change_color(v)">{{k + 1}}</div>
+	    	</div>
+	  	</div>
+	</div>
+
+</div>	    
+
+
