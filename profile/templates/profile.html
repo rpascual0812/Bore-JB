@@ -1,57 +1,21 @@
 	<div>
-		<!-- <nav id="sidebar-wrapper" class="active" style="margin-top:-20px;">
-			<ul class="sidebar-nav">
-	            <li>
-	                <a href="#top" ng-click="logout()">Logout</a>
-	            </li>
-	        </ul>
-	    </nav> -->
-
 	    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
 	        <div class="container topnav" style="color:#FFF !important;">
-	            <!-- Brand and toggle get grouped for better mobile display -->
+
 	            <div class="navbar-header">
-	                <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-	                    <span class="sr-only">Toggle navigation</span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                </button> -->
 	                <a class="navbar-brand topnav" href="#/">
 	                	Joberfied
 	                </a>
-	                
 	            </div>
-	            <!-- Collect the nav links, forms, and other content for toggling -->
+
 	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-	                <!-- <ul class="nav navbar-nav navbar-right">
-	                    <li>
-	                        <a href="#/">Jobs</a>
-	                    </li>
-	                    <li>
-	                    	<a href="#/{{profile.pin}}">Profile</a>
-	                    </li>
-	                    <li>
-	                        <a>Help</a>
-	                    </li>
-	                </ul> -->
 	            </div>
-	            <!-- /.navbar-collapse -->
 	        </div>
-	        <!-- /.container -->
 	    </nav>
 	</div>
-
-	<!-- <div style="width:100%; height: 50px; text-align:center; padding-top: 30px;">
-		<input type="text" class="searchbar" placeholder="Search..." maxlength="60" data-ng-model="searchbox.text" data-ng-change="searchbig()" />
-	</div> -->
 	<div style="clear:both;"></div>
-
-	<!-- <div class="news">
-		<div class="details"></div>
-	</div> -->
-
+	
 	<div style="height:20px;"></div>
 
 	<div class="main">
@@ -106,12 +70,13 @@
 				</div>
 
 				<div class="credit">
-					<span class="font14 label">Available Wallet</span> <br />
+					<span class="label" style="padding:0.2em 0 0 0;">Available</span>
+					<span class="label" style="padding:0.3em 0 0.5em 0;">Wallet</span> <br />
 					<span class="amount">{{profile.data.currency}} {{profile.data.available}}</span>
 				</div>
 			</div>
 
-			<div class="left">
+			<div class="left CprofileMargin">
 				<div class="basic">
 					<div>
 						<div style="clear:both;"></div>
