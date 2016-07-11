@@ -1,7 +1,8 @@
 
-<div ng-controller="Background" style="background-color: {{background}}">
+<div ng-controller="Background" class="registration">
 	<form name="userForm" ng-submit="register()" novalidate>
-		<div class="cont">
+		<legend>Registration</legend>
+		<div class="inputs">
 			<div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
 				<input type="text" name="name" class="form-control" ng-model="form.name" placeholder="COMPANY NAME" required>
 				<p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="name">Your Company name is required.</p>
@@ -27,9 +28,10 @@
 					<input type="text" name="email" class="form-control" ng-model="form.email" placeholder="E-mail" required>
 					<p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
 				</div>
-				<button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid" ng-click="register()">REGISTER</button>
+				<button type="submit" class="btn btn-primary csubmit" ng-disabled="userForm.$invalid" ng-click="register()">REGISTER</button>
 			</div>
 		</div>
+		<legend class="line"></legend>
 	</form>
 
 

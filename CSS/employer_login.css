@@ -774,36 +774,51 @@ body{
 	.messagepop{
 		width:92%;
 		margin-top: 40%;
-		margin-right: -10%;
+		padding-left: 10%;
 		font-size: 24px;
 	}
 }
-@media(min-width: 1440px){
+@media(min-width: 1441px){
 	.messagepop{
 		width:88.5%;
+		float:left;
 		margin-top: 46%;
-		margin-right: 8%;
+		margin-left: 0px;
+		padding-left: 7%;
+		padding-right: 0%;
 		font-size: 34px;
 	}
 }
-@media(min-width: 1600px){
+@media(min-width: 1800px){
 	.messagepop{
-		margin-right: 4%;
+		width:88.5%;
+		float:left;
+		margin-top: 46%;
+		margin-left: 0px;
+		padding-left: 3%;
+		padding-right: 0%;
+		font-size: 45px;
 	}
 }
 @media(min-width: 2000px){
 	.messagepop{
 		width:88.5%;
+		float:left;
 		margin-top: 46%;
-		margin-right: 4%;
-		font-size: 40px;
+		margin-left: 0px;
+		padding-left: 7%;
+		padding-right: 0%;
+		font-size: 45px;
 	}
 }
-@media(min-width: 2400px){
+@media(min-width: 2200px){
 	.messagepop{
 		width:88.5%;
+		float:left;
 		margin-top: 46%;
-		margin-right: 4%;
-		font-size:  50px;
+		margin-left: 0px;
+		padding-left: 7%;
+		padding-right: 0%;
+		font-size: 50px;
 	}
 }

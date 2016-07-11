@@ -1,28 +1,3 @@
-<style type="text/css">
-#container {
-	margin-right: 10px;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  pointer-events: none;
-}
-.chat {
-  border: 1px solid #999;
-  display: inline-block;
-  vertical-align: bottom;
-  position: relative;
-  margin: 0 5px;
-  pointer-events: auto;
-}
-
-.color-picker {
-	width: 30px;
-	height: 30px;
-	float: left;
-	cursor: pointer;
-}
-
-</style>
 
 <style>
     .noTopBottomPad
@@ -36,7 +11,7 @@
 
 </style>
 
-<div ng-controller="Background" style="background-color: {{background}}">
+<div ng-controller="Background" style="background-color: #f02921">
 	<div>
 	    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
 	        <div class="container topnav" style="color:#FFF !important;">
@@ -82,138 +57,131 @@
 		<input type="text" class="searchbar" placeholder="Search..." maxlength="60" data-ng-model="searchbox.text" data-ng-change="searchbig()" />
 	</div> -->
 	<div style="clear:both;"></div>
+	<div class="main" style="margin-top: 50px;">
+			<div style="clear:both;"></div>
+			<div class="profile">
 
-	<div class="main">
-		<div style="clear:both;"></div>
-		<div class="profile">
-
-			<div class="c-menu megamenu">
-				<ul>
-					<li>
-						<a  href="#/home">
-							<img src="../ASSETS/img/profile.png">
-						</a>
-					</li>
-					<li class="active">
-						<a href="#/..">
-							<img src="../ASSETS/img/attache.png">
-						</a>
-					</li>
-					<li>
-						<a>
-							<img src="../ASSETS/img/message.png">
-						</a>
-					</li>
-					<li>
-						<a>
-							<img src="../ASSETS/img/bookmark.png">
-						</a>
-					</li>
-				</ul>
-			</div>
-
-			<div class="menu">
-				<div class="ccimageblock">
-					<img src="../ASSETS/Uploads/employers/accenture.png" class="cccompany"/>
+				<div class="c-menu megamenu">
+					<ul>
+						<li>
+							<a  href="#/home">
+								<img src="../ASSETS/img/profile.png">
+							</a>
+						</li>
+						<li class="active">
+							<a href="#/..">
+								<img src="../ASSETS/img/attache.png">
+							</a>
+						</li>
+						<li>
+							<a>
+								<img src="../ASSETS/img/message.png">
+							</a>
+						</li>
+						<li>
+							<a>
+								<img src="../ASSETS/img/bookmark.png">
+							</a>
+						</li>
+					</ul>
 				</div>
-				<div class="employer-name">
-					<span class="font14">{{employer.name}}</span>
-				</div>
-
-				
-				<div class="cbox">
+				<div class="menu">
+					<div class="ccimageblock">
+						<img src="../ASSETS/Uploads/employers/accenture.png" class="cccompany"/>
+					</div>
+					<div class="employer-name">
+						<span class="font14">{{employer.name}}</span>
+					</div>
+					
 					<div>
 						<img src="../ASSETS/img/attache.png" style="width:16px;">
-						<a href="#/posts"><span class="font12 link">Job Posts</span></a>
+						<span class="font12 link">Job Posts</span>
 					</div>
 					<div>
 						<img src="../ASSETS/img/message.png" style="width:16px;">
 						<span class="font12 link">Messages</span>
 					</div>
 					<div>
-						<img src="../ASSETS/img/bookmark.png" style="width:16px;">
+						<img src="../ASSETS/img/bookmark.png"  style="width:16px;">
 						<span class="font12 link">Admired Candidates</span>
 					</div>
 
 					<div class="credit">
-						<span class="font14 label">Available Credit</span> <br />
+						<span class="label" style="padding:0.2em 0 0 0;">Available</span>
+						<span class="label" style="padding:0.3em 0 0.5em 0;">Credit</span> <br />
 						<span class="amount">{{employer.currency}} {{employer.available}}</span>
 					</div>
 				</div>
-			</div>
+
 			<div class="left">
 				
-
 				<div class="candidates-updates">
 					<div>
-						<!-- <div class="feed-filter">
-							<ul>
-								<li class="active">
-									<a>All</a>
-								</li>
-								<li>
-									<a>Admired</a>
-								</li>
-							</ul>
-						</div> -->
 						<div style="clear:both;"></div>
-						<div class="break"></div>
+
+						<div class="CbreakSec"></div>
+						<div class="CbreakThr"></div>
+
 						<div class="feed-data" data-ng-repeat="(k,v) in candidates.data">
 							<div style="width:100%;">
-								<div class="avatar">
-									<!-- <img class="img-circle" src="../ASSETS/img/jonathan.png" /> -->
-									<img class="img-circle" src="{{v.pic}}">
-								</div>
-								<div class="candidate-details">
-									<div>
-										<div style="float:left; width:55%;">
-											<span class="header4">APPPIN-{{v.applicant_id}}</span>
-										</div>
-										<div style="float:left; width:45%; text-align:right;">
-											<img ng-if="v.online == 't'" src="../ASSETS/img/online.png" style="width:12px; margin-right: 10px;" />
 
-											<img ng-if="v.online == 'f'" src="../ASSETS/img/offline.png" style="width:12px; margin-right: 10px;" />
-
-											<span class="status">{{v.external_status}}</span>
-										</div>
-										<div style="clear:both;"></div>
-									</div>							
-
-									<div>
-										<span>Skills: </span><span class="header3">{{v.tags}}</span>
-										
+									<div class="Cstatus">
+										<p>
+											<img ng-if="v.online == 't'" src="../ASSETS/img/online.png"/>
+											<img ng-if="v.online == 'f'" src="../ASSETS/img/offline.png"/>
+											{{v.external_status}}
+										</p>
+										<span class="CupdateSec">Updated: 02/06/16</span>
 									</div>
-									<div>
-   										<div ng-if="v.ad.type == 'gif'">
-   											<img src="{{v.ad.link}}" style="max-width: 560px;"/>
-   										</div>
-   										<div ng-if="v.ad.type == 'image'">
-   											<img src="{{v.ad.link}}" style="max-width: 560px;"/>
-   										</div>
-   										<div ng-if="v.ad.type == 'youtube'">
 
-   											<iframe src="https://www.youtube.com/embed/n9EgH-QxaUI" width="560" height="315" frameborder="0" allowfullscreen></iframe>
-   										</div>
+								<div  class="Cmargin">
+
+									<div class="Cimage">
+										<img src="{{v.pic}}">
+										<div class="CbreakThr" style="border:1px solid #669999"></div>
+										<p style="font-style:bold; font-size:1.5em; color:#003333"> APPPIN </p>
+										<p style="margin-top:-17px">- {{v.applicant_id}} -</p>
 									</div>
-									<!-- <div class="break"></div> -->
-								</div>
-								<div style="clear:both;"></div>
-							</div>
 
+									<div class="Cskills">
+										<div class="skill">
+											<p>SKILLS</p>
+										</div>
+										<div class="content">
+											<p>Programmer, Assistant Manager in a superhyroelectricitypod company
+											Programmer, Assistant network Specialist  {{v.tags}}</p>
+										</div>
+										<div ng-if="v.ad.type == 'gif'">
+											<img src="{{v.ad.link}}" style="max-width: 560px;"/>
+										</div>
+										<div ng-if="v.ad.type == 'image'">
+											<img src="{{v.ad.link}}" style="max-width: 560px;"/>
+										</div>
+										<div ng-if="v.ad.type == 'youtube'">
 
-							<div style="text-align:right; margin-top: 20px;">
-								<div style="float:left;">
-									<button ng-if="v.online == 't'" type="button" class="btn btn-warning" style="width:130px; margin-bottom:5px;" ng-click="videochat()">VIDEO CHAT</button>
-								</div>
-								<div style="float:right;">
-									<button type="button" class="btn btn-danger" style="width:100px; margin-bottom:5px;">ADMIRE</button>
+											<iframe src="https://www.youtube.com/embed/n9EgH-QxaUI" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+										</div>
+									</div>
 
-									<button type="button" class="btn btn-primary" style="width:100px; margin-bottom:5px;" ng-click="request_cv(v.applicant_id)">VIEW</button>
+									<div style="clear:both;"></div>
+									<div class="Cbreak"></div>
+									<div class="Cbuttonsbox">
+
+										<button ng-if="v.online == 't'" type="button" class="btn btn-warning Cvideochat" ng-click="videochat()">VIDEO CHAT</button>
+										<button type="button" class="btn btn-danger Cadmire">ADMIRE</button>
+										<button type="button" class="btn btn-primary Cview" ng-click="request_cv(v.applicant_id)">VIEW</button>
+
+									</div>
+									<div class="Cbreak"></div>
 								</div>
-								<div style="clear:both;"></div>
+
+									<div class="Cupdate">
+										<span>Updated: 02/06/16</span>
+									</div>
 							</div>
 							<div style="clear:both;"></div>
-							<div class="break"></div>
+							<div class="CbreakSec"></div>
+							<div class="CbreakThr"></div>
 						</div>
 					</div>
 				</div>
@@ -311,14 +279,6 @@
 		</div>
 	</div>
 
-	<div id="container">
-	  	<div class="chat">
-	    	<div class="chatbox">
-	    		<input type="text" placeholder="HEX Color" ng-model="custom" ng-change="custom_changed()" />
-	    		<div class="color-picker" ng-repeat="(k,v) in list.color" style="background-color: {{ v }}" ng-click="change_color(v)">{{k + 1}}</div>
-	    	</div>
-	  	</div>
-	</div>
 </div>
 
 	

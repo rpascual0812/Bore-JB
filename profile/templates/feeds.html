@@ -1,27 +1,13 @@
 <div>
 	<div>
-		<!-- <nav id="sidebar-wrapper" class="active" style="margin-top:-20px;">
-			<ul class="sidebar-nav">
-	            <li>
-	                <a href="#top" ng-click="logout()">Logout</a>
-	            </li>
-	        </ul>
-	    </nav> -->
-
-	    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+	    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation" style="background-color:#003333;">
 	        <div class="container topnav" style="color:#FFF !important;">
 	            <!-- Brand and toggle get grouped for better mobile display -->
-	            <div class="navbar-header">
-	                <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-	                    <span class="sr-only">Toggle navigation</span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                </button> -->
+	            <div class="navbar-header" style="color:#999999">
 	                <a class="navbar-brand topnav" href="#/home">
 	                	Joberfied
 	                </a>
-	                <input type="text" class="searchbar" placeholder="Search jobs here" maxlength="60" data-ng-model="searchbox.text" data-ng-change="searchbig()" />
+	                <input type="text" class="searchbar" placeholder="Search jobs here" maxlength="60" data-ng-model="searchbox.text" data-ng-change="searchbig()"  style="background-color:#003333; color:#FFFFFF;"  />
 	                
 	            </div>
 	            <!-- Collect the nav links, forms, and other content for toggling -->
@@ -29,13 +15,13 @@
 	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	                <ul class="nav navbar-nav navbar-right">
 	                    <li>
-	                        <a href="#/">Jobs</a>
+	                        <a href="#/" style="color: #FF3333">Jobs</a>
 	                    </li>
 	                    <li>
-	                    	<a href="#/CHRS-{{profile.pin}}">Profile </a>
+	                    	<a href="#/CHRS-{{profile.pin}}" style="color: #FF3333">Profile </a>
 	                    </li>
 	                    <li>
-	                        <a>Help</a>
+	                        <a style="color: #FF3333">Help</a>
 	                    </li>
 	                </ul>
 	            </div>
@@ -45,14 +31,7 @@
 	    </nav>
 	</div>
 
-	<!-- <div style="width:100%; height: 50px; text-align:center; padding-top: 30px;">
-		<input type="text" class="searchbar" placeholder="Search..." maxlength="60" data-ng-model="searchbox.text" data-ng-change="searchbig()" />
-	</div> -->
 	<div style="clear:both;"></div>
-
-	<!-- <div class="news">
-		<div class="details"></div>
-	</div> -->
 
 	<div style="height:20px;"></div>
 
@@ -61,7 +40,7 @@
 
 		<div class="profile">
 
-			<div class="c-menu megamenu">
+			<div class="c-menu">
 				<ul>
 					<li>
 						<a  href="#/home">
@@ -107,46 +86,35 @@
 					<img src="../ASSETS/img/star.png" style="width:16px;">
 					<span class="font12 link">Talent Acquisition</span>
 				</div>
-
 				<div class="credit">
-					<span class="font14 label">Available Credit</span> <br />
+					<span class="label" style="padding:0.2em 0 0 0;">Available</span>
+					<span class="label" style="padding:0.3em 0 0.5em 0;">Credit</span> <br />
 					<span class="amount">{{profile.data.currency}} {{profile.data.available}}</span>
 				</div>
 			</div>
 
 			<div class="left">
 
-				<div class="CbreakSec"></div>
+				<div class="CbreakThr" style="width:100%; border:1px solid #f02921"></div>
+				<div class="CbreakSec" style="margin-bottom:1em"></div>
 
 				<div class="feeds">
 					<div class="post">
 
-						<div class="feed-data" style="background: url({{feeds.ad.background}});">
+						<div class="feed-data">
 
-							<div class="Cupperbox">
-								<div class="Cad";>
-									<span>AD</span>
-								</div>
+							<div class="Cupperbox" style="background: url({{feeds.ad.background}}); height:150px; margin-bottom:10px">
 								<div class="Clogo">
 									<img src="{{feeds.ad.image}}"/>
+									<span class="Cad">AD</span>
 								</div>
 							</div>
 
 							<div class="CupperboxSec">
-								<div class="CadSec";>
-									<span>AD</span>
-								</div>
-
-								<div class="ClowerboxBottomSec">
-									<div class="CbuttonsboxSec">
-										<button type="button" class="btn btn-info CsaveSec">SAVE</button>
-										<button type="button" class="btn btn-primary CapplySec">APPLY</button>
-										<button type="button" class="btn btn-warning CreferSec">REFER 
-											<div>{{feeds.ad.fee.currency}} ({{feeds.ad.fee.amount}})</div>
-										</button>
-									</div>
-									<div class="ClogoSec">
-										<img src="{{feeds.ad.image}}"/>
+								<div class="Clogo">
+									<img src="{{feeds.ad.image}}"/>
+									<div class="CbackG" style="background: url({{feeds.ad.background}});">
+										<span  class="Cad" >AD</span>
 									</div>
 								</div>
 							</div>
@@ -160,30 +128,31 @@
 									</div>							
 
 									<div class="Cdetailsbox">
-										<span class="Cdetails header2">{{feeds.ad.experience}}</span>
-										<p class="Cdetails">{{feeds.ad.skills}}</p>
+										<h5 class="Cqualifications">QUALIFICATIONS</h5>
+										<p class="Cdetails" style="color: #001616; line-height:1.25em">{{feeds.ad.experience}}</p>
+										<p class="Cdetails" style="color:#001616; line-height:1.25em">{{feeds.ad.skills}}</p>
 									</div>
 
 									<div style="clear:both;"></div>
-								</div>
 
-								<div class="Cbreak"></div>
+									<div class="Cbreak"></div>
 
-								<div class="ClowerboxMiddle">
-									<div class="Cadbox">
-										<div ng-if="feeds.ad.ad.type == 'gif'" class="Cimage" >
-											<img src="{{feeds.ad.ad.link}}"/>
-										</div>
-										<div ng-if="feeds.ad.ad.type == 'image'" class="Cimage">
-											<img src="{{feeds.ad.ad.link}}"/>
-										</div>
-										<div ng-if="feeds.ad.ad.type == 'youtube'">
+									<div class="ClowerboxMiddle">
+										<div class="Cadbox">
+											<div ng-if="feeds.ad.ad.type == 'gif'" class="Cimage" >
+												<img src="{{feeds.ad.ad.link}}"/>
+											</div>
+											<div ng-if="feeds.ad.ad.type == 'image'" class="Cimage">
+												<img src="{{feeds.ad.ad.link}}"/>
+											</div>
+											<div ng-if="feeds.ad.ad.type == 'youtube'">
 
-											<iframe src="https://www.youtube.com/embed/n9EgH-QxaUI" frameborder="0" allowfullscreen class="Cvideo"></iframe>
+												<iframe src="https://www.youtube.com/embed/n9EgH-QxaUI" frameborder="0" allowfullscreen class="Cvideo"></iframe>
+											</div>
 										</div>
 									</div>
-								</div>
 
+								</div>
 								<div class="Cbreak"></div>
 
 								<div class="ClowerboxBottom">
@@ -196,6 +165,52 @@
 									</div>
 								</div>
 							</div>
+
+							<div class="ClowerboxSec">
+
+								<div class="ClowerboxBottom">
+									<div class="Cbuttonsbox">
+										<button type="button" class="btn btn-info Csave">SAVE</button>
+										<button type="button" class="btn btn-warning Crefer">REFER 
+											<div>{{feeds.ad.fee.currency}} ({{feeds.ad.fee.amount}})</div>
+										</button>
+										<button type="button" class="btn btn-primary Capply">APPLY</button>
+									</div>
+								</div>
+
+								<div class="ClowerboxUp">
+									<div class="Ctitlebox">
+										<a class="link"><span class="Ctitle header4">{{feeds.ad.title}}</span></a>
+									</div>							
+
+									<div class="Cdetailsbox">
+										<h5 class="Cqualifications">QUALIFICATIONS</h5>
+										<p class="Cdetails" style="color: #001616; line-height:1.25em">{{feeds.ad.experience}}</p>
+										<p class="Cdetails" style="color:#001616; line-height:1.25em">{{feeds.ad.skills}}</p>
+									</div>
+
+									<div style="clear:both;"></div>
+
+									<div class="Cbreak"></div>
+
+									<div class="ClowerboxMiddle">
+										<div class="Cadbox">
+											<div ng-if="feeds.ad.ad.type == 'gif'" class="Cimage" >
+												<img src="{{feeds.ad.ad.link}}"/>
+											</div>
+											<div ng-if="feeds.ad.ad.type == 'image'" class="Cimage">
+												<img src="{{feeds.ad.ad.link}}"/>
+											</div>
+											<div ng-if="feeds.ad.ad.type == 'youtube'">
+
+												<iframe src="https://www.youtube.com/embed/n9EgH-QxaUI" frameborder="0" allowfullscreen class="Cvideo"></iframe>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<div style="clear:both;"></div>
 						</div>
 
 						<div style="clear:both;"></div>
@@ -203,40 +218,27 @@
 					</div>			
 				</div>
 
+				<div class="CbreakSec" style="margin-top:1em"></div>
+				<div class="CbreakThr" style="margin-bottom: 2em; width:100%; border:1px solid #f02921"></div>
+
 				<div class="feeds">
 					<div class="post">
-						<div class="feed-data" data-ng-repeat="(k,v) in feeds.data" style="background: url({{v.background}}); background-repeat: no-repeat;">
-
-							<div class="CbreakSec"></div>
-
-							<div class="Cupperbox">
-								<div class="Cad";>
-									<span>{{v.time_passed}}</span>
-								</div>
-								
+						<div class="feed-data" data-ng-repeat="(k,v) in feeds.data" >
+							<div class="Cupperbox" style="background: url({{v.background}}); height:150px; margin-bottom:10px">
 								<div class="Clogo">
 									<img src="{{v.image}}"/>
+									<span class="Cad">{{v.time_passed}}</span>
 								</div>
 							</div>
 
+							
 							<div class="CupperboxSec">
-								<div class="CadSec";>
-									<span>{{v.time_passed}}</span>
-								</div>
-
-								<div class="ClowerboxBottomSec">
-									<div class="CbuttonsboxSec">
-										<button type="button" class="btn btn-info CsaveSec">SAVE</button>
-										<button type="button" class="btn btn-primary CapplySec">APPLY</button>
-										<button type="button" class="btn btn-warning CreferSec">REFER 
-											<div>{{v.fee.currency}} ({{v.fee.amount}})</div>
-										</button>
-									</div>
-									<div class="ClogoSec">
-										<img src="{{v.image}}"/>
+								<div class="Clogo">
+									<img src="{{v.image}}"/>
+									<div class="CbackG" style="background: url({{v.background}});">
+										<span  class="Cad" >{{v.time_passed}}</span>
 									</div>
 								</div>
-
 							</div>
 
 							<div class="Cbreak"></div>
@@ -248,26 +250,25 @@
 									</div>							
 
 									<div class="Cdetailsbox">
-										<span class="Cdetails header2">{{v.experience}}</span>
-										<p class="Cdetails">{{v.skills}}</p>
+										<h5 class="Cqualifications">QUALIFICATIONS</h5>
+										<p class="Cdetails" style="color: #001616; line-height:1.25em">{{v.experience}}</p>
+										<p class="Cdetails" style="color:#001616; line-height:1.25em">{{v.skills}}</p>
 									</div>
 
 									<div style="clear:both;"></div>
-								</div>
 
-								<div class="Cbreak"></div>
+									<div class="ClowerboxMiddle">
+										<div class="Cadbox">
+											<div ng-if="v.ad.type == 'gif'" class="Cimage" >
+	   											<img src="{{v.ad.link}}"/>
+	   										</div>
+	   										<div ng-if="v.ad.type == 'image'" class="Cimage" >
+	   											<img src="{{v.ad.link}}"/>
+	   										</div>
+	   										<div ng-if="v.ad.type == 'youtube'">
 
-								<div class="ClowerboxMiddle">
-									<div class="Cadbox">
-										<div ng-if="v.ad.type == 'gif'" class="Cimage" >
-   											<img src="{{v.ad.link}}"/>
-   										</div>
-   										<div ng-if="v.ad.type == 'image'" class="Cimage" >
-   											<img src="{{v.ad.link}}"/>
-   										</div>
-   										<div ng-if="v.ad.type == 'youtube'">
-
-											<iframe src="https://www.youtube.com/embed/n9EgH-QxaUI" frameborder="0" allowfullscreen class="Cvideo"></iframe>
+												<iframe src="https://www.youtube.com/embed/n9EgH-QxaUI" frameborder="0" allowfullscreen class="Cvideo"></iframe>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -284,12 +285,58 @@
 									</div>
 								</div>
 							</div>
+
+							<div class="ClowerboxSec">
+
+								<div class="ClowerboxBottom">
+									<div class="Cbuttonsbox">
+										<button type="button" class="btn btn-info Csave">SAVE</button>
+										<button type="button" class="btn btn-warning Crefer">REFER 
+											<div>{{v.fee.currency}} ({{v.fee.amount}})</div>
+										</button>
+										<button type="button" class="btn btn-primary Capply">APPLY</button>
+									</div>
+								</div>
+
+								<div class="ClowerboxUp">
+									<div class="Ctitlebox">
+										<a class="link"><span class="Ctitle header4">{{v.title}}</span></a>
+									</div>							
+
+									<div class="Cdetailsbox">
+										<h5 class="Cqualifications">QUALIFICATIONS</h5>
+										<p class="Cdetails" style="color: #001616; line-height:1.25em">{{v.experience}}</p>
+										<p class="Cdetails" style="color:#001616; line-height:1.25em">{{v.skills}}</p>
+									</div>
+
+									<div style="clear:both;"></div>
+
+									<div class="Cbreak"></div>
+									
+									<div class="ClowerboxMiddle">
+										<div class="Cadbox">
+											<div ng-if="v.ad.type == 'gif'" class="Cimage" >
+	   											<img src="{{v.ad.link}}"/>
+	   										</div>
+	   										<div ng-if="v.ad.type == 'image'" class="Cimage" >
+	   											<img src="{{v.ad.link}}"/>
+	   										</div>
+	   										<div ng-if="v.ad.type == 'youtube'">
+
+												<iframe src="https://www.youtube.com/embed/n9EgH-QxaUI" frameborder="0" allowfullscreen class="Cvideo"></iframe>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div style="clear:both;"></div>
+							<div class="CbreakThr" style="margin-bottom: 2em;"></div>
 						</div>
 
-						<div style="clear:both;"></div>
-						<div class="CbreakSec"></div>
 					</div>			
 				</div>
+				<div class="CbreakSec" style="margin-top: -20px;"></div>
 			</div>
 
 			<div class="right">
