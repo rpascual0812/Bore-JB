@@ -4,7 +4,7 @@ require_once('../../../Classes/Applicants_tags.php');
 
 $class = new Applicants_tags(
 						NULL,
-						$_POST['tags']
+						$_GET['tags']
 					);
 
 $data = $class->search();

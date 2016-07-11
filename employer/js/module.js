@@ -3,8 +3,8 @@ var app = angular.module('onload', [
                                     'ngCookies',
                                     'angular-md5',
                                     'textAngular',
-                                    'autocomplete',
-                                    'ui.tinymce'
+                                    'ui.tinymce',
+                                    'autocomplete'
                                 ]);
 
 app.config(function($routeProvider){
@@ -72,3 +72,16 @@ function contains(a, obj) {
 
     return false;
 }
+
+app.directive('autoComplete', function($timeout) {
+    return function(scope, iElement, iAttrs) {
+            iElement.autocomplete({
+                source: scope[iAttrs.uiItems],
+                select: function() {
+                    $timeout(function() {
+                      iElement.trigger('input');
+                    }, 0);
+                }
+            });
+    };
+});

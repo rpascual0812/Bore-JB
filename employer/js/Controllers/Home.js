@@ -32,15 +32,22 @@ app.controller('Home', function(
     ];
     //
 
-    $scope.movies = ["The Wolverine", "The Smurfs 2", "The Mortal Instruments: City of Bones", "Drinking Buddies", "All the Boys Love Mandy Lane", "The Act Of Killing", "Red 2", "Jobs", "Getaway", "Red Obsession", "2 Guns", "The World's End", "Planes", "Paranoia", "The To Do List", "Man of Steel"];
+    $scope.movies = [
+                        "Lord of the Rings",
+                        "Drive",
+                        "Science of Sleep",
+                        "Back to the Future",
+                        "Oldboy"
+                    ];
 
     init();
 
-    $scope.$watch(EmployerService.get(), function(newVal, oldVal) {
-        if(newVal == false){
-            alert('Your session has timed out.');
-        }
-    }, true);
+    // $scope.$watch(EmployerService.get(), function(newVal, oldVal) {
+    //     if(newVal == false){
+    //         alert('Your session has timed out.');
+    //     }
+    // }, true);
+
 
     function init(){
         var result = checkpin();
@@ -52,8 +59,18 @@ app.controller('Home', function(
 
             feeds();
             //set_search_box();
+
+            initialize_search();
         }
     }
+
+    function initialize_search(){
+
+    }
+
+    $scope.doSomething = function(typedthings){
+        $scope.movies = ["The Wolverine", "The Smurfs 2", "The Mortal Instruments: City of Bones", "Drinking Buddies", "All the Boys Love Mandy Lane", "The Act Of Killing", "Red 2", "Jobs", "Getaway", "Red Obsession", "2 Guns", "The World's End", "Planes", "Paranoia", "The To Do List", "Man of Steel", "The Way Way Back", "Before Midnight", "Only God Forgives", "I Give It a Year", "The Heat", "Pacific Rim", "Pacific Rim", "Kevin Hart: Let Me Explain", "A Hijacking", "Maniac", "After Earth", "The Purge", "Much Ado About Nothing", "Europa Report", "Stuck in Love", "We Steal Secrets: The Story Of Wikileaks", "The Croods", "This Is the End", "The Frozen Ground", "Turbo", "Blackfish", "Frances Ha", "Prince Avalanche", "The Attack", "Grown Ups 2", "White House Down", "Lovelace", "Girl Most Likely", "Parkland", "Passion", "Monsters University", "R.I.P.D.", "Byzantium", "The Conjuring", "The Internship"];
+      }
 
     function feeds(){
         var filter = {
@@ -137,27 +154,34 @@ app.controller('Home', function(
     }
 
     function searchbig(){
+
         var result = checkpin();
         if(result == false){
             window.location = "#/login";
         }
         else {
+            if($scope.searchbox.text === undefined){
+                return false;
+            }
+
             var filter = {
                 tags : $scope.searchbox.text
             };
 
-            var len = $scope.searchbox.text.length;
-            if(len > 2){
-                SearchService.set($scope.searchbox.text);
+        //     var len = $scope.searchbox.text.length;
+        //     if(len > 2){
+        //         //SearchService.set($scope.searchbox.text);
                 var promise = CandidatesFactory.search_candidates(filter);
-                promise.then(function(data){                
-                    $scope.candidates.data = data.data.result;
-                    $scope.candidates.status = true;
+                promise.then(function(data){   
+                    console.log(data.data.result);
+                    // $scope.candidates.data = data.data.result;
+                    // console.log($scope.candidates.data);
+                    // $scope.candidates.status = true;
                 })
                 .then(null, function(data){
                     $scope.candidates.status = false;
                 });
-            }
+        //     }
         }
     }
 
@@ -166,7 +190,7 @@ app.controller('Home', function(
         
         if(search_text != null){
             $scope.searchbox.text = search_text;
-            searchbig();
+            //searchbig();
         }
     }
 
