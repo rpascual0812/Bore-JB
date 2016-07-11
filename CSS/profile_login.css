@@ -1,90 +1,118 @@
 body{
 	font-family: "Gotham", "Lato", Helvetica, Arial, sans-serif;
 }
-.c-briefcase{
-	width:100%;
-	margin:57.5% 0% 0% 0%;
-	padding:0%;
-}
-.jonathan {
-	width:48%;
-	margin:-190% 0% 0% -4%;
-	padding:0%;
-}
-.welcome-emp{
-	width: 60%;
-	height: 5%;
-	position:absolute;
-	margin:32.25% 0% 0% 33.75%;
+	.c-briefcase{
+		width:100%;
+		margin:57.5% 0% 0% 0%;
+		padding:0%;
+	}
+	.jonathan {
+		width:48%;
+		margin:-190% 0% 0% -4%;
+		padding:0%;
+	}
+	.welcome-emp{
+		width: 60%;
+		height: 5%;
+		position:absolute;
+		margin:32.25% 0% 0% 33.75%;
 
-	font-size: 190%;
-	font-style:bold;
-	border-radius: 5px;
-	border: 0;
-	text-align: center;
+		font-size: 190%;
+		font-style:bold;	
+		border-radius: 5px;
+		border: 0;
+		text-align: center;
 
-	color: #ffffff;
-	text-align: center;
-	display:block;
-}
-.username {
-	width:80%;
-	height:6%;
-	position:absolute;
-	margin:85.75% 0% 0% 13%;
-	font-size: 150%;
-	border-radius: 5px;
-	border: 0;
-	text-align: center;
-}
-.password {
-	width:80%;
-	height:6%;
-	position:absolute;
-	margin:98.2% 0% 0% 13%;
-	font-size: 150%;
-	border-radius: 5px;
-	border: 0;
-	text-align: center;
-}
-.login {
-	width:40%;
-	height:9%;
-	position:absolute;
-	margin:128.5% 0% 0% 32%;
-	font-size: 150%;
-	border-radius: 5px;
-	border: 0;
-	text-align: center;
-}
-.signup{width:40%;
-	height:9%;
-	position:absolute;
-	margin:128.5% 0% 0% 32%;
-	font-size: 150%;
-	border-radius: 5px;
-	border: 0;
-	text-align: center;
+		color: #ffffff;		
+		text-align: center;
+		display:block;
+	}
+	.username {
+		width:80%;
+		height:35px;
+		position:absolute;
+		margin:85.75% 0% 0% 13%;
+		font-size: 150%;
+		border-radius: 5px;
+		border: 0;
+		text-align: center;
+	}
+	.password {
+		width:80%;
+		height:35px;
+		position:absolute;
+		margin:98.2% 0% 0% 13%;
+		font-size: 150%;
+		border-radius: 5px;
+		border: 0;
+		text-align: center;
+	}
+	.login {
+		width:35%;
+		height:50px;
+		position:absolute;
+		margin:133.5% 0% 0% 8%;
 
-}
+		font-size: 140%;
+		border-radius: 5px;
+		border: 0;
+		text-align: center;
+		background:#fffff0;
+	}
+	.or{
+		width:40%;
+		height:50px;
+		position:absolute;
+		margin:137.5% 0% 0% 30%;
 
-.message-spacing{
-	margin:-93% 0% 0% 37.25%;
-}
-.message{
-	width: 70%;
-	height: 5%;
-	position:absolute;
-	margin:0% 0% 0% -10%;
+		font-size: 100%;
+		border-radius: 5px;
+		border: 0;
+		text-align: center;
+		color:white;
+	}
+	.signup {
+		width:35%;
+		height:50px;
+		position:absolute;
+		margin:133.5% 0% 0% 57.5%;
 
-	font-size: 65%;
-	border-radius: 5px;
-	border: 0;
-	text-align: center;
+		font-size: 140%;
+		border-radius: 5px;
+		border: 0;
+		text-align: center;
+		background:#ffff99;
+		color:#ff5544;
+	}/*
+	.login {
+		width:40%;
+		height:45px;
+		position:absolute;
+		margin:128.5% 0% 0% 32%;
 
-	color: #ffffff;
-	text-align: center;
-}
+		font-size: 150%;
+		border-radius: 5px;
+		border: 0;
+		text-align: center;
+		background:#fffff0;
+	}*/
+	.message-spacing{
+		margin:-93% 0% 0% 37.25%;
+	}
+	.message{
+		width: 70%;
+		height: 5%;
+		position:absolute;
+		margin:0% 0% 0% -10%;
+
+		font-size: 65%;
+		border-radius: 5px;
+		border: 0;
+		text-align: center;
+
+		color: #ffffff;		
+		text-align: center;
+	}
 @media(min-width: 375px){
 	.c-briefcase{
 		margin:57.5% 0% 0% 0%;
@@ -105,14 +133,17 @@ body{
 		font-size: 150%;
 	}
 	.login {
-		height:9%;
-		margin:105.5% 0% 0% 32%;
-		font-size: 150%;
+		height:50px;
+		width:30%;
+		margin:105.5% 0% 0% 18%;
 	}
-	.signup{
-		height:7%;
-		margin:40% 0% 0% 50%;
-		font-size: 200%;
+	.or {
+		width:30%;
+		margin:109.5% 0% 0% 38.5%;
+	}
+	.signup {
+		width:30%;
+		margin:105.5% 0% 0% 59.5%;
 	}
 	.message-spacing{
 		margin:-90% 0% 0% 37.25%;
@@ -139,18 +170,85 @@ body{
 		margin:85.2% 0% 0% 13%;
 	}
 	.login {
-		height:9%;
-		margin:99.5% 0% 0% 32%;
+		height:50px;
+		width:30%;
+		margin:97.5% 0% 0% 18%;
 	}
-	.signup{
-		height:7%;
-		margin:40% 0% 0% 50%;
+	.or {
+		width:30%;
+		margin:101.5% 0% 0% 38.5%;
+	}
+	.signup {
+		width:30%;
+		margin:97.5% 0% 0% 59.5%;
 	}
 	.message-spacing{
 		margin:-90% 0% 0% 37.25%;
 	}
 	.message{
 		font-size: 78%;
+	}
+}
+@media(min-width: 500px){
+	.welcome-emp{
+		margin:22% 0% 0% 33.75%;
+		font-size: 300%;
+	}
+	.username {
+		height:50px;
+		margin:74.75% 0% 0% 13%;
+	}
+	.password {
+		height:50px;
+		margin:85.2% 0% 0% 13%;
+	}
+	.login {
+		height:50px;
+		width:30%;
+		margin:99.5% 0% 0% 18%;
+	}
+	.or {
+		width:30%;
+		margin:102.5% 0% 0% 38.5%;
+	}
+	.signup {
+		width:30%;
+		margin:99.5% 0% 0% 59.5%;
+	}
+	.message{
+		font-size: 90%;
+	}
+}
+
+@media(min-width: 600px){
+	.welcome-emp{
+		margin:22% 0% 0% 33.75%;
+		font-size: 350%;
+	}
+	.username {
+		height:55px;
+		margin:74.75% 0% 0% 13%;
+	}
+	.password {
+		height:55px;
+		margin:85.2% 0% 0% 13%;
+	}
+	.login {
+		height:55px;
+		width:30%;
+		margin:99.5% 0% 0% 18%;
+	}
+	.or {
+		width:30%;
+		margin:102.5% 0% 0% 38.5%;
+	}
+	.signup {
+		width:30%;
+		height:55px;
+		margin:99.5% 0% 0% 59.5%;
+	}
+	.message{
+		font-size: 110%;
 	}
 }
 @media (min-width: 768px) {
@@ -167,27 +265,30 @@ body{
 	}
 	.username {
 		width: 35%;
-		height: 6%;
+		height: 30px;
 		margin:35% 0% 0% 45%;
 		font-size: 150%;
 	}
 	.password {
 		width: 35%;
-		height: 6%;
+		height: 30px;
 		margin:39.75% 0% 0% 45%;
 		font-size: 150%;
 	}
 	.login {
 		width: 15%;
-		height: 7%;
-		margin:46.5% 0% 0% 55%;
-		font-size: 150%;
+		height: 40px;
+		margin:46.5% 0% 0% 45%;
 	}
-	.signup{
+	.or {
 		width:15%;
-		height:7%;
-		margin:40% 0% 0% 50%;
-		font-size: 200%;
+		height: 40px;
+		margin:47.5% 0% 0% 54.8%;
+	}
+	.signup {
+		width:15%;
+		height: 40px;
+		margin:46.5% 0% 0% 64.8%;
 	}
 	.message-spacing{
 		margin:-38.5% 0% 0% 26.5%;
@@ -213,27 +314,30 @@ body{
 	}
 	.username {
 		width: 35%;
-		height: 7%;
+		height: 40px;
 		margin:31% 0% 0% 44%;
 		font-size: 150%;
 	}
 	.password {
 		width: 35%;
-		height: 7%;
+		height: 40px;
 		margin:36.25% 0% 0% 44%;
 		font-size: 150%;
 	}
 	.login {
 		width: 15%;
-		height: 9%;
-		margin:41.5% 0% 0% 54%;
-		font-size: 150%;
+		height: 45px;
+		margin:41.5% 0% 0% 44%;
 	}
-	.signup{
+	.or {
 		width:15%;
-		height:7%;
-		margin:40% 0% 0% 50%;
-		font-size: 200%;
+		height: 45px;
+		margin:42.5% 0% 0% 53.8%;
+	}
+	.signup {
+		width:15%;
+		height: 45px;
+		margin:41.5% 0% 0% 63.8%;
 	}
 	.message-spacing{
 		margin:-35.5% 0% 0% 36%;
@@ -259,27 +363,33 @@ body{
 	}
 	.username {
 		width: 35%;
-		height: 7%;
+		height: 40px;
 		margin:26.5% 0% 0% 46%;
 		font-size: 200%;
 	}
 	.password {
 		width: 35%;
-		height: 7%;
+		height: 40px;
 		margin:31.5% 0% 0% 46%;
 		font-size: 200%;
 	}
 	.login {
 		width: 15%;
-		height: 9%;
-		margin:36.5% 0% 0% 56%;
-		font-size: 200%;
+		height: 65px;
+		margin:36.5% 0% 0% 46%;
+		font-size: 190%;
 	}
-	.signup{
+	.or {
 		width:15%;
-		height:7%;
-		margin:40% 0% 0% 50%;
-		font-size: 200%;
+		height: 65px;
+		margin:37.5% 0% 0% 55.8%;
+		font-size: 150%;
+	}
+	.signup {
+		width:15%;
+		height: 65px;
+		margin:36.5% 0% 0% 65.8%;
+		font-size: 190%;
 	}
 	.message-spacing{
 		margin:-34.5% 0% 0% 38%;
@@ -305,27 +415,33 @@ body{
 	}
 	.username {
 		width: 35%;
-		height: 7%;
+		height: 50px;
 		margin:25.5% 0% 0% 45%;
 		font-size: 200%;
 	}
 	.password {
 		width: 35%;
-		height: 7%;
+		height: 50px;
 		margin:30.5% 0% 0% 45%;
 		font-size: 200%;
 	}
 	.login {
 		width: 15%;
-		height: 7%;
-		margin:35.5% 0% 0% 65%;
-		font-size: 200%;
-	}
-	.signup{
-		width:15%;
-		height: 7%;
+		height: 58px;
 		margin:35.5% 0% 0% 45%;
-		font-size: 200%;
+		font-size: 190%;
+	}
+	.or {
+		width:15%;
+		height: 58px;
+		margin:36.5% 0% 0% 54.8%;
+		font-size: 150%;
+	}
+	.signup {
+		width:15%;
+		height: 58px;
+		margin:35.5% 0% 0% 64.8%;
+		font-size: 190%;
 	}
 	.message-spacing{
 		margin:-31% 0% 0% 36.5%;
@@ -334,7 +450,111 @@ body{
 		width: 50%;
 		height: 7%;
 		margin:0% 0% 0% 0%;
+		font-size: 180%;
+	}
+}
+@media (min-width: 1800px) {
+	.c-briefcase{
+		width:60%;
+		margin:2.5% 0% 0% 29.75%;
+	}
+	.jonathan {
+		width:30%;
+		margin:-28% 0% 0% 7%;
+	}
+	.welcome-emp{
+		display:none;
+	}
+	.username {
+		width: 35%;
+		height: 60px;
+		margin:25.5% 0% 0% 45%;
 		font-size: 200%;
+	}
+	.password {
+		width: 35%;
+		height: 60px;
+		margin:30.5% 0% 0% 45%;
+		font-size: 200%;
+	}
+	.login {
+		width: 15%;
+		height: 62px;
+		margin:35.5% 0% 0% 45%;
+		font-size: 190%;
+	}
+	.or {
+		width:15%;
+		height: 62px;
+		margin:36.5% 0% 0% 54.8%;
+		font-size: 150%;
+	}
+	.signup {
+		width:15%;
+		height: 62px;
+		margin:35.5% 0% 0% 64.8%;
+		font-size: 190%;
+	}
+	.message-spacing{
+		margin:-31% 0% 0% 36.5%;
+	}
+	.message{
+		width: 50%;
+		height: 7%;
+		margin:0% 0% 0% 0%;
+		font-size: 250%;
+	}
+}
+@media (min-width: 2200px) {
+	.c-briefcase{
+		width:60%;
+		margin:2.5% 0% 0% 29.75%;
+	}
+	.jonathan {
+		width:30%;
+		margin:-28% 0% 0% 7%;
+	}
+	.welcome-emp{
+		display:none;
+	}
+	.username {
+		width: 35%;
+		height: 80px;
+		margin:25.5% 0% 0% 45%;
+		font-size: 270%;
+	}
+	.password {
+		width: 35%;
+		height: 80px;
+		margin:30.5% 0% 0% 45%;
+		font-size: 270%;
+	}
+	.login {
+		width: 15%;
+		height: 75px;
+		margin:35.5% 0% 0% 45%;
+		font-size: 190%;
+	}
+	.or {
+		width:15%;
+		height: 75px;
+		margin:36.5% 0% 0% 54.8%;
+		font-size: 150%;
+	}
+	.signup {
+		width:15%;
+		height: 75px;
+		margin:35.5% 0% 0% 64.8%;
+		font-size: 190%;
+	}
+	.message-spacing{
+		margin:-31% 0% 0% 36.5%;
+	}
+	.message{
+		width: 50%;
+		height: 7%;
+		margin:0% 0% 0% 0%;
+		font-size: 270%;
 	}
 }
 
@@ -344,7 +564,7 @@ body{
 	float:right;
 	margin-top: 170%;
 	font-size: 14px;
-	color: red;
+	color: #003333;
 	transition: all 1s ease-in-out;
 }
 

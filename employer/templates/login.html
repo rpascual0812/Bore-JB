@@ -1,41 +1,11 @@
-<style type="text/css">
-#container {
-	margin-right: 10px;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  pointer-events: none;
-}
-.chat {
-  border: 1px solid #999;
-  display: inline-block;
-  vertical-align: bottom;
-  position: relative;
-  margin: 0 5px;
-  pointer-events: auto;
-}
-
-.chat input {
-	width: 100px;
-	height: 30px;
-}
-
-.color-picker {
-	width: 30px;
-	height: 30px;
-	float: left;
-	cursor: pointer;
-}
-
-</style>
-
 <link href='../CSS/employer_login.css' rel='stylesheet' type='text/css'>
 
-<div ng-controller="Background" style="background-color: {{background}}">
+<div ng-controller="Background" style="background-color: #f02921">
 	<p class="welcome-emp">WELCOME !</p>
 	<input type="text" data-ng-model="user.pin" class="username" maxlength="20" placeholder="PIN" enter-key="onKeypress();"/>
 	<input type="password" data-ng-model="user.password" class="password" maxlength="20" placeholder="PASSWORD" enter-key="onKeypress();" />
 	<input type="button" class="login" value="LOGIN" enter-key="onKeypress();" data-ng-click="login()">
+	<div class="or"> <span> OR </span> </div>
 	<a href="#/register"><input type="button" class="signup" value="SIGNUP" enter-key="onKeypress();" data-ng-click="register()">
 
 	<img class="c-briefcase" src="../ASSETS/img/briefcase_employer.png"/>
@@ -46,7 +16,7 @@
 		<span class="message-2">Let Jonathan do the Job!</span>
 		<span class="messagepop">{{user.error_msg}}</span>
 	</div>
-
+<!-- 
 	<div id="container">
 	  	<div class="chat">
 	    	<div class="chatbox">
@@ -55,7 +25,7 @@
 	    	</div>
 	  	</div>
 	</div>
-
+ -->
 </div>	    
 
 
