@@ -297,6 +297,12 @@ body{
 		width:60%;
 		margin:2.5% 0% 0% 12.35%;
 	}
+
+	.cont{padding:15px;
+		height: 320px;
+		width: 500px;position:absolute;margin:60% 0% 0% 200% ;
+		background-color: lightblue;
+	}
 	.jonathan {
 		width:30%;
 		margin:-32% 0% 0% 65%;
@@ -304,6 +310,7 @@ body{
 	.welcome-emp{
 		display:none;
 	}
+
 	.name 
 	{
 		width: 16%;text-align: center;
