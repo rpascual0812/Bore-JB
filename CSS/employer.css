@@ -689,6 +689,12 @@ body {
 		display:block;
 	}
 }
+@media(min-width: 992px){
+	.ccimageblock{
+		margin:0 auto;
+		width:80%;
+	}
+}
 
 /*THE MAIN*/
 
