@@ -111,8 +111,6 @@ if($data['status']){
         // echo "Message sent!";
         header("HTTP/1.0 200 OK");
     }
-
-	header("HTTP/1.0 200 OK");
 }
 
 header('Content-Type: application/json');
