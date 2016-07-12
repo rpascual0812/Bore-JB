@@ -12,7 +12,7 @@
 		<span style ="margin:-5.5% 0% 0% 30%;font-size:13px;width:300px;color:red;" ng-show="userForm.person.$invalid && !userForm.person.$pristine" class="person">Your Contact Person is required.</span>
 </div>
 <div class="form-group" ng-class="{ 'has-error' : userForm.number.$invalid && !userForm.number.$pristine }">
-	<input type="text" name="number" class="form-control" ng-model="form.contact_number" placeholder="CONTACT NUMBER" required>
+	<input type="text" is-number maxlength="12" name="number" class="form-control" ng-model="form.contact_number" placeholder="CONTACT NUMBER" required>
 		<span style ="margin:-5.5% 0% 0% 23%;font-size:13px;width:300px;color:red;" ng-show="userForm.number.$invalid && !userForm.number.$pristine" class="number">Your Contact Person's number is required.</span>
 </div>
 	<div class="form-group" ng-class="{ 'has-error' : userForm.besttime.$invalid && !userForm.besttime.$pristine }">
