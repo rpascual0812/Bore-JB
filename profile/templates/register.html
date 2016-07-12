@@ -21,14 +21,16 @@
 	<span ng-show="regform.email.$error.email">Invalid email address</span></span>
 	<br/>
 
-	<input class="form-control" type="password" id="pw1" name="pw1" ng-model="form.password" ng-required/>
+	<input required placeholder="Password" class="form-control" type="password" id="pw1" name="pw1" ng-model="form.password" />
+	<span style="margin:-5.5% 0% 0% 30%; font-size:13px; width:300px; color:red;" ng-show="regform.pw1.$error.required && !regform.pw1.$pristine">Password is required.</span>
 	<br/>
-	<input class="form-control" type="password" id="pw2" name="pw2" ng-model="form.password2" ng-required pw-check="pw1"/>
+	<input required placeholder="Confirm Password" class="form-control" type="password" id="pw2" name="pw2" ng-model="form.password2" pw-check="pw1"/>
 	<br/>
+	<span style="margin:-5.5% 0% 0% 23%; font-size:13px; width:300px; color:red;" ng-show="regform.pw2.$error.required && !regform.pw2.$pristine">Password Confirmation is required.</span>
 	<span style="margin:1% 0% 0% 40%; font-size:13px; width:300px; color:red;" class="msg-error" ng-show="regform.pw2.$error.pwmatch">Passwords don't match.</span>
 	
 
-	<input class="btn btn-primary csubmit" type="submit" value="Register" ng-click="register()" ng-disabled="regform.$invalid" /><!-- ng-disabled="regform.firstName.$dirty && regform.firstName.$invalid || regform.lastName.$dirty && regform.lastName.$invalid || regform.email.$dirty && regform.email.$invalid "> -->
+	<input class="btn btn-primary csubmit" type="submit" value="Register" ng-click="register()" ng-disabled="regform.$invalid || regform.pw1.$invalid && regform.pw2.$invalid" /><!-- ng-disabled="regform.firstName.$dirty && regform.firstName.$invalid || regform.lastName.$dirty && regform.lastName.$invalid || regform.email.$dirty && regform.email.$invalid "> -->
 </div>
 </form>
 </div>
