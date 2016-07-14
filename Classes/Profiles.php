@@ -88,13 +88,11 @@ EOT;
             $sql .= <<<EOT
                     insert into companies
                     (
-                        name,
-                        profile
+                        name
                     )
                     values
                     (
-                        '$company_name',
-                        '$json_profile'
+                        '$company_name'
                     );
 EOT;
         }
