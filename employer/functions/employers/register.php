@@ -3,20 +3,21 @@ require_once('../../../Functions/connect.php');
 require_once('../../../Classes/Profiles.php');
 
 
-$personal = array(
+$profile = array(
         'first_name' => $_POST['first_name'],
         'last_name' => $_POST['last_name']
     );
 
 $class = new Profiles(
                         generateRandomString(),
-                        $personal,
+                        $profile,
                         NULL
                     );
 $info = array(
         'company_name' => $_POST['company_name'],
         'best_time' => $_POST['best_time'],
         'email_address' => $_POST['email_address'],
+        'contact_number' => $_POST['contact_number'],
         'usertype' => 'recruiter'
     );
 

@@ -1,36 +1,35 @@
 <div class="registration">
-<form name="regform" novalidate>
-<legend>Registration | Job Seeker</legend>
-<div class="inputs">
-	
-	<input required placeholder="First Name" class="form-control" type="text" name="firstName" ng-model="form.firstName" />
-	<span style ="margin:-5.5% 0% 0% 30%; font-size:13px; width:300px; color:red;" ng-show="regform.firstName.$invalid && !regform.firstName.$pristine" class="firstName">Your First Name is required.</span>
-	<!-- <span style="color:blue" ng-show="regform.firstName.$error.required && regform.firstName.$invalid">
-	<span ng-show="regform.firstName.$error.required">First Name is required.</span></span> -->
-	<br/>
+	<form name="regform" novalidate>
+		<legend>Registration</legend>
+		<div class="inputs">
 
-	<input required placeholder="Last Name" class="form-control" type="text" name="lastName" ng-model="form.lastName" />
-	<span style ="margin:-5.5% 0% 0% 30%; font-size:13px; width:300px; color:red;" ng-show="regform.lastName.$invalid && !regform.lastName.$pristine" class="lastName">Your Last Name is required.</span>
-	<!-- <span style="color:blue" ng-show="regform.lastName.$error.required && regform.lastName.$invalid">
-	<span ng-show="regform.lastName.$error.required">Last Name is required.</span></span> -->
-	<br/>
+			<input required placeholder="First Name" class="form-control" type="text" name="firstName" ng-model="form.firstName" />
+			<span style ="margin:-5.5% 0% 0% 30%; font-size:13px; width:300px; color:red;" ng-show="regform.firstName.$invalid && !regform.firstName.$pristine" class="firstName">Your First Name is required.</span>
+			<br/>
 
-	<input required placeholder="Email Address" class="form-control" type="email" name="email" ng-model="form.email" />
-	<span style="margin:-5.5% 0% 0% 23%;font-size:13px;width:300px;color:red;" ng-show="regform.email.$dirty && regform.email.$invalid">
-	<span style="margin:-5.5% 0% 0% 23%; font-size:13px; width:300px; color:red;" ng-show="regform.email.$error.required">Email is required.</span>
-	<span ng-show="regform.email.$error.email">Invalid email address</span></span>
-	<br/>
+			<input required placeholder="Last Name" class="form-control" type="text" name="lastName" ng-model="form.lastName" />
+			<span style ="margin:-5.5% 0% 0% 30%; font-size:13px; width:300px; color:red;" ng-show="regform.lastName.$invalid && !regform.lastName.$pristine" class="lastName">Your Last Name is required.</span>
+			<br/>
 
-	<input required placeholder="Password" class="form-control" type="password" id="pw1" name="pw1" ng-model="form.password" />
-	<span style="margin:-5.5% 0% 0% 30%; font-size:13px; width:300px; color:red;" ng-show="regform.pw1.$error.required && !regform.pw1.$pristine">Password is required.</span>
-	<br/>
-	<input required placeholder="Confirm Password" class="form-control" type="password" id="pw2" name="pw2" ng-model="form.password2" pw-check="pw1"/>
-	<br/>
-	<span style="margin:-5.5% 0% 0% 23%; font-size:13px; width:300px; color:red;" ng-show="regform.pw2.$error.required && !regform.pw2.$pristine">Password Confirmation is required.</span>
-	<span style="margin:1% 0% 0% 40%; font-size:13px; width:300px; color:red;" class="msg-error" ng-show="regform.pw2.$error.pwmatch">Passwords don't match.</span>
-	
+			<input required emailCheck placeholder="Email Address" class="form-control" type="email" name="email" ng-model="form.email" ng-change="checkEmail()" ng-blur="checkEmail()" />
+			<span ng-show="regform.email.$pending.emailCheck">Checking if this email is available...</span>
+			<span ng-show="regform.email.$error.emailCheck">This email is already taken!</span>
+			<span style="margin:-5.5% 0% 0% 23%; font-size:13px; width:300px; color:red;" ng-show="regform.email.$dirty && regform.email.$invalid">
+			<span style="margin:-5.5% 0% 0% 23%; font-size:13px; width:300px; color:red;" ng-show="regform.email.$error.required">Email is required.</span>
+			<span ng-show="regform.email.$error.email">Invalid email address</span></span>
+			<br/>
 
-	<input class="btn btn-primary csubmit" type="submit" value="Register" ng-click="register()" ng-disabled="regform.$invalid || regform.pw1.$invalid && regform.pw2.$invalid" /><!-- ng-disabled="regform.firstName.$dirty && regform.firstName.$invalid || regform.lastName.$dirty && regform.lastName.$invalid || regform.email.$dirty && regform.email.$invalid "> -->
-</div>
-</form>
+			<input required placeholder="Password" class="form-control" type="password" id="pw1" name="pw1" ng-model="form.password" />
+			<span style="margin:-5.5% 0% 0% 30%; font-size:13px; width:300px; color:red;" ng-show="regform.pw1.$error.required && !regform.pw1.$pristine">Password is required.</span>
+			<br/>
+			<input required placeholder="Confirm Password" class="form-control" type="password" id="pw2" name="pw2" ng-model="form.password2" pw-check="pw1"/>
+			<br/>
+
+			<span style="margin:-5.5% 0% 0% 23%; font-size:13px; width:300px; color:red;" ng-show="regform.pw2.$error.required && !regform.pw2.$pristine">Password Confirmation is required.</span>
+			<span style="margin:1% 0% 0% 40%; font-size:13px; width:300px; color:red;" class="msg-error" ng-show="regform.pw2.$error.pwmatch">Passwords don't match.</span>
+
+
+			<input id="register" class="btn btn-primary csubmit" type="submit" value="Register" ng-click="register()" ng-disabled="regform.$invalid || regform.pw1.$invalid && regform.pw2.$invalid || regform.email.$error.emailCheck" />
+		</div>
+	</form>
 </div>

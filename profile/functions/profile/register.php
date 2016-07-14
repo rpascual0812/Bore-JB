@@ -1,16 +1,24 @@
 <?php
 require_once('../../../Functions/connect.php');
-require_once('../../../Classes/Candidates.php');
+require_once('../../../Classes/Profiles.php');
 
-$class = new Candidates(
+$info = array(
+    'pin' => generateRandomString(),
+    'first_name' => $_POST['firstName'],
+    'last_name' => $_POST['lastName'],
+    'email_address' => $_POST['email'],
+    'password' => $_POST['password'],
+    'usertype' => 'candidate'
+);
+
+$class = new Profiles(
 						generateRandomString(),
-						$_POST['firstName'],
-						$_POST['lastName'],
-						$_POST['email'],
-						$_POST['password1']
+                        $info,
+                        NULL
 	);
 
-$data = $class->create();
+
+$data = $class->create($info);
 
 
 function generateRandomString($length = 6) {
