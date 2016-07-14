@@ -3,14 +3,14 @@ require_once('../../../Functions/connect.php');
 require_once('../../../Classes/Profiles.php');
 
 
-$personal = array(
+$profile = array(
         'first_name' => $_POST['first_name'],
         'last_name' => $_POST['last_name']
     );
 
 $class = new Profiles(
                         generateRandomString(),
-                        $personal,
+                        $profile,
                         NULL
                     );
 $info = array(

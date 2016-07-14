@@ -92,8 +92,7 @@ EOT;
                     )
                     values
                     (
-                        '$company_name',
-                        '$json_profile'
+                        '$company_name'
                     );
 EOT;
         }
