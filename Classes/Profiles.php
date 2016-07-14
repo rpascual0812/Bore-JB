@@ -19,27 +19,29 @@ class Profiles extends ClassParent{
 
         //sanitize
         foreach($fields as $k=>$v){
-            $this->$k = pg_escape_string(trim(strip_tags($v)));
+            if(is_array($v)){
+                foreach($v as $key=>$val){
+                    $this->$k[$key] = pg_escape_string(trim(strip_tags($val)));
+                }
+            }
+            else {
+                $this->$k = pg_escape_string(trim(strip_tags($v)));    
+            }
+            
         }
 
         return(true);
     }
 
     public function create($data){
-
-        $profile=array();
-        foreach($this->profile as $k=>$v){
-            $profile[$k] = pg_escape_string(trim(strip_tags($v)));
-        }
-
         foreach($data as $k=>$v){
             $data[$k] = pg_escape_string(trim(strip_tags($v)));
         }        
 
         $json_profile = array(
             'personal' => array(
-                'first_name' => $profile['first_name'],
-                'last_name' => $profile['last_name']
+                'first_name' => $this->profile['first_name'],
+                'last_name' => $this->profile['last_name']
             )
         );
 
@@ -65,7 +67,7 @@ class Profiles extends ClassParent{
                 (
                     '$pin',
                     '$email_address',
-                    '$password',
+                    md5('$password'),
                     '$usertype'
                 );
 EOT;
@@ -97,6 +99,8 @@ EOT;
 EOT;
         }
         $sql .= 'commit;';
+
+        return ClassParent::insert($sql);
     }
 
     public function fetch(){
