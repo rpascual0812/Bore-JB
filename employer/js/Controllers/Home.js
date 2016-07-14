@@ -4,7 +4,7 @@ app.controller('Home', function(
                                     $cookies,
                                     CandidatesFactory,
                                     EmployersFactory,
-                                    EmployerService,
+                                    PINService,
                                     SearchService
 								){
 
@@ -42,7 +42,7 @@ app.controller('Home', function(
 
     init();
 
-    // $scope.$watch(EmployerService.get(), function(newVal, oldVal) {
+    // $scope.$watch(PINService.get(), function(newVal, oldVal) {
     //     if(newVal == false){
     //         alert('Your session has timed out.');
     //     }
@@ -101,13 +101,13 @@ app.controller('Home', function(
     }
 
     function checkpin(){
-        var pin = EmployerService.get();
+        var pin = PINService.get();
         return pin;
     }
 
     function get_profile(){
         var filter = {
-            pin : EmployerService.get()
+            pin : PINService.get()
         }
 
         var promise = EmployersFactory.profile(filter);

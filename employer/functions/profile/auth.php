@@ -4,7 +4,9 @@ require_once('../../../Classes/Accounts.php');
 
 $class = new Accounts(
 						$_POST['pin'],
-						$_POST['password']
+						NULL,
+						$_POST['password'],
+						NULL
 					);
 
 $data = $class->auth();

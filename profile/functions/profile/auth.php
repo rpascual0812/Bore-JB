@@ -1,20 +1,21 @@
 <?php
 require_once('../../../Functions/connect.php');
-require_once('../../../Classes/Candidates_accounts.php');
+require_once('../../../Classes/Accounts.php');
 
-$class = new Candidates_accounts(
+$class = new Accounts(
 						$_POST['pin'],
-						$_POST['pin'],
-						$_POST['password']
+						NULL,
+						$_POST['password'],
+						'candidate'
 					);
 
 $data = $class->auth();
 
 header("HTTP/1.0 404 User Not Found");
 if($data['status']){
-	$pin = md5('APPPIN'); 
+	$pin = md5('PIN'); 
 
-	setcookie($pin, $data['result'][0]['pin'], time()+43200, '/');
+	setcookie($pin, md5($data['result'][0]['pin']), time()+43200, '/');
 	header("HTTP/1.0 200 OK");
 }
 

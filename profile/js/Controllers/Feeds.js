@@ -5,7 +5,7 @@ app.controller('Feeds', function(
                                     $routeParams,
                                     ProfileFactory,
                                     $timeout,
-                                    UserService
+                                    PINService
 								){
 
     $scope.apppin = md5.createHash('APPPIN');
@@ -141,28 +141,39 @@ app.controller('Feeds', function(
     init();
 
     function init(){
-        $scope.profile.pin = UserService.get();
-
-        var pin = $cookies.get(md5.createHash('APPPIN'));
-        
-        var filter = {
-            applicant_id : pin
+        var result = checkpin();
+        if(result == false){
+            window.location = "#/login";
         }
+        else {
+            // $scope.profile.pin = result;
 
-        var promise = ProfileFactory.profile(filter);
-        promise.then(function(data){
-            $scope.profile.status = true;
-            $scope.profile.data = data.data.result[0];
+            // var pin = $cookies.get($scope.apppin);
+            
+            // var filter = {
+            //     applicant_id : pin
+            // }
 
-            $scope.profile.data.currency = 'PHP';
-            $scope.profile.data.available = '0.00';
-        })
-        .then(null, function(data){
-            $scope.profile.status = false;
-        });
+            // var promise = ProfileFactory.profile(filter);
+            // promise.then(function(data){
+            //     $scope.profile.status = true;
+            //     $scope.profile.data = data.data.result[0];
 
-        reload_ads();
-        reload_feeds();
+            //     $scope.profile.data.currency = 'PHP';
+            //     $scope.profile.data.available = '0.00';
+            // })
+            // .then(null, function(data){
+            //     $scope.profile.status = false;
+            // });
+
+            reload_ads();
+            reload_feeds();
+        }
+    }
+
+    function checkpin(){
+        var pin = PINService.get();
+        return pin;
     }
 
     function reload_ads(){

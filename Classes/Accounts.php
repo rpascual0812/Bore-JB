@@ -2,11 +2,15 @@
 require_once('../../../Classes/ClassParent.php');
 class Accounts extends ClassParent{
     var $pin            = NULL;
+    var $email_address  = NULL;
     var $password       = NULL;
+    var $usertype       = NULL;
 
     public function __construct(
                                     $pin,
-                                    $password
+                                    $email_address,
+                                    $password,
+                                    $usertype
                                 ){
         
         $fields = get_defined_vars();
@@ -28,7 +32,7 @@ class Accounts extends ClassParent{
                 select
                     *
                 from accounts
-                where pin = '$this->pin'
+                where (pin = UPPER('$this->pin') or email_address = LOWER('$this->pin'))
                 and password = md5('$this->password')
                 ;
 EOT;

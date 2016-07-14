@@ -4,7 +4,7 @@ app.controller('Login', function(
                                     $cookies,
                                     $timeout,
                                     User,
-                                    EmployersFactory
+                                    ProfileFactory
 								){
 
     $scope.pin = md5.createHash('PIN');
@@ -50,7 +50,7 @@ app.controller('Login', function(
             $scope.user.error_msg = '';
             
 
-            var promise = EmployersFactory.auth($scope.user);
+            var promise = ProfileFactory.auth($scope.user);
             promise.then(function(data){
                 window.location = "#/";
             })
