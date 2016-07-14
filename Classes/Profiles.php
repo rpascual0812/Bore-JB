@@ -88,8 +88,7 @@ EOT;
             $sql .= <<<EOT
                     insert into companies
                     (
-                        name,
-                        profile
+                        name
                     )
                     values
                     (
