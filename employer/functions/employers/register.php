@@ -18,7 +18,8 @@ $info = array(
         'best_time' => $_POST['best_time'],
         'email_address' => $_POST['email_address'],
         'contact_number' => $_POST['contact_number'],
-        'usertype' => 'recruiter'
+        'usertype' => 'recruiter',
+        'password' => '1'
     );
 
 $data = $class->create($info);

@@ -2,21 +2,24 @@
 require_once('../../../Functions/connect.php');
 require_once('../../../Classes/Profiles.php');
 
-$info = array(
-    'pin' => generateRandomString(),
+$app_pin = generateRandomString();
+
+$profile = array(
     'first_name' => $_POST['firstName'],
-    'last_name' => $_POST['lastName'],
+    'last_name' => $_POST['lastName']
+);
+
+$class = new Profiles(
+						$app_pin,
+                        $profile,
+                        NULL
+	);
+
+$info = array(
     'email_address' => $_POST['email'],
     'password' => $_POST['password'],
     'usertype' => 'candidate'
 );
-
-$class = new Profiles(
-						generateRandomString(),
-                        $info,
-                        NULL
-	);
-
 
 $data = $class->create($info);
 
