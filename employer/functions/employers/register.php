@@ -1,19 +1,26 @@
 <?php
 require_once('../../../Functions/connect.php');
-require_once('../../../Classes/Employers.php');
+require_once('../../../Classes/Profiles.php');
 
-$class = new Employers(
-                        generateRandomString(),
-                        $_POST['name'],
-                        1,
-                        1,
-                        $_POST['contact_person'],
-                        $_POST['contact_number'],
-                        $_POST['best_time'],
-                        $_POST['email']
+
+$personal = array(
+        'first_name' => $_POST['first_name'],
+        'last_name' => $_POST['last_name']
     );
 
-$data = $class->create();
+$class = new Profiles(
+                        generateRandomString(),
+                        $personal,
+                        NULL
+                    );
+$info = array(
+        'company_name' => $_POST['company_name'],
+        'best_time' => $_POST['best_time'],
+        'email_address' => $_POST['email_address'],
+        'usertype' => 'recruiter'
+    );
+
+$data = $class->create($info);
 
 
 function generateRandomString($length = 6) {

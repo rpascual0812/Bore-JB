@@ -8,7 +8,7 @@ app.controller('Register', function(
     $scope.register = function(){
         var errCtr = 0;
 
-        if (!validateEmail($scope.form.email)) {
+        if (!validateEmail($scope.form.email_address)) {
             errCtr++;
             console.log("Invalid Email");
         }

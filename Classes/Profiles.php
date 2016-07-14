@@ -3,7 +3,7 @@ require_once('../../../Classes/ClassParent.php');
 class Profiles extends ClassParent{
     var $pin = NULL;
     var $profile = array();
-    var $archvied = NULL;
+    var $archived = NULL;
 
     public function __construct(
                                     $pin,
@@ -37,7 +37,7 @@ class Profiles extends ClassParent{
         }        
 
         $json_profile = array(
-            'personal' = array(
+            'personal' => array(
                 'first_name' => $profile['first_name'],
                 'last_name' => $profile['last_name']
             )
@@ -47,10 +47,11 @@ class Profiles extends ClassParent{
 
         $sql = 'begin;';
 
-        $pin = $data['pin'];
+        $pin = $this->pin;
         $email_address = $data['email_address'];
         $password = $data['password'];
         $usertype = $data['usertype'];
+
 
         $sql .= <<<EOT
                 insert into accounts
@@ -82,6 +83,21 @@ EOT;
                 );
 EOT;
 
+        if ($usertype == 'recruiter'){
+            $company_name = $data['company_name'];
+            $sql .= <<<EOT
+                    insert into companies
+                    (
+                        name,
+                        profile
+                    )
+                    values
+                    (
+                        '$company_name',
+                        '$json_profile'
+                    );
+EOT;
+        }
         $sql .= 'commit;';
     }
 

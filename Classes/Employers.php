@@ -5,10 +5,10 @@ class Employers extends ClassParent{
     var $name           = NULL;
     var $currencies_pk  = NULL;
     var $plans_pk  = NULL;
-    var $contact_person  = NULL;
-    var $contact_number  = NULL;
+    var $first_name  = NULL;
+    var $last_name  = NULL;
     var $best_time  = NULL;
-    var $email  = NULL;
+    var $email_address  = NULL;
 
 
     public function __construct(
@@ -16,10 +16,10 @@ class Employers extends ClassParent{
                                     $name,
                                     $currencies_pk,
                                     $plans_pk,
-                                    $contact_person,
-                                    $contact_number,
+                                    $first_name,
+                                    $last_name,
                                     $best_time,
-                                    $email
+                                    $email_address
                                 ){
         
         $fields = get_defined_vars();
@@ -46,8 +46,8 @@ class Employers extends ClassParent{
                 name,
                 currencies_pk,
                 plans_pk,              
-                contact_person,
-                contact_number,
+                first_name,
+                last_name,
                 best_time,
                 email
             )
@@ -57,8 +57,8 @@ class Employers extends ClassParent{
                 '$this->name',
                 1,
                 '$this->plans_pk',
-                '$this->contact_person',
-                '$this->contact_number',
+                '$this->first_name',
+                '$this->last_name',
                 '$this->best_time',
                 '$this->email'
 
