@@ -1,22 +1,42 @@
 app.controller('Register', function(
                                     $scope,
-                                    RegisterFactory)
+                                    RegisterFactory
+                                    )
 {
 
     $scope.form = {};
-    
-    $scope.register = function(){
 
+    $scope.register = function(){
         var promise = RegisterFactory.save($scope.form);
         promise.then(function(data){
             console.log('Registration Successful');
-            
         })
         .then(null, function(data){
             //failed to save
             console.log('Register Failed');
         });
-
     };
+
+    $scope.checkEmail = function(){
+        checkEmail();
+    }
+
+    function checkEmail() {
+        console.log($scope.form);
+
+        var data = {
+            email : $scope.form.email
+        };
+
+        var promise = RegisterFactory.get(data);
+        promise.then(function(data){
+            console.log("E-mail already taken..");
+            document.getElementById("register").setAttribute("disabled", "disabled");
+        })
+        .then(null, function(data){
+            //
+            console.log("E-mail available");
+        });
+    }
 
 });
