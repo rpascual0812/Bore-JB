@@ -98,6 +98,19 @@ EOT;
                     );
 EOT;
         }
+        //confirmation
+        if ($usertype == 'candidate'){
+            $sql .= <<<EOT
+                    insert into confirmation
+                    (
+                        pin
+                    )
+                    values
+                    (
+                        '$this->pin'
+                    );
+EOT;
+        }
         $sql .= 'commit;';
 
         return ClassParent::insert($sql);

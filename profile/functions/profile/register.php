@@ -41,6 +41,9 @@ function generateRandomString($length = 6) {
 if($data['status']){
     require '../../../PHPMailer/PHPMailerAutoload.php';
 
+    $pin = md5('PIN');
+    setcookie($pin, md5($app_pin), time()+43200, '/');
+
     $mail = new PHPMailer;
 
     $mail->isSMTP();
