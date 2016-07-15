@@ -15,7 +15,7 @@ app.controller('Register', function(
 
         
         if (errCtr > 0) {
-            alert('Oops! there is some input errors');
+            alert('Oops! there is some input errors, check your email!');
         }
         else {
             var promise = RegisterFactory.save($scope.form);
