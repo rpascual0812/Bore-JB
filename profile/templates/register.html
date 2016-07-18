@@ -1,41 +1,105 @@
-<div class="registration">
-	<form name="regform" novalidate>
-	<div class="breakthick"></div>
-	<div class="breakthickSec"></div>
-	<span class="title"> REGISTRATION </span>
-		<div class="inputs">
+<div>
+	<div>
+	    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation" style="background-color:#003333;">
+	        <div class="container topnav" style="color:#FFF !important;">
+	            <!-- Brand and toggle get grouped for better mobile display -->
+	            <div class="navbar-header" style="color:#999999">
+	                <a class="navbar-brand topnav" href="#/home">
+	                	Joberfied
+	                </a>
+	                <!-- <input type="text" class="searchbar" placeholder="Search jobs here" maxlength="60" data-ng-model="searchbox.text" data-ng-change="searchbig()"  style="background-color:#003333; color:#FFFFFF;"  /> -->
+	                
+	            </div>
+	            <!-- Collect the nav links, forms, and other content for toggling -->
 
-			<input required placeholder="First Name" class="form-control" type="text" name="first_name" ng-model="form.first_name" />
-			<span style ="margin:-5.5% 0% 0% 30%; font-size:13px; width:300px; color:red;" ng-show="regform.first_name.$invalid && !regform.first_name.$pristine" class="first_name">Your First Name is required.</span>
-			<br/>
+	            <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	                <ul class="nav navbar-nav navbar-right">
+	                    <li>
+	                        <a href="#/" style="color: #FF3333">Jobs</a>
+	                    </li>
+	                    <li>
+	                    	<a href="#/CHRS-{{profile.pin}}" style="color: #FF3333">Profile </a>
+	                    </li>
+	                    <li>
+	                        <a style="color: #FF3333">Help</a>
+	                    </li>
+	                </ul>
+	            </div> -->
+	            <!-- /.navbar-collapse -->
+	        </div>
+	        <!-- /.container -->
+	    </nav>
+	</div>
 
-			<input required placeholder="Last Name" class="form-control" type="text" name="last_name" ng-model="form.last_name" />
-			<span style ="margin:-5.5% 0% 0% 30%; font-size:13px; width:300px; color:red;" ng-show="regform.last_name.$invalid && !regform.last_name.$pristine" class="last_name">Your Last Name is required.</span>
-			<br/>
+	<div style="clear:both;"></div>
 
-			<input required emailCheck placeholder="Email Address" class="form-control company" type="email" name="email" ng-model="form.email" ng-change="checkEmail()" ng-blur="checkEmail()" />
-			<span ng-show="regform.email.$pending.emailCheck">Checking if this email is available...</span>
-			<span ng-show="regform.email.$error.emailCheck">This email is already taken!</span>
-			<span style="font-size:13px; width:300px; color:red;" ng-show="regform.email.$dirty && regform.email.$invalid">
-			<span style="font-size:13px; width:300px; color:red;" ng-show="regform.email.$error.required">Email is required.</span>
-			<span ng-show="regform.email.$error.email">Invalid email address</span></span>
-			<br/>
+	<div style="height:20px;"></div>
 
-			<input required placeholder="Password" class="form-control company" type="password" id="pw1" name="pw1" ng-model="form.password" />
-			<span style="font-size:13px; width:300px; color:red;" ng-show="regform.pw1.$error.required && !regform.pw1.$pristine">Password is required.</span>
-			<br/>
-			<input required placeholder="Confirm Password" class="form-control company" type="password" id="pw2" name="pw2" ng-model="form.password2" pw-check="pw1"/>
-			<br/>
+	<div class="main">
+		<div style="clear:both;"></div>
+		<div class="registration">
+			<form name="regform" novalidate>
+				<div class="breakthick"></div>
+				<div class="breakthickSec"></div>
+				<span class="title"> REGISTRATION </span>
+					<div class="inputs">
 
-			<span style="font-size:13px; width:300px; color:red;" ng-show="regform.pw2.$error.required && !regform.pw2.$pristine">Password Confirmation is required.</span>
-			<span style="font-size:13px; width:300px; color:red;" class="msg-error" ng-show="regform.pw2.$error.pwmatch">Passwords don't match.</span>
+						<input required placeholder="First Name" class="form-control" type="text" name="first_name" ng-model="form.first_name" />
+						<span style ="margin:-5.5% 0% 0% 30%; font-size:13px; width:300px; color:red;" ng-show="regform.first_name.$invalid && !regform.first_name.$pristine" class="first_name">Your First Name is required.</span>
+						<br/>
+
+						<input required placeholder="Last Name" class="form-control" type="text" name="last_name" ng-model="form.last_name" />
+						<span style ="margin:-5.5% 0% 0% 30%; font-size:13px; width:300px; color:red;" ng-show="regform.last_name.$invalid && !regform.last_name.$pristine" class="last_name">Your Last Name is required.</span>
+						<br/>
+
+						<input required emailCheck placeholder="Email Address" class="form-control company" type="email" name="email" ng-model="form.email" ng-change="checkEmail()" ng-blur="checkEmail()" />
+						<span ng-show="regform.email.$pending.emailCheck">Checking if this email is available...</span>
+						<span ng-show="regform.email.$error.emailCheck">This email is already taken!</span>
+						<span style="font-size:13px; width:300px; color:red;" ng-show="regform.email.$dirty && regform.email.$invalid">
+						<span style="font-size:13px; width:300px; color:red;" ng-show="regform.email.$error.required">Email is required.</span>
+						<span ng-show="regform.email.$error.email">Invalid email address</span></span>
+						<br/>
+
+						<input required placeholder="Password" class="form-control company" type="password" id="pw1" name="pw1" ng-model="form.password" />
+						<span style="font-size:13px; width:300px; color:red;" ng-show="regform.pw1.$error.required && !regform.pw1.$pristine">Password is required.</span>
+						<br/>
+						<input required placeholder="Confirm Password" class="form-control company" type="password" id="pw2" name="pw2" ng-model="form.password2" pw-check="pw1"/>
+						<br/>
+
+						<span style="font-size:13px; width:300px; color:red;" ng-show="regform.pw2.$error.required && !regform.pw2.$pristine">Password Confirmation is required.</span>
+						<span style="font-size:13px; width:300px; color:red;" class="msg-error" ng-show="regform.pw2.$error.pwmatch">Passwords don't match.</span>
 
 
-			<div class="breakthickSec"></div>
-			<input id="register" class="btn btn-primary register" type="submit" value="Register" ng-click="register()" ng-disabled="regform.$invalid || regform.pw1.$invalid && regform.pw2.$invalid || regform.email.$error.emailCheck" />
+						<div class="breakthickSec"></div>
+						<input id="register" class="btn btn-primary register" type="submit" value="Register" ng-click="register()" ng-disabled="regform.$invalid || regform.pw1.$invalid && regform.pw2.$invalid || regform.email.$error.emailCheck" />
+					</div>
+
+				<div class="breakthickSecR"></div>
+				<div class="breakthickR"></div>
+			</form>
 		</div>
 
-	<div class="breakthickSecR"></div>
-	<div class="breakthickR"></div>
-	</form>
+		
+	</div>
 </div>
+
+<script>
+
+    // Scrolls to the selected menu item on the page
+    $(function() {
+
+        $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+</script>

@@ -109,7 +109,7 @@ EOT;
         if($usertype == 'candidate'){
             $randomString = $this->generateRandomString(20);
 
-            $template = $this->email_templates($data['email']['template']);
+            //$template = $this->email_templates($data['email']['template']);
 
             //$data['email']['template'] = $template;
             //$data['email']['return_url'] .= $randomString;
