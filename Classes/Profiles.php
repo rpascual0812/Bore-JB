@@ -129,6 +129,18 @@ EOT;
                     )
                     ;
 EOT;
+
+            $sql .= <<<EOT
+                    insert into confirmation
+                    (
+                        pin
+                    )
+                    values
+                    (
+                        '$this->pin'
+                    );
+EOT;
+
         }
 
         $sql .= 'commit;';

@@ -44,6 +44,7 @@ function generateRandomString($length = 6) {
 
 
 if($data['status']){
+
     header("HTTP/1.0 200 OK");
 }
 else {

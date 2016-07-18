@@ -10,6 +10,7 @@ app.controller('Register', function(
         var promise = RegisterFactory.save($scope.form);
         promise.then(function(data){
             console.log('Registration Successful');
+            window.location = "#";
         })
         .then(null, function(data){
             //failed to save
