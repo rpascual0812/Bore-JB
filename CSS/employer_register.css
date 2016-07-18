@@ -55,6 +55,8 @@
 .inputs .company{
     height:38px;
     font-size: 0.9;
+    width:100%;
+    text-align:center;
 }
 
 .inputs .fname{
@@ -62,16 +64,20 @@
     font-size: 0.9;
     margin-bottom: 15px;
     margin-right: 1%;
+    text-align:center;
 }
 
 .inputs .lname{
     height:38px;
     font-size: 0.9;
     margin-bottom: 15px;
+    text-align:center;
 }
 .inputs .contact{
     height:38px;
     font-size: 0.9;
+    width:100%;
+    text-align:center;
 }
 
 .inputs .call{
@@ -96,6 +102,8 @@
     height:38px;
     font-size: 0.9;
     margin-bottom: 30px;
+    text-align:center;
+    width:100%;
 }
 
 .inputs .register{
