@@ -35,7 +35,14 @@ class Profiles extends ClassParent{
 
     public function create($data){
         foreach($data as $k=>$v){
-            $data[$k] = pg_escape_string(trim(strip_tags($v)));
+            if(is_array($v)){
+                foreach($v as $key=>$val){
+                    $data[$k][$key] = pg_escape_string(trim(strip_tags($val)));
+                }
+            }
+            else {
+                $data[$k] = pg_escape_string(trim(strip_tags($v)));    
+            }
         }        
 
         $json_profile = array(
@@ -98,6 +105,32 @@ EOT;
                     );
 EOT;
         }
+
+        if($usertype == 'candidate'){
+            $randomString = $this->generateRandomString(20);
+
+            $template = $this->email_templates($data['email']['template']);
+
+            //$data['email']['template'] = $template;
+            //$data['email']['return_url'] .= $randomString;
+
+            $email = json_encode($data['email']);
+
+            $sql .= <<<EOT
+                    insert into email_notifications
+                    (
+                        code,
+                        email
+                    )
+                    values
+                    (
+                        '$randomString',
+                        '$email'
+                    )
+                    ;
+EOT;
+        }
+
         $sql .= 'commit;';
 
         return ClassParent::insert($sql);
@@ -115,6 +148,16 @@ EOT;
         return ClassParent::get($sql);
     }
 
-    
+    private function generateRandomString($length) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+
+        return $randomString;
+    }
 }
 ?>

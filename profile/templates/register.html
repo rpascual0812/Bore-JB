@@ -3,12 +3,12 @@
 		<legend>Registration</legend>
 		<div class="inputs">
 
-			<input required placeholder="First Name" class="form-control" type="text" name="firstName" ng-model="form.firstName" />
-			<span style ="margin:-5.5% 0% 0% 30%; font-size:13px; width:300px; color:red;" ng-show="regform.firstName.$invalid && !regform.firstName.$pristine" class="firstName">Your First Name is required.</span>
+			<input required placeholder="First Name" class="form-control" type="text" name="first_name" ng-model="form.first_name" />
+			<span style ="margin:-5.5% 0% 0% 30%; font-size:13px; width:300px; color:red;" ng-show="regform.first_name.$invalid && !regform.first_name.$pristine" class="first_name">Your First Name is required.</span>
 			<br/>
 
-			<input required placeholder="Last Name" class="form-control" type="text" name="lastName" ng-model="form.lastName" />
-			<span style ="margin:-5.5% 0% 0% 30%; font-size:13px; width:300px; color:red;" ng-show="regform.lastName.$invalid && !regform.lastName.$pristine" class="lastName">Your Last Name is required.</span>
+			<input required placeholder="Last Name" class="form-control" type="text" name="last_name" ng-model="form.last_name" />
+			<span style ="margin:-5.5% 0% 0% 30%; font-size:13px; width:300px; color:red;" ng-show="regform.last_name.$invalid && !regform.last_name.$pristine" class="last_name">Your Last Name is required.</span>
 			<br/>
 
 			<input required emailCheck placeholder="Email Address" class="form-control" type="email" name="email" ng-model="form.email" ng-change="checkEmail()" ng-blur="checkEmail()" />
