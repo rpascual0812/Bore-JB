@@ -93,9 +93,26 @@ create table job_posts
 	pk serial primary key,
 	pin text references accounts(pin),
 	type text not null,
-	archived boolean default false
+	details jsonb not null,
+	date_created timestamptz default now(),
+	archived boolean default false,
+	tsv tsvector
 );
 alter table job_posts owner to chrs;
+CREATE INDEX tsv_idx ON job_posts USING gin(tsv);
+UPDATE job_posts SET tsv = setweight(to_tsvector(coalesce(details->>'details','')), 'A');
+
+DROP FUNCTION job_posts_search_trigger() cascade;
+CREATE FUNCTION job_posts_search_trigger() RETURNS trigger AS $$
+begin
+  	new.tsv :=
+    	setweight(to_tsvector(coalesce(new.details->>'details','')), 'A');
+  	return new;
+end
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER job_posts_tsvectorupdate BEFORE INSERT OR UPDATE
+ON job_posts FOR EACH ROW EXECUTE PROCEDURE job_posts_search_trigger();
 
 -- drop table if exists details;
 -- create table details

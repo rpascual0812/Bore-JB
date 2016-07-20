@@ -4,7 +4,7 @@ app.controller('Posts', function(
                                     $cookies,
                                     CandidatesFactory,
                                     EmployersFactory,
-                                    EmployerService
+                                    PINService
 								){
 
     $scope.candidates = {
@@ -90,13 +90,13 @@ app.controller('Posts', function(
     }
 
     function checkpin(){
-        var pin = EmployerService.get();
+        var pin = PINService.get();
         return pin;
     }
 
     function get_profile(){
         var filter = {
-            pin : EmployerService.get()
+            pin : PINService.get()
         }
 
         var promise = EmployersFactory.profile(filter);
