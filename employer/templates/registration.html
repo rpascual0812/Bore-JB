@@ -75,8 +75,8 @@
 						<span style ="margin:-5.5% 0% 0% 39%;font-size:13px;width:300px;color:red;" ng-show="userForm.person.$invalid && !userForm.person.$pristine" class="person">Your Full name is required.</span>
 					</div>
 					<div class="form-group"  ng-class="{ 'has-error' : userForm.number.$invalid && !userForm.number.$pristine }">
-						<input type="text"style="width:50%; float:left" is-number maxlength="12" name="number" class="office_number" ng-model="form.office_number" placeholder="OFFICE NUMBER" required>
-						<input type="text"style="width:50%; float:left" is-number maxlength="10" name="number" class="extensions" ng-model="form.extensions" placeholder="EXTENSIONS" required>
+						<input type="text"style="width:80%; float:left" is-number maxlength="12" name="number" class="office_number" ng-model="form.office_number" placeholder="OFFICE NUMBER" required>
+						<input type="text"style="width:20%; float:left" is-number maxlength="10" name="number" class="extensions" ng-model="form.extensions" placeholder="EXTENSIONS" required>
 						<span style ="margin:-5.5% 0% 0% 40%;font-size:13px;width:300px;color:red;" ng-show="userForm.number.$invalid &&!userForm.number.$pristine" class="number">The following Numbers are required.</span>
 					</div>
 					<div class="form-group" ng-class="{ 'has-error' : userForm.mobile_number.$invalid && !userForm.mobile_number.$pristine }">
