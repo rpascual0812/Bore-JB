@@ -15,7 +15,8 @@ $class = new Profiles(
                     );
 $info = array(
         'company_name' => $_POST['company_name'],
-        'best_time' => $_POST['best_time'],
+        'office_number' => $_POST['office_number'],
+        'extensions' => $_POST['extensions'],
         'email_address' => $_POST['email_address'],
         'contact_number' => $_POST['contact_number'],
         'usertype' => 'recruiter',
