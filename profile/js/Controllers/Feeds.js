@@ -4,9 +4,12 @@ app.controller('Feeds', function(
                                     $cookies,
                                     $routeParams,
                                     ProfileFactory,
+                                    ProfileFactory,
                                     $timeout,
                                     PINService
 								){
+
+    $scope.confirmed ='';
 
     $scope.apppin = md5.createHash('APPPIN');
     $scope.pitch = 'Make a pitch!';
@@ -15,6 +18,9 @@ app.controller('Feeds', function(
 
     $scope.feeds = {};
     $scope.feeds.ad = {};
+    $scope.hide = 'ng-hide';
+
+    
     $scope.feeds.data = 
     [
         {
@@ -66,7 +72,6 @@ app.controller('Feeds', function(
             background : '../ASSETS/Uploads/employers/backgrounds/10.png'
         }
     ];
-
     $scope.job_titles = [
         'Game Developer',
         'Customer Service Representative',
@@ -165,9 +170,7 @@ app.controller('Feeds', function(
             // .then(null, function(data){
             //     $scope.profile.status = false;
             // });
-
-            reload_ads();
-            reload_feeds();
+            get_profile();
         }
     }
 
@@ -175,6 +178,22 @@ app.controller('Feeds', function(
         var pin = PINService.get();
         return pin;
     }
+
+     function get_profile(){
+        var filter = {
+            pin : PINService.get()
+        }
+
+        var promise = ProfileFactory.profile(filter);
+        promise.then(function(data){
+            $scope.profile = data.data.result[0];
+
+            reload_ads();
+            reload_feeds();
+            check_profile();
+        })
+    }
+
 
     function reload_ads(){
         $scope.feeds.ad.image = $scope.logos[[Math.floor(Math.random() * $scope.logos.length)]];
@@ -214,7 +233,6 @@ app.controller('Feeds', function(
             $timeout.cancel(to2);
             
             reload_feeds();
-
         }, $scope.timer[[Math.floor(Math.random() * $scope.timer.length)]]);
     }
 
@@ -222,5 +240,46 @@ app.controller('Feeds', function(
         if($scope.pitch == "Make a pitch!"){
             $scope.pitch = "";
         }
+    }
+
+    $scope.activate = function(letter){
+      if(letter=='a'){
+        $scope.confirmed='a';
+      }else if (letter=='b'){
+        $scope.confirmed='b';
+      }else if (letter== 'c'){
+        $scope.confirmed='c';
+      }else if (letter=='d'){
+        $scope.confirmed='d';
+      }
+    }
+
+    $scope.show =function(status){
+        if(status==true){
+            $scope.confirmed= false;
+            return true;
+        }
+
+    } 
+    
+    $scope.searchbig = function(){
+
+        console.log($scope.hide);
+        $scope.hide = 'ng-show';
+
+    }
+
+    $scope.check_info= function(){
+        check_profile();
+
+    }
+    function check_profile(){
+        if($scope.profile[]===null){
+
+            console.log("empty");
+        }else{
+            console.log("not empty");
+        }
+
     }
 });

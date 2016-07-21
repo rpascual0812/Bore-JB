@@ -94,8 +94,74 @@
 			</div>
 
 			<div class="left">
-				<div style="height: 50px; padding: 15px; margin-bottom: 10px;">
-					<p>Your account will be suspended if you don't confirm your email address. Would you like us to <a href="#">resend</a> a new confirmation email?</p>
+				<div style=" padding: 15px; margin-bottom: 10px;">
+					<div>
+						<p>Your account will be suspended if you don't confirm your email address. Would you like us to <a href="#">resend</a> a new confirmation email?</p>
+					</div>
+
+					<div class="autoform" >
+						<div class="personalinfo">
+							<p><span ng-click="activate('a')" ng-hide="confirmed=='a'" style="cursor:pointer">You have not yet filled up your <a style="text-decoration:none" >Personal Info</a></span></p>
+							<div style="border: 1px solid #344972; padding: 10px; border-radius: 5px;" ng-show="confirmed=='a'">
+						     <h1>Personal Information</h1>
+						     <form >
+						      <p>Name: <input type="text" name="name" placeholder="Juan Niyebe"/>
+						      <p>Address: <input type="text" name="Address" placeholder="Address" size="50"/>
+						      <p>Phone Number: <input type="text" name="PhoneNumber" placeholder="123-1234"/>
+						      <p>Email: <input type="text" name="email" placeholder="employee@email.com"/>
+						      <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" />
+						     </form>
+						     </div>
+						</div>
+
+						<div class="achievements">
+							<p><span ng-click="activate('b')" ng-hide="confirmed=='b'" style="cursor:pointer">You have not yet filled up your <a style="text-decoration:none">Achievements</a>
+							</span></p>
+							<p>
+							<div style="border: 1px solid #344972; padding: 10px; border-radius: 5px;" ng-show="confirmed=='b'">
+							<h1>Achievements</h1>
+							<form>
+							<p><textarea name="achievements" placeholder="Valedictorian, Best in Line Formation, Best Cleaner" rows="10" cols="50"></textarea>
+							<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" />
+							</form>
+							</div>
+						</div>
+
+					<div class="education">
+							<p><span ng-click="activate('c')" ng-hide="confirmed=='c'" style="cursor:pointer">You have not yet filled up your <a style="text-decoration:none">Educational Background</a></span></p>
+							<p>
+							<div style="border: 1px solid #344972; padding: 10px; border-radius: 5px;" ng-show="confirmed=='c'">
+							<h1>Education</h1>
+							<form>
+							<p>School: <input type="text" name="school" placeholder="University School of College"/>
+							<p>Major: <input type="text" name="major" placeholder="BS Information Technology"/>
+							<p>Date From: <input type="date"name="school_dateFrom"/>
+							<p>Date To: <input type="date" name="schoxol_dateTo"/>
+							
+							<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" />
+							</form>
+							</div>
+						</div>
+						<p>
+						<div class="work" >
+							<p><span ng-click="activate('d')" ng-hide="confirmed=='d'" style="cursor:pointer">You have not yet filled up your <a style="text-decoration:none">Work Experience</a>
+							</span></p>
+							<div style="border: 1px solid #344972; padding: 10px; border-radius: 5px;" ng-show="confirmed=='d'">
+							<h1>Work Experience</h1>
+							<form>
+							<div>
+							<p>Company: <input type="text" name="company" placeholder="CHRS"/>
+							<p>Position: <input type="text" name="position" placeholder="Branch Manager"/>
+							<p>Date From: <input type="date"name="work_dateFrom"/>
+							<p>Date To: <input type="date" name="work_dateTo"/>	
+							</div>
+							<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" />
+							</form>
+							</div>
+							</div>
+						</div>
+
+
 				</div>
 				<div style="height: 20px;width:100%;"></div>
 				<div class="CbreakThr" style="width:100%; border:1px solid #f02921"></div>
