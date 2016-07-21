@@ -1,0 +1,20 @@
+.sent{
+	width: 500px;
+    margin:0 auto;
+	min-height: 450px;
+	background-color: #FFF;
+    text-align:justify;
+	padding: 50px;
+
+    border: 1px solid #CCC;
+    box-shadow: 0 4px 8px -2px #000;
+    -moz-box-shadow: 0 4px 8px -2px #000;
+    -webkit-box-shadow: 0 4px 8px -2px #000;
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+}
+.footer{
+    position:absolute;
+    margin:1% 0% 0% 2%;
+}

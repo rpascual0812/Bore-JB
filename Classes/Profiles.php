@@ -51,6 +51,12 @@ class Profiles extends ClassParent{
                 'last_name' => $this->profile['last_name']
             )
         );
+        if ($usertype == 'recruiter')
+            $json_profile['contacts'] = array(
+                'office_number' => $this->profile['office_number'],
+                'extensions' => $this->profile['extensions'],
+                'mobile_number' => $this->profile['mobile_number']
+        );
 
         $json_profile = json_encode($json_profile);
 

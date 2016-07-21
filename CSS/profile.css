@@ -1637,39 +1637,74 @@ body {
 .profile .right {
 	display:none;
 	visibility:hidden;
-	float: left;
-	width: 24%; 
-	min-height: 300px;
-	margin-top:10px;
-	margin-left: 1%;
-	background-color: #FFF;
-
-	padding: 1.5em;
-
-	border: 1px solid #CCC;
-    box-shadow: 0 4px 8px -2px #000;
-    -moz-box-shadow: 0 4px 8px -2px #000;
-    -webkit-box-shadow: 0 4px 8px -2px #000;
-    border-radius: 4px;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
 }
 @media(min-width: 768px){
 	.profile .right {
 		display:block;
 		visibility:visible;
+
+		float: left;
+		width: 24%; 
+		min-height: 300px;
+		margin-top:10px;
+		margin-left: 1%;
+		background-color: #FFF;
+
+		padding: 1.5em;
+
+		border: 1px solid #CCC;
+	    box-shadow: 0 4px 8px -2px #000;
+	    -moz-box-shadow: 0 4px 8px -2px #000;
+	    -webkit-box-shadow: 0 4px 8px -2px #000;
+	    border-radius: 4px;
+	    -moz-border-radius: 4px;
+	    -webkit-border-radius: 4px;
 	}
 }
 @media(min-width: 992px){
 	.profile .right {
 		display:block;
 		visibility:visible;
+
+		float: left;
+		width: 24%; 
+		min-height: 300px;
+		margin-top:10px;
+		margin-left: 1%;
+		background-color: #FFF;
+
+		padding: 1.5em;
+
+		border: 1px solid #CCC;
+	    box-shadow: 0 4px 8px -2px #000;
+	    -moz-box-shadow: 0 4px 8px -2px #000;
+	    -webkit-box-shadow: 0 4px 8px -2px #000;
+	    border-radius: 4px;
+	    -moz-border-radius: 4px;
+	    -webkit-border-radius: 4px;
 	}
 }
 @media(min-width: 1200px){
 	.profile .right {
 		display:block;
 		visibility:visible;
+
+		float: left;
+		width: 24%; 
+		min-height: 300px;
+		margin-top:10px;
+		margin-left: 1%;
+		background-color: #FFF;
+
+		padding: 1.5em;
+
+		border: 1px solid #CCC;
+	    box-shadow: 0 4px 8px -2px #000;
+	    -moz-box-shadow: 0 4px 8px -2px #000;
+	    -webkit-box-shadow: 0 4px 8px -2px #000;
+	    border-radius: 4px;
+	    -moz-border-radius: 4px;
+	    -webkit-border-radius: 4px;
 	}
 }
 

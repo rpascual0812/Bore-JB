@@ -5,17 +5,18 @@ CREATE INDEX tsv_idx ON profiles USING gin(tsv);
 
 --UPDATE profiles SET tsv = setweight(to_tsvector(coalesce(profiles->>'skills','')), 'A') || setweight(to_tsvector(coalesce(text,'')), 'D');
 
-UPDATE profiles SET tsv = setweight(to_tsvector(coalesce(profiles->>'skills','')), 'A');
+UPDATE profiles SET tsv = setweight(to_tsvector(coalesce(profile->>'skills','')), 'A');
 
+DROP FUNCTION profiles_search_trigger() cascade;
 CREATE FUNCTION profiles_search_trigger() RETURNS trigger AS $$
 begin
   	new.tsv :=
-    	setweight(to_tsvector(coalesce(new.profiles->>'skills','')), 'A');
+    	setweight(to_tsvector(coalesce(new.profile->>'skills','')), 'A');
   	return new;
 end
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER tsvectorupdate BEFORE INSERT OR UPDATE
+CREATE TRIGGER profiles_tsvectorupdate BEFORE INSERT OR UPDATE
 ON profiles FOR EACH ROW EXECUTE PROCEDURE profiles_search_trigger();
 
 /* SAMPLE SELECT QUERY

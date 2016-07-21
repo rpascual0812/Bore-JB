@@ -73,19 +73,27 @@
     margin-bottom: 15px;
     text-align:center;
 }
-.inputs .contact{
+.inputs .office_number{
     height:38px;
     font-size: 0.9;
     width:100%;
     text-align:center;
 }
 
-.inputs .call{
-    width:65%;
+.inputs .extensions{
     height:38px;
     font-size: 0.9;
-    float:right;
+    width:100%;
+    text-align:center;
+}
+
+.inputs .mobile_number{
+    width:100%;
+    height:38px;
+    font-size: 0.9;
     margin-bottom: 15px;
+    margin:1.5% 0% 0% 30%;
+    text-align:center;
 }
 
 .inputs .callLabel{
@@ -291,15 +299,19 @@
         font-size: 1.1em;
         margin-bottom: 15px;
     }
-    .inputs .contact{
+    .inputs .office_number{
         height:40px;
         font-size: 1.1em;
     }
-    .inputs .call{
+    .inputs .extensions{
+        height:40px;
+        font-size: 1.1em;
+    }
+
+    .inputs .mobile_number{
         width:50%;
         height:40px;
         font-size: 1.1em;
-        float:right;
         margin-bottom: 15px;
     }
 
@@ -333,8 +345,8 @@
     }
 }
 @media(min-width: 768px){
-    .inputs .call{
-        width:60%;
+    .inputs .mobile_number{
+        width:100%;
         float:right;
     }
     .inputs .callLabel{
@@ -346,6 +358,10 @@
         width:150%;
         border:3px dashed #f02921;
         margin:10px 0 15px -10em;
+    }
+    .inputs .mobile_number{
+        width:100%;
+        float:right;
     }
 }
 @media(min-width: 1500px){
@@ -367,15 +383,18 @@
         font-size: 2em;
         margin-bottom: 15px;
     }
-    .inputs .contact{
+    .inputs .office_number{
+        height:70px;
+        font-size: 2em;
+    }
+    .inputs .extensions{
         height:70px;
         font-size: 2em;
     }
 
-    .inputs .call{
+    .inputs .mobile_number{
         height:70px;
         font-size: 2em;
-        float:right;
     }
 
     .inputs .callLabel{

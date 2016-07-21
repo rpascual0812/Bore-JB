@@ -75,18 +75,18 @@
 						<span style ="margin:-5.5% 0% 0% 39%;font-size:13px;width:300px;color:red;" ng-show="userForm.person.$invalid && !userForm.person.$pristine" class="person">Your Full name is required.</span>
 					</div>
 					<div class="form-group"  ng-class="{ 'has-error' : userForm.number.$invalid && !userForm.number.$pristine }">
-						<input type="text" is-number maxlength="12" name="number" class="contact" ng-model="form.contact_number" placeholder="CONTACT NUMBER" required>
-						<span style ="margin:-5.5% 0% 0% 40%;font-size:13px;width:300px;color:red;" ng-show="userForm.number.$invalid &&!userForm.number.$pristine" class="number">Your Number is required.</span>
+						<input type="text"style="width:80%; float:left" is-number maxlength="12" name="number" class="office_number" ng-model="form.office_number" placeholder="OFFICE NUMBER" required>
+						<input type="text"style="width:20%; float:left" is-number maxlength="10" name="number" class="extensions" ng-model="form.extensions" placeholder="EXTENSIONS" required>
+						<span style ="margin:-5.5% 0% 0% 40%;font-size:13px;width:300px;color:red;" ng-show="userForm.number.$invalid &&!userForm.number.$pristine" class="number">The following Numbers are required.</span>
 					</div>
-					<div class="form-group" ng-class="{ 'has-error' : userForm.besttime.$invalid && !userForm.besttime.$pristine }">
-						<span class="callLabel">BEST TIME TO CALL:</span>
-						<input type="time" maxlength="7" name="besttime" class="call" ng-model="form.best_time" required>
-						<span style ="margin:-5.5% 0% 0% 38%;font-size:13px;width:300px;color:red;" ng-show="userForm.besttime.$invalid && !userForm.besttime.$pristine" class="besttime">Your Best time to call is required.</span>
+					<div class="form-group" ng-class="{ 'has-error' : userForm.mobile_number.$invalid && !userForm.mobile_number.$pristine }">
+						<input type="text" is-number placeholder="Contact Number" maxlength="12" name="mobile_number" class="mobile_number" ng-model="form.mobile_number" required>
+						<span style ="margin:0% 0% 0% 36.5%;font-size:13px;width:300px;color:red;" ng-show="userForm.mobile_number.$invalid && !userForm.mobile_number.$pristine" class="help-block">Your Mobile Number is required.</span>
 					</div>
 					<div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
-						<input type="text" name="email" class="email" ng-model="form.email_address" placeholder="E-mail" required>
-						<span style ="margin:-4% 0% 0% 42%;font-size:13px;width:300px;color:red;" ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</span>
-					</div>
+					<input type="text" name="email" class="email" ng-model="form.email_address" placeholder="E-mail" required>
+					<span style ="margin:-4% 0% 0% 42%;font-size:13px;width:300px;color:red;" ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</span>
+						</div>
 						<div class="breakthickSec"></div>
 						<button type="submit" class="btn btn-primary register" ng-disabled="userForm.$invalid" ng-click="register()">REGISTER</button>
 				</div>

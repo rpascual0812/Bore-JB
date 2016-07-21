@@ -26,6 +26,8 @@ function send_email($data){
 
 	$content = json_decode($data['email']);
 
+	
+
 	//Create a new PHPMailer instance
 	$mail = new PHPMailer;
 
@@ -85,6 +87,8 @@ function send_email($data){
 
 	//Attach an image file
 	//$mail->addAttachment('images/phpmailer_mini.png');
+
+	mail($content->to_email, "'Please confirm your Joberfied account'", $template, "Joberfied Notification:" . 'joberfied@gmail.com');
 
 	//send the message, check for errors
 	if (!$mail->send()) {
