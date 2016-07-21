@@ -20,13 +20,8 @@ app.controller('Register', function(
         else {
             var promise = RegisterFactory.save($scope.form);
             promise.then(function(data){
-                alert('Registration Successful');
-                
+                window.location = "#sent";
             })
-            .then(null, function(data){
-                //failed to save
-                alert('Register Failed');
-            });
         }
     };
 

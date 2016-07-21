@@ -29,6 +29,11 @@ app.config(function($routeProvider){
         controller: 'Register',
         templateUrl: 'templates/registration.html'
     })
+    .when('/sent',
+    {
+        controller: 'Register',
+        templateUrl: 'templates/sent.html'
+    })
     .when('/',
     {
         controller: 'Home',
