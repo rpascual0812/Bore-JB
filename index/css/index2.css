@@ -1,0 +1,70 @@
+body{
+	font-family: "Gotham", "Lato", Helvetica, Arial, sans-serif;
+}
+
+.imgseagull{
+	height:210px;width:250px;
+	margin:34% 0 0 23.8%;z-index:2;
+	position:absolute;
+}
+.hd1{color:white;letter-spacing:7px;
+	font-size:66px;position:absolute;margin:-36% 0 0 5%;}
+.hd2{color:white;
+	font-size:36px;position:absolute;margin:-30% 0 0 5%;
+
+
+
+}
+.txt1{margin:-19% 0 0 5%;
+	font-size:19px;
+	position:absolute; 
+	z-index:1;color:white;
+	font-family: 'Quotes';
+  	src: url('../ASSETS/fonts/Quote.ttf');
+  	font-weight: 900;
+  	font-style: normal;
+}
+.txt2{margin:-17.5% 0 0 13%;font-size:19px;
+	position:absolute; 
+	font-family: 'Quotes';
+  	src: url('../ASSETS/fonts/Quote.ttf');
+  	font-weight: 900;
+  	font-style: normal;
+	z-index:1;color:white;
+}
+.txt3{margin:-16% 0 0 34%;
+	position:absolute;
+	z-index:1;color:white;font-size:16px;
+	font-family: 'Quotes';
+  	src: url('../ASSETS/fonts/Quote.ttf');
+  	font-weight: 900;
+  	font-style: normal;
+}
+.btnSeeker {
+	position: absolute;
+	margin:-25% 0 0 5%;z-index: 1;
+   	height:55px;width: 210px;padding:15px;
+    color: white;text-align: center;
+    border: 2px solid white;
+}
+
+.btnSeeker:hover {
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    background-color: #6A1616;
+}
+.btnEmployer{
+	position: absolute;
+	margin:-25% 0 0 23%;z-index: 1;
+   	height:55px;width: 210px;padding:15px;
+    color: white;text-align: center;
+    border: 2px solid white;
+}
+
+.btnEmployer:hover {
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    background-color: #6A1616;
+}
