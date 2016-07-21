@@ -20,7 +20,7 @@ app.controller('Register', function(
         else {
             var promise = RegisterFactory.save($scope.form);
             promise.then(function(data){
-                window.location = "#sent";
+                window.location = "#/sent";
             })
         }
     };
