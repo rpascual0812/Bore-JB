@@ -159,7 +159,19 @@ EOT;
                 select
                     *
                 from profiles
-                where pin = '$this->pin'
+                where md5(pin) = '$this->pin'
+                ;
+EOT;
+
+        return ClassParent::get($sql);
+    }
+
+    public function fetch_profiles(){
+        $sql = <<<EOT
+                select
+                    profile
+                from profiles
+                where md5(pin) = '$this->pin'
                 ;
 EOT;
 

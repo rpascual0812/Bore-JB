@@ -183,7 +183,7 @@ app.controller('Feeds', function(
         var filter = {
             pin : PINService.get()
         }
-
+        
         var promise = ProfileFactory.profile(filter);
         promise.then(function(data){
             $scope.profile = data.data.result[0];
@@ -274,7 +274,7 @@ app.controller('Feeds', function(
 
     }
     function check_profile(){
-        if($scope.profile[]===null){
+        if($scope.profile===null){
 
             console.log("empty");
         }else{
