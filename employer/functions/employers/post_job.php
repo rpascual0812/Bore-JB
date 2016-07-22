@@ -3,10 +3,10 @@ require_once('../../../Functions/connect.php');
 require_once('../../../Classes/Job_posts.php');
 
 $_POST['details'] = json_decode($_POST['details'], true);
-print_r($_POST['details']);
+
 $class = new Job_posts(
                         NULL,
-                        '1234-JJ',//cookie pin
+                        $_POST['profpin'],
                         $_POST['type'],
                         $_POST['details'],
                         NULL,

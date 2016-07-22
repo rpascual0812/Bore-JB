@@ -43,7 +43,6 @@ class Job_posts extends ClassParent{
 
     public function create(){
         $json_details = json_encode($this->details);
-        print_r($json_details."mmmmmmmm");
         $sql = <<<EOT
             INSERT INTO job_posts
             (
@@ -53,10 +52,10 @@ class Job_posts extends ClassParent{
             )
             VALUES
             (
-                '$this->pin',
+                (SELECT pin FROM accounts WHERE md5(pin)='$this->pin'),
                 '$this->type',
                 '$json_details'
-            );
+            )
 EOT;
 
         return ClassParent::insert($sql);

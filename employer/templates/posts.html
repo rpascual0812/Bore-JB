@@ -1,503 +1,518 @@
 <div>
-	<div>
-	    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
-	        <div class="container topnav" style="color:#FFF !important;">
-	            <!-- Brand and toggle get grouped for better mobile display -->
-	            <div class="navbar-header" style="width:100%;">
-	            	<div style="float:left;">
-	            		<a class="navbar-brand topnav" href="#/home">
-		                	Joberfied
-		                </a>
-	            	</div>
+<div>
+    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav" style="color:#FFF !important;">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header" style="width:100%;">
+            	<div style="float:left;">
+            		<a class="navbar-brand topnav" href="#/home">
+	                	Joberfied
+	                </a>
+            	</div>
 
-	                <div style="float:left; width: 40%;">
-	                	<autocomplete ng-model="result" attr-placeholder="Search candidates here" click-activation="true" data="movies" on-type="doSomething" on-select="doSomethingElse" class="searchbar"></autocomplete>
-	                </div>
-	                <div style="clear:both;"></div>
-	            </div>
-	            <!-- Collect the nav links, forms, and other content for toggling -->
-	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	            	
+                <div style="float:left; width: 40%;">
+                	<autocomplete ng-model="result" attr-placeholder="Search candidates here" click-activation="true" data="movies" on-type="doSomething" on-select="doSomethingElse" class="searchbar"></autocomplete>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            	
 
-	                <!-- <ul class="nav navbar-nav navbar-right">
-	                    <li>
-	                        <a>About</a>
-	                    </li>
-	                    <li>
-	                        <a>Services</a>
-	                    </li>
-	                    <li>
-	                    	<a id="menu-toggle" href="#">Profile</a>
-	                    </li>
-	                </ul> -->
-	            </div>
-	            <!-- /.navbar-collapse -->
-	        </div>
-	        <!-- /.container -->
-	    </nav>
-	</div>
+                <!-- <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a>About</a>
+                    </li>
+                    <li>
+                        <a>Services</a>
+                    </li>
+                    <li>
+                    	<a id="menu-toggle" href="#">Profile</a>
+                    </li>
+                </ul> -->
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+</div>
 
-	<!-- <div style="width:100%; height: 50px; text-align:center; padding-top: 30px;">
-		<input type="text" class="searchbar" placeholder="Search..." maxlength="60" data-ng-model="searchbox.text" data-ng-change="searchbig()" />
-	</div> -->
+<!-- <div style="width:100%; height: 50px; text-align:center; padding-top: 30px;">
+	<input type="text" class="searchbar" placeholder="Search..." maxlength="60" data-ng-model="searchbox.text" data-ng-change="searchbig()" />
+</div> -->
+<div style="clear:both;"></div>
+
+<div class="main" style="margin-top: 50px;">
 	<div style="clear:both;"></div>
+	<div class="profile">
+		
+		<div class="c-menu megamenu">
+			<ul>
+				<li>
+					<a  href="#/home">
+						<img src="../ASSETS/img/profile.png">
+					</a>
+				</li>
+				<li class="active">
+					<a href="#/..">
+						<img src="../ASSETS/img/attache.png">
+					</a>
+				</li>
+				<li>
+					<a>
+						<img src="../ASSETS/img/message.png">
+					</a>
+				</li>
+				<li>
+					<a>
+						<img src="../ASSETS/img/bookmark.png">
+					</a>
+				</li>
+			</ul>
+		</div>
 
-	<div class="main" style="margin-top: 50px;">
-		<div style="clear:both;"></div>
-		<div class="profile">
-			
-			<div class="c-menu megamenu">
-				<ul>
-					<li>
-						<a  href="#/home">
-							<img src="../ASSETS/img/profile.png">
-						</a>
-					</li>
-					<li class="active">
-						<a href="#/..">
-							<img src="../ASSETS/img/attache.png">
-						</a>
-					</li>
-					<li>
-						<a>
-							<img src="../ASSETS/img/message.png">
-						</a>
-					</li>
-					<li>
-						<a>
-							<img src="../ASSETS/img/bookmark.png">
-						</a>
-					</li>
-				</ul>
+		<div class="menu">
+			<div>
+				<img src="../ASSETS/Uploads/employers/accenture.png" style="width: 180px;"/>
+			</div>
+			<div class="employer-name">
+				<span class="font14">{{employer.name}}</span>
 			</div>
 
-			<div class="menu">
-				<div>
-					<img src="../ASSETS/Uploads/employers/accenture.png" style="width: 180px;"/>
-				</div>
-				<div class="employer-name">
-					<span class="font14">{{employer.name}}</span>
-				</div>
+			
+			
+			<div>
+				<img src="../ASSETS/img/attache.png" style="width:16px;">
+				<a href="#/posts"><span class="font12 link">Job Posts</span></a>
+			</div>
+			<div>
+				<img src="../ASSETS/img/message.png" style="width:16px;">
+				<span class="font12 link">Messages</span>
+			</div>
+			<div>
+				<img src="../ASSETS/img/bookmark.png" style="width:16px;">
+				<span class="font12 link">Admired Candidates</span>
+			</div>
 
-				
-				
+			<div class="credit">
+				<span class="font14 label">Available Credit</span> <br />
+				<span class="amount">{{employer.currency}} {{employer.available}}</span>
+			</div>
+		</div>
+		<div class="left">
+			
+
+			<div class="job-posts">
+				<div>
+					<div class="feed-filter">
+						<button type="button" class="btn btn-default button-selected font13" style="width:100px; margin-bottom:5px;" ng-click="navigate_ads('create')">Create Ads</button>
+
+						<button type="button" class="btn btn-default font13" style="width:110px; margin-bottom:5px;" ng-click="navigate_ads('link')">Link a video</button>
+
+						<button type="button" class="btn btn-default font13" style="width:100px; margin-bottom:5px;" ng-click="navigate_ads('post')">Post a Job</button>
+					</div>
+
+					<div class="break"></div>
+
+					<div style="margin-top: 20px;">
+						<div ng-if="newad.create">
+							<div style="width: 80%; margin: 0 auto;">
+								<h5>Create Ads</h5>
+
+								<table style="width:100%;">
+									<tr>
+										<td style="padding-top: 5px;">
+											<input type="text" class="form-control" placeholder="Title"
+											ng-model="job_ad.details.title" /> <!-- AJS Attributes -->
+										</td>
+									</tr>
+									<tr>
+										<td style="padding-top: 5px;">
+											<input type="text" class="form-control" placeholder="Required Skills"
+											ng-model="job_ad.details.reqd_skills" /> <!-- AJS Attributes -->
+										</td>
+									</tr>
+									<tr>
+										<td style="padding-top: 5px;">
+											<input type="text" class="form-control" placeholder="Years of Experience"
+											ng-model="job_ad.details.years_exp" /> <!-- AJS Attributes -->
+										</td>
+									</tr>
+									<tr>
+										<td style="padding-top: 5px;">
+											<div class="custom-file-upload">
+											    <!--<label for="file">File: </label>--> 
+											    <input type="file" id="file" name="myfiles[]" multiple />
+											</div>
+										</td>
+									</tr>
+								</table>
+							</div>
+							<div style="width: 80%; margin: 0 auto; text-align:right; margin-top:20px;">
+								<button type="button" class="btn btn-primary" style="width:100px; margin-bottom:5px;" ng-click="post_ad()">POST AD</button>
+							</div>
+						</div>
+						<div ng-if="newad.link">
+							<div style="width: 80%; margin: 0 auto;">
+								<h5>Link a video</h5>
+
+								<table style="width:100%;">
+									<tr>
+										<td style="padding-top: 5px;">
+											<input type="text" class="form-control" placeholder="Title"
+											ng-model="vidlink.details.title" /> <!-- AJS attributes -->
+										</td>
+									</tr>
+									<tr>
+										<td style="padding-top: 5px;">
+											<input type="text" class="form-control" placeholder="Description"
+											ng-model="vidlink.details.description" /> <!-- AJS attributes -->
+										</td>
+									</tr>
+									<tr>
+										<td style="padding-top: 5px;">
+											<input type="text" class="form-control" placeholder="Tags"
+											ng-model="vidlink.details.tags" /> <!-- AJS attributes -->
+										</td>
+									</tr>
+									<tr>
+										<td style="padding-top: 5px;">
+											<input type="text" class="form-control" placeholder="Link"
+											ng-model="vidlink.details.link" /> <!-- AJS attributes -->
+										</td>
+									</tr>
+								</table>
+							</div>
+							<div style="width: 80%; margin: 0 auto; text-align:right; margin-top:20px;">
+								<button type="button" class="btn btn-primary" style="width:120px; margin-bottom:5px;" ng-click="post_video()">POST VIDEO</button>
+							</div>
+						</div>
+						<div ng-if="newad.post">
+							<div style="width: 80%; margin: 0 auto;">
+								<h5>Post a job</h5>
+
+								<table style="width:100%;">
+									<tr>
+										<td style="padding-top: 5px;">
+											<input type="text" class="form-control" placeholder="Title" />
+										</td>
+									</tr>
+									<tr>
+										<td style="padding-top: 5px;">
+											<textarea ui-tinymce="tinymceOptions" class="form-control" placeholder="Job Requirements"
+											ng-model="job_post.details.requirements"
+											></textarea>
+										</td>
+									</tr>
+									<tr>
+										<td style="padding-top: 5px;">
+											<textarea ui-tinymce="tinymceOptions" class="form-control" placeholder="Job Qualifications"
+											ng-model="job_post.details.qualifications"
+											></textarea>
+										</td>
+									</tr>
+									<tr>
+										<td style="padding-top: 5px;">
+											<input type="text" class="form-control" placeholder="Required Skills" 
+											ng-model="job_post.details.reqd_skills"
+											/>
+										</td>
+									</tr>
+									<tr>
+										<td style="padding-top: 5px;">
+											<input type="text" class="form-control" placeholder="Years of Experience" 
+											ng-model="job_post.details.years_exp"
+											/>
+										</td>
+									</tr>
+									
+								</table>
+							</div>
+							<div style="width: 80%; margin: 0 auto; text-align:right; margin-top:20px;">
+								<button type="button" class="btn btn-primary" style="width:120px; margin-bottom:5px;" ng-click="post_job()">POST JOB</button>
+							</div>
+						</div>
+					</div>
+					<div style="clear:both;"></div>
+					<div class="break"></div>
+
+					<div>
+						<input type="text" class="form-control" style="width:35%; float:right;" placeholder="Quick Search">
+						<div style="clear:both;"></div>
+					</div>
+
+					<div class="feed-data" data-ng-repeat="(k,v) in feeds.data">
+						<div style="width:100%;">
+							<div class="employer-logo">
+								<img src="{{v.image}}" />
+							</div>
+							<div class="employer-details">
+								<div>
+									<div style="float:left; width:85%;">
+										<span class="header4">{{v.title}}</span>
+									</div>
+									<div style="float:left; width:15%;">
+										<span class="sub">{{v.time_passed}}</span>
+									</div>
+									<div style="clear:both;"></div>
+								</div>							
+
+								<div>
+									<span class="header2">{{v.experience}}</span>
+									<p>
+										{{v.skills}}
+									</p>
+								</div>
+								<div>
+										<div ng-if="v.ad.type == 'gif'">
+											<img src="{{v.ad.link}}" style="max-width: 560px;"/>
+										</div>
+										<div ng-if="v.ad.type == 'image'">
+											<img src="{{v.ad.link}}" style="max-width: 560px;"/>
+										</div>
+										<div ng-if="v.ad.type == 'youtube'">
+
+											<iframe src="https://www.youtube.com/embed/n9EgH-QxaUI" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+										</div>
+								</div>
+								<!-- <div class="break"></div> -->
+							</div>
+							<div style="clear:both;"></div>
+						</div>
+
+
+						<div style="text-align:right; margin-top: 20px;">
+							<div style="float:left;">
+								<!-- <button type="button" class="btn btn-info" style="width:100px; margin-bottom:5px;">SAVE</button> -->
+							</div>
+							<div style="float:right;">
+								<button type="button" class="btn btn-danger" style="width:100px; margin-bottom:5px;">CLOSE</button>
+								<button type="button" class="btn btn-primary" style="width:100px; margin-bottom:5px;">EDIT</button>
+							</div>
+							<div style="clear:both;"></div>
+								
+						</div>
+						<div style="clear:both;"></div>
+						<div class="break"></div>
+					</div>
+					<div style="clear:both;"></div>
+				</div>
+			</div>
+
+			<!-- <div class="break"></div> -->
+
+			<div class="feeds">
+				<div class="post">
+					<div class="feed-data" data-ng-repeat="(k,v) in feeds.data">
+						<div>
+							<div style="float:left; width:85%;">
+								<span class="header4">{{v.title}}</span>
+							</div>
+							<div style="float:left; width:15%;">
+								<span class="sub">{{v.time_passed}}</span>
+							</div>
+							<div style="clear:both;"></div>
+						</div>							
+
+						<div>
+							<span class="header2">{{v.experience}}</span>
+							<p>
+								{{v.skills}}
+							</p>
+						</div>
+						<div class="break"></div>
+					</div>
+				</div>			
+			</div>
+		</div>
+
+		<div class="right">
+			<div class="statistics">
+				<div>
+					<img src="../ASSETS/img/heart.png" style="width:16px;">
+					<span class="font12">Admired by 105 candidates</span>
+				</div>
 				<div>
 					<img src="../ASSETS/img/attache.png" style="width:16px;">
-					<a href="#/posts"><span class="font12 link">Job Posts</span></a>
+					<span class="font12 link">Received 35 Responses</span>
 				</div>
-				<div>
-					<img src="../ASSETS/img/message.png" style="width:16px;">
-					<span class="font12 link">Messages</span>
-				</div>
-				<div>
-					<img src="../ASSETS/img/bookmark.png" style="width:16px;">
-					<span class="font12 link">Admired Candidates</span>
-				</div>
-
-				<div class="credit">
-					<span class="font14 label">Available Credit</span> <br />
-					<span class="amount">{{employer.currency}} {{employer.available}}</span>
-				</div>
-			</div>
-			<div class="left">
 				
-
-				<div class="job-posts">
-					<div>
-						<div class="feed-filter">
-							<button type="button" class="btn btn-default button-selected font13" style="width:100px; margin-bottom:5px;" ng-click="navigate_ads('create')">Create Ads</button>
-
-							<button type="button" class="btn btn-default font13" style="width:110px; margin-bottom:5px;" ng-click="navigate_ads('link')">Link a video</button>
-
-							<button type="button" class="btn btn-default font13" style="width:100px; margin-bottom:5px;" ng-click="navigate_ads('post')">Post a Job</button>
-						</div>
-
-						<div class="break"></div>
-
-						<div style="margin-top: 20px;">
-							<div ng-if="newad.create">
-								<div style="width: 80%; margin: 0 auto;">
-									<h5>Create Ads</h5>
-
-									<table style="width:100%;">
-										<tr>
-											<td style="padding-top: 5px;">
-												<input type="text" class="form-control" placeholder="Title" />
-											</td>
-										</tr>
-										<tr>
-											<td style="padding-top: 5px;">
-												<input type="text" class="form-control" placeholder="Required Skills" />
-											</td>
-										</tr>
-										<tr>
-											<td style="padding-top: 5px;">
-												<input type="text" class="form-control" placeholder="Years of Experience" />
-											</td>
-										</tr>
-										<tr>
-											<td style="padding-top: 5px;">
-												<div class="custom-file-upload">
-												    <!--<label for="file">File: </label>--> 
-												    <input type="file" id="file" name="myfiles[]" multiple />
-												</div>
-											</td>
-										</tr>
-									</table>
-								</div>
-								<div style="width: 80%; margin: 0 auto; text-align:right; margin-top:20px;">
-									<button type="button" class="btn btn-primary" style="width:100px; margin-bottom:5px;">POST AD</button>
-								</div>
-							</div>
-							<div ng-if="newad.link">
-								<div style="width: 80%; margin: 0 auto;">
-									<h5>Link a video</h5>
-
-									<table style="width:100%;">
-										<tr>
-											<td style="padding-top: 5px;">
-												<input type="text" class="form-control" placeholder="Title" />
-											</td>
-										</tr>
-										<tr>
-											<td style="padding-top: 5px;">
-												<input type="text" class="form-control" placeholder="Required Skills" />
-											</td>
-										</tr>
-										<tr>
-											<td style="padding-top: 5px;">
-												<input type="text" class="form-control" placeholder="Years of Experience" />
-											</td>
-										</tr>
-										<tr>
-											<td style="padding-top: 5px;">
-												<input type="text" class="form-control" placeholder="Video Link" />
-											</td>
-										</tr>
-									</table>
-								</div>
-								<div style="width: 80%; margin: 0 auto; text-align:right; margin-top:20px;">
-									<button type="button" class="btn btn-primary" style="width:120px; margin-bottom:5px;">POST VIDEO</button>
-								</div>
-							</div>
-							<div ng-if="newad.post">
-								<div style="width: 80%; margin: 0 auto;">
-									<h5>Post a job</h5>
-
-									<table style="width:100%;">
-										<tr>
-											<td style="padding-top: 5px;">
-												<input type="text" class="form-control" placeholder="Title" />
-											</td>
-										</tr>
-										<tr>
-											<td style="padding-top: 5px;">
-												<textarea ui-tinymce="tinymceOptions" ng-model="requirements" class="form-control" placeholder="Job Requirements"></textarea>
-											</td>
-										</tr>
-										<tr>
-											<td style="padding-top: 5px;">
-												<textarea ui-tinymce="tinymceOptions" ng-model="qualifications" class="form-control" placeholder="Job Qualifications"></textarea>
-											</td>
-										</tr>
-										<tr>
-											<td style="padding-top: 5px;">
-												<input type="text" class="form-control" placeholder="Required Skills" />
-											</td>
-										</tr>
-										<tr>
-											<td style="padding-top: 5px;">
-												<input type="text" class="form-control" placeholder="Years of Experience" />
-											</td>
-										</tr>
-										
-									</table>
-								</div>
-								<div style="width: 80%; margin: 0 auto; text-align:right; margin-top:20px;">
-									<button type="button" class="btn btn-primary" style="width:120px; margin-bottom:5px;">POST JOB</button>
-								</div>
-							</div>
-						</div>
-						<div style="clear:both;"></div>
-						<div class="break"></div>
-
-						<div>
-							<input type="text" class="form-control" style="width:35%; float:right;" placeholder="Quick Search">
-							<div style="clear:both;"></div>
-						</div>
-
-						<div class="feed-data" data-ng-repeat="(k,v) in feeds.data">
-							<div style="width:100%;">
-								<div class="employer-logo">
-									<img src="{{v.image}}" />
-								</div>
-								<div class="employer-details">
-									<div>
-										<div style="float:left; width:85%;">
-											<span class="header4">{{v.title}}</span>
-										</div>
-										<div style="float:left; width:15%;">
-											<span class="sub">{{v.time_passed}}</span>
-										</div>
-										<div style="clear:both;"></div>
-									</div>							
-
-									<div>
-										<span class="header2">{{v.experience}}</span>
-										<p>
-											{{v.skills}}
-										</p>
-									</div>
-									<div>
-   										<div ng-if="v.ad.type == 'gif'">
-   											<img src="{{v.ad.link}}" style="max-width: 560px;"/>
-   										</div>
-   										<div ng-if="v.ad.type == 'image'">
-   											<img src="{{v.ad.link}}" style="max-width: 560px;"/>
-   										</div>
-   										<div ng-if="v.ad.type == 'youtube'">
-
-   											<iframe src="https://www.youtube.com/embed/n9EgH-QxaUI" width="560" height="315" frameborder="0" allowfullscreen></iframe>
-   										</div>
-									</div>
-									<!-- <div class="break"></div> -->
-								</div>
-								<div style="clear:both;"></div>
-							</div>
-
-
-							<div style="text-align:right; margin-top: 20px;">
-								<div style="float:left;">
-									<!-- <button type="button" class="btn btn-info" style="width:100px; margin-bottom:5px;">SAVE</button> -->
-								</div>
-								<div style="float:right;">
-									<button type="button" class="btn btn-danger" style="width:100px; margin-bottom:5px;">CLOSE</button>
-									<button type="button" class="btn btn-primary" style="width:100px; margin-bottom:5px;">EDIT</button>
-								</div>
-								<div style="clear:both;"></div>
-									
-							</div>
-							<div style="clear:both;"></div>
-							<div class="break"></div>
-						</div>
-						<div style="clear:both;"></div>
-					</div>
-				</div>
-
-				<!-- <div class="break"></div> -->
-
-				<div class="feeds">
-					<div class="post">
-						<div class="feed-data" data-ng-repeat="(k,v) in feeds.data">
-							<div>
-								<div style="float:left; width:85%;">
-									<span class="header4">{{v.title}}</span>
-								</div>
-								<div style="float:left; width:15%;">
-									<span class="sub">{{v.time_passed}}</span>
-								</div>
-								<div style="clear:both;"></div>
-							</div>							
-
-							<div>
-								<span class="header2">{{v.experience}}</span>
-								<p>
-									{{v.skills}}
-								</p>
-							</div>
-							<div class="break"></div>
-						</div>
-					</div>			
+				<div>
+					<img src="../ASSETS/img/feedback.png" style="width:16px;">
+					<span class="font12 link">You have 5 Recuitment Feedback</span>
 				</div>
 			</div>
 
-			<div class="right">
-				<div class="statistics">
-					<div>
-						<img src="../ASSETS/img/heart.png" style="width:16px;">
-						<span class="font12">Admired by 105 candidates</span>
-					</div>
-					<div>
-						<img src="../ASSETS/img/attache.png" style="width:16px;">
-						<span class="font12 link">Received 35 Responses</span>
-					</div>
-					
-					<div>
-						<img src="../ASSETS/img/feedback.png" style="width:16px;">
-						<span class="font12 link">You have 5 Recuitment Feedback</span>
-					</div>
-				</div>
+			<div class="break"></div>
 
-				<div class="break"></div>
+			<div style="margin-bottom: 5px;">
+				<img src="../ASSETS/Uploads/ads/signavio.png" style="width:275px;">
+			</div>
 
-				<div style="margin-bottom: 5px;">
-					<img src="../ASSETS/Uploads/ads/signavio.png" style="width:275px;">
-				</div>
+			<div>
+				<img src="../ASSETS/Uploads/ads/collabs.jpg" style="width:275px;">
+			</div>
+
+			<div class="break"></div>
+
+			<div class="updates">
+				<span class="header3">Latest Updates</span>
 
 				<div>
-					<img src="../ASSETS/Uploads/ads/collabs.jpg" style="width:275px;">
+					<div>
+						<span class="sub">June 10, 2016 12:00 PM</span>
+					</div>
+					<div style="margin-top:-10px;">
+						<span class="font12">Updated profile picture</span>
+					</div>
 				</div>
-
-				<div class="break"></div>
-
-				<div class="updates">
-					<span class="header3">Latest Updates</span>
-
+				<div>
 					<div>
-						<div>
-							<span class="sub">June 10, 2016 12:00 PM</span>
-						</div>
-						<div style="margin-top:-10px;">
-							<span class="font12">Updated profile picture</span>
-						</div>
+						<span class="sub">May 31, 2016 06:00 PM</span>
 					</div>
-					<div>
-						<div>
-							<span class="sub">May 31, 2016 06:00 PM</span>
-						</div>
-						<div style="margin-top:-10px;">
-							<span class="font12">Added new employer</span>
-						</div>
+					<div style="margin-top:-10px;">
+						<span class="font12">Added new employer</span>
 					</div>
+				</div>
+				<div>
 					<div>
-						<div>
-							<span class="sub">January 01, 2016 08:00 PM</span>
-						</div>
-						<div style="margin-top:-10px;">
-							<span class="font12">Receives Recruitment Feedback</span>
-						</div>
+						<span class="sub">January 01, 2016 08:00 PM</span>
+					</div>
+					<div style="margin-top:-10px;">
+						<span class="font12">Receives Recruitment Feedback</span>
 					</div>
 				</div>
 			</div>
-			<div style="clear:both;"></div>
 		</div>
+		<div style="clear:both;"></div>
 	</div>
+</div>
 </div>
 
 <script type="text/javascript">
 ;(function($) {
 
-		  // Browser supports HTML5 multiple file?
-		  var multipleSupport = typeof $('<input/>')[0].multiple !== 'undefined',
-		      isIE = /msie/i.test( navigator.userAgent );
+	  // Browser supports HTML5 multiple file?
+	  var multipleSupport = typeof $('<input/>')[0].multiple !== 'undefined',
+	      isIE = /msie/i.test( navigator.userAgent );
 
-		  $.fn.customFile = function() {
+	  $.fn.customFile = function() {
 
-		    return this.each(function() {
+	    return this.each(function() {
 
-		      var $file = $(this).addClass('custom-file-upload-hidden'), // the original file input
-		          $wrap = $('<div class="file-upload-wrapper">'),
-		          $input = $('<input type="text" class="file-upload-input" disabled="disabled" style="width:80%"/>'),
-		          // Button that will be used in non-IE browsers
-		          $button = $('<button type="button" class="btn btn-info">Select a File</button>'),
-		          // Hack for IE
-		          $label = $('<label class="file-upload-button" for="'+ $file[0].id +'">Select a File</label>');
+	      var $file = $(this).addClass('custom-file-upload-hidden'), // the original file input
+	          $wrap = $('<div class="file-upload-wrapper">'),
+	          $input = $('<input type="text" class="file-upload-input" disabled="disabled" style="width:80%"/>'),
+	          // Button that will be used in non-IE browsers
+	          $button = $('<button type="button" class="btn btn-info">Select a File</button>'),
+	          // Hack for IE
+	          $label = $('<label class="file-upload-button" for="'+ $file[0].id +'">Select a File</label>');
 
-		      // Hide by shifting to the left so we
-		      // can still trigger events
-		      $file.css({
-		        position: 'absolute',
-		        left: '-9999px'
-		      });
+	      // Hide by shifting to the left so we
+	      // can still trigger events
+	      $file.css({
+	        position: 'absolute',
+	        left: '-9999px'
+	      });
 
-		      $wrap.insertAfter( $file )
-		        .append( $file, $input, ( isIE ? $label : $button ) );
+	      $wrap.insertAfter( $file )
+	        .append( $file, $input, ( isIE ? $label : $button ) );
 
-		      // Prevent focus
-		      $file.attr('tabIndex', -1);
-		      $button.attr('tabIndex', -1);
+	      // Prevent focus
+	      $file.attr('tabIndex', -1);
+	      $button.attr('tabIndex', -1);
 
-		      $button.click(function () {
-		        $file.focus().click(); // Open dialog
-		      });
+	      $button.click(function () {
+	        $file.focus().click(); // Open dialog
+	      });
 
-		      $file.change(function() {
+	      $file.change(function() {
 
-		        var files = [], fileArr, filename;
+	        var files = [], fileArr, filename;
 
-		        // If multiple is supported then extract
-		        // all filenames from the file array
-		        if ( multipleSupport ) {
-		          fileArr = $file[0].files;
-		          for ( var i = 0, len = fileArr.length; i < len; i++ ) {
-		            files.push( fileArr[i].name );
-		          }
-		          filename = files.join(', ');
+	        // If multiple is supported then extract
+	        // all filenames from the file array
+	        if ( multipleSupport ) {
+	          fileArr = $file[0].files;
+	          for ( var i = 0, len = fileArr.length; i < len; i++ ) {
+	            files.push( fileArr[i].name );
+	          }
+	          filename = files.join(', ');
 
-		        // If not supported then just take the value
-		        // and remove the path to just show the filename
-		        } else {
-		          filename = $file.val().split('\\').pop();
-		        }
+	        // If not supported then just take the value
+	        // and remove the path to just show the filename
+	        } else {
+	          filename = $file.val().split('\\').pop();
+	        }
 
-		        $input.val( filename ) // Set the value
-		          .attr('title', filename) // Show filename in title tootlip
-		          .focus(); // Regain focus
+	        $input.val( filename ) // Set the value
+	          .attr('title', filename) // Show filename in title tootlip
+	          .focus(); // Regain focus
 
-		      });
+	      });
 
-		      $input.on({
-		        blur: function() { $file.trigger('blur'); },
-		        keydown: function( e ) {
-		          if ( e.which === 13 ) { // Enter
-		            if ( !isIE ) { $file.trigger('click'); }
-		          } else if ( e.which === 8 || e.which === 46 ) { // Backspace & Del
-		            // On some browsers the value is read-only
-		            // with this trick we remove the old input and add
-		            // a clean clone with all the original events attached
-		            $file.replaceWith( $file = $file.clone( true ) );
-		            $file.trigger('change');
-		            $input.val('');
-		          } else if ( e.which === 9 ){ // TAB
-		            return;
-		          } else { // All other keys
-		            return false;
-		          }
-		        }
-		      });
+	      $input.on({
+	        blur: function() { $file.trigger('blur'); },
+	        keydown: function( e ) {
+	          if ( e.which === 13 ) { // Enter
+	            if ( !isIE ) { $file.trigger('click'); }
+	          } else if ( e.which === 8 || e.which === 46 ) { // Backspace & Del
+	            // On some browsers the value is read-only
+	            // with this trick we remove the old input and add
+	            // a clean clone with all the original events attached
+	            $file.replaceWith( $file = $file.clone( true ) );
+	            $file.trigger('change');
+	            $input.val('');
+	          } else if ( e.which === 9 ){ // TAB
+	            return;
+	          } else { // All other keys
+	            return false;
+	          }
+	        }
+	      });
 
-		    });
+	    });
 
-		  };
+	  };
 
-		  // Old browser fallback
-		  if ( !multipleSupport ) {
-		    $( document ).on('change', 'input.customfile', function() {
+	  // Old browser fallback
+	  if ( !multipleSupport ) {
+	    $( document ).on('change', 'input.customfile', function() {
 
-		      var $this = $(this),
-		          // Create a unique ID so we
-		          // can attach the label to the input
-		          uniqId = 'customfile_'+ (new Date()).getTime(),
-		          $wrap = $this.parent(),
+	      var $this = $(this),
+	          // Create a unique ID so we
+	          // can attach the label to the input
+	          uniqId = 'customfile_'+ (new Date()).getTime(),
+	          $wrap = $this.parent(),
 
-		          // Filter empty input
-		          $inputs = $wrap.siblings().find('.file-upload-input')
-		            .filter(function(){ return !this.value }),
+	          // Filter empty input
+	          $inputs = $wrap.siblings().find('.file-upload-input')
+	            .filter(function(){ return !this.value }),
 
-		          $file = $('<input type="file" id="'+ uniqId +'" name="'+ $this.attr('name') +'"/>');
+	          $file = $('<input type="file" id="'+ uniqId +'" name="'+ $this.attr('name') +'"/>');
 
-		      // 1ms timeout so it runs after all other events
-		      // that modify the value have triggered
-		      setTimeout(function() {
-		        // Add a new input
-		        if ( $this.val() ) {
-		          // Check for empty fields to prevent
-		          // creating new inputs when changing files
-		          if ( !$inputs.length ) {
-		            $wrap.after( $file );
-		            $file.customFile();
-		          }
-		        // Remove and reorganize inputs
-		        } else {
-		          $inputs.parent().remove();
-		          // Move the input so it's always last on the list
-		          $wrap.appendTo( $wrap.parent() );
-		          $wrap.find('input').focus();
-		        }
-		      }, 1);
+	      // 1ms timeout so it runs after all other events
+	      // that modify the value have triggered
+	      setTimeout(function() {
+	        // Add a new input
+	        if ( $this.val() ) {
+	          // Check for empty fields to prevent
+	          // creating new inputs when changing files
+	          if ( !$inputs.length ) {
+	            $wrap.after( $file );
+	            $file.customFile();
+	          }
+	        // Remove and reorganize inputs
+	        } else {
+	          $inputs.parent().remove();
+	          // Move the input so it's always last on the list
+	          $wrap.appendTo( $wrap.parent() );
+	          $wrap.find('input').focus();
+	        }
+	      }, 1);
 
-		    });
-		  }
+	    });
+	  }
 
 }(jQuery));
 

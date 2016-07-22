@@ -4,7 +4,8 @@ app.controller('Posts', function(
                                     $cookies,
                                     CandidatesFactory,
                                     EmployersFactory,
-                                    PINService
+                                    PINService,
+                                    JobPostsFactory
 								){
 
     $scope.candidates = {
@@ -161,4 +162,64 @@ app.controller('Posts', function(
 
         $scope.newad[type] = true;
     }
+
+
+
+    $scope.job_ad = {
+        type : 'ads'
+    };
+
+    $scope.vidlink = {
+        type : 'video'
+    };
+
+    $scope.job_post = {
+        type : 'job'
+    };
+
+    $scope.post_ad = function(){
+        $scope.job_ad.details = JSON.stringify($scope.job_ad.details);
+        $scope.job_ad.profpin = PINService.get();
+        var promise = JobPostsFactory.post_job($scope.job_ad);
+        promise.then(function(data){
+            alert('job_ad Saved.');
+
+        })
+        .then(null, function(data){
+            //failed to save
+            alert('job_ad failed to save');
+
+        });
+    };
+
+    $scope.post_video = function(){
+        $scope.vidlink.details = JSON.stringify($scope.vidlink.details);
+        $scope.vidlink.profpin = PINService.get();
+        var promise = JobPostsFactory.post_job($scope.vidlink);
+        promise.then(function(data){
+            alert('vid_link Saved.');
+
+        })
+        .then(null, function(data){
+            //failed to save
+            alert('vid_link failed to save');
+
+        });
+    };
+
+    $scope.post_job = function(){
+        $scope.job_post.details = JSON.stringify($scope.job_post.details);
+        $scope.job_post.profpin = PINService.get();
+        var promise = JobPostsFactory.post_job($scope.job_post);
+        promise.then(function(data){
+            alert('job_post Saved.');
+
+        })
+        .then(null, function(data){
+            //failed to save
+            alert('job_post failed to save');
+
+        });
+    };
+
 });
