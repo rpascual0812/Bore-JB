@@ -7,30 +7,29 @@ body{
     font-weight: 100;
 }
 
-.imgseagull{
-	height:210px;width:250px;
-	margin:34% 0 0 23.8%;z-index:2;
-	position:absolute;
+.hdr1{color:white;
+  letter-spacing:7px;
+	font-size:66px;
+  position:absolute;
+  margin:-36% 0 0 5%;
 }
-.hd1{color:white;letter-spacing:7px;
-	font-size:66px;position:absolute;margin:-36% 0 0 5%;}
-.hd2{color:white;
-	font-size:36px;position:absolute;margin:-30% 0 0 5%;
+.hdr2{color:white;
+	font-size:36px;
+  position:absolute;
+  margin:-30% 0 0 5%;
 }
-.txt1{margin:-19% 0 0 5%;
+.quote1{margin:-19% 0 0 5%;
 	font-size:19px;
 	position:absolute; 
-	z-index:1;color:white;  	
-  	font-weight: 900;
-  	font-style: normal;
 }
-.txt2{margin:-17.5% 0 0 13%;font-size:19px;
+.quote2{margin:-17.5% 0 0 13%;
+  font-size:19px;
 	position:absolute; 
   	font-weight: 900;
   	font-style: normal;
 	z-index:1;color:white;
 }
-.txt3{margin:-16% 0 0 34%;
+.txt3{margin:-16% 0 0 33%;
 	position:absolute;
 	z-index:1;color:white;font-size:16px;
   	font-weight: 900;
@@ -44,7 +43,6 @@ body{
     border: 1px solid white;
     cursor: pointer;
 }
-
 .btnSeeker:hover {
     background-color: #4CAF50;
     color: white;
@@ -59,10 +57,112 @@ body{
     border: 1px solid white;
     cursor: pointer;
 }
-
 .btnEmployer:hover {
     background-color: #4CAF50;
     color: white;
     text-decoration: none;
     background-color: #6A1616;
 }
+
+.imgseagull{
+  height:30%;width:17%;
+  margin:32% 0 0 23.8%;z-index:2;
+  position:absolute;
+}
+
+
+
+@media(min-width: 375px){
+.hdr2{background-color: red;}
+
+}
+
+@media(min-width: 425px){
+.hdr2{background-color: blue;}
+}
+
+@media(min-width: 500px){
+.hdr2{background-color:yellow;}
+}
+
+@media(min-width: 600px){
+.hdr2{background-color: black;}
+}
+
+@media (min-width: 768px) {
+
+.hdr1{margin:-45% 0 0 5%;}
+.hdr2{margin:-31% 0 0 5%;}
+
+
+.quote1{margin:-16% 0 0 5%;}
+.quote2{margin:-13.5% 0 0 17%;}
+.txt3{margin:-13.3% 0 0 45%;}
+
+.btnSeeker{margin:-24% 0 0 5%;}
+.btnEmployer{margin:-24% 0 0 33%;}
+
+.imgseagull{margin:43% 0 0 39%;height:20%;width:13%;}
+}  
+
+@media (min-width: 850px) {
+.hdr1{margin:-40% 0 0 5%;}
+.hdr2{margin:-31% 0 0 5%;}
+
+
+.quote1{margin:-16% 0 0 5%;}
+.quote2{margin:-13.5% 0 0 17%;}
+.txt3{margin:-13.3% 0 0 45%;}
+
+.btnSeeker{margin:-24% 0 0 5%;}
+.btnEmployer{margin:-24% 0 0 33%;}
+
+.imgseagull{margin:43% 0 0 39%;height:20%;width:13%;}
+
+}
+
+@media (min-width: 992px) {
+.hdr1{margin:-38% 0 0 5%;}
+.hdr2{margin:-30% 0 0 5%;}
+
+
+.quote1{margin:-18% 0 0 5%;}
+.quote2{margin:-16.5% 0 0 15%;}
+.txt3{margin:-14% 0 0 35%;}
+.btnSeeker{margin:-24% 0 0 5%;}
+.btnEmployer{margin:-24% 0 0 28.5%;}
+
+.imgseagull{margin:35% 0 0 26.8%;height:25%;width:15%;}
+
+
+}  
+
+@media (min-width: 1200px) {
+.hdr1{margin:-36% 0 0 5%;}
+.hdr2{margin:-30% 0 0 5%;}
+
+
+.quote1{margin:-19% 0 0 5%;}
+.quote2{margin:-17.5% 0 0 13%;}
+.txt3{margin:-16% 0 0 32%;}
+
+.btnSeeker{margin:-25% 0 0 5%;}
+.btnEmployer{margin:-25% 0 0 23%;}
+
+.imgseagull{margin:34% 0 0 23.8%;}
+
+
+}
+@media (min-width: 1800px) {
+.hdr2{background-color: red;}
+}
+
+@media (min-width: 2200px) {
+
+.hdr2{background-color:black;}
+
+
+
+}
+
+
