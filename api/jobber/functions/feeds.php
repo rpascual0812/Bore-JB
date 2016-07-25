@@ -1,6 +1,6 @@
 <?php
-require_once('../../Functions/connect.php');
-require_once('../../Classes/Job_posts.php');
+require_once('../../../Functions/connect.php');
+require_once('../../../Classes/Job_posts.php');
 
 $class = new Job_posts(
                         NULL,
