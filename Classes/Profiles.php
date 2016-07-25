@@ -103,7 +103,7 @@ EOT;
                     '$json_profile'
                 );
 EOT;
-
+        
         if ($usertype == 'recruiter'){
             $company_name = $data['company_name'];
             $sql .= <<<EOT

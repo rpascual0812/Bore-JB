@@ -34,6 +34,11 @@ app.config(function($routeProvider){
         controller: 'Register',
         templateUrl: 'templates/sent.html'
     })
+    .when('/admin/companies/new',
+    {
+        controller: 'Employers',
+        templateUrl: 'templates/admin/new.html'
+    })
     .when('/',
     {
         controller: 'Home',
