@@ -201,7 +201,7 @@ values
 			"last_name" : "Pascual",
 			"first_name" : "Rafael"
 		},
-		"confirmed" : "false"
+		"confirmed" : "true"
 	}'
 ),
 (
@@ -211,7 +211,10 @@ values
 			"last_name" : "Martin",
 			"first_name" : "Coco"
 		},
-		"confirmed" : "false"	
+		"company" : {
+			"pk" : 1
+		},
+		"confirmed" : "true"	
 	}'
 );
 
