@@ -1,12 +1,12 @@
 <?php
-require_once('../../Functions/connect.php');
-require_once('../../Classes/Accounts.php');
+require_once('../../../Functions/connect.php');
+require_once('../../../Classes/Accounts.php');
 
 $class = new Accounts(
 						$_GET['pin'],
 						NULL,
 						$_GET['password'],
-						NULL
+						'candidate'
 					);
 
 $data = $class->auth();

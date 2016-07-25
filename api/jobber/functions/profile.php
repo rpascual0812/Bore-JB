@@ -1,6 +1,6 @@
 <?php
-require_once('../../Functions/connect.php');
-require_once('../../Classes/Profiles.php');
+require_once('../../../Functions/connect.php');
+require_once('../../../Classes/Profiles.php');
 
 $class = new Profiles(
 						$_GET['pin'],
