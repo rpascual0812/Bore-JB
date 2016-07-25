@@ -8,60 +8,69 @@ app.controller('Posts', function(
                                     JobPostsFactory
 								){
 
-    $scope.candidates = {
-        data : [],
-        status : false
-    };
+    // $scope.candidates = {
+    //     data : [],
+    //     status : false
+    // };
 
-    $scope.feeds = {};
-    
+    //MENU
     $scope.newad = {
         create : true,
         link : false,
         post : false
     };
 
+    //FORMS
+    $scope.new_job_post = {};
+    $scope.new_job_post.ad = {};
+    $scope.new_job_post.video = {};
+    $scope.new_job_post.job = {};
+
+    //LIST OF PREVIOUS POSTS
+    $scope.job_posts = {};
+    $scope.job_posts.data = [];
+    
+    // $scope.job_posts.data = 
+    // [
+    //     {
+    //         image : '../ASSETS/Uploads/employers/accenture3.png',
+    //         title : 'Senior Web Developer',
+    //         time_passed : '1 week ago',
+    //         experience : '4 years related work experience',
+    //         skills : 'Skills Required: PHP, JQuery, Angular JS, PostgreSQL, Mongo DB',
+    //         ad : {
+    //             link : 'https://www.youtube.com/embed/n9EgH-QxaUI',
+    //             type : 'youtube'
+    //         }
+    //     },
+    //     {
+    //         image : '../ASSETS/Uploads/employers/ibex2.png',
+    //         title : 'Junior Web Developer',
+    //         time_passed : '1 month ago',
+    //         experience : '1 years related work experience',
+    //         skills : 'Skills Required: PHP, Javascript, MySQL',
+    //         ad : {
+    //             link : '../ASSETS/Uploads/ads/ad1.gif',
+    //             type : 'gif'
+    //         }
+    //     },
+    //     {
+    //         image : '../ASSETS/Uploads/employers/uhg2.jpeg',
+    //         title : 'Server Administrator',
+    //         time_passed : '2 months ago',
+    //         experience : '5 years related work experience',
+    //         skills : 'Skills Required: Linux, PostgreSQL',
+    //         ad : {
+    //             link : 'https://13blackandwhitescribbles.files.wordpress.com/2015/09/uhg.jpg',
+    //             type : 'image'
+    //         }
+    //     }
+    // ];
+
     $scope.prices = {};
     $scope.employer_bucket = [];
 
     $scope.movies = ["The Wolverine", "The Smurfs 2", "The Mortal Instruments: City of Bones", "Drinking Buddies", "All the Boys Love Mandy Lane", "The Act Of Killing", "Red 2", "Jobs", "Getaway", "Red Obsession", "2 Guns", "The World's End", "Planes", "Paranoia", "The To Do List", "Man of Steel"];
-
-    $scope.feeds.data = 
-    [
-        {
-            image : '../ASSETS/Uploads/employers/accenture3.png',
-            title : 'Senior Web Developer',
-            time_passed : '1 week ago',
-            experience : '4 years related work experience',
-            skills : 'Skills Required: PHP, JQuery, Angular JS, PostgreSQL, Mongo DB',
-            ad : {
-                link : 'https://www.youtube.com/embed/n9EgH-QxaUI',
-                type : 'youtube'
-            }
-        },
-        {
-            image : '../ASSETS/Uploads/employers/ibex2.png',
-            title : 'Junior Web Developer',
-            time_passed : '1 month ago',
-            experience : '1 years related work experience',
-            skills : 'Skills Required: PHP, Javascript, MySQL',
-            ad : {
-                link : '../ASSETS/Uploads/ads/ad1.gif',
-                type : 'gif'
-            }
-        },
-        {
-            image : '../ASSETS/Uploads/employers/uhg2.jpeg',
-            title : 'Server Administrator',
-            time_passed : '2 months ago',
-            experience : '5 years related work experience',
-            skills : 'Skills Required: Linux, PostgreSQL',
-            ad : {
-                link : 'https://13blackandwhitescribbles.files.wordpress.com/2015/09/uhg.jpg',
-                type : 'image'
-            }
-        }
-    ];
 
     $scope.tinymceOptions = {
         menubar : false,
@@ -85,7 +94,7 @@ app.controller('Posts', function(
         else {
             get_profile();
 
-            feeds();
+            job_posts();
             //set_search_box();
         }
     }
@@ -139,19 +148,32 @@ app.controller('Posts', function(
         })
     }
 
-	function feeds(){
+	function job_posts(){
         var filter = {
+            pin : PINService.get(),
             archived : false
         };
 
-        var promise = CandidatesFactory.feeds(filter);
+        var promise = JobPostsFactory.fetch(filter);
         promise.then(function(data){
-            $scope.candidates.data = [];
-            $scope.candidates.data = data.data.result;
-            $scope.candidates.status = true;
+            var a = data.data.result;
+            for(var i in a){
+                var details = JSON.parse(a[i].details);
+                $scope.job_posts.data.push({
+                                                image : '../ASSETS/Uploads/employers/accenture3.png',
+                                                title : details.title,
+                                                time_passed : '1 week ago',
+                                                experience : details.years_experience,
+                                                skills : details.required_skills,
+                                                ad : {
+                                                    link : 'https://www.youtube.com/embed/n9EgH-QxaUI',
+                                                    type : 'youtube'
+                                                }
+                                            });
+            }
         })
         .then(null, function(data){
-            $scope.candidates.status = false;
+            
         });
     }
 
@@ -163,62 +185,30 @@ app.controller('Posts', function(
         $scope.newad[type] = true;
     }
 
+    $scope.post_job = function(i){
+        var post = {};
 
+        if(i == 1){
+            post.type = 'ads';
+            post.details = JSON.stringify($scope.new_job_post.ad);
+        }
+        else if(i == 2){
+            post.type = 'video';
+            post.details = JSON.stringify($scope.new_job_post.video);
+        }
+        else if(i == 3){
+            post.type = 'job';
+            post.details = JSON.stringify($scope.new_job_post.job);
+        }
 
-    $scope.job_ad = {
-        type : 'ads'
-    };
+        post.pin = PINService.get();
 
-    $scope.vidlink = {
-        type : 'video'
-    };
-
-    $scope.job_post = {
-        type : 'job'
-    };
-
-    $scope.post_ad = function(){
-        $scope.job_ad.details = JSON.stringify($scope.job_ad.details);
-        $scope.job_ad.profpin = PINService.get();
-        var promise = JobPostsFactory.post_job($scope.job_ad);
+        var promise = JobPostsFactory.post_job(post);
         promise.then(function(data){
-            alert('job_ad Saved.');
-
+            job_posts();
         })
         .then(null, function(data){
             //failed to save
-            alert('job_ad failed to save');
-
-        });
-    };
-
-    $scope.post_video = function(){
-        $scope.vidlink.details = JSON.stringify($scope.vidlink.details);
-        $scope.vidlink.profpin = PINService.get();
-        var promise = JobPostsFactory.post_job($scope.vidlink);
-        promise.then(function(data){
-            alert('vid_link Saved.');
-
-        })
-        .then(null, function(data){
-            //failed to save
-            alert('vid_link failed to save');
-
-        });
-    };
-
-    $scope.post_job = function(){
-        $scope.job_post.details = JSON.stringify($scope.job_post.details);
-        $scope.job_post.profpin = PINService.get();
-        var promise = JobPostsFactory.post_job($scope.job_post);
-        promise.then(function(data){
-            alert('job_post Saved.');
-
-        })
-        .then(null, function(data){
-            //failed to save
-            alert('job_post failed to save');
-
         });
     };
 

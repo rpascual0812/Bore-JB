@@ -1,15 +1,15 @@
 <?php
-//require_once('../../../Classes/ClassParent.php');
-/**/require_once('../../../Functions/connect.php');
-require_once('../../../Classes/Profiles.php');
+require_once('../../Functions/connect.php');
+require_once('../../Classes/Profiles.php');
 
 $class = new Profiles(
-						$_POST['pin'],
+						$_GET['pin'],
+						NULL,
 						NULL,
 						NULL
 					);
 
-$data = $class->fetch_profiles();
+$data = $class->fetch();
 
 header("HTTP/1.0 404 No Profile Found");
 if($data['status']){

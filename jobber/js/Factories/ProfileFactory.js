@@ -20,7 +20,7 @@ app.factory('ProfileFactory', function($http){
 
     factory.profile = function(data){
         var promise = $http({
-            url:'./functions/profile/profiles.php',
+            url:'./functions/profile/fetch.php',
             method: 'POST',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
             transformRequest: function(obj) {

@@ -19,9 +19,28 @@
 
 	<link rel="shortcut icon" href="../ASSETS/img/icon/favicon.ico">
 
+	<style>
+    	.c-background{
+    		background-color: #FFFFFF;
+    	}
+	</style>
+
+	<!-- text beneath header  -->
+	<style>
+		.c-jumbotron-modified {
+		  padding-bottom: 0px;
+		  margin: -18px -8px -30px -8px;
+		  color: inherit;
+		  background-color: #f02921;
+		}
+	</style>
 </head>
 
 <body data-ng-app="onload" style="background-color:#f02921;">
+	<!-- Preloader -->
+	<div id="preloader">
+		<div id="status"></div>
+	</div>
 	
 	<div data-ng-view=""></div>
 	<div>

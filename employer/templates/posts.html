@@ -123,19 +123,19 @@
 									<tr>
 										<td style="padding-top: 5px;">
 											<input type="text" class="form-control" placeholder="Title"
-											ng-model="job_ad.details.title" /> <!-- AJS Attributes -->
+											ng-model="new_job_post.ad.title" /> <!-- AJS Attributes -->
 										</td>
 									</tr>
 									<tr>
 										<td style="padding-top: 5px;">
 											<input type="text" class="form-control" placeholder="Required Skills"
-											ng-model="job_ad.details.reqd_skills" /> <!-- AJS Attributes -->
+											ng-model="new_job_post.ad.required_skills" /> <!-- AJS Attributes -->
 										</td>
 									</tr>
 									<tr>
 										<td style="padding-top: 5px;">
 											<input type="text" class="form-control" placeholder="Years of Experience"
-											ng-model="job_ad.details.years_exp" /> <!-- AJS Attributes -->
+											ng-model="new_job_post.ad.years_experience" /> <!-- AJS Attributes -->
 										</td>
 									</tr>
 									<tr>
@@ -149,7 +149,7 @@
 								</table>
 							</div>
 							<div style="width: 80%; margin: 0 auto; text-align:right; margin-top:20px;">
-								<button type="button" class="btn btn-primary" style="width:100px; margin-bottom:5px;" ng-click="post_ad()">POST AD</button>
+								<button type="button" class="btn btn-primary" style="width:100px; margin-bottom:5px;" ng-click="post_job(1)">POST AD</button>
 							</div>
 						</div>
 						<div ng-if="newad.link">
@@ -160,31 +160,31 @@
 									<tr>
 										<td style="padding-top: 5px;">
 											<input type="text" class="form-control" placeholder="Title"
-											ng-model="vidlink.details.title" /> <!-- AJS attributes -->
+											ng-model="new_job_post.video.title" /> <!-- AJS attributes -->
 										</td>
 									</tr>
 									<tr>
 										<td style="padding-top: 5px;">
 											<input type="text" class="form-control" placeholder="Description"
-											ng-model="vidlink.details.description" /> <!-- AJS attributes -->
+											ng-model="new_job_post.video.description" /> <!-- AJS attributes -->
 										</td>
 									</tr>
 									<tr>
 										<td style="padding-top: 5px;">
 											<input type="text" class="form-control" placeholder="Tags"
-											ng-model="vidlink.details.tags" /> <!-- AJS attributes -->
+											ng-model="new_job_post.video.tags" /> <!-- AJS attributes -->
 										</td>
 									</tr>
 									<tr>
 										<td style="padding-top: 5px;">
 											<input type="text" class="form-control" placeholder="Link"
-											ng-model="vidlink.details.link" /> <!-- AJS attributes -->
+											ng-model="new_job_post.video.link" /> <!-- AJS attributes -->
 										</td>
 									</tr>
 								</table>
 							</div>
 							<div style="width: 80%; margin: 0 auto; text-align:right; margin-top:20px;">
-								<button type="button" class="btn btn-primary" style="width:120px; margin-bottom:5px;" ng-click="post_video()">POST VIDEO</button>
+								<button type="button" class="btn btn-primary" style="width:120px; margin-bottom:5px;" ng-click="post_job(2)">POST VIDEO</button>
 							</div>
 						</div>
 						<div ng-if="newad.post">
@@ -200,28 +200,28 @@
 									<tr>
 										<td style="padding-top: 5px;">
 											<textarea ui-tinymce="tinymceOptions" class="form-control" placeholder="Job Requirements"
-											ng-model="job_post.details.requirements"
+											ng-model="new_job_post.job.requirements"
 											></textarea>
 										</td>
 									</tr>
 									<tr>
 										<td style="padding-top: 5px;">
 											<textarea ui-tinymce="tinymceOptions" class="form-control" placeholder="Job Qualifications"
-											ng-model="job_post.details.qualifications"
+											ng-model="new_job_post.job.qualifications"
 											></textarea>
 										</td>
 									</tr>
 									<tr>
 										<td style="padding-top: 5px;">
 											<input type="text" class="form-control" placeholder="Required Skills" 
-											ng-model="job_post.details.reqd_skills"
+											ng-model="new_job_post.job.required_skills"
 											/>
 										</td>
 									</tr>
 									<tr>
 										<td style="padding-top: 5px;">
 											<input type="text" class="form-control" placeholder="Years of Experience" 
-											ng-model="job_post.details.years_exp"
+											ng-model="new_job_post.job.years_experience"
 											/>
 										</td>
 									</tr>
@@ -229,7 +229,7 @@
 								</table>
 							</div>
 							<div style="width: 80%; margin: 0 auto; text-align:right; margin-top:20px;">
-								<button type="button" class="btn btn-primary" style="width:120px; margin-bottom:5px;" ng-click="post_job()">POST JOB</button>
+								<button type="button" class="btn btn-primary" style="width:120px; margin-bottom:5px;" ng-click="post_job(3)">POST JOB</button>
 							</div>
 						</div>
 					</div>
@@ -241,7 +241,7 @@
 						<div style="clear:both;"></div>
 					</div>
 
-					<div class="feed-data" data-ng-repeat="(k,v) in feeds.data">
+					<div class="feed-data" data-ng-repeat="(k,v) in job_posts.data">
 						<div style="width:100%;">
 							<div class="employer-logo">
 								<img src="{{v.image}}" />
@@ -303,7 +303,7 @@
 
 			<div class="feeds">
 				<div class="post">
-					<div class="feed-data" data-ng-repeat="(k,v) in feeds.data">
+					<div class="feed-data" data-ng-repeat="(k,v) in job_posts.data">
 						<div>
 							<div style="float:left; width:85%;">
 								<span class="header4">{{v.title}}</span>

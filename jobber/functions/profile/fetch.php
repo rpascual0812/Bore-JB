@@ -11,7 +11,7 @@ $class = new Profiles(
 
 $data = $class->fetch();
 
-header("HTTP/1.0 404 User Not Found");
+header("HTTP/1.0 404 No Profile Found");
 if($data['status']){
 	header("HTTP/1.0 200 OK");
 }

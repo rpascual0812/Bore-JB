@@ -61,5 +61,22 @@ EOT;
         return ClassParent::insert($sql);
     }
 
+    public function fetch(){
+        $sql = <<<EOT
+            select
+                pk,
+                pin,
+                type,
+                details,
+                date_created::timestamp(0) as date_created
+            from job_posts
+            where md5(pin) = '$this->pin'
+            and archived = $this->archived
+            ;
+EOT;
+
+        return ClassParent::get($sql);
+    }
+
 }
 ?>
