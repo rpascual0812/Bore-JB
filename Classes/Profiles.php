@@ -175,5 +175,20 @@ EOT;
 
         return $randomString;
     }
+
+    public function fetch_new_employers(){
+        $sql = <<<EOT
+                select
+                    profiles.pin,
+                    profile,
+                    date_created,
+                    accounts.usertype
+                from profiles left join accounts on (profiles.pin = accounts.pin)
+                where accounts.usertype = 'recruiter' 
+                ;
+EOT;
+
+        return ClassParent::get($sql);
+    }
 }
 ?>

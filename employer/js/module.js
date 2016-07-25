@@ -37,7 +37,7 @@ app.config(function($routeProvider){
     .when('/admin/companies/new',
     {
         controller: 'Employers',
-        templateUrl: 'templates/admin/new.html'
+        templateUrl: 'templates/admin/new_employers.html'
     })
     .when('/',
     {
