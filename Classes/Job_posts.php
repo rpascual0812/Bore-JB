@@ -78,5 +78,15 @@ EOT;
         return ClassParent::get($sql);
     }
 
+    public function feeds(){
+        $sql = <<<EOT
+            select
+                *
+            from job_posts
+            ;
+EOT;
+        return ClassParent::get($sql);
+    }
+
 }
 ?>

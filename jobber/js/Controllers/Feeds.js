@@ -4,7 +4,7 @@ app.controller('Feeds', function(
                                     $cookies,
                                     $routeParams,
                                     ProfileFactory,
-                                    ProfileFactory,
+                                    JobPostsFactory,
                                     $timeout,
                                     PINService
 								){
@@ -17,7 +17,9 @@ app.controller('Feeds', function(
     $scope.feeds = {};
     $scope.feeds.ad = {};
     $scope.hide = 'ng-hide';
-    
+        
+    $scope.feeds.data = [];
+    /*
     $scope.feeds.data = 
     [
         {
@@ -68,7 +70,7 @@ app.controller('Feeds', function(
             },
             background : '../ASSETS/Uploads/employers/backgrounds/10.png'
         }
-    ];
+    ];*/
     $scope.job_titles = [
         'Game Developer',
         'Customer Service Representative',
@@ -185,9 +187,8 @@ app.controller('Feeds', function(
         promise.then(function(data){
             $scope.profile = data.data.result[0];
             $scope.profile.profile = JSON.parse($scope.profile.profile);
-            console.log($scope.profile);
             
-            if($scope.profile.suspended == false){
+            if($scope.profile.suspended == 'f'){
                 reload_ads();
                 reload_feeds();
             }            
@@ -216,24 +217,53 @@ app.controller('Feeds', function(
     }
     
     function reload_feeds(){
-        $scope.feeds.data.unshift({
-            image : $scope.logos[[Math.floor(Math.random() * $scope.logos.length)]],
-            title : $scope.job_titles[[Math.floor(Math.random() * $scope.job_titles.length)]],
-            time_passed : 'Just now',
-            experience : $scope.years[[Math.floor(Math.random() * $scope.years.length)]],
-            skills : $scope.skills[[Math.floor(Math.random() * $scope.skills.length)]],
-            fee : {
-                currency : 'PHP',
-                amount : $scope.fee[[Math.floor(Math.random() * $scope.fee.length)]]
-            },
-            background : $scope.background[[Math.floor(Math.random() * $scope.skills.length)]]
-        });
+        var filter = {
+            pin : PINService.get()
+        };
 
-        var to2 = $timeout(function() {
-            $timeout.cancel(to2);
+        var promise = JobPostsFactory.feeds(filter);
+        promise.then(function(data){
+            var a = data.data.result;
+            for(var i in a){
+                a[i].details = JSON.parse(a[i].details);
+                
+                $scope.feeds.data.push(
+                    {
+                        image : $scope.logos[[Math.floor(Math.random() * $scope.logos.length)]],
+                        title : a[i].details.title,
+                        time_passed : 'Just now',
+                        experience : a[i].details.years_experience,
+                        skills : a[i].details.required_skills,
+                        fee : {
+                            currency : 'PHP',
+                            amount : $scope.fee[[Math.floor(Math.random() * $scope.fee.length)]]
+                        },
+                        background : $scope.background[[Math.floor(Math.random() * $scope.skills.length)]]
+                    }
+                );
+            }
+
+            //console.log($scope.feeds);
+        })
+
+        // $scope.feeds.data.unshift({
+        //     image : $scope.logos[[Math.floor(Math.random() * $scope.logos.length)]],
+        //     title : $scope.job_titles[[Math.floor(Math.random() * $scope.job_titles.length)]],
+        //     time_passed : 'Just now',
+        //     experience : $scope.years[[Math.floor(Math.random() * $scope.years.length)]],
+        //     skills : $scope.skills[[Math.floor(Math.random() * $scope.skills.length)]],
+        //     fee : {
+        //         currency : 'PHP',
+        //         amount : $scope.fee[[Math.floor(Math.random() * $scope.fee.length)]]
+        //     },
+        //     background : $scope.background[[Math.floor(Math.random() * $scope.skills.length)]]
+        // });
+
+        // var to2 = $timeout(function() {
+        //     $timeout.cancel(to2);
             
-            reload_feeds();
-        }, $scope.timer[[Math.floor(Math.random() * $scope.timer.length)]]);
+        //     reload_feeds();
+        // }, $scope.timer[[Math.floor(Math.random() * $scope.timer.length)]]);
     }
 
     $scope.pitch_focus = function(){
