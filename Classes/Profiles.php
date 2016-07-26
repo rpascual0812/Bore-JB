@@ -179,6 +179,7 @@ EOT;
     public function fetch_new_employers(){
         $sql = <<<EOT
                 select
+                    (select email_address from accounts where pin = profiles.pin) as email_address,
                     profiles.pin,
                     profile,
                     date_created,

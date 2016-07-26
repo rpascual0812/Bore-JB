@@ -21,7 +21,7 @@ app.controller('Employers', function(
                                         first_name: $scope.name.personal.first_name,
                                         last_name: $scope.name.personal.last_name,
                                         //company_name: a[i].company_name,
-                                        //email_address: $scope.name.personal.email_address
+                                        email_address: a[i].email_address
                 })
                 console.log($scope.name.personal.first_name)
             }
