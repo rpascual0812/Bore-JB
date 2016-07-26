@@ -1,4 +1,4 @@
-app.controller('Posts', function(
+napp.controller('Posts', function(
 									$scope,
                                     md5,
                                     $cookies,
