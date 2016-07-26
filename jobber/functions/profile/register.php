@@ -13,6 +13,7 @@ $profile = array(
 $class = new Profiles(
 						$app_pin,
                         $profile,
+                        NULL,
                         NULL
 	               );
 

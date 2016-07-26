@@ -3,11 +3,13 @@ require_once('../../../Classes/ClassParent.php');
 class Profiles extends ClassParent{
     var $pin = NULL;
     var $profile = array();
+    var $date_created = NULL;
     var $archived = NULL;
 
     public function __construct(
                                     $pin,
                                     $profile,
+                                    $date_created,
                                     $archived
                                 ){
         
@@ -58,6 +60,10 @@ class Profiles extends ClassParent{
                 'mobile_number' => $this->profile['mobile_number']
         );
 
+        if($usertype == 'candidate'){
+            $json_profile['confirmed'] = 'false';
+        }
+
         $json_profile = json_encode($json_profile);
 
         $sql = 'begin;';
@@ -97,7 +103,7 @@ EOT;
                     '$json_profile'
                 );
 EOT;
-
+        
         if ($usertype == 'recruiter'){
             $company_name = $data['company_name'];
             $sql .= <<<EOT
@@ -136,17 +142,6 @@ EOT;
                     ;
 EOT;
 
-            $sql .= <<<EOT
-                    insert into confirmation
-                    (
-                        pin
-                    )
-                    values
-                    (
-                        '$this->pin'
-                    );
-EOT;
-
         }
 
         $sql .= 'commit;';
@@ -157,19 +152,10 @@ EOT;
     public function fetch(){
         $sql = <<<EOT
                 select
-                    *
-                from profiles
-                where md5(pin) = '$this->pin'
-                ;
-EOT;
-
-        return ClassParent::get($sql);
-    }
-
-    public function fetch_profiles(){
-        $sql = <<<EOT
-                select
-                    profile
+                    pin,
+                    profile,
+                    case when (date_created + interval '30 days')::date - now()::date > 0 then false else true end as suspended,
+                    archived
                 from profiles
                 where md5(pin) = '$this->pin'
                 ;
@@ -188,6 +174,22 @@ EOT;
         }
 
         return $randomString;
+    }
+
+    public function fetch_new_employers(){
+        $sql = <<<EOT
+                select
+                    (select email_address from accounts where pin = profiles.pin) as email_address,
+                    profiles.pin,
+                    profile,
+                    date_created,
+                    accounts.usertype
+                from profiles left join accounts on (profiles.pin = accounts.pin)
+                where accounts.usertype = 'recruiter' 
+                ;
+EOT;
+
+        return ClassParent::get($sql);
     }
 }
 ?>

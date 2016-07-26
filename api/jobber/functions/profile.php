@@ -3,7 +3,7 @@ require_once('../../../Functions/connect.php');
 require_once('../../../Classes/Profiles.php');
 
 $class = new Profiles(
-						$_POST['pin'],
+						$_GET['pin'],
 						NULL,
 						NULL,
 						NULL
@@ -11,7 +11,7 @@ $class = new Profiles(
 
 $data = $class->fetch();
 
-header("HTTP/1.0 404 User Not Found");
+header("HTTP/1.0 404 No Profile Found");
 if($data['status']){
 	header("HTTP/1.0 200 OK");
 }

@@ -3,15 +3,15 @@ require_once('../../../Functions/connect.php');
 require_once('../../../Classes/Profiles.php');
 
 $class = new Profiles(
-						$_POST['pin'],
+						NULL,
 						NULL,
 						NULL,
 						NULL
 					);
 
-$data = $class->fetch();
+$data = $class->fetch_new_employers();
 
-header("HTTP/1.0 404 User Not Found");
+header("HTTP/1.0 404 Error saving contact");
 if($data['status']){
 	header("HTTP/1.0 200 OK");
 }

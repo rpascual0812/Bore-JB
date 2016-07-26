@@ -1,15 +1,15 @@
 <?php
 require_once('../../../Functions/connect.php');
-require_once('../../../Classes/Profiles.php');
+require_once('../../../Classes/Accounts.php');
 
-$class = new Profiles(
-						$_POST['pin'],
+$class = new Accounts(
+						$_GET['pin'],
 						NULL,
-						NULL,
-						NULL
+						$_GET['password'],
+						'candidate'
 					);
 
-$data = $class->fetch();
+$data = $class->auth();
 
 header("HTTP/1.0 404 User Not Found");
 if($data['status']){

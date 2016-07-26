@@ -16,12 +16,26 @@
     -moz-border-radius: 0px;
     -webkit-border-radius: 0px;
 }
+<<<<<<< HEAD
 .registration .register{
     width:100%;
     background-color: #f02921;
     color: #fff;
     font-size: 30px;
     text-align: center;
+=======
+th{text-align: center;}
+.registration .inputs{
+    width:90%;
+    display:block;
+    margin:0 auto;
+    font-size: 1em;
+}
+.registration .breakthick{
+    width:110%;
+    border:35px solid #f02921;
+    margin:0px 0em 10px -5%;
+>>>>>>> 00a0fc7165c3ca0877703606d83dec609278e047
 }
 .registration .inputs{
     margin:10px 7%;
