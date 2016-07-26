@@ -109,7 +109,7 @@ app.controller('Posts', function(
             pin : PINService.get()
         }
 
-        var promise = EmployersFactory.profile(filter);
+        var promise = EmployersFactory.fetch(filter);
         promise.then(function(data){
             $scope.employer = data.data.result[0];
 
@@ -123,14 +123,14 @@ app.controller('Posts', function(
             currencies_pk : $scope.employer.currencies_pk
         }
 
-        var promise = EmployersFactory.prices(filter);
-        promise.then(function(data){
-            var a = data.data.result;
+        // var promise = EmployersFactory.prices(filter);
+        // promise.then(function(data){
+        //     var a = data.data.result;
             
-            for(var i in a){
-                $scope.prices[a[i].type] = parseFloat(a[i].price);
-            }
-        })
+        //     for(var i in a){
+        //         $scope.prices[a[i].type] = parseFloat(a[i].price);
+        //     }
+        // })
     }
 
     function get_employer_bucket(){
@@ -138,14 +138,14 @@ app.controller('Posts', function(
             pin : $scope.employer.pin
         }
 
-        var promise = EmployersFactory.employer_bucket(filter);
-        promise.then(function(data){
-            var a = data.data.result;
+        // var promise = EmployersFactory.employer_bucket(filter);
+        // promise.then(function(data){
+        //     var a = data.data.result;
 
-            for(var i in a){
-                $scope.employer_bucket.push(a[i].applicant_id)    
-            }
-        })
+        //     for(var i in a){
+        //         $scope.employer_bucket.push(a[i].applicant_id)    
+        //     }
+        // })
     }
 
 	function job_posts(){

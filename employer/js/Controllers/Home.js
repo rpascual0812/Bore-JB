@@ -110,7 +110,7 @@ app.controller('Home', function(
             pin : PINService.get()
         }
 
-        var promise = EmployersFactory.profile(filter);
+        var promise = EmployersFactory.fetch(filter);
         promise.then(function(data){
             $scope.employer = data.data.result[0];
 
@@ -124,14 +124,14 @@ app.controller('Home', function(
             currencies_pk : $scope.employer.currencies_pk
         }
 
-        var promise = EmployersFactory.prices(filter);
-        promise.then(function(data){
-            var a = data.data.result;
+        // var promise = EmployersFactory.prices(filter);
+        // promise.then(function(data){
+        //     var a = data.data.result;
             
-            for(var i in a){
-                $scope.prices[a[i].type] = parseFloat(a[i].price);
-            }
-        })
+        //     for(var i in a){
+        //         $scope.prices[a[i].type] = parseFloat(a[i].price);
+        //     }
+        // })
     }
 
     function get_employer_bucket(){
@@ -139,14 +139,14 @@ app.controller('Home', function(
             pin : $scope.employer.pin
         }
 
-        var promise = EmployersFactory.employer_bucket(filter);
-        promise.then(function(data){
-            var a = data.data.result;
+        // var promise = EmployersFactory.employer_bucket(filter);
+        // promise.then(function(data){
+        //     var a = data.data.result;
 
-            for(var i in a){
-                $scope.employer_bucket.push(a[i].applicant_id)    
-            }
-        })
+        //     for(var i in a){
+        //         $scope.employer_bucket.push(a[i].applicant_id)    
+        //     }
+        // })
     }
 
     $scope.searchbig = function(){
@@ -219,11 +219,11 @@ app.controller('Home', function(
             deduction : $scope.prices.CV
         }
 
-        var promise = EmployersFactory.update_credit(filter);
-        promise.then(function(data){                
-            //console.log(data.data);
-            //do nothing for now
-        })
+        // var promise = EmployersFactory.update_credit(filter);
+        // promise.then(function(data){                
+        //     //console.log(data.data);
+        //     //do nothing for now
+        // })
     }
 
     function update_employer_bucket(applicant_id){
@@ -232,11 +232,11 @@ app.controller('Home', function(
             applicant_id : applicant_id
         }
 
-        var promise = EmployersFactory.update_employer_bucket(filter);
-        promise.then(function(data){
-            //console.log(data.data);
-            //do nothing for now
-        })   
+        // var promise = EmployersFactory.update_employer_bucket(filter);
+        // promise.then(function(data){
+        //     //console.log(data.data);
+        //     //do nothing for now
+        // })   
     }
 
     $scope.videochat = function(){
