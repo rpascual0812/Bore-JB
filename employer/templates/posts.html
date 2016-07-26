@@ -128,14 +128,18 @@
 									</tr>
 									<tr>
 										<td style="padding-top: 5px;">
-											<input type="text" class="form-control" placeholder="Required Skills"
-											ng-model="new_job_post.ad.required_skills" /> <!-- AJS Attributes -->
+											<tags-input class="form-control"
+														ng-model="new_job_post.ad.required_skills"
+														placeholder="/////////////////"
+														template="my-custom-template"></tags-input>
+											<!-- <input type="text" class="form-control" placeholder="Required Skills"
+											ng-model="new_job_post.ad.required_skills" /> --> <!-- AJS Attributes -->
 										</td>
 									</tr>
 									<tr>
 										<td style="padding-top: 5px;">
 											<input type="text" class="form-control" placeholder="Years of Experience"
-											ng-model="new_job_post.ad.years_experience" /> <!-- AJS Attributes -->
+											ng-model="new_job_post.ad.years_experience" />
 										</td>
 									</tr>
 									<tr>
@@ -153,6 +157,7 @@
 							</div>
 						</div>
 						<div ng-if="newad.link">
+							<form>
 							<div style="width: 80%; margin: 0 auto;">
 								<h5>Link a video</h5>
 
@@ -160,32 +165,37 @@
 									<tr>
 										<td style="padding-top: 5px;">
 											<input type="text" class="form-control" placeholder="Title"
-											ng-model="new_job_post.video.title" /> <!-- AJS attributes -->
+											ng-model="new_job_post.video.title" required/> <!-- AJS attributes -->
 										</td>
 									</tr>
 									<tr>
 										<td style="padding-top: 5px;">
 											<input type="text" class="form-control" placeholder="Description"
-											ng-model="new_job_post.video.description" /> <!-- AJS attributes -->
+											ng-model="new_job_post.video.description" required/> <!-- AJS attributes -->
 										</td>
 									</tr>
 									<tr>
 										<td style="padding-top: 5px;">
-											<input type="text" class="form-control" placeholder="Tags"
-											ng-model="new_job_post.video.tags" /> <!-- AJS attributes -->
+											<tags-input class="form-control"
+														ng-model="new_job_post.video.tags"
+														placeholder="/////////////////"
+														template="my-custom-template"></tags-input>
+											<!-- <input type="text" class="form-control" placeholder="Tags"
+											ng-model="new_job_post.video.tags" required/> -->
 										</td>
 									</tr>
 									<tr>
 										<td style="padding-top: 5px;">
-											<input type="text" class="form-control" placeholder="Link"
-											ng-model="new_job_post.video.link" /> <!-- AJS attributes -->
+											<input type="url" class="form-control" placeholder="Link"
+											ng-model="new_job_post.video.link" required/> <!-- AJS attributes -->
 										</td>
 									</tr>
 								</table>
 							</div>
 							<div style="width: 80%; margin: 0 auto; text-align:right; margin-top:20px;">
-								<button type="button" class="btn btn-primary" style="width:120px; margin-bottom:5px;" ng-click="post_job(2)">POST VIDEO</button>
+								<button type="submit" class="btn btn-primary" style="width:120px; margin-bottom:5px;" ng-click="post_job(2)">POST VIDEO</button>
 							</div>
+							</form>
 						</div>
 						<div ng-if="newad.post">
 							<div style="width: 80%; margin: 0 auto;">
@@ -213,9 +223,14 @@
 									</tr>
 									<tr>
 										<td style="padding-top: 5px;">
-											<input type="text" class="form-control" placeholder="Required Skills" 
+											<tags-input class="form-control"
+														ng-model="new_job_post.job.required_skills"
+														placeholder="/////////////////"
+														template="my-custom-template"></tags-input>
+											<!-- <input type="text" class="form-control" placeholder="Required Skills" 
 											ng-model="new_job_post.job.required_skills"
-											/>
+											/> -->
+
 										</td>
 									</tr>
 									<tr>
@@ -517,4 +532,18 @@
 }(jQuery));
 
 $('input[type=file]').customFile();
+</script>
+
+
+<script type="text/ng-template" id="my-custom-template">
+    <div class="tag-template">
+        <div>
+            <div style="float:left;">
+                <span>{{$getDisplayText()}}</span>
+            </div>
+            <div style="float:left; padding-top: 3px;">
+                <a class="remove-button" ng-click="$removeTag()">&#10006;</a>
+            </div>
+        </div>
+    </div>
 </script>
