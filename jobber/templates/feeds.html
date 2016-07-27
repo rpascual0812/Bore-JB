@@ -91,8 +91,8 @@
 					<span class="amount">{{profile.data.currency}} {{profile.data.available}}</span>
 				</div>
 			</div>
-
 			<div class="left">
+
 				<div style=" padding:20px; margin:0px 20px 0px 20px; border:3px solid #f02921; border-radius:6px;">
 					<div ng-if="profile.suspended == 'f' && profile.profile.confirmed == 'false'">
 						<p style="text-align:justify; font-size:0.9em; color:black;">Your account will be suspended if you don't confirm your email address. Would you like us to <a href="#">resend</a> a new confirmation email?</p>
@@ -102,10 +102,10 @@
 						<p style="text-align:justify; font-size:0.9em; color:black;">Your account has been suspended. Please confirm your email address to reactivated your account. Would you like us to <a href="#">resend</a> a new confirmation email?</p>
 					</div>
 					
-					<div class="autoform" ng-if="profile.profile.confirmed == 'true'">
+					<div class="autoform">
 						<div class="personalinfo">
 							<p style="text-align:justify; font-size:0.9em">
-								<span ng-click="activate('a')" ng-hide="confirmed=='a'" style="cursor:pointer">
+								<span style="cursor:pointer">
 								</span>
 								<span>You have not yet filled up your
 									<a style="text-decoration:none" >Personal Information</a>
@@ -117,16 +117,16 @@
 						    <h2 style="margin-bottom:30px;">Personal Information</h2>
 						    <form>
 								<p style="display:block; margin:0px">Name:</p>
-								<input style="display:block; margin:-32px 0px 10px auto; width:58%" type="text" name="name" placeholder="Juan Niyebe" style="width:20%"/>
+								<input style="display:block; margin:-32px 0px 10px auto; width:58%" type="text" name="name" placeholder="Juan Niyebe" style="width:20%" ng-model="profile_form.personal.name" required/>
 								<p style="display:block; margin:0px">Address:</p>
-								<input  style="display:block; margin:-32px 0px 10px auto; width:58%" type="text" name="Address" placeholder="Address" size="50" style="width:20%"/>
+								<input  style="display:block; margin:-32px 0px 10px auto; width:58%" type="text" name="Address" placeholder="Address" size="50" style="width:20%" ng-model="profile_form.personal.address" required/>
 								<p style="display:block; margin:0px">Phone Number:</p>
-								<input style="display:block; margin:-32px 0px 10px auto; width:58%" type="text" name="PhoneNumber" placeholder="123-1234" style="width:20%"/>
+								<input style="display:block; margin:-32px 0px 10px auto; width:58%" type="text" name="PhoneNumber" placeholder="123-1234" style="width:20%" ng-model="profile_form.personal.number" required/>
 								<p style="display:block; margin:0px">Email:</p>
-								<input style="display:block; margin:-32px 0px 10px auto; width:58%" type="text" name="email" placeholder="employee@email.com" style="width:20%"/>
+								<input style="display:block; margin:-32px 0px 10px auto; width:58%" type="text" name="email" placeholder="employee@email.com" style="width:20%" ng-model="profile_form.personal.email" required/>
 								<div style="margin-top:30px">
 									<p>
-										<input type="submit" value="Submit" />
+										<input type="submit" value="Submit" ng-click="update('personal_info')"/>
 										<input type="reset" value="Reset" />
 									</p>
 								</div>
@@ -134,8 +134,9 @@
 						</div>
 
 						<div class="achievements">
+
 							<p style="text-align:justify; font-size:0.9em">
-								<span ng-click="activate('b')" ng-hide="confirmed=='b'" style="cursor:pointer">You have not yet filled up your 
+								<span style="cursor:pointer">You have not yet filled up your 
 									<a style="text-decoration:none">Achievements</a>
 								</span>
 							</p>
@@ -148,7 +149,7 @@
 							<h1 style="margin-bottom:30px;">Achievements</h1>
 							<form>
 								<p>
-									<textarea style="width:100%" name="achievements" placeholder="Valedictorian, Best in Line Formation, Best Cleaner" rows="10" cols="50"></textarea>
+									<textarea style="100%" name="achievements" rows="10" cols="50" ng-model="profile_form.achievements.textarea" placeholder="Valedictorian, Best in Line Formation, Best Cleaner"></textarea>
 								</p>
 								<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 							</form>
@@ -156,7 +157,7 @@
 
 						<div class="education">
 							<p style="text-align:justify; font-size:0.9em">
-								<span ng-click="activate('c')" ng-hide="confirmed=='c'" style="cursor:pointer">You have not yet filled up your
+								<span style="cursor:pointer">You have not yet filled up your
 									<a style="text-decoration:none">Educational Background</a>
 								</span>
 							</p>
@@ -169,13 +170,13 @@
 							<h1 style="margin-bottom:30px;">Education</h1>
 							<form>
 								<p style="display:block; margin:0px">School:</p>
-								<input style="display:block; margin:-32px 0px 10px auto; width:68%; font-size:0.86em" type="text" name="school"placeholder="University School of College"/>
+								<input style="display:block; margin:-32px 0px 10px auto; width:68%; font-size:0.86em" type="text" name="school"placeholder="University School of College" ng-model="profile_form.education.school"/>
 								<p style="display:block; margin:0px">Major:</p>
-								<input style="display:block; margin:-32px 0px 10px auto; width:68%; font-size:0.86em" type="text" name="major" placeholder="BS Information Technology"/>
+								<input style="display:block; margin:-32px 0px 10px auto; width:68%; font-size:0.86em" type="text" name="major" placeholder="BS Information Technology" ng-model="profile_form.education.model"/>
 								<p style="display:block; margin:0px">Date From:</p>
-								<input style="display:block; margin:-32px 0px 10px auto; width:68%; font-size:0.86em" type="date"name="school_dateFrom"/>
+								<input style="display:block; margin:-32px 0px 10px auto; width:68%; font-size:0.86em" type="date"name="school_dateFrom" ng-model="profile_form.education.datefrom"/>
 								<p style="display:block; margin:0px">Date To:</p>
-								<input style="display:block; margin:-32px 0px 10px auto; width:68%; font-size:0.86em" type="date" name="schoxol_dateTo"/>
+								<input style="display:block; margin:-32px 0px 10px auto; width:68%; font-size:0.86em" type="date" name="schoxol_dateTo" ng-model="profile_form.education.dateto"/>
 								
 								<div style="margin-top:30px">
 									<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
@@ -185,7 +186,7 @@
 
 						<div class="work" >
 							<p style="text-align:justify; font-size:0.9em">
-								<span ng-click="activate('d')" ng-hide="confirmed=='d'" style="cursor:pointer">You have not yet filled up your
+								<span style="cursor:pointer">You have not yet filled up your
 									<a style="text-decoration:none">Work Experience</a>
 								</span>
 							</p>
@@ -196,22 +197,22 @@
 							<form>
 								<div>
 									<p style="display:block; margin:0px">Company:</p>
-									<input style="display:block; margin:-32px 0px 10px auto; width:68%" type="text" name="company" placeholder="CHRS"/>
+									<input style="display:block; margin:-32px 0px 10px auto; width:68%" type="text" name="company" placeholder="CHRS" ng-model="profile_form.work.company"/>
 									<p style="display:block; margin:0px">Position:</p>
-									<input style="display:block; margin:-32px 0px 10px auto; width:68%" type="text" name="position" placeholder="Branch Manager"/>
+									<input style="display:block; margin:-32px 0px 10px auto; width:68%" type="text" name="position" placeholder="Branch Manager" ng-model="profile_form.work.position"/>
 									<p style="display:block; margin:0px">Date From:</p>
-									<input style="display:block; margin:-32px 0px 10px auto; width:68%" type="date"name="work_dateFrom"/>
+									<input style="display:block; margin:-32px 0px 10px auto; width:68%" type="date"name="work_dateFrom" ng-model="profile_form.work.datefrom"/>
 									<p style="display:block; margin:0px">Date To:</p>
-									<input style="display:block; margin:-32px 0px 10px auto; width:68%" type="date" name="work_dateTo"/>	
+									<input style="display:block; margin:-32px 0px 10px auto; width:68%" type="date" name="work_dateTo" ng-model="profile_form.work.dateto"/>	
 								</div>
 								<div style="margin-top:30px">
-									<p><input type="submit" value="Submit"/> <input type="reset" value="Reset" /></p>
+									<p><input type="submit" value="Submit" ng-click="update()"/> <input type="reset" value="Reset" /></p>
 								</div>
 							</form>
 						</div>
 					</div>
 				</div>
-
+			
 				<div class="CbreakThr" style="width:100%; border:1px solid #f02921"></div>
 				<div class="CbreakSec" style="margin-bottom:1em"></div>
 

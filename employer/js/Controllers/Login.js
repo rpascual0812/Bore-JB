@@ -29,6 +29,7 @@ app.controller('Login', function(
     }
 
     $scope.login = function(){
+        $scope.user.pin = $scope.user.pin.substring(0,2).toUpperCase() + "-" + $scope.user.pin.substring(2,6) + "-" + $scope.user.pin.substring(6,8).toUpperCase();
         var error=0;
         if($scope.user.pin.replace(/\s/g,'') == ""){
             error++;

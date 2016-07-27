@@ -5,7 +5,8 @@ var app = angular.module('onload', [
                                     'textAngular',
                                     'ui.tinymce',
                                     'autocomplete',
-                                    'ngTagsInput'
+                                    'ngTagsInput',
+                                    'ui.mask'
                                 ]);
 
 app.config(function($routeProvider){

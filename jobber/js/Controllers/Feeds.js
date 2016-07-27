@@ -17,9 +17,18 @@ app.controller('Feeds', function(
     $scope.feeds = {};
     $scope.feeds.ad = {};
     $scope.hide = 'ng-hide';
+
         
     $scope.feeds.data = [];
-    /*
+    $scope.confirmed='';
+
+    $scope.profile_form = {}
+    $scope.profile_form.personal = {};
+    $scope.profile_form.achievements = {};
+    $scope.profile_form.education = {};
+    $scope.profile_form.work= {};
+
+    
     $scope.feeds.data = 
     [
         {
@@ -70,7 +79,7 @@ app.controller('Feeds', function(
             },
             background : '../ASSETS/Uploads/employers/backgrounds/10.png'
         }
-    ];*/
+    ];
     $scope.job_titles = [
         'Game Developer',
         'Customer Service Representative',
@@ -178,10 +187,10 @@ app.controller('Feeds', function(
         return pin;
     }
 
-     function get_profile(){
+    function get_profile(){
         var filter = {
             pin : PINService.get()
-        }
+        };
         
         var promise = ProfileFactory.profile(filter);
         promise.then(function(data){
@@ -189,12 +198,16 @@ app.controller('Feeds', function(
             $scope.profile.profile = JSON.parse($scope.profile.profile);
             
             if($scope.profile.suspended == 'f'){
-                reload_ads();
-                reload_feeds();
-            }            
-        })
-    }
 
+            //    console.log($scope.profile);
+              //  check_profile();
+                if($scope.profile.suspended == false){
+                    reload_ads();
+                    reload_feeds();
+                }            
+            }
+        });
+    }
 
     function reload_ads(){
         $scope.feeds.ad.image = $scope.logos[[Math.floor(Math.random() * $scope.logos.length)]];
@@ -272,7 +285,7 @@ app.controller('Feeds', function(
         }
     }
 
-    $scope.activate = function(letter){
+   /* $scope.activate = function(letter){
       if(letter=='a'){
         $scope.confirmed='a';
       }else if (letter=='b'){
@@ -282,7 +295,7 @@ app.controller('Feeds', function(
       }else if (letter=='d'){
         $scope.confirmed='d';
       }
-    }
+    }*/
 
     $scope.show =function(status){
         if(status==true){
@@ -298,4 +311,51 @@ app.controller('Feeds', function(
         $scope.hide = 'ng-show';
 
     }
+
+  /*  function check_profile(letter){
+        if($scope.profile===null){
+
+            console.log("empty");
+        }else{
+           if(letter=='a'&& $scope.profile.profile.personal_info === undefined){
+            $scope.confirmed='a';
+           // console.log(typeof $scope.profile.profile.personal_info);
+            console.log("egg");
+           }else if(letter=='c' && $scope.profile.profile.education === undefined){
+            $scope.confirmed='c';
+            console.log("spam");
+           }else if(letter=='d'&& $scope.profile.profile.work_history === undefined){
+            $scope.confirmed='d';
+            console.log("fried rice");
+           }else if(letter=='b' && $scope.profile.profile.achievements === undefined){
+            $scope.confirmed='b';
+            console.log("fried rice");
+           }
+
+           console.log("not empty")
+       }*/
+
+  //  }
+
+        $scope.update = function(word){
+
+//                console.log($scope.profile_form.personal);
+            var form = {};
+            if(word === 'personal_info' && $scope.profile_form.personal!==null){
+                form.info = JSON.stringify($scope.profile_form.personal);
+                form.type = '{personal_info}';
+             //   console.log('egg');
+               // console.log(word);
+               // console.log(form.info);
+            }
+            form.pin = PINService.get();
+            var promise =ProfileFactory.update(form);
+            promise.then(function(data){
+                console.log(' Successful Update');
+            })
+            .then(null, function(data){ 
+                console.log('Failed Update');
+            });
+        };
+
 });

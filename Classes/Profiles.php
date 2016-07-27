@@ -164,6 +164,18 @@ EOT;
         return ClassParent::get($sql);
     }
 
+    public function update($info){   
+        $personal_info = json_encode($info);
+        $sql = "begin;";
+        $sql .= <<<EOT
+            UPDATE profiles
+            SET profile = jsonb_set(profile,'{personal_info}',
+                '$personal_info',true) WHERE md5(pin)= '$this->pin';
+EOT;
+        $sql .= "commit;";
+        return ClassParent::update($sql);
+    }
+
     private function generateRandomString($length) {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
         $charactersLength = strlen($characters);
