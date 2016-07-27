@@ -1,7 +1,8 @@
 var app = angular.module('onload', [
                                     'ngRoute',
                                     'ngCookies',
-                                    'angular-md5'
+                                    'angular-md5',
+                                    'ui.mask'
                                 ]);
 
 app.config(function($routeProvider){
