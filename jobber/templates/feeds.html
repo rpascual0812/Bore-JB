@@ -92,79 +92,67 @@
 					<span class="amount">{{profile.data.currency}} {{profile.data.available}}</span>
 				</div>
 			</div>
-
 			<div class="left">
-				<div style=" padding: 15px; margin-bottom: 10px;">
-					<div ng-if="profile.suspended == 'f' && profile.profile.confirmed == 'false'">
-						<p>Your account will be suspended if you don't confirm your email address. Would you like us to <a href="#">resend</a> a new confirmation email?</p>
-					</div>
-					
-					<div ng-if="profile.suspended == 't'">
-						<p>Your account has been suspended. Please confirm your email address to reactivated your account. Would you like us to <a href="#">resend</a> a new confirmation email?</p>
-					</div>
-					
-					<div class="autoform" ng-if="profile.profile.confirmed == 'true'">
+					<!-- ng-if="profile.profile.confirmed == 'true'"-->
+					<div class="autoform">
 						<div class="personalinfo">
-							<p><span ng-click="activate('a')" ng-hide="confirmed=='a'" style="cursor:pointer">You have not yet filled up your <a style="text-decoration:none" >Personal Info</a></span></p>
-							<div style="border: 1px solid #344972; padding: 10px; border-radius: 5px;" ng-show="confirmed=='a'">
+							<p><span  style="cursor:pointer">You have not yet filled up your <a style="text-decoration:none" >Personal Info</a></span></p>
+							<div style="border: 1px solid #344972; padding: 10px; border-radius: 5px;" >
 						     	<h1>Personal Information</h1>
-						     	<form >
-						      		<p>Name: <input type="text" name="name" placeholder="Juan Niyebe"/>
-						      		<p>Address: <input type="text" name="Address" placeholder="Address" size="50"/>
-						      		<p>Phone Number: <input type="text" name="PhoneNumber" placeholder="123-1234"/>
-						      		<p>Email: <input type="text" name="email" placeholder="employee@email.com"/>
-						      		<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" />
+						     	<form>
+						      		<p>Name: <input type="text" name="name" placeholder="Juan Niyebe" ng-model="profile_form.personal.name" required/>
+						      		<p>Address: <input type="text" name="Address" placeholder="Address" size="50" ng-model="profile_form.personal.address" required/>
+						      		<p>Phone Number: <input type="text" name="PhoneNumber" placeholder="123-1234" ng-model="profile_form.personal.number" required/>
+						      		<p>Email: <input type="text" name="email" placeholder="employee@email.com" ng-model="profile_form.personal.email" required/>
+						      		<p><button type="submit" value="Submit" ng-click="update('personal_info')">Submit</button> <input type="reset" value="Reset" />
 						     	</form>
 						     </div>
 						</div>
-
 						<div class="achievements">
-							<p><span ng-click="activate('b')" ng-hide="confirmed=='b'" style="cursor:pointer">You have not yet filled up your <a style="text-decoration:none">Achievements</a>
+							<p><span  style="cursor:pointer">You have not yet filled up your <a style="text-decoration:none">Achievements</a>
 							</span></p>
 							<p>
-							<div style="border: 1px solid #344972; padding: 10px; border-radius: 5px;" ng-show="confirmed=='b'">
+							<div style="border: 1px solid #344972; padding: 10px; border-radius: 5px;" >
 								<h1>Achievements</h1>
 								<form>
-									<p><textarea name="achievements" placeholder="Valedictorian, Best in Line Formation, Best Cleaner" rows="10" cols="50"></textarea>
+									<p><textarea name="achievements" rows="10" cols="50" ng-model="profile_form.achievements.textarea" placeholder="Valedictorian, Best in Line Formation, Best Cleaner"></textarea>
 									<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" />
 								</form>
 							</div>
 						</div>
 
 						<div class="education">
-							<p><span ng-click="activate('c')" ng-hide="confirmed=='c'" style="cursor:pointer">You have not yet filled up your <a style="text-decoration:none">Educational Background</a></span></p>
+							<p><span  style="cursor:pointer">You have not yet filled up your <a style="text-decoration:none">Educational Background</a></span></p>
 							<p>
-							<div style="border: 1px solid #344972; padding: 10px; border-radius: 5px;" ng-show="confirmed=='c'">
+							<div style="border: 1px solid #344972; padding: 10px; border-radius: 5px;" >
 								<h1>Education</h1>
 								<form>
-									<p>School: <input type="text" name="school" placeholder="University School of College"/>
-									<p>Major: <input type="text" name="major" placeholder="BS Information Technology"/>
-									<p>Date From: <input type="date"name="school_dateFrom"/>
-									<p>Date To: <input type="date" name="schoxol_dateTo"/>
+									<p>School: <input type="text" name="school" placeholder="University School of College" ng-model="profile_form.education.school"/>
+									<p>Major: <input type="text" name="major" placeholder="BS Information Technology" ng-model="profile_form.education.model"/>
+									<p>Date From: <input type="date"name="school_dateFrom" ng-model="profile_form.education.datefrom"/>
+									<p>Date To: <input type="date" name="schoool_dateTo" ng-model="profile_form.education.dateto"/>
 									
 									<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" />
 								</form>
 							</div>
 						</div>
-						<p>
 						<div class="work" >
-							<p><span ng-click="activate('d')" ng-hide="confirmed=='d'" style="cursor:pointer">You have not yet filled up your <a style="text-decoration:none">Work Experience</a>
+							<p><span  style="cursor:pointer">You have not yet filled up your <a style="text-decoration:none">Work Experience</a>
 							</span></p>
-							<div style="border: 1px solid #344972; padding: 10px; border-radius: 5px;" ng-show="confirmed=='d'">
+							<div style="border: 1px solid #344972; padding: 10px; border-radius: 5px;" >
 								<h1>Work Experience</h1>
 								<form>
 									<div>
-										<p>Company: <input type="text" name="company" placeholder="CHRS"/>
-										<p>Position: <input type="text" name="position" placeholder="Branch Manager"/>
-										<p>Date From: <input type="date"name="work_dateFrom"/>
-										<p>Date To: <input type="date" name="work_dateTo"/>	
+										<p>Company: <input type="text" name="company" placeholder="CHRS" ng-model="profile_form.work.company"/>
+										<p>Position: <input type="text" name="position" placeholder="Branch Manager" ng-model="profile_form.work.position"/>
+										<p>Date From: <input type="date"name="work_dateFrom" ng-model="profile_form.work.datefrom"/>
+										<p>Date To: <input type="date" name="work_dateTo" ng-model="profile_form.work.dateto"/>	
 									</div>
-									<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" />
+									<p><input type="submit" value="Submit" ng-click="update()"/> <input type="reset" value="Reset" />
 								</form>								
 							</div>
 						</div>
-					</div>
-				</div>
+			</div>
 				<!-- <div style="height: 20px;width:100%;"></div> -->
 				<div class="CbreakThr" style="width:100%; border:1px solid #f02921"></div>
 				<div class="CbreakSec" style="margin-bottom:1em"></div>

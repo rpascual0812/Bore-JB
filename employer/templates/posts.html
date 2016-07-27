@@ -43,62 +43,60 @@
 <div style="clear:both;"></div>
 
 <div class="main" style="margin-top: 50px;">
-	<div style="clear:both;"></div>
-	<div class="profile">
-		
-		<div class="c-menu megamenu">
-			<ul>
-				<li>
-					<a  href="#/home">
-						<img src="../ASSETS/img/profile.png">
-					</a>
-				</li>
-				<li class="active">
-					<a href="#/..">
-						<img src="../ASSETS/img/attache.png">
-					</a>
-				</li>
-				<li>
-					<a>
-						<img src="../ASSETS/img/message.png">
-					</a>
-				</li>
-				<li>
-					<a>
-						<img src="../ASSETS/img/bookmark.png">
-					</a>
-				</li>
-			</ul>
-		</div>
+			<div style="clear:both;"></div>
+			<div class="profile">
 
-		<div class="menu">
-			<div>
-				<img src="../ASSETS/Uploads/employers/accenture.png" style="width: 180px;"/>
-			</div>
-			<div class="employer-name">
-				<span class="font14">{{employer.name}}</span>
-			</div>
+				<div class="c-menu megamenu">
+					<ul>
+						<li>
+							<a  href="#/home">
+								<img src="../ASSETS/img/profile.png">
+							</a>
+						</li>
+						<li class="active">
+							<a href="#/..">
+								<img src="../ASSETS/img/attache.png">
+							</a>
+						</li>
+						<li>
+							<a>
+								<img src="../ASSETS/img/message.png">
+							</a>
+						</li>
+						<li>
+							<a>
+								<img src="../ASSETS/img/bookmark.png">
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="menu">
+					<div class="ccimageblock">
+						<img src="../ASSETS/Uploads/employers/accenture.png" class="cccompany"/>
+					</div>
+					<div class="employer-name">
+						<span class="font14">{{employer.name}}</span>
+					</div>
+					
+					<div>
+						<img src="../ASSETS/img/attache.png" style="width:16px;">
+						<a href="#/posts"><span class="font12 link">Job Posts</span></a>
+					</div>
+					<div>
+						<img src="../ASSETS/img/message.png" style="width:16px;">
+						<span class="font12 link">Messages</span>
+					</div>
+					<div>
+						<img src="../ASSETS/img/bookmark.png"  style="width:16px;">
+						<span class="font12 link">Admired Candidates</span>
+					</div>
 
-			
-			
-			<div>
-				<img src="../ASSETS/img/attache.png" style="width:16px;">
-				<a href="#/posts"><span class="font12 link">Job Posts</span></a>
-			</div>
-			<div>
-				<img src="../ASSETS/img/message.png" style="width:16px;">
-				<span class="font12 link">Messages</span>
-			</div>
-			<div>
-				<img src="../ASSETS/img/bookmark.png" style="width:16px;">
-				<span class="font12 link">Admired Candidates</span>
-			</div>
-
-			<div class="credit">
-				<span class="font14 label">Available Credit</span> <br />
-				<span class="amount">{{employer.currency}} {{employer.available}}</span>
-			</div>
-		</div>
+					<div class="credit">
+						<span class="label" style="padding:0.2em 0 0 0;">Available</span>
+						<span class="label" style="padding:0.3em 0 0.5em 0;">Credit</span> <br />
+						<span class="amount">{{employer.currency}} {{employer.available}}</span>
+					</div>
+				</div>
 		<div class="left">
 			
 
@@ -256,7 +254,12 @@
 						<div style="clear:both;"></div>
 					</div>
 
+<<<<<<< HEAD
+					
+					<div class="feed-data" data-ng-repeat="(k,v) in feeds.data">
+=======
 					<div class="feed-data" data-ng-repeat="(k,v) in job_posts.data">
+>>>>>>> 00a0fc7165c3ca0877703606d83dec609278e047
 						<div style="width:100%;">
 							<div class="employer-logo">
 								<img src="{{v.image}}" />
@@ -340,65 +343,64 @@
 				</div>			
 			</div>
 		</div>
-
-		<div class="right">
-			<div class="statistics">
-				<div>
-					<img src="../ASSETS/img/heart.png" style="width:16px;">
-					<span class="font12">Admired by 105 candidates</span>
-				</div>
-				<div>
-					<img src="../ASSETS/img/attache.png" style="width:16px;">
-					<span class="font12 link">Received 35 Responses</span>
-				</div>
-				
-				<div>
-					<img src="../ASSETS/img/feedback.png" style="width:16px;">
-					<span class="font12 link">You have 5 Recuitment Feedback</span>
-				</div>
-			</div>
-
-			<div class="break"></div>
-
-			<div style="margin-bottom: 5px;">
-				<img src="../ASSETS/Uploads/ads/signavio.png" style="width:275px;">
-			</div>
-
-			<div>
-				<img src="../ASSETS/Uploads/ads/collabs.jpg" style="width:275px;">
-			</div>
-
-			<div class="break"></div>
-
-			<div class="updates">
-				<span class="header3">Latest Updates</span>
-
-				<div>
+			<div class="right">
+				<div class="statistics">
 					<div>
-						<span class="sub">June 10, 2016 12:00 PM</span>
+						<img src="../ASSETS/img/heart.png" style="width:16px;">
+						<span class="font12">Admired by 105 candidates</span>
 					</div>
-					<div style="margin-top:-10px;">
-						<span class="font12">Updated profile picture</span>
+					<div>
+						<img src="../ASSETS/img/attache.png" style="width:16px;">
+						<span class="font12 link">Received 35 Responses</span>
+					</div>
+					
+					<div>
+						<img src="../ASSETS/img/feedback.png" style="width:16px;">
+						<span class="font12 link">You have 5 Candidate Feedback</span>
 					</div>
 				</div>
-				<div>
-					<div>
-						<span class="sub">May 31, 2016 06:00 PM</span>
-					</div>
-					<div style="margin-top:-10px;">
-						<span class="font12">Added new employer</span>
-					</div>
+
+				<div class="break"></div>
+
+				<div class="ccimageblock">
+					<img src="../ASSETS/Uploads/ads/signavio.png" class="ccborder">
 				</div>
-				<div>
+
+				<div class="ccimageblock">
+					<img src="../ASSETS/Uploads/ads/collabs.jpg" class="ccborder">
+				</div>
+
+				<div class="break"></div>
+
+				<div class="updates">
+					<span class="header3">Latest Updates</span>
+
 					<div>
-						<span class="sub">January 01, 2016 08:00 PM</span>
+						<div>
+							<span class="sub">June 10, 2016 12:00 PM</span>
+						</div>
+						<div style="margin-top:-10px;">
+							<span class="font12">Updated profile picture</span>
+						</div>
 					</div>
-					<div style="margin-top:-10px;">
-						<span class="font12">Receives Recruitment Feedback</span>
+					<div>
+						<div>
+							<span class="sub">May 31, 2016 06:00 PM</span>
+						</div>
+						<div style="margin-top:-10px;">
+							<span class="font12">Added new employer</span>
+						</div>
+					</div>
+					<div>
+						<div>
+							<span class="sub">January 01, 2016 08:00 PM</span>
+						</div>
+						<div style="margin-top:-10px;">
+							<span class="font12">Receives Recruitment Feedback</span>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 		<div style="clear:both;"></div>
 	</div>
 </div>

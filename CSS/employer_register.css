@@ -1,9 +1,12 @@
-.registration{
-	width: 100%;
-	min-height: 450px;
-	background-color: #FFF;
 
-	padding: 0em 1em 0em 1em;
+
+/*REGISTRATION*/
+.registration{
+    width: 100%;
+    min-height: 450px;
+    background-color: #FFF;
+
+    padding:1px 0px 0px 0px;
 
     border: 1px solid #CCC;
     box-shadow: 0 4px 8px -2px #000;
@@ -13,228 +16,175 @@
     -moz-border-radius: 0px;
     -webkit-border-radius: 0px;
 }
-th{text-align: center;}
+.registration .register{
+    width:100%;
+    background-color: #f02921;
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+}
 .registration .inputs{
-    width:90%;
+    margin:10px 7%;
+}
+.registration .fname{
+    width:48%;
+    margin: 0px 0px 0px 0px;
     display:block;
-    margin:0 auto;
-    font-size: 1em;
-}
-.registration .breakthick{
-    width:110%;
-    border:35px solid #f02921;
-    margin:0px 0em 10px -5%;
-}
-.registration .breakthickSec{
-    width:110%;
-    border:5px solid #f02921;
-    margin:0px 0em 15px -5%;
-}
-.registration .breakthickR{
-    width:110%;
-    border:13px solid #f02921;
-    margin:0px 0em 0px -5%;
-}
-.registration .breakthickSecR{
-    width:110%;
-    border:5px solid #f02921;
-    margin:0px 0em 15px -5%;
-}
-.registration .inputs .breakthickSec{
-    width:112%;
-    border:2px hidden #f02921;
-    margin:10px 0em 15px -1em;
-}
-.registration .title{
-    width:100%;
-    text-align: center;
-    display: block;
-    margin:-80px auto 50px auto;
-    color:#fff;
-    font-size: 1.5em;
-}
-.inputs .company{
-    height:38px;
-    font-size: 0.9;
-    width:100%;
-    text-align:center;
-}
-
-.inputs .fname{
-    height:38px;
-    font-size: 0.9;
-    margin-bottom: 15px;
-    margin-right: 1%;
-    text-align:center;
-}
-
-.inputs .lname{
-    height:38px;
-    font-size: 0.9;
-    margin-bottom: 15px;
-    text-align:center;
-}
-.inputs .office_number{
-    height:38px;
-    font-size: 0.9;
-    width:100%;
-    text-align:center;
-}
-
-.inputs .extensions{
-    height:38px;
-    font-size: 0.9;
-    width:100%;
-    text-align:center;
-}
-
-.inputs .mobile_number{
-    width:100%;
-    height:38px;
-    font-size: 0.9;
-    margin-bottom: 15px;
-    margin:1.5% 0% 0% 30%;
-    text-align:center;
-}
-
-.inputs .callLabel{
-    width:30%;
-    text-align: center;
-    line-height: 20px;
-    height:30px;
-    font-size: 0.88em;
-    margin: 0px 0;
     float:left;
-    color:#f02921;
-}
-.inputs .email{
-    height:38px;
-    font-size: 0.9;
-    margin-bottom: 30px;
-    text-align:center;
-    width:100%;
-}
-
-.inputs .register{
-    width:100%;
-    height:50px;
-    display:block;
-    margin:32px auto 26px auto;
-    background:#F02921;
-    border:#F02921;
     border-radius: 5px;
-    font-size:1.25em;
-    padding:10px;
-    color:#fff;
+    border:2px solid #ff9999;
+    text-align: center;
+    height:33px;
 }
-@media(min-width: 376px){
-    .registration .inputs{
-        width:90%;
-        display:block;
-        margin:0 auto;
-        font-size: 1em;
-    }
-    .registration .breakthick{
-        width:109%;
-        border:35px solid #f02921;
-        margin:0px 0em 10px -5%;
-    }
-    .registration .breakthickSec{
-        width:109%;
-        border:5px solid #f02921;
-        margin:0px 0em 15px -5%;
-    }
-    .registration .breakthickR{
-        width:109%;
-        border:13px solid #f02921;
-        margin:0px 0em 0px -5%;
-    }
-    .registration .breakthickSecR{
-        width:109%;
-        border:5px solid #f02921;
-        margin:0px 0em 15px -5%;
-    }
-    .registration .registration .registration .registration .inputs .breakthickSec{
-        width:112%;
-        border:2px hidden #f02921;
-        margin:10px 0em 15px -1em;
-    }
+.registration .oname{
+    width:48%;
+    margin: 0px 0px 0px 0px;
+    display:block;
+    float:left;
+    border-radius: 5px;
+    border:2px solid #ff9999;
+    text-align: center;
+    font-size:0.85em;
+    height:33px;
 }
-@media(min-width: 471px){
-    .registration .inputs{
-        width:90%;
-        display:block;
-        margin:0 auto;
-        font-size: 1em;
-    }
-    .registration .breakthick{
-        width:107%;
-        border:35px solid #f02921;
-        margin:0px 0em 10px -3.5%;
-    }
-    .registration .breakthickSec{
-        width:107%;
-        border:5px solid #f02921;
-        margin:0px 0em 15px -3.5%;
-    }
-    .registration .breakthickR{
-        width:107%;
-        border:13px solid #f02921;
-        margin:0px 0em 0px -3.5%;
-    }
-    .registration .breakthickSecR{
-        width:107%;
-        border:5px solid #f02921;
-        margin:0px 0em 15px -3.5%;
-    }
-    .registration .registration .registration .inputs .breakthickSec{
-        width:112%;
-        border:2px hidden #f02921;
-        margin:10px 0em 15px -1em;
+.registration .lname{
+    width:48%;
+    margin: 0px 0px 0px 0px;
+    display:block;
+    float:right;
+    border-radius: 5px;
+    border:2px solid #ff9999;
+    text-align: center;
+    height:33px;
+}
+.registration .email{
+    width:100%;
+    margin: 0px 0px 25px 0px;
+    border-radius: 5px;
+    border:2px solid #ff9999;
+    text-align: center;
+}
+.registration .company{
+    width:100%;
+    margin: 10px 0px 25px 0px;
+    border-radius: 5px;
+    border:2px solid #ff9999;
+    text-align: center;
+}
+.registration .contact{
+    width:100%;
+    margin: 0px 0px 25px 0px;
+    border-radius: 5px;
+    border:2px solid #ff9999;
+    text-align: center;
+}
+.registration .cerror{
+    display: block;
+    float:center;
+    font-size: 13px;
+    margin-top: -20px;
+    margin-bottom: 0px;
+    color:red;
+    text-align: center;
+}
+.registration .button{
+    width:150px;
+    background-color:#f02921;
+    border-color: #f02921;
+    font-size: 1.15em;
+    display: block;
+    margin:0px auto 50px auto;
+}
+.registration .extra{
+    margin:25px 0px;
+    text-align: center;
+}
+.registration .regbreak{
+    width:100%;
+    border:1px solid #ff9999;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+@media(min-width:375px){   
+    .registration .oname{
+        font-size:1em;
     }
 }
 @media(min-width: 531px){
+    .registration{
+        height:520px;
+    }
+    .registration .register{
+        width:100%;
+        background-color: #f02921;
+        color: #fff;
+        font-size: 30px;
+        text-align: center;
+    }
     .registration .inputs{
-        width:90%;
-        display:block;
-        margin:0 auto;
-        font-size: 1em;
+        margin:10px 7%;
+        padding-top:40px;
     }
-    .registration .breakthick{
-        width:104%;
-        border:35px solid #f02921;
-        margin:0px 0em 10px -2%;
+    .registration .leftinputs{
+        float:left;
+        width:45%;
     }
-    .registration .breakthickSec{
-        width:104%;
-        border:5px solid #f02921;
-        margin:0px 0em 15px -2%;
+    .registration .button{
+        width:150px;
+        background-color:#f02921;
+        border-color: #f02921;
+        font-size: 1.15em;
+        float:right;
     }
-    .registration .breakthickR{
-        width:104%;
-        border:13px solid #f02921;
-        margin:0px 0em 0px -2%;
+    .registration .extra{
+        margin:5px 0px;
+        text-align: left;
+        float:right;
+        width:45%;
+        padding-left: 15px;
+        padding-bottom: 25%;
     }
-    .registration .breakthickSecR{
-        width:104%;
-        border:5px solid #f02921;
-        margin:0px 0em 15px -2%;
+    .registration .regbreak{
+        display: none;
     }
-    .registration .registration .inputs .breakthickSec{
-        width:112%;
-        border:2px hidden #f02921;
-        margin:10px 0em 15px -1em;
+    .registration .regbreakSec{
+        float:left;
+        width:1%;
+        border-right:1px solid #ff9999;
+        padding-right: 1%;
+        padding-left: 6%;
+        height:350px;
+    }
+    .registration .fname{
+        font-size: 0.85em;
+    }
+    .registration .lname{
+        font-size: 0.85em;
+    }
+    .registration .oname{
+        font-size: 0.62em;
     }
 }
-@media(min-width: 631px){
+@media(min-width: 700px){
+
+    .registration .fname{
+        font-size: 1em;
+    }
+    .registration .lname{
+        font-size: 1em;
+    }
+    .registration .oname{
+        font-size: 0.85em;
+    }
+}
+@media(min-width: 768px){
     .registration{
         width: 80%;
         display:block;
-        margin:10px auto 10px auto;
-        min-height: 450px;
+        margin:65px auto 10px auto;
         background-color: #FFF;
 
-        padding: 2.5em 1.5em 1.5em 1.5em;
+        padding: 2.5em 1.5em 0em 1.5em;
 
         border: 1px solid #CCC;
         box-shadow: 0 4px 8px -2px #000;
@@ -244,201 +194,154 @@ th{text-align: center;}
         -moz-border-radius: 4px;
         -webkit-border-radius: 4px;
     }
+    .registration .register{
+        border-radius: 6px;
+    }
     .registration .inputs{
-        width:80%;
-        display:block;
-        margin:0 auto;
-        font-size: 1em;
+        padding-top: 20px;
     }
-    .registration .breakthick{
-        width:110%;
-        border:30px solid #f02921;
-        margin:10px 0 10px -5%;
+    .registration .extra{
+        padding-bottom: 150px;
     }
-    .registration .breakthickSec{
-        width:110%;
-        border:5px solid #f02921;
-        margin:10px 0 15px -5%;
+    .registration .fname{
+        font-size: 0.9em;
     }
-    .registration .breakthickR{
-        width:115%;
-        border:13px hidden #f02921;
-        margin:0px 0 0px -5%;
+    .registration .lname{
+        font-size: 0.9em;
     }
-    .registration .breakthickSecR{
-        width:115%;
-        border:5px hidden #f02921;
-        margin:0px 0 15px -5%;
-    }
-    .registration .inputs .breakthickSec{
-        width:150%;
-        border:3px dashed #f02921;
-        margin:10px 0 15px -7em;
-    }
-    .registration .title{
-        width:100%;
-        text-align: center;
-        display:block;
-        margin:-95px auto 50px auto;
-        color:#fff;
-        font-size: 2.5em;
-    }
-    .inputs .company{
-        height:40px;
-        font-size: 1.1em;
-    }
-
-    .inputs .fname{
-        height:40px;
-        font-size: 1.1em;
-        margin-bottom: 15px;
-        margin-right: 1%;
-    }
-
-    .inputs .lname{
-        height:40px;
-        font-size: 1.1em;
-        margin-bottom: 15px;
-    }
-    .inputs .office_number{
-        height:40px;
-        font-size: 1.1em;
-    }
-    .inputs .extensions{
-        height:40px;
-        font-size: 1.1em;
-    }
-
-    .inputs .mobile_number{
-        width:50%;
-        height:40px;
-        font-size: 1.1em;
-        margin-bottom: 15px;
-    }
-
-    .inputs .callLabel{
-        width:50%;
-        text-align: left;
-        line-height: 20px;
-        height:30px;
-        font-size: 1em;
-        margin: 10px 0 0 0;
-        float:left;
-        color:#f02921;
-    }
-    .inputs .email{
-        height:40px;
-        font-size: 1.1em;
-        margin-bottom: 30px;
-    }
-
-    .inputs .register{
-        width:250px;
-        height:50px;
-        display:block;
-        margin:32px auto 0px auto;
-        background:#F02921;
-        border:#F02921;
-        border-radius: 5px;
-        font-size:1.25em;
-        padding:10px;
-        color:#fff;
+    .registration .oname{
+        font-size: 0.67em;
     }
 }
-@media(min-width: 768px){
-    .inputs .mobile_number{
-        width:100%;
-        float:right;
+@media(min-width: 992px){
+    .registration .extra{
+        padding-bottom: 175px;
     }
-    .inputs .callLabel{
-        width:40%;
+    .registration .fname{
+        font-size: 1em;
+    }
+    .registration .lname{
+        font-size: 1em;
+    }
+    .registration .oname{
+        font-size: 0.85em;
     }
 }
 @media(min-width: 1200px){
-    .inputs .breakthickSec{
-        width:150%;
-        border:3px dashed #f02921;
-        margin:10px 0 15px -10em;
-    }
-    .inputs .mobile_number{
-        width:100%;
-        float:right;
-    }
-}
-@media(min-width: 1500px){
-
-    .inputs .company{
-        height:70px;
-        font-size: 2em;
-    }
-
-    .inputs .fname{
-        height:70px;
-        font-size: 2em;
-        margin-bottom: 15px;
-        margin-right: 1%;
-    }
-
-    .inputs .lname{
-        height:70px;
-        font-size: 2em;
-        margin-bottom: 15px;
-    }
-    .inputs .office_number{
-        height:70px;
-        font-size: 2em;
-    }
-    .inputs .extensions{
-        height:70px;
-        font-size: 2em;
-    }
-
-    .inputs .mobile_number{
-        height:70px;
-        font-size: 2em;
-    }
-
-    .inputs .callLabel{
-        height:70px;
-        font-size: 1.75em;
-        line-height: 35px;
-        margin: 18px 0;
-        float:left;
-        color:#f02921;
-    }
-    .inputs .email{
-        height:70px;
-        font-size: 2em;
-        margin-bottom: 30px;
-    }
-
-    .inputs .register{
-        width:250px;
-        height:70px;
+    .registration .register{
+        width:90%;
         display:block;
-        margin:32px auto 0px auto;
-        background:#F02921;
-        border:#F02921;
-        border-radius: 5px;
-        font-size:2.25em;
-        padding:10px;
-        color:#fff;
+        margin:0px auto;
+    }
+    .registration .extra{
+        padding-bottom: 185px;
+    }
+    .registration .button{
+        margin-right:1%;
+    }
+    .registration .oname{
+        font-size: 1em;
+        height:auto;
+    }
+    .registration .fname{
+        font-size: 1em;
+        height:auto;
+    }
+    .registration .lname{
+        font-size: 1em;
+        height:auto;
     }
 }
-@media(min-width: 1800px){
-
+@media(min-width: 1440px){
     .registration{
-        margin:70px auto 30px auto;
+        height:700px;
+    }
+    .registration .inputs{
+        margin-top: 40px;
+    }
+    .registration .register{
+        font-size: 50px;
+    }
+    .registration .fname{
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+    .registration .oname{
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+    .registration .lname{
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+    .registration .email{
+        font-size: 1.2em;
+    }
+    .registration .company{
+        font-size: 1.2em;
+    }
+    .registration .contact{
+        font-size: 1.2em;
+    }
+    .registration .cerror{
+        font-size: 18px;
+    }
+    .registration .button{
+        font-size: 30px;
+        width:250px;
+    }
+    .registration .extra{
+        font-size: 1.2em;
+        padding-bottom:160px;
+    }
+    .registration .regbreakSec{
+        height:430px;
     }
 }
 @media(min-width: 2000px){
     .registration{
-            padding:5em 1.5em 5em 1.5em;
-        }
+        height:800px;
     }
-    .inputs .breakthickSec{
-        width:150%;
-        border:3px dashed #f02921;
-        margin:10px 0 15px -15em;
+    .registration .inputs{
+        margin-top: 40px;
+    }
+    .registration .register{
+        font-size: 60px;
+    }
+    .registration .fname{
+        font-size: 1.6em;
+        margin-bottom: 20px;
+    }
+    .registration .oname{
+        font-size: 1.6em;
+        margin-bottom: 20px;
+    }
+    .registration .lname{
+        font-size: 1.6em;
+        margin-bottom: 20px;
+    }
+    .registration .email{
+        font-size: 1.6em;
+    }
+    .registration .company{
+        font-size: 1.6em;
+    }
+    .registration .contact{
+        font-size: 1.6em;
+    }
+    .registration .cerror{
+        font-size: 25px;
+    }
+    .registration .button{
+        font-size: 35px;
+        width:290px;
+    }
+    .registration .extra{
+        padding-bottom: 250px;
+        font-size: 1.6em;
+    }
+    .registration .regbreakSec{
+        height:550px;
+        border-right:3px solid #ff9999;
     }
 }
