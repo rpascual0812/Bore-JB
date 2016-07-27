@@ -1171,6 +1171,19 @@ body {
 		margin-left: 25px;
 	}
 }
+/*POSTS*/
+.filloutform{
+	width: 100%;
+	margin: 0 auto;
+	padding:10px 0px;
+}
+.createbuttons{
+}
+@media(min-width: 768px){
+	.filloutform{
+		width:90%;
+	}
+}
 /*RIGHT SIDE*/
 
 .profile .right {

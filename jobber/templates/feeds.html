@@ -37,7 +37,6 @@
 
 	<div class="main">
 		<div style="clear:both;"></div>
-
 		<div class="profile">
 
 			<div class="c-menu">
@@ -94,31 +93,29 @@
 			</div>
 
 			<div class="left">
-<<<<<<< HEAD:profile/templates/feeds.html
-				<div style=" padding:20px; margin:0px 20px -15px 20px; border:3px solid #f02921; border-radius:6px;">
-					<div>
-						<p style="text-align:justify; font-size:0.9em">Your account will be suspended if you don't confirm your email address. Would you like us to <a href="#">resend</a> a new confirmation email?</p>
-					</div>
-
-					<div class="autoform">
-=======
-				<div style=" padding: 15px; margin-bottom: 10px;">
+				<div style=" padding:20px; margin:0px 20px 0px 20px; border:3px solid #f02921; border-radius:6px;">
 					<div ng-if="profile.suspended == 'f' && profile.profile.confirmed == 'false'">
-						<p>Your account will be suspended if you don't confirm your email address. Would you like us to <a href="#">resend</a> a new confirmation email?</p>
+						<p style="text-align:justify; font-size:0.9em; color:black;">Your account will be suspended if you don't confirm your email address. Would you like us to <a href="#">resend</a> a new confirmation email?</p>
 					</div>
 					
 					<div ng-if="profile.suspended == 't'">
-						<p>Your account has been suspended. Please confirm your email address to reactivated your account. Would you like us to <a href="#">resend</a> a new confirmation email?</p>
+						<p style="text-align:justify; font-size:0.9em; color:black;">Your account has been suspended. Please confirm your email address to reactivated your account. Would you like us to <a href="#">resend</a> a new confirmation email?</p>
 					</div>
 					
 					<div class="autoform" ng-if="profile.profile.confirmed == 'true'">
->>>>>>> 00a0fc7165c3ca0877703606d83dec609278e047:jobber/templates/feeds.html
 						<div class="personalinfo">
-							<p style="text-align:justify; font-size:0.9em"><span ng-click="activate('a')" ng-hide="confirmed=='a'" style="cursor:pointer">You have not yet filled up your <a style="text-decoration:none" >Personal Info</a></span></p>
+							<p style="text-align:justify; font-size:0.9em">
+								<span ng-click="activate('a')" ng-hide="confirmed=='a'" style="cursor:pointer">
+								</span>
+								<span>You have not yet filled up your
+									<a style="text-decoration:none" >Personal Information</a>
+								</span>
+							</p>
 							<div style="border: 1px solid #344972; padding: 10px; border-radius: 5px;" ng-show="confirmed=='a'">
-<<<<<<< HEAD:profile/templates/feeds.html
-						     <h2 style="margin-bottom:30px;">Personal Information</h2>
-						     <form >
+							</div>
+
+						    <h2 style="margin-bottom:30px;">Personal Information</h2>
+						    <form>
 								<p style="display:block; margin:0px">Name:</p>
 								<input style="display:block; margin:-32px 0px 10px auto; width:58%" type="text" name="name" placeholder="Juan Niyebe" style="width:20%"/>
 								<p style="display:block; margin:0px">Address:</p>
@@ -127,113 +124,94 @@
 								<input style="display:block; margin:-32px 0px 10px auto; width:58%" type="text" name="PhoneNumber" placeholder="123-1234" style="width:20%"/>
 								<p style="display:block; margin:0px">Email:</p>
 								<input style="display:block; margin:-32px 0px 10px auto; width:58%" type="text" name="email" placeholder="employee@email.com" style="width:20%"/>
-								<div style="margin-top:30px"><p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></div>
-						     </form>
-=======
-						     	<h1>Personal Information</h1>
-						     	<form >
-						      		<p>Name: <input type="text" name="name" placeholder="Juan Niyebe"/>
-						      		<p>Address: <input type="text" name="Address" placeholder="Address" size="50"/>
-						      		<p>Phone Number: <input type="text" name="PhoneNumber" placeholder="123-1234"/>
-						      		<p>Email: <input type="text" name="email" placeholder="employee@email.com"/>
-						      		<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" />
-						     	</form>
->>>>>>> 00a0fc7165c3ca0877703606d83dec609278e047:jobber/templates/feeds.html
-						     </div>
+								<div style="margin-top:30px">
+									<p>
+										<input type="submit" value="Submit" />
+										<input type="reset" value="Reset" />
+									</p>
+								</div>
+						    </form>
 						</div>
+
 						<div class="achievements">
-							<p style="text-align:justify; font-size:0.9em"><span ng-click="activate('b')" ng-hide="confirmed=='b'" style="cursor:pointer">You have not yet filled up your <a style="text-decoration:none">Achievements</a>
-							</span></p>
+							<p style="text-align:justify; font-size:0.9em">
+								<span ng-click="activate('b')" ng-hide="confirmed=='b'" style="cursor:pointer">You have not yet filled up your 
+									<a style="text-decoration:none">Achievements</a>
+								</span>
+							</p>
+
 							<p>
-							<div style="border: 1px solid #344972; padding: 10px; border-radius: 5px;" ng-show="confirmed=='b'">
-<<<<<<< HEAD:profile/templates/feeds.html
+								<div style="border: 1px solid #344972; padding: 10px; border-radius: 5px;" ng-show="confirmed=='b'">
+								</div>
+							</p>
+
 							<h1 style="margin-bottom:30px;">Achievements</h1>
 							<form>
-							<p><textarea style="width:100%" name="achievements" placeholder="Valedictorian, Best in Line Formation, Best Cleaner" rows="10" cols="50"></textarea>
-							<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" />
+								<p>
+									<textarea style="width:100%" name="achievements" placeholder="Valedictorian, Best in Line Formation, Best Cleaner" rows="10" cols="50"></textarea>
+								</p>
+								<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 							</form>
-							</div>
-						</div>
-						<div class="education">
-							<p style="text-align:justify; font-size:0.9em"><span ng-click="activate('c')" ng-hide="confirmed=='c'" style="cursor:pointer">You have not yet filled up your <a style="text-decoration:none">Educational Background</a></span></p>
-							<p>
-							<div style="border: 1px solid #344972; padding: 10px; border-radius: 5px;" ng-show="confirmed=='c'">
-							<h1 style="margin-bottom:30px;">Education</h1>
-							<form>
-							<p style="display:block; margin:0px">School:</p>
-							<input style="display:block; margin:-32px 0px 10px auto; width:68%; font-size:0.86em" type="text" name="school"placeholder="University School of College"/>
-							<p style="display:block; margin:0px">Major:</p>
-							<input style="display:block; margin:-32px 0px 10px auto; width:68%; font-size:0.86em" type="text" name="major" placeholder="BS Information Technology"/>
-							<p style="display:block; margin:0px">Date From:</p>
-							<input style="display:block; margin:-32px 0px 10px auto; width:68%; font-size:0.86em" type="date"name="school_dateFrom"/>
-							<p style="display:block; margin:0px">Date To:</p>
-							<input style="display:block; margin:-32px 0px 10px auto; width:68%; font-size:0.86em" type="date" name="schoxol_dateTo"/>
-							
-							<div style="margin-top:30px"><p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></div>
-							</form>
-=======
-								<h1>Achievements</h1>
-								<form>
-									<p><textarea name="achievements" placeholder="Valedictorian, Best in Line Formation, Best Cleaner" rows="10" cols="50"></textarea>
-									<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" />
-								</form>
-							</div>
 						</div>
 
 						<div class="education">
-							<p><span ng-click="activate('c')" ng-hide="confirmed=='c'" style="cursor:pointer">You have not yet filled up your <a style="text-decoration:none">Educational Background</a></span></p>
+							<p style="text-align:justify; font-size:0.9em">
+								<span ng-click="activate('c')" ng-hide="confirmed=='c'" style="cursor:pointer">You have not yet filled up your
+									<a style="text-decoration:none">Educational Background</a>
+								</span>
+							</p>
+
 							<p>
-							<div style="border: 1px solid #344972; padding: 10px; border-radius: 5px;" ng-show="confirmed=='c'">
-								<h1>Education</h1>
-								<form>
-									<p>School: <input type="text" name="school" placeholder="University School of College"/>
-									<p>Major: <input type="text" name="major" placeholder="BS Information Technology"/>
-									<p>Date From: <input type="date"name="school_dateFrom"/>
-									<p>Date To: <input type="date" name="schoxol_dateTo"/>
-									
-									<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" />
-								</form>
->>>>>>> 00a0fc7165c3ca0877703606d83dec609278e047:jobber/templates/feeds.html
-							</div>
+								<div style="border: 1px solid #344972; padding: 10px; border-radius: 5px;" ng-show="confirmed=='c'">
+								</div>
+							</p>
+
+							<h1 style="margin-bottom:30px;">Education</h1>
+							<form>
+								<p style="display:block; margin:0px">School:</p>
+								<input style="display:block; margin:-32px 0px 10px auto; width:68%; font-size:0.86em" type="text" name="school"placeholder="University School of College"/>
+								<p style="display:block; margin:0px">Major:</p>
+								<input style="display:block; margin:-32px 0px 10px auto; width:68%; font-size:0.86em" type="text" name="major" placeholder="BS Information Technology"/>
+								<p style="display:block; margin:0px">Date From:</p>
+								<input style="display:block; margin:-32px 0px 10px auto; width:68%; font-size:0.86em" type="date"name="school_dateFrom"/>
+								<p style="display:block; margin:0px">Date To:</p>
+								<input style="display:block; margin:-32px 0px 10px auto; width:68%; font-size:0.86em" type="date" name="schoxol_dateTo"/>
+								
+								<div style="margin-top:30px">
+									<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+								</div>
+							</form>
 						</div>
+
 						<div class="work" >
-							<p style="text-align:justify; font-size:0.9em"><span ng-click="activate('d')" ng-hide="confirmed=='d'" style="cursor:pointer">You have not yet filled up your <a style="text-decoration:none">Work Experience</a>
-							</span></p>
+							<p style="text-align:justify; font-size:0.9em">
+								<span ng-click="activate('d')" ng-hide="confirmed=='d'" style="cursor:pointer">You have not yet filled up your
+									<a style="text-decoration:none">Work Experience</a>
+								</span>
+							</p>
 							<div style="border: 1px solid #344972; padding: 10px; border-radius: 5px;" ng-show="confirmed=='d'">
-<<<<<<< HEAD:profile/templates/feeds.html
-								<h1 style="margin-bottom:30px;">Work Experience</h1>
-								<form>
-									<div>
-										<p style="display:block; margin:0px">Company:</p>
-										<input style="display:block; margin:-32px 0px 10px auto; width:68%" type="text" name="company" placeholder="CHRS"/>
-										<p style="display:block; margin:0px">Position:</p>
-										<input style="display:block; margin:-32px 0px 10px auto; width:68%" type="text" name="position" placeholder="Branch Manager"/>
-										<p style="display:block; margin:0px">Date From:</p>
-										<input style="display:block; margin:-32px 0px 10px auto; width:68%" type="date"name="work_dateFrom"/>
-										<p style="display:block; margin:0px">Date To:</p>
-										<input style="display:block; margin:-32px 0px 10px auto; width:68%" type="date" name="work_dateTo"/>	
-									</div>
-									<div style="margin-top:30px">
-										<p><input type="submit" value="Submit"/> <input type="reset" value="Reset" />
-									</div>
-								</form>
-=======
-								<h1>Work Experience</h1>
-								<form>
-									<div>
-										<p>Company: <input type="text" name="company" placeholder="CHRS"/>
-										<p>Position: <input type="text" name="position" placeholder="Branch Manager"/>
-										<p>Date From: <input type="date"name="work_dateFrom"/>
-										<p>Date To: <input type="date" name="work_dateTo"/>	
-									</div>
-									<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" />
-								</form>								
->>>>>>> 00a0fc7165c3ca0877703606d83dec609278e047:jobber/templates/feeds.html
 							</div>
+
+							<h1 style="margin-bottom:30px;">Work Experience</h1>
+							<form>
+								<div>
+									<p style="display:block; margin:0px">Company:</p>
+									<input style="display:block; margin:-32px 0px 10px auto; width:68%" type="text" name="company" placeholder="CHRS"/>
+									<p style="display:block; margin:0px">Position:</p>
+									<input style="display:block; margin:-32px 0px 10px auto; width:68%" type="text" name="position" placeholder="Branch Manager"/>
+									<p style="display:block; margin:0px">Date From:</p>
+									<input style="display:block; margin:-32px 0px 10px auto; width:68%" type="date"name="work_dateFrom"/>
+									<p style="display:block; margin:0px">Date To:</p>
+									<input style="display:block; margin:-32px 0px 10px auto; width:68%" type="date" name="work_dateTo"/>	
+								</div>
+								<div style="margin-top:30px">
+									<p><input type="submit" value="Submit"/> <input type="reset" value="Reset" /></p>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
-				<!-- <div style="height: 20px;width:100%;"></div> -->
+
 				<div class="CbreakThr" style="width:100%; border:1px solid #f02921"></div>
 				<div class="CbreakSec" style="margin-bottom:1em"></div>
 
@@ -353,7 +331,6 @@
 						</div>
 
 						<div style="clear:both;"></div>
-						<!-- <div class="CbreakSec"></div> -->
 					</div>			
 				</div>
 
@@ -537,29 +514,6 @@
 			</div>
 			<div style="clear:both;"></div>
 		</div>
-
-
-
-		<!-- <div class="div-profile">
-			<table class="row-border hover report table table-bordered" cellspacing="0" style="width:50%;">
-				<tr>
-					<td class="leftside">Applicant ID</td>
-					<td>{{profile.data.applicant_id}}</td>
-				</tr>
-				<tr>
-					<td class="leftside">First Name</td>
-					<td>{{profile.data.first_name}}</td>
-				</tr>
-				<tr>
-					<td class="leftside">Middle Name</td>
-					<td>{{profile.data.middle_name}}</td>
-				</tr>
-				<tr>
-					<td class="leftside">Last Name</td>
-					<td>{{profile.data.last_name}}</td>
-				</tr>
-			</table>
-		</div> -->
 	</div>
 </div>
 
