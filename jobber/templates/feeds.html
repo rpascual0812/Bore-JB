@@ -93,7 +93,7 @@
 			</div>
 			<div class="left">
 
-				<div style=" padding:20px; margin:0px 20px 0px 20px; border:3px solid #f02921; border-radius:6px;">
+				<div class="fillup">
 					<div ng-if="profile.suspended == 'f' && profile.profile.confirmed == 'false'">
 						<p style="text-align:justify; font-size:0.9em; color:black;">Your account will be suspended if you don't confirm your email address. Would you like us to <a href="#">resend</a> a new confirmation email?</p>
 					</div>
@@ -115,8 +115,7 @@
 							
 							<h2 style="margin-bottom:30px;">Personal Information</h2>
 							
-						    <form name="personal_form">
-
+						    <form name="personal_form"
 							
 						    	<p style="display:block; margin:10px">Name:</p>
 								<input style="display:block; margin:-28px 0px 0px 14%; position:absolute; width:30%;" type="text" name="name" placeholder="Juan Niyebe" style="width:20%" ng-model="profile_form.personal.name" required/>
@@ -138,7 +137,6 @@
 								<span style="color:red; font-size: 12px; margin:-28px 0px 0px 15%;" ng-show="personal_form.email.$dirty && personal_form.email.$invalid">
 								<span style="color:red; font-size: 12px;margin:-28px 0px 0px 15%;" ng-show="personal_form.email.$error.required">Email is required.</span>
 								<span style="color:red; font-size: 12px;margin:-28px 0px 0px 15%;" ng-show="personal_form.email.$error.email">Invalid Email</span></span>
-								
 								<div style="margin-top:30px">
 									<p>
 										<input type="submit" value="Submit" ng-click="update('personal_info')" ng-disabled="personal_form.$invalid"/>
@@ -195,12 +193,13 @@
 
 								<p style="display:block; margin:10px">Major:</p>
 								<input style="display:block; margin:-28px 0px 0px 14%; position:absolute; width:30%;" type="text" name="major" placeholder="BS Information Technology" ng-model="profile_form.education.model" required/>
+
 								
 
 								<span style="color:red; font-size: 12px; margin:-28px 0px 0px 30%;" ng-show="education_form.major.$invalid && !education_form.major.$pristine">Major is required</span>
 
 								<p style="display:block; margin:10px">Date From:</p>
-								<input style="display:block; margin:-28px 0px 0px 14%; position:absolute; width:30%;" type="date"name="school_dateFrom" ng-model="profile_form.education.datefrom" required/>
+								<input style="display:block; margin:-28px 0px 0px 14%; position:absolute; width:30%;" type="date"name="school_dateFrom" ng-model="profile_form.education.datefrom" max="{{ today | date: 'yyyy-MM-dd' }}"required/>
 								
 								
 								<p style="display:block; margin:10px">Date To:</p>
@@ -236,11 +235,12 @@
 
 
 									<p style="display:block; margin:10px">Date From:</p>
-									<input style="display:block;  margin:-28px 0px 0px 14%; position:absolute; width:30%;" type="date"name="work_dateFrom" ng-model="profile_form.work.datefrom" required/>
+									<input style="display:block;  margin:-28px 0px 0px 14%; position:absolute; width:30%;" type="date"name="work_dateFrom" ng-model="profile_form.work.datefrom" max="{{ today | date: 'yyyy-MM-dd' }}" required/>
 
 
 									<p style="display:block; margin:10px">Date To:</p>
 									<input style="display:block;  margin:-28px 0px 0px 14%; position:absolute; width:30%;" type="date" name="work_dateTo" ng-model="profile_form.work.dateto" max="{{ today | date: 'yyyy-MM-dd' }}" required/>
+
 								</div>
 								<div style="margin-top:30px">
 									<p><input type="submit" value="Submit" ng-click="update('work')" ng-disabled="work_form.$invalid"/> <input type="reset" value="Reset" /></p>
@@ -332,7 +332,13 @@
 										<button type="button" class="btn btn-primary Capply">APPLY</button>
 									</div>
 								</div>
-
+								<div style ="position:absolute;top:2465px;left:733px;">
+									<a style="cursor:pointer;" ng-click="facebook()"><img src="../ASSETS/img/icon/facebook.png" height ="28"  width ="28"/></a>
+									<a style="cursor:pointer;" ng-click="twitter()"><img src = "../ASSETS/img/icon/twitter.png" height ="28" width ="28" /></a>
+									<a style="cursor:pointer;" ng-click="google()"><img src = "../ASSETS/img/icon/google.png"  height ="28" width ="28" /></a>
+									<a style="cursor:pointer;" ng-click="linkedin()"><img src = "../ASSETS/img/icon/linkedin.png" height ="28" width ="28" /></a>
+									<a style="cursor:pointer;" ng-click="email()"><img src = "../ASSETS/img/icon/email.png" height ="28" width ="28" /></a>
+							</div>
 								<div class="ClowerboxUp">
 									<div class="Ctitlebox">
 										<a class="link"><span class="Ctitle header4">{{feeds.ad.title}}</span></a>
@@ -439,7 +445,13 @@
 									</div>
 								</div>
 							</div>
-
+							<div style ="position:absolute;top:3130px;left:733px;">
+									<a style="cursor:pointer;" ng-click="facebook()"><img src="../ASSETS/img/icon/facebook.png" height ="28"  width ="28"/></a>
+									<a style="cursor:pointer;" ng-click="twitter()"><img src = "../ASSETS/img/icon/twitter.png" height ="28" width ="28" /></a>
+									<a style="cursor:pointer;" ng-click="google()"><img src = "../ASSETS/img/icon/google.png"  height ="28" width ="28" /></a>
+									<a style="cursor:pointer;" ng-click="linkedin()"><img src = "../ASSETS/img/icon/linkedin.png" height ="28" width ="28" /></a>
+									<a style="cursor:pointer;" ng-click="email()"><img src = "../ASSETS/img/icon/email.png" height ="28" width ="28" /></a>
+							</div>
 							<div class="ClowerboxSec">
 
 								<div class="ClowerboxBottom">
@@ -451,7 +463,13 @@
 										<button type="button" class="btn btn-primary Capply">APPLY</button>
 									</div>
 								</div>
-
+								<div style ="position:absolute;top:3940px;left:733px;top">
+									<a style="cursor:pointer;" ng-click="facebook()"><img src="../ASSETS/img/icon/facebook.png" height ="28"  width ="28"/></a>
+									<a style="cursor:pointer;" ng-click="twitter()"><img src = "../ASSETS/img/icon/twitter.png" height ="28" width ="28" /></a>
+									<a style="cursor:pointer;" ng-click="google()"><img src = "../ASSETS/img/icon/google.png"  height ="28" width ="28" /></a>
+									<a style="cursor:pointer;" ng-click="linkedin()"><img src = "../ASSETS/img/icon/linkedin.png" height ="28" width ="28" /></a>
+									<a style="cursor:pointer;" ng-click="email()"><img src = "../ASSETS/img/icon/email.png" height ="28" width ="28" /></a>
+							</div>
 								<div class="ClowerboxUp">
 									<div class="Ctitlebox">
 										<a class="link"><span class="Ctitle header4">{{v.title}}</span></a>
