@@ -32,6 +32,12 @@ app.controller('Feeds', function(
     $scope.today = new Date();
 
     $scope.view={};
+    
+    $scope.view.personal_info='ng-hide';
+    $scope.view.education='ng-hide';
+    $scope.view.achievements='ng-hide';
+    $scope.view.work='ng-hide';
+    
 
     
     $scope.feeds.data = 
@@ -288,17 +294,6 @@ app.controller('Feeds', function(
         }
     }
 
-   /* $scope.activate = function(letter){
-      if(letter=='a'){
-        $scope.confirmed='a';
-      }else if (letter=='b'){
-        $scope.confirmed='b';
-      }else if (letter== 'c'){
-        $scope.confirmed='c';
-      }else if (letter=='d'){
-        $scope.confirmed='d';
-      }
-    }*/
 
     $scope.show =function(status){
         if(status==true){
@@ -315,54 +310,33 @@ app.controller('Feeds', function(
 
     }
 
-  /*  function check_profile(letter){
-        if($scope.profile===null){
-
-            console.log("empty");
-        }else{
-           if(letter=='a'&& $scope.profile.profile.personal_info === undefined){
-            $scope.confirmed='a';
-           // console.log(typeof $scope.profile.profile.personal_info);
-            console.log("egg");
-           }else if(letter=='c' && $scope.profile.profile.education === undefined){
-            $scope.confirmed='c';
-            console.log("spam");
-           }else if(letter=='d'&& $scope.profile.profile.work_history === undefined){
-            $scope.confirmed='d';
-            console.log("fried rice");
-           }else if(letter=='b' && $scope.profile.profile.achievements === undefined){
-            $scope.confirmed='b';
-            console.log("fried rice");
-           }
-
-           console.log("not empty")
-       }*/
-
-  //  }
 
         $scope.update = function(word){
 
 
             console.log($scope.today);
 
-            //      console.log($scope.profile_form.personal);
             var form = {};
             if(word === 'personal_info'){
                 form.info = JSON.stringify($scope.profile_form.personal);
                 form.type = word;
                 $scope.view.personal_info = 'ng-hide';
-             //   console.log('egg');
-               // console.log(word);
-               // console.log(form.info);
+                $scope.view.achievements = 'show';
+                $scope.view.education = 'ng-hide';
+                $scope.view.work = 'ng-hide';
+
             }else if(word === 'achievements'){
                 form.info = JSON.stringify($scope.profile_form.achievements);
                 form.type = word;
                 $scope.view.achievements = 'ng-hide';
+                $scope.view.education = 'ng-show';
+                $scope.view.work = 'ng-hide';
             }
             else if(word === 'education'){
                 form.info = JSON.stringify($scope.profile_form.education);
                 form.type = word;
                 $scope.view.education = 'ng-hide';
+                $scope.view.work = 'ng-show';
             }else if(word === 'work'){
                 form.info = JSON.stringify($scope.profile_form.work);
                 form.type = word;
@@ -378,21 +352,22 @@ app.controller('Feeds', function(
                 console.log('Failed Update');
             });
         };
+
         var left = screen.width / 2 - 200, top = screen.height / 2 - 250
         $scope.facebook = function(){
             console.log('fb');
             $window.open('http://www.facebook.com/sharer.php?u=https://joberfied.com' , '_blank' , "top=" + top + ",left=" + left + ",width=400,height=500")
         };
-    $scope.twitter = function(){
+        $scope.twitter = function(){
             $window.open('https://twitter.com/share?url=https://joberfied.com&amp;hashtags=joberfied!!' , '_blank' , "top=" + top + ",left=" + left + ",width=400,height=500")
         };
-    $scope.google = function(){
+        $scope.google = function(){
             $window.open('https://plus.google.com/share?url=https://joberfied.com' , '_blank' , "top=" + top + ",left=" + left + ",width=400,height=500")
         };
-    $scope.linkedin = function(){
+        $scope.linkedin = function(){
             $window.open('http://www.linkedin.com/shareArticle?mini=true&amp;url=https://joberfied.com' , '_blank' , "top=" + top + ",left=" + left + ",width=400,height=500")
         };
-    $scope.email = function(){
+        $scope.email = function(){
             $window.open('mailto:?Subject=JOBERFIED&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 https://joberfied.com' , '_blank' , "top=" + top + ",left=" + left + ",width=400,height=500")
         };
 
@@ -401,22 +376,25 @@ app.controller('Feeds', function(
         }
 
         function check(){
-          //  console.log("QQQQQQQQQQQQQ");
-           //console.log(!$scope.profile.profile.hasOwnProperty('education'));
-            if($scope.profile.profile.hasOwnProperty('personal_info')){
-                $scope.view.personal_info='ng-hide';
+            if(!$scope.profile.profile.hasOwnProperty('personal_info')){
+                $scope.view.personal_info='ng-show';
                 console.log("personal_info");
-            }
-            if($scope.profile.profile.hasOwnProperty('achievements')){
-                $scope.view.achievements='ng-hide';
+            }else if(!$scope.profile.profile.hasOwnProperty('achievements')){
+                $scope.view.achievements='ng-show';
                 console.log("achievements");
-            }if($scope.profile.profile.hasOwnProperty('education')){
-                $scope.view.education='ng-hide';
+            }else if(!$scope.profile.profile.hasOwnProperty('education')){
+                $scope.view.education='ng-show';
                 console.log("education");
-            }
-            if($scope.profile.profile.hasOwnProperty('work')){
-                $scope.view.work='ng-hide';
+            }else if(!$scope.profile.profile.hasOwnProperty('work')){
+                $scope.view.work='ng-show';
                 console.log("WORK");
-            } 
+            }else{
+                $scope.view.personal_info='ng-hide';
+                $scope.view.education='ng-hide';
+                $scope.view.achievements='ng-hide';
+                $scope.view.work='ng-hide';
+
+            }
         }
+
 });
