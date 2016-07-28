@@ -6,6 +6,7 @@ app.controller('Feeds', function(
                                     ProfileFactory,
                                     JobPostsFactory,
                                     $timeout,
+                                    $window,
                                     PINService
 								){
 
@@ -356,6 +357,23 @@ app.controller('Feeds', function(
             .then(null, function(data){ 
                 console.log('Failed Update');
             });
+        };
+        var left = screen.width / 2 - 200, top = screen.height / 2 - 250
+        $scope.facebook = function(){
+            console.log('fb');
+            $window.open('http://www.facebook.com/sharer.php?u=https://joberfied.com' , '_blank' , "top=" + top + ",left=" + left + ",width=400,height=500")
+        };
+    $scope.twitter = function(){
+            $window.open('https://twitter.com/share?url=https://joberfied.com&amp;hashtags=joberfied!!' , '_blank' , "top=" + top + ",left=" + left + ",width=400,height=500")
+        };
+    $scope.google = function(){
+            $window.open('https://plus.google.com/share?url=https://joberfied.com' , '_blank' , "top=" + top + ",left=" + left + ",width=400,height=500")
+        };
+    $scope.linkedin = function(){
+            $window.open('http://www.linkedin.com/shareArticle?mini=true&amp;url=https://joberfied.com' , '_blank' , "top=" + top + ",left=" + left + ",width=400,height=500")
+        };
+    $scope.email = function(){
+            $window.open('mailto:?Subject=JOBERFIED&amp;Body=I%20saw%20this%20and%20thought%20of%20you!%20 https://joberfied.com' , '_blank' , "top=" + top + ",left=" + left + ",width=400,height=500")
         };
 
 });
