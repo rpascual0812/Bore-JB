@@ -2,7 +2,8 @@
 require_once('../../../Functions/connect.php');
 require_once('../../../Classes/Profiles.php');
 
-$a=json_decode($_POST['info']);
+$info=json_decode($_POST['info'],true);
+$type=($_POST['type']);
 //print_r($info);
 $class = new Profiles(
 					    $_POST['pin'],
@@ -10,17 +11,7 @@ $class = new Profiles(
                         NULL,
                         NULL
 	               );
-$info = array();
-$name = $a->name;
-$address = $a->address;
-$email = $a->email;
-$number = $a->number;
-
-$info['name']=$name;
-$info['address']=$address;
-$info['email']=$email;
-$info['number']=$number;
-$data = $class->update($info);
+$data = $class->update($info,$type);
 
 header("HTTP/1.0 404 No Profile Found");
 if($data['status']){

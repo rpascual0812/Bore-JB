@@ -5,6 +5,7 @@ app.controller('Feeds', function(
                                     $routeParams,
                                     ProfileFactory,
                                     JobPostsFactory,
+                                    RegisterFactory,
                                     $timeout,
                                     PINService
 								){
@@ -27,6 +28,9 @@ app.controller('Feeds', function(
     $scope.profile_form.achievements = {};
     $scope.profile_form.education = {};
     $scope.profile_form.work= {};
+    $scope.today = new Date();
+
+    $scope.view={};
 
     
     $scope.feeds.data = 
@@ -153,7 +157,7 @@ app.controller('Feeds', function(
     
     init();
 
-    function init(){
+    function init(){ 
         var result = checkpin();
         if(result == false){
             window.location = "#/login";
@@ -179,6 +183,7 @@ app.controller('Feeds', function(
             //     $scope.profile.status = false;
             // });
             get_profile();
+
         }
     }
 
@@ -191,23 +196,21 @@ app.controller('Feeds', function(
         var filter = {
             pin : PINService.get()
         };
-        
         var promise = ProfileFactory.profile(filter);
         promise.then(function(data){
             $scope.profile = data.data.result[0];
             $scope.profile.profile = JSON.parse($scope.profile.profile);
-            
-            if($scope.profile.suspended == 'f'){
+         //   console.log($scope.profile.profile);
+            //if($scope.profile.suspended == false){
+                reload_ads();
+                reload_feeds();
+                check();
 
-            //    console.log($scope.profile);
-              //  check_profile();
-                if($scope.profile.suspended == false){
-                    reload_ads();
-                    reload_feeds();
-                }            
-            }
+            //}            
+            
         });
     }
+
 
     function reload_ads(){
         $scope.feeds.ad.image = $scope.logos[[Math.floor(Math.random() * $scope.logos.length)]];
@@ -233,7 +236,6 @@ app.controller('Feeds', function(
         var filter = {
             pin : PINService.get()
         };
-
         var promise = JobPostsFactory.feeds(filter);
         promise.then(function(data){
             var a = data.data.result;
@@ -339,18 +341,36 @@ app.controller('Feeds', function(
 
         $scope.update = function(word){
 
-//                console.log($scope.profile_form.personal);
+
+            console.log($scope.today);
+
+            //      console.log($scope.profile_form.personal);
             var form = {};
-            if(word === 'personal_info' && $scope.profile_form.personal!==null){
+            if(word === 'personal_info'){
                 form.info = JSON.stringify($scope.profile_form.personal);
-                form.type = '{personal_info}';
+                form.type = word;
+                $scope.view.personal_info = 'ng-hide';
              //   console.log('egg');
                // console.log(word);
                // console.log(form.info);
+            }else if(word === 'achievements'){
+                form.info = JSON.stringify($scope.profile_form.achievements);
+                form.type = word;
+                $scope.view.achievements = 'ng-hide';
+            }
+            else if(word === 'education'){
+                form.info = JSON.stringify($scope.profile_form.education);
+                form.type = word;
+                $scope.view.education = 'ng-hide';
+            }else if(word === 'work'){
+                form.info = JSON.stringify($scope.profile_form.work);
+                form.type = word;
+                $scope.view.work = 'ng-hide';
             }
             form.pin = PINService.get();
             var promise =ProfileFactory.update(form);
             promise.then(function(data){
+
                 console.log(' Successful Update');
             })
             .then(null, function(data){ 
@@ -358,4 +378,27 @@ app.controller('Feeds', function(
             });
         };
 
+        $scope.check = function(){
+            check();
+        }
+
+        function check(){
+          //  console.log("QQQQQQQQQQQQQ");
+           //console.log(!$scope.profile.profile.hasOwnProperty('education'));
+            if($scope.profile.profile.hasOwnProperty('personal_info')){
+                $scope.view.personal_info='ng-hide';
+                console.log("personal_info");
+            }
+            if($scope.profile.profile.hasOwnProperty('achievements')){
+                $scope.view.achievements='ng-hide';
+                console.log("achievements");
+            }if($scope.profile.profile.hasOwnProperty('education')){
+                $scope.view.education='ng-hide';
+                console.log("education");
+            }
+            if($scope.profile.profile.hasOwnProperty('work')){
+                $scope.view.work='ng-hide';
+                console.log("WORK");
+            } 
+        }
 });

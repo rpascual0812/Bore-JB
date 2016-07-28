@@ -164,12 +164,12 @@ EOT;
         return ClassParent::get($sql);
     }
 
-    public function update($info){   
+    public function update($info,$type){   
         $personal_info = json_encode($info);
         $sql = "begin;";
         $sql .= <<<EOT
             UPDATE profiles
-            SET profile = jsonb_set(profile,'{personal_info}',
+            SET profile = jsonb_set(profile,'{"$type"}',
                 '$personal_info',true) WHERE md5(pin)= '$this->pin';
 EOT;
         $sql .= "commit;";
