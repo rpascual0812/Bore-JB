@@ -32,15 +32,26 @@ $info = array(
 $data = $class->create($info);
 
 function generateRandomString($length = 6) {
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $length=4;
+
+    $num = '0123456789';
+    $numLength = strlen($num);
+    $randomNum = '';
+    
+    for ($i = 0; $i < $length; $i++) {
+        $randomNum .= $num[rand(0, $numLength - 1)];
+    }
+    $lengths=2;
+
+    $characters = 'ABCDEFGHJKLMNOPQRSTUVWXYZ';
     $charactersLength = strlen($characters);
     $randomString = '';
     
-    for ($i = 0; $i < $length; $i++) {
+    for ($i = 0; $i < $lengths; $i++) {
         $randomString .= $characters[rand(0, $charactersLength - 1)];
     }
 
-    return $randomString;
+    return $randomNum ."-".$randomString;
 }
 
 
