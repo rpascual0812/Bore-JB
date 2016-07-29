@@ -23,7 +23,7 @@
 	<div class="message-spacing">
 		<span class="message">Get your resume noticed within minutes.</span>
 		<span class="messagepop">{{user.error_msg}}</span>
-        <div id="SignIN"></div>
+        <div id="GoogleSign"></div>
 	</div>
 	
 </div>
@@ -37,7 +37,7 @@
       console.log(error);
     }
     function renderButton() {
-      gapi.signin2.render('SignIN', {
+      gapi.signin2.render('GoogleSign', {
         'scope': 'profile email',
         'width': 240,
         'height': 50,
