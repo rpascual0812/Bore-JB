@@ -17,29 +17,11 @@
 	            </div>
 	            <!-- Collect the nav links, forms, and other content for toggling -->
 	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	            	
-
-	                <!-- <ul class="nav navbar-nav navbar-right">
-	                    <li>
-	                        <a>About</a>
-	                    </li>
-	                    <li>
-	                        <a>Services</a>
-	                    </li>
-	                    <li>
-	                    	<a id="menu-toggle" href="#">Profile</a>
-	                    </li>
-	                </ul> -->
 	            </div>
-	            <!-- /.navbar-collapse -->
 	        </div>
-	        <!-- /.container -->
 	    </nav>
 	</div>
 
-	<!-- <div style="width:100%; height: 50px; text-align:center; padding-top: 30px;">
-		<input type="text" class="searchbar" placeholder="Search..." maxlength="60" data-ng-model="searchbox.text" data-ng-change="searchbig()" />
-	</div> -->
 	<div style="clear:both;"></div>
 
 	<div class="main" style="margin-top: 50px;">
@@ -102,22 +84,21 @@
 					<span class="amount">{{employer.currency}} {{employer.available}}</span>
 				</div>
 			</div>
-
 			<div class="left">
 				<div class="job-posts">
 					<div>
-						<div class="feed-filter">
-							<button type="button" class="btn btn-default button-selected font13" style="width:100px; margin-bottom:5px;" ng-click="navigate_ads('create')">Create Ads</button>
+						<div class="feed-filter" style="width:100%; margin:20px auto 0px auto; display:block; padding:0px 5px">
+							<button type="button" class="btn btn-default button-selected font13 createbutton" class="" ng-click="navigate_ads('create')">Create Ads</button>
 
-							<button type="button" class="btn btn-default font13" style="width:110px; margin-bottom:5px;" ng-click="navigate_ads('link')">Link a video</button>
+							<button type="button" class="btn btn-default font13 createbutton" ng-click="navigate_ads('link')">Link a video</button>
 
-							<button type="button" class="btn btn-default font13" style="width:100px; margin-bottom:5px;" ng-click="navigate_ads('post')">Post a Job</button>
+							<button type="button" class="btn btn-default font13 createbutton" ng-click="navigate_ads('post')">Post a Job</button>
 						</div>
 
 						<div class="break"></div>
 
 						<div style="margin-top: 20px;">
-							<div ng-if="newad.create">
+							<div ng-if="newsad.create">
 								<div style="width: 88%; margin: 0 auto; padding:10px 0px;">
 									<h3 style="color:#669999">Create Ads</h3>
 
@@ -153,10 +134,10 @@
 									</table>
 								</div>
 								<div style="width: 80%; margin: 20px auto 0px auto; text-align:right;">
-									<button type="button" class="btn btn-primary" style="width:150px; margin-bottom:5px; margin-right:-30px; background-color:#f02921; border:2px solid #f02921;" ng-click="post_job(1)">POST AD</button>
+									<button type="button" class="btn btn-primary postbutton" ng-click="post_job(1)">POST AD</button>
 								</div>
 							</div>
-							<div ng-if="newad.link">
+							<div ng-if="newsad.link">
 								<form>
 								<div style="width: 88%; margin: 0 auto; padding:10px 0px;">
 									<h3 style="color:#669999">Link a video</h3>
@@ -193,11 +174,11 @@
 									</table>
 								</div>
 								<div style="width: 80%; margin: 0 auto; text-align:right; margin-top:20px;">
-									<button type="submit" class="btn btn-primary" style="width:150px; margin-bottom:5px; margin-right:-30px; background-color:#f02921; border:2px solid #f02921;" ng-click="post_job(2)">POST VIDEO</button>
+									<button type="submit" class="btn btn-primary postbutton" ng-click="post_job(2)">POST VIDEO</button>
 								</div>
 								</form>
 							</div>
-							<div ng-if="newad.post">
+							<div ng-if="newsad.post">
 								<div class="filloutform">
 									<h3 style="color:#669999">Post a job</h3>
 
@@ -227,7 +208,7 @@
 									</div>
 								</div>
 								<div style="width: 80%; margin: 0 auto; text-align:right; margin-top:20px;">
-									<button type="button" class="btn btn-primary" style="width:150px; margin-bottom:5px; margin-right:-30px; background-color:#f02921; border:2px solid #f02921;" ng-click="post_job(3)">POST JOB</button>
+									<button type="button" class="btn btn-primary postbutton" ng-click="post_job(3)">POST JOB</button>
 								</div>
 							</div>
 						</div>
@@ -235,7 +216,7 @@
 						<div class="break"></div>
 
 						<div>
-							<input type="text" class="form-control" style="width:35%; float:right;" placeholder="Quick Search">
+							<input type="text" class="form-control quicksearch" placeholder="Quick Search">
 							<div style="clear:both;"></div>
 						</div>
 

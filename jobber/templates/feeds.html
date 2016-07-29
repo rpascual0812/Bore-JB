@@ -93,7 +93,7 @@
 			</div>
 			<div class="left">
 
-				<div style=" padding:20px; margin:0px 20px 0px 20px; border:3px solid #f02921; border-radius:6px;">
+				<div class="fillup">
 					<div ng-if="profile.suspended == 'f' && profile.profile.confirmed == 'false'">
 						<p style="text-align:justify; font-size:0.9em; color:black;">Your account will be suspended if you don't confirm your email address. Would you like us to <a href="#">resend</a> a new confirmation email?</p>
 					</div>
@@ -102,8 +102,8 @@
 						<p style="text-align:justify; font-size:0.9em; color:black;">Your account has been suspended. Please confirm your email address to reactivated your account. Would you like us to <a href="#">resend</a> a new confirmation email?</p>
 					</div>
 					
-					<div class="autoform">
-						<div class="personalinfo">
+					<div class="autoform" >
+						<div class="personalinfo" ng-class="view.personal_info" >
 							<p style="text-align:justify; font-size:0.9em">
 								<span style="cursor:pointer">
 								</span>
@@ -111,29 +111,44 @@
 									<a style="text-decoration:none" >Personal Information</a>
 								</span>
 							</p>
-							<div style="border: 1px solid #344972; padding: 10px; border-radius: 5px;" ng-show="confirmed=='a'">
-							</div>
-
-						    <h2 style="margin-bottom:30px;">Personal Information</h2>
-						    <form>
-								<p style="display:block; margin:0px">Name:</p>
-								<input style="display:block; margin:-32px 0px 10px auto; width:58%" type="text" name="name" placeholder="Juan Niyebe" style="width:20%" ng-model="profile_form.personal.name" required/>
-								<p style="display:block; margin:0px">Address:</p>
-								<input  style="display:block; margin:-32px 0px 10px auto; width:58%" type="text" name="Address" placeholder="Address" size="50" style="width:20%" ng-model="profile_form.personal.address" required/>
-								<p style="display:block; margin:0px">Phone Number:</p>
-								<input style="display:block; margin:-32px 0px 10px auto; width:58%" type="text" name="PhoneNumber" placeholder="123-1234" style="width:20%" ng-model="profile_form.personal.number" required/>
-								<p style="display:block; margin:0px">Email:</p>
-								<input style="display:block; margin:-32px 0px 10px auto; width:58%" type="text" name="email" placeholder="employee@email.com" style="width:20%" ng-model="profile_form.personal.email" required/>
+							<div style="border: 1px solid #344972; padding: 10px; border-radius: 5px;">
+							
+							<h2 style="margin-bottom:30px;">Personal Information</h2>
+							
+						    <form name="personal_form"
+							
+						    	<p style="display:block; margin:10px">Name:</p>
+								<input style="display:block; margin:-28px 0px 0px 14%; position:absolute; width:30%;" type="text" name="name" placeholder="Juan Niyebe" style="width:20%" ng-model="profile_form.personal.name" required/>
+								<span style="color:red; font-size: 12px; margin:-28px 0px 0px 31%;" ng-show="personal_form.name.$invalid && !personal_form.name.$pristine">Name is required.</span>
+						
+								<p style="display:block; margin:10px">Address:</p>
+								<input  style="display:block; margin:-28px 0px 0px 14%; position:absolute; width:30%;" type="text" name="address" placeholder="Address" size="50" style="width:20%" ng-model="profile_form.personal.address" required/>
+								
+								<span style="color:red; font-size: 12px;margin:-28px 0px 0px 31%;" ng-show="personal_form.address.$invalid && personal_form.address.$dirty">Address is required.</span>
+								
+								<p style="display:block; margin:10px">Phone Number:</p>
+								<input style="display:block; margin:-28px 0px 0px 14%; position:absolute; width:30%;" type="text" name="phonenumber" placeholder="09066884948" style="width:20%" ng-model="profile_form.personal.number" is-number maxlength=12 required/>
+								
+								<span style="color:red; font-size: 12px;margin:-28px 0px 0px 31%;" ng-show="personal_form.phonenumber.$invalid && personal_form.phonenumber.$dirty">Phone Number is required.</span>
+								
+								<p style="display:block; margin:10px">Email:</p>
+								<input class="email" style="display:block; margin:-28px 0px 0px 14%; position:absolute; width:30%;" type="email" name="email" placeholder="employee@email.com" style="width:20%" ng-model="profile_form.personal.email" required/>
+								<!--note-->
+								<span style="color:red; font-size: 12px; margin:-28px 0px 0px 15%;" ng-show="personal_form.email.$dirty && personal_form.email.$invalid">
+								<span style="color:red; font-size: 12px;margin:-28px 0px 0px 15%;" ng-show="personal_form.email.$error.required">Email is required.</span>
+								<span style="color:red; font-size: 12px;margin:-28px 0px 0px 15%;" ng-show="personal_form.email.$error.email">Invalid Email</span></span>
 								<div style="margin-top:30px">
 									<p>
-										<input type="submit" value="Submit" ng-click="update('personal_info')"/>
+										<input type="submit" value="Submit" ng-click="update('personal_info')" ng-disabled="personal_form.$invalid"/>
 										<input type="reset" value="Reset" />
 									</p>
 								</div>
+								
 						    </form>
+							
+						 </div>
 						</div>
-
-						<div class="achievements">
+						<div class="achievements" ng-class="view.achievements">
 
 							<p style="text-align:justify; font-size:0.9em">
 								<span style="cursor:pointer">You have not yet filled up your 
@@ -142,20 +157,23 @@
 							</p>
 
 							<p>
-								<div style="border: 1px solid #344972; padding: 10px; border-radius: 5px;" ng-show="confirmed=='b'">
-								</div>
+								<div style="border: 1px solid #344972; padding: 10px; border-radius: 5px;">
 							</p>
 
-							<h1 style="margin-bottom:30px;">Achievements</h1>
-							<form>
+							<h2 style="margin-bottom:30px;">Achievements</h2>
+							<form name="achievements_form">
 								<p>
-									<textarea style="100%" name="achievements" rows="10" cols="50" ng-model="profile_form.achievements.textarea" placeholder="Valedictorian, Best in Line Formation, Best Cleaner"></textarea>
+									<textarea style="100%" name="achievements" rows="10" cols="50" ng-model="profile_form.achievements.textarea" placeholder="Valedictorian, Best in Line Formation, Best Cleaner" required></textarea>
 								</p>
-								<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+								<span style="color:red; font-size: 12px;" ng-show="achievements_form.achievements.$invalid && !achievements_form.achievements.$pristine"></span>
+						
+								<p><input type="submit" value="Submit" ng-click="update('achievements')" ng-disabled="achievements_form.$invalid"/> <input type="reset" value="Reset" /></p>
 							</form>
+
+						</div>
 						</div>
 
-						<div class="education">
+						<div class="education" ng-class="view.education">
 							<p style="text-align:justify; font-size:0.9em">
 								<span style="cursor:pointer">You have not yet filled up your
 									<a style="text-decoration:none">Educational Background</a>
@@ -163,56 +181,75 @@
 							</p>
 
 							<p>
-								<div style="border: 1px solid #344972; padding: 10px; border-radius: 5px;" ng-show="confirmed=='c'">
-								</div>
+								<div style="border: 1px solid #344972; padding: 10px; border-radius: 5px">
 							</p>
 
-							<h1 style="margin-bottom:30px;">Education</h1>
-							<form>
-								<p style="display:block; margin:0px">School:</p>
-								<input style="display:block; margin:-32px 0px 10px auto; width:68%; font-size:0.86em" type="text" name="school"placeholder="University School of College" ng-model="profile_form.education.school"/>
-								<p style="display:block; margin:0px">Major:</p>
-								<input style="display:block; margin:-32px 0px 10px auto; width:68%; font-size:0.86em" type="text" name="major" placeholder="BS Information Technology" ng-model="profile_form.education.model"/>
-								<p style="display:block; margin:0px">Date From:</p>
-								<input style="display:block; margin:-32px 0px 10px auto; width:68%; font-size:0.86em" type="date"name="school_dateFrom" ng-model="profile_form.education.datefrom"/>
-								<p style="display:block; margin:0px">Date To:</p>
-								<input style="display:block; margin:-32px 0px 10px auto; width:68%; font-size:0.86em" type="date" name="schoxol_dateTo" ng-model="profile_form.education.dateto"/>
+							<h2 style="margin-bottom:30px;">Education</h2>
+							<form name="education_form">
+								<p style="display:block; margin:10px">School:</p>
+								<input style="display:block; margin:-28px 0px 0px 14%; position:absolute; width:30%;" type="text" name="school"placeholder="University School of College" ng-model="profile_form.education.school" required/>
+
+								<span style="color:red; font-size: 12px; margin:-28px 0px 0px 30%;" ng-show="education_form.school.$invalid && !education_form.school.$pristine">School is required</span>
+
+								<p style="display:block; margin:10px">Major:</p>
+								<input style="display:block; margin:-28px 0px 0px 14%; position:absolute; width:30%;" type="text" name="major" placeholder="BS Information Technology" ng-model="profile_form.education.model" required/>
+
 								
+
+								<span style="color:red; font-size: 12px; margin:-28px 0px 0px 30%;" ng-show="education_form.major.$invalid && !education_form.major.$pristine">Major is required</span>
+
+								<p style="display:block; margin:10px">Date From:</p>
+								<input style="display:block; margin:-28px 0px 0px 14%; position:absolute; width:30%;" type="date"name="school_dateFrom" ng-model="profile_form.education.datefrom" max="{{ today | date: 'yyyy-MM-dd' }}"required/>
+								
+								
+								<p style="display:block; margin:10px">Date To:</p>
+								<input style="display:block; margin:-28px 0px 0px 14%; position:absolute; width:30%;" type="date" name="school_dateTo" ng-model="profile_form.education.dateto" max="{{ today | date: 'yyyy-MM-dd' }}" required/>
+							
 								<div style="margin-top:30px">
-									<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+									<p><input type="submit" value="Submit" ng-click="update('education')" ng-disabled="education_form.$invalid"/> <input type="reset" value="Reset" /></p>
 								</div>
 							</form>
 						</div>
+					</div>
 
-						<div class="work" >
+						<div class="work" ng-class="view.work">
 							<p style="text-align:justify; font-size:0.9em">
 								<span style="cursor:pointer">You have not yet filled up your
 									<a style="text-decoration:none">Work Experience</a>
 								</span>
 							</p>
-							<div style="border: 1px solid #344972; padding: 10px; border-radius: 5px;" ng-show="confirmed=='d'">
-							</div>
-
-							<h1 style="margin-bottom:30px;">Work Experience</h1>
-							<form>
+							<div style="border: 1px solid #344972; padding: 10px; border-radius: 5px;">
+							<h2 style="margin-bottom:30px;">Work Experience</h2>
+							<form name="work_form">
 								<div>
-									<p style="display:block; margin:0px">Company:</p>
-									<input style="display:block; margin:-32px 0px 10px auto; width:68%" type="text" name="company" placeholder="CHRS" ng-model="profile_form.work.company"/>
-									<p style="display:block; margin:0px">Position:</p>
-									<input style="display:block; margin:-32px 0px 10px auto; width:68%" type="text" name="position" placeholder="Branch Manager" ng-model="profile_form.work.position"/>
-									<p style="display:block; margin:0px">Date From:</p>
-									<input style="display:block; margin:-32px 0px 10px auto; width:68%" type="date"name="work_dateFrom" ng-model="profile_form.work.datefrom"/>
-									<p style="display:block; margin:0px">Date To:</p>
-									<input style="display:block; margin:-32px 0px 10px auto; width:68%" type="date" name="work_dateTo" ng-model="profile_form.work.dateto"/>	
+									<p style="display:block; margin:10px">Company:</p>
+									<input style="display:block;  margin:-28px 0px 0px 14%; position:absolute; width:30%;" type="text" name="company" placeholder="CHRS" ng-model="profile_form.work.company" required/>
+
+									<span style="color:red; font-size: 12px; margin:-28px 0px 0px 30%;" ng-show="work_form.company.$invalid && !work_form.company.$pristine">Company is required</span>
+
+
+									<p style="display:block; margin:10px">Position:</p>
+									<input style="display:block;  margin:-28px 0px 0px 14%; position:absolute; width:30%;" type="text" name="position" placeholder="Branch Manager" ng-model="profile_form.work.position" required/>
+
+									<span style="color:red; font-size: 12px; margin:-28px 0px 0px 30%;" ng-show="work_form.position.$invalid && !work_form.position.$pristine">Position is required</span>
+
+
+									<p style="display:block; margin:10px">Date From:</p>
+									<input style="display:block;  margin:-28px 0px 0px 14%; position:absolute; width:30%;" type="date"name="work_dateFrom" ng-model="profile_form.work.datefrom" max="{{ today | date: 'yyyy-MM-dd' }}" required/>
+
+
+									<p style="display:block; margin:10px">Date To:</p>
+									<input style="display:block;  margin:-28px 0px 0px 14%; position:absolute; width:30%;" type="date" name="work_dateTo" ng-model="profile_form.work.dateto" max="{{ today | date: 'yyyy-MM-dd' }}" required/>
+
 								</div>
 								<div style="margin-top:30px">
-									<p><input type="submit" value="Submit" ng-click="update()"/> <input type="reset" value="Reset" /></p>
+									<p><input type="submit" value="Submit" ng-click="update('work')" ng-disabled="work_form.$invalid"/> <input type="reset" value="Reset" /></p>
 								</div>
 							</form>
 						</div>
 					</div>
 				</div>
-			
+				</div>
 				<div class="CbreakThr" style="width:100%; border:1px solid #f02921"></div>
 				<div class="CbreakSec" style="margin-bottom:1em"></div>
 
@@ -269,8 +306,8 @@
 											</div>
 										</div>
 									</div>
-
 								</div>
+								
 								<div class="Cbreak"></div>
 
 								<div class="ClowerboxBottom">

@@ -14,7 +14,7 @@ body {
 	border-bottom: solid 1px #CCC;
 	border-radius: 0.5;
 
-	width: 200px;
+	width: 150%;
 	height: 40px;
 	font-size: 14px;
 	padding: 5px;
@@ -34,14 +34,15 @@ body {
 
 }
 
-@media(min-width: 375px){
+@media(min-width: 381px){
 	.searchbar input {
-	width: 175%;
+	width: 150%;
 	}
 }
 @media(min-width: 768px){
 	.searchbar input {
-	width: 350px;
+	width: 400px;
+	font-size: 18px;
 	}
 }
 @media(min-width: 840px){
@@ -1177,11 +1178,49 @@ body {
 	margin: 0 auto;
 	padding:10px 0px;
 }
-.createbuttons{
+.createbutton{
+	width:100%;
+	margin:0 0.5px;
+}
+.postbutton{
+	width:102%;
+	margin:0 auto;
+	background-color:#f02921;
+	border:2px solid #f02921;
+	font-size: 15px;
+}
+.quicksearch{
+	float:none;
+	width:100%;
+}
+@media(min-width: 376px){
+	.postbutton{
+		width:120px;
+		margin:0 -10px 0 auto;
+		background-color:#f02921;
+		border:2px solid #f02921;
+		font-size: 15px;
+	}
+}
+@media(min-width: 425px){
+	.quicksearch{
+		float:right;
+		width:40%;
+	}
+	.createbutton{
+		width:32%;
+	}
 }
 @media(min-width: 768px){
 	.filloutform{
 		width:90%;
+	}
+	.postbutton{
+		width:150px;
+		margin:0 -10px 0 auto;
+		background-color:#f02921;
+		border:2px solid #f02921;
+		font-size: 15px;
 	}
 }
 /*RIGHT SIDE*/
