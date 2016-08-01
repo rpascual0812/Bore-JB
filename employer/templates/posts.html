@@ -1,3 +1,28 @@
+<style>
+	.thumb {
+	    width: 24px;
+	    height: 24px;
+	    float: none;
+	    position: relative;
+	    top: 7px;
+	}
+
+	form .progress {
+	    line-height: 15px;
+	}
+
+	.progress {
+	    display: inline-block;
+	    width: 100px;
+	    border: 3px groove #CCC;
+	}
+
+	.progress div {
+	    font-size: smaller;
+	    background: orange;
+	    width: 0;
+	}
+</style>
 <div>
 	<div>
 	    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
@@ -98,7 +123,7 @@
 						<div class="break"></div>
 
 						<div style="margin-top: 20px;">
-							<div ng-if="newsad.create">
+							<div ng-if="newad.create">
 								<div style="width: 88%; margin: 0 auto; padding:10px 0px;">
 									<h3 style="color:#669999">Create Ads</h3>
 
@@ -106,14 +131,14 @@
 										<tr>
 											<td style="padding-top: 15px;">
 												<input type="text" class="form-control" placeholder="Title"
-												ng-model="new_job_post.ad.title" /> <!-- AJS Attributes -->
+												ng-model="new_job_post.ad.title" />
 											</td>
 										</tr>
 										<tr>
 											<td style="padding-top: 15px;">
-												<tags-input class="form-control"
+												<tags-input
 													ng-model="new_job_post.ad.required_skills"
-													placeholder="/////////////////"
+													placeholder="Required Skills"
 													template="my-custom-template">
 												</tags-input>
 											</td>
@@ -131,13 +156,27 @@
 												</div>
 											</td>
 										</tr>
+										<tr>
+										<h4>Upload on file select</h4>
+											<button type="file" ngf-select="uploadFiles($file, $invalidFiles)" accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
+												Select File</button>
+										<br><br>
+											File:
+											<div style="font:smaller">{{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
+											<span class="progress" ng-show="f.progress >= 0">
+												<div style="width:{{f.progress}}%"
+													ng-bind="f.progress + '%'"></div>
+											</span>
+											</div>
+												{{errorMsg}}
+										</tr>
 									</table>
 								</div>
 								<div style="width: 80%; margin: 20px auto 0px auto; text-align:right;">
 									<button type="button" class="btn btn-primary postbutton" ng-click="post_job(1)">POST AD</button>
 								</div>
 							</div>
-							<div ng-if="newsad.link">
+							<div ng-if="newad.link">
 								<form>
 								<div style="width: 88%; margin: 0 auto; padding:10px 0px;">
 									<h3 style="color:#669999">Link a video</h3>
@@ -146,29 +185,28 @@
 										<tr>
 											<td style="padding-top: 15px;">
 												<input type="text" class="form-control" placeholder="Title"
-												ng-model="new_job_post.video.title" required/> <!-- AJS attributes -->
+												ng-model="new_job_post.video.title" required/>
 											</td>
 										</tr>
 										<tr>
 											<td style="padding-top: 15px;">
 												<input type="text" class="form-control" placeholder="Description"
-												ng-model="new_job_post.video.description" required/> <!-- AJS attributes -->
+												ng-model="new_job_post.video.description" required/>
 											</td>
 										</tr>
 										<tr>
 											<td style="padding-top: 15px;">
-												<tags-input class="form-control"
+												<tags-input
 															ng-model="new_job_post.video.tags"
-															placeholder="/////////////////"
-															template="my-custom-template"></tags-input>
-												<!-- <input type="text" class="form-control" placeholder="Tags"
-												ng-model="new_job_post.video.tags" required/> -->
+															placeholder="Required Skills"
+															template="my-custom-template">
+												</tags-input>
 											</td>
 										</tr>
 										<tr>
 											<td style="padding-top: 15px;">
 												<input type="url" class="form-control" placeholder="Link"
-												ng-model="new_job_post.video.link" required/> <!-- AJS attributes -->
+												ng-model="new_job_post.video.link" required/>
 											</td>
 										</tr>
 									</table>
@@ -178,7 +216,7 @@
 								</div>
 								</form>
 							</div>
-							<div ng-if="newsad.post">
+							<div ng-if="newad.post">
 								<div class="filloutform">
 									<h3 style="color:#669999">Post a job</h3>
 
@@ -195,9 +233,9 @@
 											</textarea>
 										</div>
 										<div style="padding-top: 15px;">
-											<tags-input class="form-control"
+											<tags-input
 												ng-model="new_job_post.job.required_skills"
-												placeholder="/////////////////"
+												placeholder="Required Skills"
 												template="my-custom-template">
 											</tags-input>
 										</div>
