@@ -6,7 +6,8 @@ app.controller('Posts', function(
                                     EmployersFactory,
                                     PINService,
                                     JobPostsFactory,
-                                    Upload, $timeout
+                                    Upload,
+                                    $timeout
 								){
 
     // $scope.candidates = {
@@ -227,6 +228,6 @@ app.controller('Posts', function(
             var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
             //console.log('progress: ' + progressPercentage + '% ');
         });
-    }
 
+    }
 });
