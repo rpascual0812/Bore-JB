@@ -80,6 +80,8 @@ app.controller('Posts', function(
         toolbar: 'styleselect formatselect fontselect fontsizeselect | undo redo | cut copy paste | bold italic underline | bullist numlist alignleft aligncenter alignright alignjustify '
     };
 
+    $scope.picFile = {};
+
     /*
     toolbar: "bold italic underline strikethrough| undo redo",//" | cut copy paste | styleselect print forecolor backcolor",
     toolbar1: "bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect",
@@ -230,4 +232,22 @@ app.controller('Posts', function(
         });
 
     }
+
+    var currentDate = new Date();
+    var postDate = currentDate;
+    
+    postDate.setMonth(postDate.getMonth() + 1);
+
+    $scope.currentDate = currentDate.getFullYear() + "-" + zerofy(currentDate.getMonth()) + "-" + zerofy(currentDate.getDate());
+    $scope.postDate = postDate.getFullYear() + "-" + zerofy(postDate.getMonth()+1) + "-" + zerofy(postDate.getDate());
+
+    function zerofy(num) {
+        var str = num.toString();
+        if (num>=1 && num<=9) {
+            str = "0" + str;
+        }
+
+        return str;
+    }
+    
 });

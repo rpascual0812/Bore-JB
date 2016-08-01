@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <style type="text/css">
 .myfileupload input {
     width: 100%;
@@ -41,6 +40,7 @@ form .progress {
 }
 
 </style>
+
 <div>
 	<div>
 	    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
@@ -172,7 +172,7 @@ form .progress {
 												<!-- <div class="custom-file-upload">
 												    <input type="file" id="file" name="myfiles[]" multiple />
 												</div> -->
-												<div class="myfileupload">
+												<!-- <div class="myfileupload">
 			                                        <div class="fileleft">
 			                                            <input type="file" 
 			                                                ngf-select 
@@ -192,22 +192,36 @@ form .progress {
 			                                            <span ng-show="picFile.result">Upload Successful</span>
 			                                            <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
 			                                        </div>
-			                                    </div>
+			                                    </div> -->
+			                                    <form enctype="multipart/form-data" action="functions/employers/upload_image.php" method="post">
+			                                    
+			                                    <input type="hidden" name="MAX_FILE_SIZE" value="524288" />
+			                                    
+			                                    <b>File:</b> <input type="file" name="upload" />
+			                                    
+			                                    <input type="submit" name="submit" value="Upload" />
 											</td>
 										</tr>
 										<tr>
-										<h4>Upload on file select</h4>
-											<button type="file" ngf-select="uploadFiles($file, $invalidFiles)" accept="image/*" ngf-max-height="1000" ngf-max-size="1MB">
-												Select File</button>
-										<br><br>
-											File:
-											<div style="font:smaller">{{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
-											<span class="progress" ng-show="f.progress >= 0">
-												<div style="width:{{f.progress}}%"
-													ng-bind="f.progress + '%'"></div>
-											</span>
-											</div>
-												{{errorMsg}}
+											<td>
+											<h5>Effectivity of Job Post</h5>
+												<input type="date"
+												ng-model="new_job_post.ad.effectDate1" min="{{currentDate}}"/>
+												 to 
+												<input type="date"
+												ng-model="new_job_post.ad.effectDate2" min="{{postDate}}"/>
+											</td>
+										</tr>
+										<tr>
+											<td>
+											<h6>Commission Type</h6>
+												<label for="comm.money">Monetary</label>
+												<input type="radio" id="comm.money" value="Monetary"
+												ng-model="new_job_post.ad.commission" />
+												<label for="comm.points">Points</label>
+												<input type="radio" id="comm.points" value="Points"
+												ng-model="new_job_post.ad.commission" />
+											</td>
 										</tr>
 									</table>
 								</div>
@@ -229,14 +243,14 @@ form .progress {
 										</tr>
 										<tr>
 											<td style="padding-top: 15px;">
-												<input type="text" class="form-control" placeholder="Description"
-												ng-model="new_job_post.video.description" required/>
+												<textarea type="text" class="form-control" placeholder="Description"
+												ng-model="new_job_post.video.description" required></textarea>
 											</td>
 										</tr>
 										<tr>
 											<td style="padding-top: 15px;">
 												<tags-input
-															ng-model="new_job_post.video.tags"
+															ng-model="new_job_post.video.required_skills"
 															placeholder="Required Skills"
 															template="my-custom-template">
 												</tags-input>
@@ -261,7 +275,8 @@ form .progress {
 
 									<div style="width:100%">
 										<div style="padding-top: 15px;">
-											<input type="text" class="form-control" placeholder="Title" />
+											<input type="text" class="form-control" placeholder="Title"
+											ng-model="new_job_post.job.title"/>
 										</div>
 										<div style="padding-top: 15px;">
 											<textarea ui-tinymce="tinymceOptions" class="form-control" placeholder="Job Requirements" ng-model="new_job_post.job.requirements">
