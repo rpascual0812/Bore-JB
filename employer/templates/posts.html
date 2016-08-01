@@ -1,3 +1,20 @@
+<style type="text/css">
+.myfileupload input {
+    width: 100%;
+    height: 32px;
+    border: solid 1px #CCC;
+}
+
+.myfileupload .fileleft {
+    width: 80%;
+    float: left;
+}
+
+.myfileupload .fileright {
+    width: 20%;
+    float: left;
+}
+</style>
 <div>
 	<div>
 	    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
@@ -98,7 +115,7 @@
 						<div class="break"></div>
 
 						<div style="margin-top: 20px;">
-							<div ng-if="newsad.create">
+							<div ng-if="newad.create">
 								<div style="width: 88%; margin: 0 auto; padding:10px 0px;">
 									<h3 style="color:#669999">Create Ads</h3>
 
@@ -126,9 +143,30 @@
 										</tr>
 										<tr>
 											<td style="padding-top: 15px;">
-												<div>
+												<!-- <div class="custom-file-upload">
 												    <input type="file" id="file" name="myfiles[]" multiple />
-												</div>
+												</div> -->
+												<div class="myfileupload">
+			                                        <div class="fileleft">
+			                                            <input type="file" 
+			                                                ngf-select 
+			                                                ng-model="picFile" 
+			                                                name="file"
+			                                                ngf-pattern="'.pdf,.jpg,.doc,.docx,.odt'"
+			                                                ngf-max-size="10MB" 
+			                                                required
+			                                                ngf-model-invalid="errorFiles"
+			                                            >
+			                                            <i ng-show="myForm.file.$error.maxSize">File too large 
+			                                                {{errorFiles[0].size / 1000000|number:1}}MB: max 10M</i>
+			                                            
+			                                        </div>
+			                                        <div class="fileright">
+			                                            <input type="button" class="btn btn-info" value="UPLOAD" ng-click="uploadPic(picFile)" />
+			                                            <span ng-show="picFile.result">Upload Successful</span>
+			                                            <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+			                                        </div>
+			                                    </div>
 											</td>
 										</tr>
 									</table>
@@ -137,7 +175,7 @@
 									<button type="button" class="btn btn-primary postbutton" ng-click="post_job(1)">POST AD</button>
 								</div>
 							</div>
-							<div ng-if="newsad.link">
+							<div ng-if="newad.link">
 								<form>
 								<div style="width: 88%; margin: 0 auto; padding:10px 0px;">
 									<h3 style="color:#669999">Link a video</h3>
@@ -178,7 +216,7 @@
 								</div>
 								</form>
 							</div>
-							<div ng-if="newsad.post">
+							<div ng-if="newad.post">
 								<div class="filloutform">
 									<h3 style="color:#669999">Post a job</h3>
 
@@ -368,137 +406,6 @@
 		</div>
 	</div>
 </div>
-
-<script type="text/javascript">
-	;(function($) {
-
-		  // Browser supports HTML5 multiple file?
-		  var multipleSupport = typeof $('<input/>')[0].multiple !== 'undefined',
-		      isIE = /msie/i.test( navigator.userAgent );
-
-		  $.fn.customFile = function() {
-
-		    return this.each(function() {
-
-		      var $file = $(this).addClass('custom-file-upload-hidden'), // the original file input
-		          $wrap = $('<div class="file-upload-wrapper">'),
-		          $input = $('<input type="text" class="file-upload-input" disabled="disabled" style="width:80%"/>'),
-		          // Button that will be used in non-IE browsers
-		          $button = $('<button type="button" class="btn btn-info">Select a File</button>'),
-		          // Hack for IE
-		          $label = $('<label class="file-upload-button" for="'+ $file[0].id +'">Select a File</label>');
-
-		      // Hide by shifting to the left so we
-		      // can still trigger events
-		      $file.css({
-		        position: 'absolute',
-		        left: '-9999px'
-		      });
-
-		      $wrap.insertAfter( $file )
-		        .append( $file, $input, ( isIE ? $label : $button ) );
-
-		      // Prevent focus
-		      $file.attr('tabIndex', -1);
-		      $button.attr('tabIndex', -1);
-
-		      $button.click(function () {
-		        $file.focus().click(); // Open dialog
-		      });
-
-		      $file.change(function() {
-
-		        var files = [], fileArr, filename;
-
-		        // If multiple is supported then extract
-		        // all filenames from the file array
-		        if ( multipleSupport ) {
-		          fileArr = $file[0].files;
-		          for ( var i = 0, len = fileArr.length; i < len; i++ ) {
-		            files.push( fileArr[i].name );
-		          }
-		          filename = files.join(', ');
-
-		        // If not supported then just take the value
-		        // and remove the path to just show the filename
-		        } else {
-		          filename = $file.val().split('\\').pop();
-		        }
-
-		        $input.val( filename ) // Set the value
-		          .attr('title', filename) // Show filename in title tootlip
-		          .focus(); // Regain focus
-
-		      });
-
-		      $input.on({
-		        blur: function() { $file.trigger('blur'); },
-		        keydown: function( e ) {
-		          if ( e.which === 13 ) { // Enter
-		            if ( !isIE ) { $file.trigger('click'); }
-		          } else if ( e.which === 8 || e.which === 46 ) { // Backspace & Del
-		            // On some browsers the value is read-only
-		            // with this trick we remove the old input and add
-		            // a clean clone with all the original events attached
-		            $file.replaceWith( $file = $file.clone( true ) );
-		            $file.trigger('change');
-		            $input.val('');
-		          } else if ( e.which === 9 ){ // TAB
-		            return;
-		          } else { // All other keys
-		            return false;
-		          }
-		        }
-		      });
-
-		    });
-
-		  };
-
-		  // Old browser fallback
-		  if ( !multipleSupport ) {
-		    $( document ).on('change', 'input.customfile', function() {
-
-		      var $this = $(this),
-		          // Create a unique ID so we
-		          // can attach the label to the input
-		          uniqId = 'customfile_'+ (new Date()).getTime(),
-		          $wrap = $this.parent(),
-
-		          // Filter empty input
-		          $inputs = $wrap.siblings().find('.file-upload-input')
-		            .filter(function(){ return !this.value }),
-
-		          $file = $('<input type="file" id="'+ uniqId +'" name="'+ $this.attr('name') +'"/>');
-
-		      // 1ms timeout so it runs after all other events
-		      // that modify the value have triggered
-		      setTimeout(function() {
-		        // Add a new input
-		        if ( $this.val() ) {
-		          // Check for empty fields to prevent
-		          // creating new inputs when changing files
-		          if ( !$inputs.length ) {
-		            $wrap.after( $file );
-		            $file.customFile();
-		          }
-		        // Remove and reorganize inputs
-		        } else {
-		          $inputs.parent().remove();
-		          // Move the input so it's always last on the list
-		          $wrap.appendTo( $wrap.parent() );
-		          $wrap.find('input').focus();
-		        }
-		      }, 1);
-
-		    });
-		  }
-
-	}(jQuery));
-
-	$('input[type=file]').customFile();
-</script>
-
 
 <script type="text/ng-template" id="my-custom-template">
     <div class="tag-template">

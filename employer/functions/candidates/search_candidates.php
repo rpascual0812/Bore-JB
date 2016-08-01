@@ -1,13 +1,16 @@
 <?php
-require_once('../../../Functions/connect_cats.php');
-require_once('../../../Classes/Applicants_tags.php');
+require_once('../../../Functions/connect.php');
+require_once('../../../Classes/Profiles.php');
 
-$class = new Applicants_tags(
+$class = new Profiles(
 						NULL,
-						$_GET['tags']
+						NULL,
+						NULL,
+						NULL,
+						NULL						
 					);
 
-$data = $class->search();
+$data = $class->search($_POST['str']);
 
 header("HTTP/1.0 404 No Applicants Found");
 if($data['status']){

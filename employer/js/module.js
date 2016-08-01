@@ -6,7 +6,8 @@ var app = angular.module('onload', [
                                     'ui.tinymce',
                                     'autocomplete',
                                     'ngTagsInput',
-                                    'ui.mask'
+                                    'ui.mask',
+                                    'ngFileUpload'
                                 ]);
 
 app.config(function($routeProvider){

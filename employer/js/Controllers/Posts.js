@@ -1,11 +1,12 @@
-napp.controller('Posts', function(
+app.controller('Posts', function(
 									$scope,
                                     md5,
                                     $cookies,
                                     CandidatesFactory,
                                     EmployersFactory,
                                     PINService,
-                                    JobPostsFactory
+                                    JobPostsFactory,
+                                    Upload, $timeout
 								){
 
     // $scope.candidates = {
@@ -211,5 +212,21 @@ napp.controller('Posts', function(
             //failed to save
         });
     };
+
+    $scope.uploadPic = function(file) {
+        Upload.upload({
+            url: "./functions/employers/upload.php",
+            data: {file: file}
+        }).then(function (resp) {
+            $scope.cv = resp.data.file;
+            $scope.picFile.result = true;
+        }, function (resp) {
+            $scope.errorMsg = true;
+            //console.log('Error status: ' + resp.status);
+        }, function (evt) {
+            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            //console.log('progress: ' + progressPercentage + '% ');
+        });
+    }
 
 });

@@ -32,6 +32,11 @@ app.config(function($routeProvider){
         controller: 'Confirm',
         templateUrl: 'templates/confirm.html'
     })
+    .when('/ad/:id',
+    {
+        controller: 'Jobpost',
+        templateUrl: 'templates/jobpost.html'
+    })
     .otherwise(
     {
         redirectTo: '/login'

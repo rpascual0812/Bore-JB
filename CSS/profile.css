@@ -69,6 +69,14 @@ body {
 	font-size: 14px;
 }
 
+.font35 {
+	font-size: 35px;
+}
+
+.title {
+	font-weight: bold;
+}
+
 .break {
 	width: 98%;
 	border-top: 1px solid #CCC;
@@ -123,6 +131,24 @@ body {
 	color: #000;
 	font-weight: bold;
 	font-size: 1.3em;
+}
+
+.half-hidden-small {
+	color: #a3a3a3;
+	font-weight: bold;
+	font-size: 0.7em;
+}
+
+.half-hidden-medium {
+	color: #a3a3a3;
+	font-weight: bold;
+	font-size: 0.8em;
+}
+
+.half-hidden-large {
+	color: #a3a3a3;
+	font-weight: bold;
+	font-size: 1em;
 }
 
 .news {

@@ -4,12 +4,14 @@ class Profiles extends ClassParent{
     var $pin = NULL;
     var $profile = array();
     var $date_created = NULL;
+    var $tsv = NULL;
     var $archived = NULL;
 
     public function __construct(
                                     $pin,
                                     $profile,
                                     $date_created,
+                                    $tsv,
                                     $archived
                                 ){
         
@@ -198,6 +200,21 @@ EOT;
                     accounts.usertype
                 from profiles left join accounts on (profiles.pin = accounts.pin)
                 where accounts.usertype = 'recruiter' 
+                ;
+EOT;
+
+        return ClassParent::get($sql);
+    }
+
+    public function search($str){
+        $str = strtolower(pg_escape_string(trim(strip_tags($str))));
+
+        $sql = <<<EOT
+                SELECT pin, profile, statuses.status FROM (
+                    SELECT pin, profile, tsv
+                    FROM profiles, plainto_tsquery('$str') AS q
+                    WHERE (tsv @@ q)
+                ) AS t1 left join statuses on (profile->>'statuses_pk' = statuses.pk::text) ORDER BY ts_rank_cd(t1.tsv, plainto_tsquery('$str')) DESC LIMIT 5
                 ;
 EOT;
 

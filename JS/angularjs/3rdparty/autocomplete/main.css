@@ -9,6 +9,12 @@
     padding:0.4em;
 }
 
+.autocomplete input:focus {
+    background-color: #FFF;
+    border: 0px;
+    color: #000;
+}
+
 .autocomplete ul{
     /*position: absolute;
     left: 0;
@@ -24,9 +30,9 @@
     margin: 0;
     padding: 0;
     width: 100%;
-    border-left: 1px solid #888;
-    border-right: 1px solid #888;
-    border-bottom: 1px solid #888;
+    /*border-left: 1px solid #1b3033;
+    border-right: 1px solid #1b3033;
+    border-bottom: 1px solid #1b3033;*/
     z-index: 1;
 }
 
@@ -36,11 +42,13 @@
     width: 100%;
     padding:0.4em;
     background-color: #fff;*/
+    list-style:none;
+    cursor: pointer;
     display: block;
     color: #000;
-    padding: 8px 0 8px 16px;
+    padding: 8px 16px 8px 16px;
     text-decoration: none;
-    background-color: #fff;*/
+    background-color: #fff;
 }
 
 .autocomplete li.active{

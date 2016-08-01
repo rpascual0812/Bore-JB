@@ -98,5 +98,22 @@ EOT;
         return ClassParent::get($sql);
     }
 
+    public function job_post(){
+        $sql = <<<EOT
+            select
+                pk,
+                pin,
+                type,
+                details,
+                date_created::date as date,
+                date_created,
+                archived
+            from job_posts
+            where pk = $this->pk
+            ;
+EOT;
+        return ClassParent::get($sql);
+    }    
+
 }
 ?>
