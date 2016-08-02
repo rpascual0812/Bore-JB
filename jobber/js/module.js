@@ -2,7 +2,8 @@ var app = angular.module('onload', [
                                     'ngRoute',
                                     'ngCookies',
                                     'angular-md5',
-                                    'ui.mask'
+                                    'ui.mask',
+                                    'autocomplete'
                                 ]);
 
 app.config(function($routeProvider){

@@ -2,12 +2,11 @@ app.controller('Messages', function(
 									$scope,
                                     md5,
                                     $cookies,
-                                    CandidatesFactory,
-                                    PINService,
-                                    SearchService
+                                    ProfileFactory,
+                                    PINService
 								){
 
-    $scope.Candidate = {};
+    $scope.profile = {};
     $scope.messages = {};
 
     $scope.messages.menu = {
@@ -52,9 +51,9 @@ app.controller('Messages', function(
             pin : PINService.get()
         }
 
-        var promise = CandidatesFactory.fetch(filter);
+        var promise = ProfileFactory.profile(filter);
         promise.then(function(data){
-            $scope.Candidate = data.data.result[0];
+            $scope.profile = data.data.result[0];
 
             
         })
@@ -70,7 +69,7 @@ app.controller('Messages', function(
         };
 
         $scope.candidates.data = [];
-        var promise = CandidatesFactory.search_candidates(filter);
+        var promise = ProfileFactory.search_candidates(filter);
         promise.then(function(data){
             var a = data.data.result;
             

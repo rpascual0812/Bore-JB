@@ -3,16 +3,22 @@
 	    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation" style="background-color:#003333;">
 	        <div class="container topnav" style="color:#FFF !important;">
 	            <!-- Brand and toggle get grouped for better mobile display -->
-	            <div class="navbar-header" style="color:#999999">
+	            <div class="navbar-header" style="color:#999999; float:left;">
 	                <a class="navbar-brand topnav" href="#/home">
 	                	Joberfied
 	                </a>
-	                <input type="text" class="searchbar" placeholder="Search jobs here" maxlength="60" data-ng-model="searchbox.text" data-ng-change="searchbig()"  style="background-color:#003333; color:#FFFFFF;"  />
+	                <!-- <input type="text" class="searchbar" placeholder="Search jobs here" maxlength="60" data-ng-model="searchbox.text" data-ng-change="searchbig()"  style="background-color:#003333; color:#FFFFFF;"  /> -->
 	                
 	            </div>
+	            <div style="float:left;"><div>
+                		<!-- <autocomplete ng-model="result" attr-placeholder="Search candidates here" click-activation="true" data="candidates.data" on-type="bigsearch_changed" on-select="run_search" class="searchbar"></autocomplete> -->
+                		<input type="text" class="searchbar" placeholder="Search jobs here" maxlength="60" data-ng-model="searchbox.text" data-ng-change="searchbig()"  style="background-color:#003333; color:#FFFFFF;"  />
+                	</div>
+                </div>
+	            
 	            <!-- Collect the nav links, forms, and other content for toggling -->
 
-	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	            <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	                <ul class="nav navbar-nav navbar-right">
 	                    <li>
 	                        <a href="#/" style="color: #FF3333">Jobs</a>
@@ -24,7 +30,13 @@
 	                        <a style="color: #FF3333">Help</a>
 	                    </li>
 	                </ul>
-	            </div>
+	            </div> -->
+
+	            <div style="float:right;">
+            		<input id="profile_toggle" type="checkbox" checked data-toggle="toggle">
+            	</div>
+
+	            <div style="clear:both;"></div>
 	            <!-- /.navbar-collapse -->
 	        </div>
 	        <!-- /.container -->
@@ -591,5 +603,10 @@
                 }
             }
         });
+
+        $('#profile_toggle').bootstrapToggle({
+	      	on: 'Visible',
+	      	off: 'Hidden'
+	    });
     });
 </script>

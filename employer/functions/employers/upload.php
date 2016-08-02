@@ -1,4 +1,5 @@
 <?php
+print_r($_FILES);
 if ( !empty( $_FILES ) ) {
 
 	$filename = date('Ymd_His');

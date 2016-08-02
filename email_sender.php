@@ -3,11 +3,11 @@ require_once('./Functions/connect.php');
 require_once('./PHPMailer/PHPMailerAutoload.php');
 
 $sql = <<<EOT
-                select
-                    *
-                from email_notifications
-                order by date_created
-                ;
+            select
+                *
+            from email_notifications
+            order by date_created
+            ;
 EOT;
 
 $query = pg_query($sql);

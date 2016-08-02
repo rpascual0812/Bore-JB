@@ -10,10 +10,10 @@ app.controller('Posts', function(
                                     $timeout
 								){
 
-    // $scope.candidates = {
-    //     data : [],
-    //     status : false
-    // };
+    $scope.candidates = {
+        data : [],
+        status : false
+    };
 
     //MENU
     $scope.newad = {
@@ -31,6 +31,8 @@ app.controller('Posts', function(
     //LIST OF PREVIOUS POSTS
     $scope.job_posts = {};
     $scope.job_posts.data = [];
+
+    $scope.picFile = null;
     
     // $scope.job_posts.data = 
     // [
@@ -120,6 +122,37 @@ app.controller('Posts', function(
             get_prices();
             get_employer_bucket();
         })
+    }
+
+    $scope.bigsearch_changed = function(str){
+        if(str.replace(/\s/g, '') == ''){
+            return false;
+        }
+
+        var filter = {
+            'str' : str
+        };
+
+        $scope.candidates.data = [];
+        var promise = CandidatesFactory.search_candidates(filter);
+        promise.then(function(data){
+            var a = data.data.result;
+            
+            for(var i in a){
+                a[i].profile = JSON.parse(a[i].profile);
+
+                $scope.candidates.data.push({
+                                                title : a[i].pin,
+                                                status : a[i].status,
+                                                details : a[i].profile.skills.join(', ')
+                                            });
+            }
+        })
+        .then(null, function(data){
+            $scope.candidates.status = false;
+        });
+
+        //$scope.candidates.data = ["The Wolverine", "The Smurfs 2", "The Mortal Instruments: City of Bones", "Drinking Buddies", "All the Boys Love Mandy Lane", "The Act Of Killing", "Red 2", "Jobs", "Getaway", "Red Obsession", "2 Guns", "The World's End", "Planes", "Paranoia", "The To Do List", "Man of Steel", "The Way Way Back", "Before Midnight", "Only God Forgives", "I Give It a Year", "The Heat", "Pacific Rim", "Pacific Rim", "Kevin Hart: Let Me Explain", "A Hijacking", "Maniac", "After Earth", "The Purge", "Much Ado About Nothing", "Europa Report", "Stuck in Love", "We Steal Secrets: The Story Of Wikileaks", "The Croods", "This Is the End", "The Frozen Ground", "Turbo", "Blackfish", "Frances Ha", "Prince Avalanche", "The Attack", "Grown Ups 2", "White House Down", "Lovelace", "Girl Most Likely", "Parkland", "Passion", "Monsters University", "R.I.P.D.", "Byzantium", "The Conjuring", "The Internship"];
     }
 
     function get_prices(){
@@ -217,6 +250,7 @@ app.controller('Posts', function(
     };
 
     $scope.uploadPic = function(file) {
+        console.log(file);
         Upload.upload({
             url: "./functions/employers/upload.php",
             data: {file: file}

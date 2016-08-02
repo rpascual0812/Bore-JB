@@ -1,3 +1,10 @@
+	
+<style>
+	.messages ul li:hover {
+		cursor: pointer;
+	}
+</style>
+
 	<div>
 	    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
 	        <div class="container topnav" style="color:#FFF !important;">
@@ -77,114 +84,93 @@
 			</div>
 
 			<div class="left CprofileMargin">
-				<div class="basic">
-					<div>
-						<div style="clear:both;"></div>
-						<!-- Picture and Self Title -->
-						<div class="picture">
-							<div>
-								<img class="img-circle" src="../ASSETS/Uploads/rafael1.jpg">
-							</div>
-
-							<div class="selftitle">
-								<span>"IdealProgrammer"</span>
-							</div>
-
-							<div class="c-border"></div>
-						</div>
-						<!-- Name and Status -->
-						<div style="clear:both;"></div>
-
-						<div class="details">
-							<div class="cborder">
-								<div class="name">
-									<span>{{profile.data.first_name}} {{profile.data.last_name}}
-										<!-- Adolph Blaine Charles David Earl Frederick Gerald Hubert Irvin John Kenneth Lloyd Martin Nero Oliver Paul Quincy Randolph Sherman Thomas Uncas Victor William Xerxes Yancy Zeus Wolfe­schlegel­stein­hausen­berger­dorff­ Sr. --> Rafael Pascual</span>
-								</div>
-
-								<div class="status">
-									<span>{{profile.data.status}}
-										Employed</span>
-								</div>
-							</div>
-
-							<!-- Details -->
-							<div >
-								<img src="../ASSETS/img/key.png" style="width:16px;">
-								<span class="font14">{{profile.pin}}</span>
-							</div>
-
-							<!-- Address Variation -->
-							<div>
-								<img src="../ASSETS/img/map.png" style="width:16px;">
-								<div style="margin:-25px 0px 0px 30px">
-									<span class="font14">
-										4828 Bolderwood Arboretum Ornamental Drive St. Taumatawhakatangi­hangakoauauotamatea­turipukakapikimaunga­horonukupokaiwhen­uakitanatahu, North Island, New Zealand4282 San <!-- Pablo St., Pagdaluyan, Pasig City, Philippines --></span>
-								</div>
-							</div>
-
-							<div>
-								<img src="../ASSETS/img/phone.png" style="width:16px;">
-								<span class="font14">{{profile.data.contact_number}}
-									095555555555</span>
-							</div>
-							<div class="c-size">
-								<img src="../ASSETS/img/gmail.png" style="width:16px;">
-								<div style="margin:-25px 0px 0px 30px">
-									<span class="font13">{{profile.data.email_address}}
-									<!-- hi-this-is-the-longest-email-in-the-world-and-is-much-superior-to-contact-admin-hello-webmaster-info-services-peter-crazy-but-oh-so-ubber-cool-english-alphabet-loverer-abcdefghijklmnopqrstuvwxyz-at-please-try-to.send-me-an-email-if-you-can-possibly-begin-to-remember-this-coz.this-is-the-longest-email-address-known-to-man-but -->-to-be-honest.this-is-such-a-stupidly-long-sub-domain-it-could-go-on-forever@zchr.org</span>
-								</div>
-							</div>
-							<div class="break c-length"></div>
-						</div>
-
-					</div>
+				<div class="messages">
+					<ul class="nav nav-tabs">
+					  	<li ng-class="messages.menu.inbox"><a ng-click="change_menu('inbox')">Inbox</a></li>
+					  	<li ng-class="messages.menu.draft"><a ng-click="change_menu('draft')">Draft</a></li>
+					  	<li ng-class="messages.menu.sent"><a ng-click="change_menu('sent')">Sent</a></li>
+					  	<!-- <li ng-class="messages.menu.new"><a ng-click="change_menu('new')">New</a></li> -->
+				  		<!-- <li class="dropdown">
+				    		<a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu 1
+			    			<span class="caret"></span></a>
+			    			<ul class="dropdown-menu">
+			      				<li><a href="#">Submenu 1-1</a></li>
+			      				<li><a href="#">Submenu 1-2</a></li>
+			      				<li><a href="#">Submenu 1-3</a></li> 
+			    			</ul>
+				  		</li> -->
+					</ul>
 				</div>
-
-				<div class="c-background">
-
-					<div class="background font14">
-						<span class="header1">Achievements</span>
-
-						<div>
-							<span class="header2">Class Valedictorian</span>
-						</div>
+				<div style="padding-top: 10px;">
+					<div class="inbox" ng-if="messages.menu.inbox == 'active'">
+						<table style="width:100%;" class="table-striped">
+							<thead>
+								<tr>
+									<th style="width:20%;">From</th>
+									<th style="width:60%;">Message</th>
+									<th style="width:20%;">Date</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-if="messages.inbox.status">
+									<td>Accenture Phils.</td>
+									<td>Hi!</td>
+									<td>2016-08-01</td>
+								</tr>
+								<tr ng-if="!messages.inbox.status">
+									<td colspan="3" style="text-align:center;">No messages found</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 
-					<div class="break"></div>
-
-					<div class="background font14">
-						<span class="header1">Work Experiences</span>
-
-						<div>
-							<span class="header2">JuanLab</span>
-							<p>
-								Responsible with the overall IT Operations.
-							</p>
-						</div>
+					<div class="draft" ng-if="messages.menu.draft == 'active'">
+						<table style="width:100%;" class="table-striped">
+							<thead>
+								<tr>
+									<th style="width:20%;">From</th>
+									<th style="width:60%;">Message</th>
+									<th style="width:20%;">Date</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-if="messages.draft.status">
+									<td>Accenture Phils.</td>
+									<td>Hi!</td>
+									<td>2016-08-01</td>
+								</tr>
+								<tr ng-if="!messages.draft.status">
+									<td colspan="3" style="text-align:center;">No messages found</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 
-					<div class="break"></div>
+					<div class="sent" ng-if="messages.menu.sent == 'active'">
+						<table style="width:100%;" class="table-striped">
+							<thead>
+								<tr>
+									<th style="width:20%;">From</th>
+									<th style="width:60%;">Message</th>
+									<th style="width:20%;">Date</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-if="messages.sent.status">
+									<td>Accenture Phils.</td>
+									<td>Hi!</td>
+									<td>2016-08-01</td>
+								</tr>
+								<tr ng-if="!messages.sent.status">
+									<td colspan="3" style="text-align:center;">No messages found</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 
-					<div class="background font14">
-						<span class="header1">Education</span>
-
-						<div>
-							<span class="header2">Pamantasan ng Lungsod ng Pasig</span>
-							<div>
-								Bachelor of Science in Information Technology
-							</div>
-						</div>
-
-						<div class="top-spacer">
-							<span class="header2">Rizal High School</span>
-							<div class="font12">
-								June 1999 - March 2003
-							</div>
-							<div class="font12">
-								Class Valedictorian
-							</div>
-						</div>
+					<div class="inbox" ng-if="messages.menu.new_message == 'active'">
+						<textarea ui-tinymce="tinymceOptions" class="form-control" placeholder="" ng-model="new_job_post.job.requirements">
+						</textarea>
 					</div>
 				</div>
 				

@@ -27,6 +27,16 @@ app.config(function($routeProvider){
         controller: 'Posts',
         templateUrl: 'templates/posts.html'
     })
+    .when('/messages',
+    {
+        controller: 'Messages',
+        templateUrl: 'templates/messages.html'
+    })
+    .when('/admired',
+    {
+        controller: 'Admired',
+        templateUrl: 'templates/admired.html'
+    })
     .when('/register',
     {
         controller: 'Register',

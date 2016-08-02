@@ -1,4 +1,4 @@
-.sent{
+.email_sent{
 	width: 100%;
     margin:0 auto;
 	min-height: 600px;
@@ -25,7 +25,7 @@
     margin:0 auto;
 }
 @media(min-width: 768px){
-    .sent{
+    .email_sent{
         width: 500px;
         margin:65px auto 0px auto;
         min-height: 450px;

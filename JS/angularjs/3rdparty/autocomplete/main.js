@@ -296,11 +296,15 @@ app.directive('autocomplete', function() {
                         class="cursor:pointer"\
                         ng-repeat="suggestion in suggestions | orderBy:\'toString()\' track by $index">\
                             <div>\
-                                <div style="width:30%;float:left;">{{suggestion.title}}</div>\
+                                <div style="width:30%;float:left;">TITLE</div>\
                                 <div style="width:70%;float:left;text-align:right;">{{suggestion.status}}</div>\
                                 <div style="clear:both;"></div>\
                             </div>\
-                            <div style="color:#949494;" ng-bind-html="suggestion.details | highlight:searchParam">{{suggestion.details}}</div>\
+                            <div>\
+                                <div style="width:65%;float:left;color:#949494;" ng-bind-html="suggestion.details | highlight:searchParam">{{suggestion.details}}</div>\
+                                <div style="width:35%;float:left;color:#949494;">Last Position held</div>\
+                                <div style="clear:both;"></div>\
+                            </div>\
                     </li>\
                     <li suggestion\
                         index="{{suggestions.length}}"\

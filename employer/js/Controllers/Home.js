@@ -59,7 +59,7 @@ app.controller('Home', function(
         else {
             get_profile();
 
-            //feeds();
+            
             //set_search_box();
         }
     }
@@ -96,7 +96,6 @@ app.controller('Home', function(
     }
 
     $scope.run_search = function(data){
-        console.log(data);
         if(data.mode == "specific"){
             window.location = "../jobber/#/" + data.suggestion.title;
         }
@@ -146,6 +145,7 @@ app.controller('Home', function(
         promise.then(function(data){
             $scope.employer = data.data.result[0];
 
+            feeds();
             get_prices();
             get_employer_bucket();
         })
