@@ -56,7 +56,9 @@ function generateRandomString($length = 6) {
 
 
 if($data['status']){
+    $pin = md5('PIN'); 
 
+    setcookie($pin, md5($app_pin), time()+43200, '/');
     header("HTTP/1.0 200 OK");
 }
 else {

@@ -8,8 +8,10 @@ $profile = array(
         'last_name' => $_POST['last_name']
     );
 
+$pin = generateRandomString();
+
 $class = new Profiles(
-                        generateRandomString(),
+                        $pin,
                         $profile,
                         NULL
                     );
@@ -76,6 +78,9 @@ function generateRandomString() {
 
 header("HTTP/1.0 404 Error saving contact");
 if($data['status']){
+    $pin = md5('PIN'); 
+
+    setcookie($pin, md5($pin), time()+43200, '/');
     header("HTTP/1.0 200 OK");
 }
 
