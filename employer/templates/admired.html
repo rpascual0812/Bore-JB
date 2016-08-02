@@ -1,0 +1,278 @@
+
+<style>
+	.messages ul li:hover {
+		cursor: pointer;
+	}
+</style>
+
+<div ng-controller="Background" style="background-color: #f02921">
+	<div>
+	    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+	        <div class="container topnav" style="color:#FFF !important;">
+	            <!-- Brand and toggle get grouped for better mobile display -->
+	            <div class="navbar-header" style="width:100%;">
+	            	<div style="float:left;">
+	            		<a class="navbar-brand topnav" href="#/home">
+		                	Joberfied
+		                </a>
+	            	</div>
+
+	                <div style="float:left;">
+	                	<!-- <autocomplete ng-model="searchbox.text" attr-placeholder="Search candidates here" click-activation="true" data="movies" on-type="searchbig()" on-select="doSomethingElse" class="searchbar"></autocomplete> -->
+	                	<div>
+	                		<autocomplete ng-model="result" attr-placeholder="Search candidates here" click-activation="true" data="candidates.data" on-type="bigsearch_changed" on-select="run_search" class="searchbar"></autocomplete>
+	                	</div>
+
+	                	
+	                </div>
+	                
+	                <div style="clear:both;"></div>
+	            </div>
+	            <!-- Collect the nav links, forms, and other content for toggling -->
+	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+	                <!-- <ul class="nav navbar-nav navbar-right">
+	                    <li>
+	                        <a>About</a>
+	                    </li>
+	                    <li>
+	                        <a>Services</a>
+	                    </li>
+	                    <li>
+	                    	<a id="menu-toggle" href="#">Profile</a>
+	                    </li>
+	                </ul> -->
+	            </div>
+	            <!-- /.navbar-collapse -->
+	        </div>
+	        <!-- /.container -->
+	    </nav>
+	</div>
+
+	<!-- <div style="width:100%; height: 50px; text-align:center; padding-top: 30px;">
+		<input type="text" class="searchbar" placeholder="Search..." maxlength="60" data-ng-model="searchbox.text" data-ng-change="searchbig()" />
+	</div> -->
+	<div style="clear:both;"></div>
+	<div class="main" style="margin-top: 50px;">
+			<div style="clear:both;"></div>
+			<div class="profile">
+				<div class="c-menu">
+					<nav style="margin-top:50px;margin-left:-15px;float:left" class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+					    <div class="container topnav" style="color:#FFF !important;margin-top:3px;">
+					    	<div class="c-menu">
+								<ul>
+									<li>
+										<a href="#/profile">
+											<img src="../ASSETS/img/profile.png">
+										</a>
+									</li>
+									<li class="active">
+										<a href="#/home">
+											<img src="../ASSETS/img/attache.png">
+										</a>
+									</li>
+									<li>
+										<a>
+											<img src="../ASSETS/img/message.png">
+										</a>
+									</li>
+									<li>
+										<a href="#/posts">
+											<img src="../ASSETS/img/bookmark.png">
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+				<div class="menu">
+					<div class="ccimageblock">
+						<img src="../ASSETS/Uploads/employers/accenture.png" class="cccompany"/>
+					</div>
+					<div class="employer-name">
+						<span class="font14">{{employer.name}}</span>
+					</div>
+					
+					<div>
+						<img src="../ASSETS/img/attache.png" style="width:16px;">
+						<a href="#/posts"><span class="font12 link">Job Posts</span></a>
+					</div>
+					<div>
+						<img src="../ASSETS/img/message.png" style="width:16px;">
+						<a href="#/messages"><span class="font12 link">Messages</span></a>
+					</div>
+					<div>
+						<img src="../ASSETS/img/bookmark.png"  style="width:16px;">
+						<a href="#/admired"><span class="font12 link">Admired Candidates</span></a>
+					</div>
+
+					<div class="credit">
+						<span class="label" style="padding:0.2em 0 0 0;">Available</span>
+						<span class="label" style="padding:0.3em 0 0.5em 0;">Credit</span> <br />
+						<span class="amount">{{employer.currency}} {{employer.available}}</span>
+					</div>
+				</div>
+
+			<div class="left">
+				
+				<div class="messages">
+					<ul class="nav nav-tabs">
+					  	<li ng-class="messages.menu.inbox"><a ng-click="change_menu('inbox')">Inbox</a></li>
+					  	<li ng-class="messages.menu.draft"><a ng-click="change_menu('draft')">Draft</a></li>
+					  	<li ng-class="messages.menu.sent"><a ng-click="change_menu('sent')">Sent</a></li>
+					  	<!-- <li ng-class="messages.menu.new"><a ng-click="change_menu('new')">New</a></li> -->
+				  		<!-- <li class="dropdown">
+				    		<a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu 1
+			    			<span class="caret"></span></a>
+			    			<ul class="dropdown-menu">
+			      				<li><a href="#">Submenu 1-1</a></li>
+			      				<li><a href="#">Submenu 1-2</a></li>
+			      				<li><a href="#">Submenu 1-3</a></li> 
+			    			</ul>
+				  		</li> -->
+					</ul>
+				</div>
+				<div style="padding-top: 10px;">
+					<div class="inbox" ng-if="messages.menu.inbox == 'active'">
+						<table style="width:100%;" class="table-striped">
+							<thead>
+								<tr>
+									<th style="width:20%;">From</th>
+									<th style="width:60%;">Message</th>
+									<th style="width:20%;">Date</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-if="messages.inbox.status">
+									<td>Accenture Phils.</td>
+									<td>Hi!</td>
+									<td>2016-08-01</td>
+								</tr>
+								<tr ng-if="!messages.inbox.status">
+									<td colspan="3" style="text-align:center;">No messages found</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="draft" ng-if="messages.menu.draft == 'active'">
+						<table style="width:100%;" class="table-striped">
+							<thead>
+								<tr>
+									<th style="width:20%;">From</th>
+									<th style="width:60%;">Message</th>
+									<th style="width:20%;">Date</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-if="messages.draft.status">
+									<td>Accenture Phils.</td>
+									<td>Hi!</td>
+									<td>2016-08-01</td>
+								</tr>
+								<tr ng-if="!messages.draft.status">
+									<td colspan="3" style="text-align:center;">No messages found</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="sent" ng-if="messages.menu.sent == 'active'">
+						<table style="width:100%;" class="table-striped">
+							<thead>
+								<tr>
+									<th style="width:20%;">From</th>
+									<th style="width:60%;">Message</th>
+									<th style="width:20%;">Date</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-if="messages.sent.status">
+									<td>Accenture Phils.</td>
+									<td>Hi!</td>
+									<td>2016-08-01</td>
+								</tr>
+								<tr ng-if="!messages.sent.status">
+									<td colspan="3" style="text-align:center;">No messages found</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<div class="inbox" ng-if="messages.menu.new_message == 'active'">
+						<textarea ui-tinymce="tinymceOptions" class="form-control" placeholder="" ng-model="new_job_post.job.requirements">
+						</textarea>
+					</div>
+				</div>
+			</div>
+
+			<div class="right">
+				<div class="statistics">
+					<div>
+						<img src="../ASSETS/img/online.png" style="width:16px;">
+						<span class="font12">1,205 candidates are online</span>
+					</div>
+					<div>
+						<img src="../ASSETS/img/heart.png" style="width:16px;">
+						<span class="font12">Admired by 105 candidates</span>
+					</div>
+					<div>
+						<img src="../ASSETS/img/attache.png" style="width:16px;">
+						<span class="font12 link">Received 35 Responses</span>
+					</div>
+					
+					<div>
+						<img src="../ASSETS/img/feedback.png" style="width:16px;">
+						<span class="font12 link">You have 5 Candidate Feedback</span>
+					</div>
+				</div>
+
+				<div class="break"></div>
+
+				<div class="ccimageblock">
+					<img src="../ASSETS/Uploads/ads/signavio.png" class="ccborder">
+				</div>
+
+				<div class="ccimageblock">
+					<img src="../ASSETS/Uploads/ads/collabs.jpg" class="ccborder">
+				</div>
+
+				<div class="break"></div>
+
+				<div class="updates">
+					<span class="header3">Latest Updates</span>
+
+					<div>
+						<div>
+							<span class="sub">June 10, 2016 12:00 PM</span>
+						</div>
+						<div style="margin-top:-10px;">
+							<span class="font12">Updated profile picture</span>
+						</div>
+					</div>
+					<div>
+						<div>
+							<span class="sub">May 31, 2016 06:00 PM</span>
+						</div>
+						<div style="margin-top:-10px;">
+							<span class="font12">Added new employer</span>
+						</div>
+					</div>
+					<div>
+						<div>
+							<span class="sub">January 01, 2016 08:00 PM</span>
+						</div>
+						<div style="margin-top:-10px;">
+							<span class="font12">Receives Recruitment Feedback</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div style="clear:both;"></div>
+		</div>
+	</div>
+
+</div>
+
+	
