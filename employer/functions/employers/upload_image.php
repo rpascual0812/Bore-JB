@@ -2,8 +2,7 @@
 
 // Check if the form has been submitted:
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	print_r("yo");
-	print_r($_FILES);
+	
 	// Check for an uploaded file:
 	if (isset($_FILES['file'])) {
 		print_r("asd");
@@ -12,8 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		if (in_array($_FILES['file']['type'], $allowed)) {
 		
 			// Move the file over.
-			if (move_uploaded_file ($_FILES['file']['tmp_name'], "{../../../ASSETS/Uploads/ads/$_FILES['file']['name']}")) {
-				print_r("asf");
+			if (move_uploaded_file ($_FILES['file']['tmp_name'], "../../../ASSETS/Uploads/ads/".$_FILES['file']['name'])) {
+				
 				print_r('<p><em>The file has been uploaded!</em></p>');
 			} // End of move... IF.
 			

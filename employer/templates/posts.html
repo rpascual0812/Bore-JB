@@ -169,61 +169,21 @@ form .progress {
 										</tr>
 										<tr>
 											<td style="padding-top: 15px;">
-<<<<<<< Updated upstream
-												<!-- <div class="custom-file-upload">
-												    <input type="file" id="file" name="myfiles[]" multiple />
-												</div> -->
 
-												<div class="myfileupload">
-=======
 			                                    <div class="myfileupload">
-			                                    <form enctype="multipart/form-data">
-				                                    <div class="fileleft">
-				                                    	<input type="file" id="picnic" name="upload" ng-model="upload"/>
-				                                    	<input type="hidden" name="MAX_FILE_SIZE" value="524288" />
-			                                    	</div>
-			                                    	<div class="fileright">
-				                                            <input type="submit" class="btn btn-info" value="UPLOAD" ng-click="upload_pic(upload)"/>
-			                                        </div>
-		                                        </form>
+				                                    <form enctype="multipart/form-data">
+					                                    <div class="fileleft">
+					                                    	<input type="file" id="picnic" name="upload" ng-model="upload"/>
+					                                    	<input type="hidden" name="MAX_FILE_SIZE" value="524288" />
+				                                    	</div>
+				                                    	<div class="fileright">
+					                                            <input type="submit" class="btn btn-info" value="UPLOAD" ng-click="upload_pic(upload)"/>
+				                                        </div>
+			                                        </form>
 		                                        </div>
-												<!-- <div class="myfileupload">
->>>>>>> Stashed changes
-			                                        <div class="fileleft">
-			                                            <input type="file" 
-			                                                ngf-select 
-			                                                ng-model="picFile" 
-			                                                name="file"
-			                                                ngf-pattern="'.pdf,.jpg,.doc,.docx,.odt'"
-			                                                ngf-max-size="10MB" 
-			                                                required
-			                                                ngf-model-invalid="errorFiles"
-			                                            >
-			                                            <i ng-show="myForm.file.$error.maxSize">File too large 
-<<<<<<< Updated upstream
-			                                                {{errorFiles[0].size / 10000000|number:1}}MB: max 10M</i>
-			                                            
-=======
-			                                                {{errorFiles[0].size / 1000000|number:1}}MB: max 10M</i>
->>>>>>> Stashed changes
-			                                        </div>
-			                                        <div class="fileright">
-			                                            <input type="button" class="btn btn-info" value="UPLOAD" ng-click="uploadPic(picFile)" />
-			                                            <span ng-show="picFile.result">Upload Successful</span>
-			                                            <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
-			                                        </div>
-<<<<<<< Updated upstream
-			                                    </div>
-			                                    <form enctype="multipart/form-data" action="functions/employers/upload_image.php" method="post">
+												
 			                                    
-			                                    <input type="hidden" name="MAX_FILE_SIZE" value="524288" />
-			                                    
-			                                    <b>File:</b> <input type="file" name="upload" />
-			                                    
-			                                    <input type="submit" name="submit" value="Upload" />
-=======
-			                                    </div> -->
->>>>>>> Stashed changes
+
 											</td>
 										</tr>
 										<tr>

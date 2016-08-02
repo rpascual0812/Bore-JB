@@ -41,6 +41,7 @@ SELECT pin, profiles, tsv FROM (
 --update profiles set profile=jsonb_set(profile, '{statuses_pk}', '3', true) where pin in ('1234-JJ','1235-JJ');
 
 
-UPDATE profiles SET tsv = setweight(to_tsvector(coalesce(profile->>'skills','')), 'A') || setweight(to_tsvector(coalesce(pin,'')), 'B') || setweight(to_tsvector(coalesce(profile->>'status','')), 'C')  || setweight(to_tsvector(coalesce(profile->'personal'->>'city','')), 'D');
+-- UPDATE profiles SET tsv = setweight(to_tsvector(coalesce(profile->>'skills','')), 'A') || setweight(to_tsvector(coalesce(pin,'')), 'B') || setweight(to_tsvector(coalesce(profile->>'status','')), 'C')  || setweight(to_tsvector(coalesce(profile->'personal'->>'city','')), 'D');
 
-update profiles set profile=jsonb_set(profile, '{personal}', '{"first_name" : "Rafael", "last_name" : "Pascual", "city" : "Pasig City"}', true) where pin in ('1235-JJ');
+-- update profiles set profile=jsonb_set(profile, '{personal}', '{"first_name" : "Rafael", "last_name" : "Pascual", "city" : "Pasig City"}', true) where pin in ('1235-JJ');
+-- update profiles set profile=jsonb_set(profile, '{skills}', '["PHP", "Angular JS", "PostgreSQL"]', true) where pin in ('1235-JJ');

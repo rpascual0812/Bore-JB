@@ -308,7 +308,7 @@ app.controller('Posts', function(
             contentType: false,
             processData: false,
             success: function(php_script_response){
-                alert(php_script_response);
+                //alert(php_script_response);
             }
         });
     }
