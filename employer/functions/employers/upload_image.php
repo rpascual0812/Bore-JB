@@ -2,16 +2,18 @@
 
 // Check if the form has been submitted:
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	print_r("yo");
 	print_r($_FILES);
 	// Check for an uploaded file:
-	if (isset($_FILES['upload'])) {
-		
+	if (isset($_FILES['file'])) {
+		print_r("asd");
 		// Validate the type. Should be JPEG or PNG.
 		$allowed = array ('image/pjpeg', 'image/jpeg', 'image/JPG', 'image/X-PNG', 'image/PNG', 'image/png', 'image/x-png');
-		if (in_array($_FILES['upload']['type'], $allowed)) {
+		if (in_array($_FILES['file']['type'], $allowed)) {
 		
 			// Move the file over.
-			if (move_uploaded_file ($_FILES['upload']['tmp_name'], "../../../ASSETS/Uploads/ads/{$_FILES['upload']['name']}")) {
+			if (move_uploaded_file ($_FILES['file']['tmp_name'], "{../../../ASSETS/Uploads/ads/$_FILES['file']['name']}")) {
+				print_r("asf");
 				print_r('<p><em>The file has been uploaded!</em></p>');
 			} // End of move... IF.
 			
@@ -19,14 +21,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			print_r('<p class="error">Please upload a JPEG or PNG image.</p>');
 		}
 
-	} // End of isset($_FILES['upload']) IF.
+	} // End of isset($_FILES['file']) IF.
 	
 	// Check for an error:
-	if ($_FILES['upload']['error'] > 0) {
+	if ($_FILES['file']['error'] > 0) {
 		print_r('<p class="error">The file could not be uploaded because: <strong>');
 	
 		// Print a message based upon the error.
-		switch ($_FILES['upload']['error']) {
+		switch ($_FILES['file']['error']) {
 			case 1:
 				print 'The file exceeds the upload_max_filesize setting in php.ini.';
 				break;
@@ -58,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	} // End of error IF.
 	
 	// Delete the file if it still exists:
-	if (file_exists ($_FILES['upload']['tmp_name']) && is_file($_FILES['upload']['tmp_name']) ) {
+	if (file_exists ($_FILES['file']['tmp_name']) && is_file($_FILES['upload']['tmp_name']) ) {
 		unlink ($_FILES['upload']['tmp_name']);
 	}
 			

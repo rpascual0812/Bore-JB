@@ -84,6 +84,19 @@ app.controller('Posts', function(
 
     $scope.picFile = {};
 
+    var currentDate = new Date();
+    var postDate = currentDate;
+    
+    postDate.setMonth(postDate.getMonth() + 1);
+
+    $scope.currentDate = currentDate.getFullYear() + "-" + zerofy(currentDate.getMonth()) + "-" + zerofy(currentDate.getDate());
+    $scope.postDate = postDate.getFullYear() + "-" + zerofy(postDate.getMonth()+1) + "-" + zerofy(postDate.getDate());
+
+    $scope.comm_val = {
+        money : true,
+        points : false
+    };
+
     /*
     toolbar: "bold italic underline strikethrough| undo redo",//" | cut copy paste | styleselect print forecolor backcolor",
     toolbar1: "bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect",
@@ -214,6 +227,16 @@ app.controller('Posts', function(
         });
     }
 
+    function zerofy(num) {
+        var str = num.toString();
+
+        if (num>=1 && num<=9) {
+            str = "0" + str;
+        }
+
+        return str;
+    }
+
     $scope.navigate_ads = function(type){
         for(var i in $scope.newad){
             $scope.newad[i] = false;
@@ -267,21 +290,30 @@ app.controller('Posts', function(
 
     }
 
-    var currentDate = new Date();
-    var postDate = currentDate;
-    
-    postDate.setMonth(postDate.getMonth() + 1);
-
-    $scope.currentDate = currentDate.getFullYear() + "-" + zerofy(currentDate.getMonth()) + "-" + zerofy(currentDate.getDate());
-    $scope.postDate = postDate.getFullYear() + "-" + zerofy(postDate.getMonth()+1) + "-" + zerofy(postDate.getDate());
-
-    function zerofy(num) {
-        var str = num.toString();
-        if (num>=1 && num<=9) {
-            str = "0" + str;
-        }
-
-        return str;
+    $scope.nav_select = function(){
+        $scope.comm_val.money = !$scope.comm_val.money;
+        $scope.comm_val.points = !$scope.comm_val.points;
     }
     
+    $scope.upload_pic = function(file){
+        var file_data = $('#picnic').prop('files')[0];   
+        var form_data = new FormData();
+        form_data.append('file', file_data);
+        $.ajax({
+            type : "POST",
+            url: "./functions/employers/upload_image.php",
+            //dataType: 'text',
+            data : form_data,//{file:file},
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function(php_script_response){
+                alert(php_script_response);
+            }
+        });
+    }
+
+
+
+
 });
