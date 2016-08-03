@@ -2,60 +2,73 @@
 
 // Check if the form has been submitted:
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	
+
+	$return = array();
 	// Check for an uploaded file:
 	if (isset($_FILES['file'])) {
-		print_r("asd");
+		
 		// Validate the type. Should be JPEG or PNG.
 		$allowed = array ('image/pjpeg', 'image/jpeg', 'image/JPG', 'image/X-PNG', 'image/PNG', 'image/png', 'image/x-png');
 		if (in_array($_FILES['file']['type'], $allowed)) {
 		
 			// Move the file over.
-			if (move_uploaded_file ($_FILES['file']['tmp_name'], "../../../ASSETS/Uploads/ads/".$_FILES['file']['name'])) {
-				
-				print_r('<p><em>The file has been uploaded!</em></p>');
+			if (move_uploaded_file ($_FILES['file']['tmp_name'], "../../../ASSETS/TMP/ads/".$_FILES['file']['name'])) {
+				$return = array( 'status' => true, 'message' => 'File transfer completed', 'file' => $_FILES['file']['tmp_name'], "../../../ASSETS/TMP/ads/".$_FILES['file']['name']);	
+
+				header("HTTP/1.0 200 OK");
+				header('Content-Type: application/json');
+				$return = json_encode($return);
+				print($return);
 			} // End of move... IF.
 			
 		} else { // Invalid type.
-			print_r('<p class="error">Please upload a JPEG or PNG image.</p>');
+			$return = array( 'status' => false, 'message' => 'Please upload a JPEG or PNG image.');	
+			
+			header("HTTP/1.0 404 Error uploading file");
+			header('Content-Type: application/json');
+			$return = json_encode($return);
+			print($return);
 		}
 
 	} // End of isset($_FILES['file']) IF.
 	
 	// Check for an error:
 	if ($_FILES['file']['error'] > 0) {
-		print_r('<p class="error">The file could not be uploaded because: <strong>');
+		$error = 'The file could not be uploaded because: ';
 	
 		// Print a message based upon the error.
 		switch ($_FILES['file']['error']) {
 			case 1:
-				print 'The file exceeds the upload_max_filesize setting in php.ini.';
+				$error .= 'The file exceeds the upload_max_filesize setting in php.ini.';
 				break;
 			case 2:
-				print 'The file exceeds the MAX_FILE_SIZE setting in the HTML form.';
+				$error .= 'The file exceeds the MAX_FILE_SIZE setting in the HTML form.';
 				break;
 			case 3:
-				print 'The file was only partially uploaded.';
+				$error .= 'The file was only partially uploaded.';
 				break;
 			case 4:
-				print 'No file was uploaded.';
+				$error .= 'No file was uploaded.';
 				break;
 			case 6:
-				print 'No temporary folder was available.';
+				$error .= 'No temporary folder was available.';
 				break;
 			case 7:
-				print 'Unable to write to the disk.';
+				$error .= 'Unable to write to the disk.';
 				break;
 			case 8:
-				print 'File upload stopped.';
+				$error .= 'File upload stopped.';
 				break;
 			default:
-				print 'A system error occurred.';
+				$error .= 'A system error occurred.';
 				break;
 		} // End of switch.
-		
-		print '</strong></p>';
-	
+		$return = array( 'status' => false, 'message' => $error);
+			
+		header("HTTP/1.0 404 Error uploading file");
+		header('Content-Type: application/json');
+		$return = json_encode($return);
+		print($return);
 	} // End of error IF.
 	
 	// Delete the file if it still exists:

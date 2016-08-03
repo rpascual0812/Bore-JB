@@ -25,6 +25,7 @@ app.controller('Posts', function(
     //FORMS
     $scope.new_job_post = {};
     $scope.new_job_post.ad = {};
+    $scope.new_job_post.ad.commission_type = "monetary";
     $scope.new_job_post.video = {};
     $scope.new_job_post.job = {};
 
