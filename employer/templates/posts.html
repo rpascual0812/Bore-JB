@@ -199,13 +199,38 @@ form .progress {
 										</tr>
 										<tr>
 											<td>
-											<br>
-											<h5>Commission Type</h5>
-												<select ng-model="new_job_post.ad.commission_type" ng-change="nav_select()">
+												<h5>Commission Type</h5>
+												<!-- <select ng-model="new_job_post.ad.commission_type" ng-change="nav_select()">
 													<option value="monetary">Monetary</option>
 													<option value="points">Points</option>
-												</select>
-											<h6>Value:</h6>
+												</select> -->
+
+												<ul class="ca-menu">
+									                <li id="li-integrity">
+									                    <a onclick="open_tool('integrity')">
+									                        <span class="ca-icon">
+									                        	<img src="../ASSETS/img/money.png" />
+									                        </span>
+									                        <div class="ca-content">
+									                            <h2 class="ca-main">Monetary</h2>
+									                        </div>
+									                    </a>
+									                </li>
+									                <li>
+									                    <a onclick="open_tool('cats')">
+									                        <span class="ca-icon">
+									                        	<img src="../ASSETS/img/star.png" />
+									                        </span>
+									                        <div class="ca-content">
+									                            <h2 class="ca-main">Points</h2>
+									                        </div>
+									                    </a>
+									                </li>
+									            </ul>
+									        </td>
+									    </tr>
+									    <tr>
+											<td>
 												<div ng-show="comm_val.money">
 													<select ng-model="new_job_post.ad.commission_value">
 														<option value="1000">1,000</option>
