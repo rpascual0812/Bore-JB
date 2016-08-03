@@ -190,10 +190,12 @@ form .progress {
 											<td>
 											<br>
 											<h5>Effectivity of Job Post</h5>
-												<input type="date" min="{{currentDate}}" value="{{currentDate}}"
+												<input class="form-control effectivity" style="width:46%;float:left" type="date" min="{{currentDate}}" value="{{currentDate}}"
 												ng-model="new_job_post.ad.effectDate1"/>
-												 to 
-												<input type="date" min="{{postDate}}" value="{{postDate}}"
+												<div style="float:left;width:8%;text-align:center;">
+													<span> to </span>
+												</div>
+												<input class="form-control effectivity" style="width:46%;float:left" type="date" min="{{postDate}}" value="{{postDate}}"
 												ng-model="new_job_post.ad.effectDate2"/>
 											</td>
 										</tr>
@@ -206,7 +208,7 @@ form .progress {
 												</select> -->
 
 												<ul class="ca-menu">
-									                <li id="li-integrity">
+									                <li id="li-integrity" style="display:block;margin:0 auto 0 -40px;width:40%">
 									                    <a onclick="open_tool('integrity')">
 									                        <span class="ca-icon">
 									                        	<img src="../ASSETS/img/money.png" />
@@ -216,7 +218,7 @@ form .progress {
 									                        </div>
 									                    </a>
 									                </li>
-									                <li>
+									                <li style="display:block;margin:0 0 0 8px;width:40%">
 									                    <a onclick="open_tool('cats')">
 									                        <span class="ca-icon">
 									                        	<img src="../ASSETS/img/star.png" />
@@ -231,8 +233,9 @@ form .progress {
 									    </tr>
 									    <tr>
 											<td>
+											<h5>Value:</h5>
 												<div ng-show="comm_val.money">
-													<select ng-model="new_job_post.ad.commission_value">
+													<select class="comval" ng-model="new_job_post.ad.commission_value">
 														<option value="1000">1,000</option>
 														<option value="2000">2,000</option>
 														<option value="3000">3,000</option>
@@ -245,7 +248,7 @@ form .progress {
 														<option value="10000">10,000</option>
 													</select>
 												</div>
-												<div ng-show="comm_val.points">
+												<div class="comval" ng-show="comm_val.points">
 													<select ng-model="new_job_post.ad.commission_value">
 														<option value="500">500</option>
 														<option value="1000">1,000</option>
@@ -294,7 +297,7 @@ form .progress {
 										</tr>
 										<tr>
 											<td style="padding-top: 15px;">
-												<input type="url" class="form-control" placeholder="Link"
+												<input type="url" class="form-control" style="border-radius:0px" placeholder="Link"
 												ng-model="new_job_post.video.link" required/>
 											</td>
 										</tr>
@@ -302,24 +305,25 @@ form .progress {
 											<td>
 											<br>
 											<h5>Effectivity of Job Post</h5>
-												<input type="date" min="{{currentDate}}" value="{{currentDate}}"
+												<input class="form-control effectivity" style="width:46%;float:left" type="date" min="{{currentDate}}" value="{{currentDate}}"
 												ng-model="new_job_post.ad.effectDate1"/>
-												 to 
-												<input type="date" min="{{postDate}}" value="{{postDate}}"
+												<div style="float:left;width:8%;text-align:center;">
+													<span> to </span>
+												</div>
+												<input class="form-control effectivity" style="width:46%;float:left" type="date" min="{{postDate}}" value="{{postDate}}"
 												ng-model="new_job_post.ad.effectDate2"/>
 											</td>
 										</tr>
 										<tr>
 											<td>
-											<br>
 											<h5>Commission Type</h5>
-												<select ng-model="new_job_post.ad.commission.type" ng-change="nav_select()">
+												<select class="comval"  ng-model="new_job_post.ad.commission.type" ng-change="nav_select()">
 													<option value="monetary" selected>Monetary</option>
 													<option value="points">Points</option>
 												</select>
-											<h6>Value:</h6>
+											<h5>Value:</h5>
 												<div ng-show="comm_val.money">
-													<select ng-model="new_job_post.ad.commission.value">
+													<select class="comval" ng-model="new_job_post.ad.commission.value">
 														<option value="500">500</option>
 														<option value="1000">1000</option>
 														<option value="2000">2000</option>
@@ -329,7 +333,7 @@ form .progress {
 													</select>
 												</div>
 												<div ng-show="comm_val.points">
-													<select ng-model="new_job_post.ad.commission.value">
+													<select class="comval" ng-model="new_job_post.ad.commission.value">
 														<option value="100">100</option>
 														<option value="200">200</option>
 														<option value="300">300</option>
@@ -376,28 +380,30 @@ form .progress {
 											</tags-input>
 										</div>
 										<div style="padding-top: 15px;">
-											<input type="text" class="form-control" placeholder="Years of Experience" 
+											<input type="text" class="form-control" style="border-radius:0px" placeholder="Years of Experience" 
 											ng-model="new_job_post.job.years_experience"/>
 										</div>
 										<div style="padding-top: 15px;">
 											<h5>Effectivity of Job Post</h5>
-												<input type="date" min="{{currentDate}}" value="{{currentDate}}"
+												<input class="form-control effectivity" style="width:46%;float:left" type="date" min="{{currentDate}}" value="{{currentDate}}"
 												ng-model="new_job_post.ad.effectDate1"/>
-												 to 
-												<input type="date" min="{{postDate}}" value="{{postDate}}"
+												<div style="float:left;width:8%;text-align:center;">
+													<span> to </span>
+												</div>
+												<input class="form-control effectivity" style="width:46%;float:left" type="date" min="{{postDate}}" value="{{postDate}}"
 												ng-model="new_job_post.ad.effectDate2"/>
 										</div>
-										<div style="padding-top: 15px;">
+										<div style="padding-top: 40px;">
 											<h5>Commission Type</h5>
-											<select ng-model="new_job_post.ad.commission.type" ng-change="nav_select()">
+											<select class="comval" ng-model="new_job_post.ad.commission.type" ng-change="nav_select()">
 												<option value="monetary" selected>Monetary</option>
 												<option value="points">Points</option>
 											</select>
 										</div>
-										<div style="padding-top: 15px;">
-											<h6>Value:</h6>
+										<div style="padding-top: 0px;">
+											<h5>Value:</h5>
 											<div ng-show="comm_val.money">
-												<select ng-model="new_job_post.ad.commission.value">
+												<select class="comval" ng-model="new_job_post.ad.commission.value">
 													<option value="500">500</option>
 													<option value="1000">1000</option>
 													<option value="2000">2000</option>
@@ -407,7 +413,7 @@ form .progress {
 												</select>
 											</div>
 											<div ng-show="comm_val.points">
-												<select ng-model="new_job_post.ad.commission.value">
+												<select class="comval" ng-model="new_job_post.ad.commission.value">
 													<option value="100">100</option>
 													<option value="200">200</option>
 													<option value="300">300</option>

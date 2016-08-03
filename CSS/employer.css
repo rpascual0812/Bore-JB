@@ -1193,6 +1193,14 @@ body {
 	float:none;
 	width:100%;
 }
+.effectivity{
+	font-size:11px;
+}
+.comval{
+	width:100%;
+	height:2em;
+}
+
 @media(min-width: 376px){
 	.postbutton{
 		width:120px;
@@ -1200,6 +1208,9 @@ body {
 		background-color:#f02921;
 		border:2px solid #f02921;
 		font-size: 15px;
+	}
+	.effectivity{
+		font-size:16px;
 	}
 }
 @media(min-width: 425px){
@@ -1211,17 +1222,24 @@ body {
 		width:32%;
 	}
 }
+@media(min-width: 500px){
+	.comval{
+		width:46%;
+	}
+	
+}
 @media(min-width: 768px){
 	.filloutform{
 		width:90%;
 	}
 	.postbutton{
 		width:150px;
-		margin:0 -10px 0 auto;
+		margin:0 -20px 0 auto;
 		background-color:#f02921;
 		border:2px solid #f02921;
 		font-size: 15px;
 	}
+	
 }
 /*RIGHT SIDE*/
 
