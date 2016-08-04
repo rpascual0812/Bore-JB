@@ -8,7 +8,7 @@
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-}
+} 
 
 html,
 body {
@@ -268,7 +268,7 @@ select {
 		padding: 1.14rem;
 	}
 
-}
+} 
 
 input.text:focus {
 	border-color: #dfe0e1;
@@ -502,7 +502,7 @@ input.text:focus {
 	font-size: 14px;
 	letter-spacing: -0.035em;
 	background: #fff;
-	color: #2a2a2a;
+	
 	cursor: pointer;
 	padding: 17px 20px;
 	position: relative;
@@ -511,7 +511,7 @@ input.text:focus {
 }
 
 .btn:hover {
-	color: #42A5F5;
+
 }
 
 @media ( min-width: 768px ) {
@@ -929,7 +929,7 @@ input.text:focus {
 	background-color: #5c6164;
 	background-repeat: no-repeat;
 	background-size: cover;
-	color: #fff;
+	
 	height: 100%;
 	padding: 0;
 	border: 0;

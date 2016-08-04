@@ -1,0 +1,702 @@
+body{ 
+  font-family: "Gotham", "Lato", Helvetica, Arial, sans-serif;
+} 
+ 
+.quotes {
+    font-family: "Quotes", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 100;
+     font-size:17px; 
+} 
+.cont{
+  position:absolute;
+  margin:-37% 0 0 0;
+  width:50%;
+}
+ .leftcont{
+  width:100%;
+  position:absolute;
+
+}
+
+.hdr1{
+  padding-left:12%;
+  width:100%;
+  color:white;
+  font-size:100px;
+}
+.hdr2{
+  margin: -5% 0 0 0;
+  font-size:47px;
+  color:white;width: 100%;
+  padding-left:12% ;
+}
+
+.btnSeeker {
+  position: absolute;
+  margin:2% 0 0 16%;z-index: 1;
+  height:55px;width: 250px;padding:15px;
+  color: white;text-align: center;
+  border: 1px solid white;
+  cursor: pointer;
+} 
+.btnSeeker:hover {
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  background-color: #6A1616;
+} 
+.btnEmployer{
+  position: absolute;
+  margin:2% 0 0 57%;z-index: 1;
+  height:55px;width: 250px;padding:15px;
+  color: white;text-align: center;
+  border: 1px solid white;
+  cursor: pointer;
+} 
+.btnEmployer:hover {
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  background-color: #6A1616;
+} 
+
+
+.txt1{ 
+  margin: 15% 0 0 21%;
+  color:white;
+  font-size:17px;
+  
+}
+.txt2{
+  margin:-1% 0 0 37%;
+  color:white;
+  font-size:17px;
+
+}
+.txt3{
+  margin: 1% 0 0 70%;
+  color:white;
+  font-size:17px;
+
+}
+ 
+.imgseagull{
+  height:45%;
+  width:28%;
+  margin:-4% 0 0 53.8%;
+  z-index:1;
+  position:absolute;
+}
+@media (min-width:320px){
+  .cont{
+    position:absolute;
+    margin:-130% 0 0 0;
+    width:100%;
+  }
+ .leftcont{
+   width:100%;
+   position:absolute;
+  }
+  .hdr1{
+   padding-left:10%;
+   width:100%;
+   font-size:46px;  
+  }
+  .hdr2{
+    margin: -3% 0 0 0;
+    font-size:22px;
+    width: 100%;
+    padding-left:10% ;
+  }
+  .btnSeeker {
+    margin:2% 0 0 9%;
+    height:45px;
+    width: 125px;
+  } 
+ .btnEmployer{
+    margin:2% 0 0 53%;
+    height:45px;
+    width: 125px;
+  } 
+  .txt1{ 
+    margin: 20% 0 0 12%;
+    color: white;
+    font-size:10px;
+  }
+  .txt2{
+    margin:-1% 0 0 32%;
+    font-size:10px;
+  }
+  .txt3{
+    margin: 1% 0 0 70%;
+    font-size:10px;
+  }
+  .imgseagull{
+    height:40%;
+    width:27%;
+    margin:-4% 0 0 53.8%;
+  }
+
+
+
+}
+@media (min-width:375px){
+
+
+.cont{
+    position:absolute;
+    margin:-120% 0 0 0;
+    width:100%;
+  }
+ .leftcont{
+    width:100%;
+    position:absolute;
+  }
+  .hdr1{
+    padding-left:10%;
+    width:100%;
+    font-size:53px;  
+  }
+  .hdr2{
+    margin: -3% 0 0 0;
+    font-size:25px;
+    width: 100%;
+    padding-left:10% ;
+  }
+  .btnSeeker {
+    margin:2% 0 0 11%;
+    height:45px;
+    width: 148px;
+  } 
+ .btnEmployer{
+    margin:2% 0 0 53%;
+    height:45px;
+    width: 148px;
+  } 
+  .txt1{ 
+    margin: 18% 0 0 12%;
+    color: white;
+    font-size:11px;
+  }
+  .txt2{
+     margin:-1% 0 0 32%;
+     font-size:11px;
+  }
+  .txt3{
+    margin: 1% 0 0 70%;
+    font-size:13px;
+  }
+  .imgseagull{
+    height:40%;
+    width:27%;
+    margin:-4% 0 0 53.8%;
+  }
+
+
+}
+@media (min-width:425px){
+
+
+.cont{
+    position:absolute;
+    margin:-100% 0 0 0;
+    width:100%;
+  }
+ .leftcont{
+    width:100%;
+    position:absolute;
+  }
+  .hdr1{
+    padding-left:10%;
+    width:100%;
+    font-size:60px;  
+  }
+  .hdr2{
+    margin: -3% 0 0 0;
+    font-size:28px;
+    width: 100%;
+    padding-left:10% ;
+  }
+  .btnSeeker {
+    margin:2% 0 0 11%;
+    height:45px;
+    width: 167px;
+  } 
+ .btnEmployer{
+    margin:2% 0 0 53%;
+    height:45px;
+    width: 167px;
+  } 
+  .txt1{ 
+    margin: 15% 0 0 12%;
+    color: white;
+    font-size:13px;
+  }
+  .txt2{
+    margin:-1% 0 0 32%;
+    font-size:13px;
+  }
+  .txt3{
+    margin: 1% 0 0 70%;
+    font-size:13px;
+  }
+  .imgseagull{
+    height:40%;
+    width:23%;
+    margin:-4% 0 0 53.8%;
+  }
+}
+  
+
+@media(min-width:500px){
+ .cont{
+    position:absolute;
+    margin:-80% 0 0 0;
+    width:100%;
+  }
+ .leftcont{
+    width:100%;
+    position:absolute;
+  }
+  .hdr1{
+    padding-left:10%;
+    width:100%;
+    font-size:70px;  
+  }
+  .hdr2{
+    margin: -3% 0 0 0;
+    font-size:33px;
+    width: 100%;
+    padding-left:10% ;
+  }
+  .btnSeeker {
+    margin:2% 0 0 14%;
+    height:45px;
+    width: 175px;
+  } 
+ .btnEmployer{
+    margin:2% 0 0 53%;
+    height:45px;
+    width: 175px;
+  } 
+  .txt1{ 
+    margin: 15% 0 0 17%;
+    color: white;
+    font-size:13px;
+  }
+  .txt2{
+    margin:-1% 0 0 35%;
+    font-size:13px;
+  }
+  .txt3{
+    margin: 1% 0 0 70%;
+    font-size:13px;
+  }
+  .imgseagull{
+    height:40%;width:23%;
+    margin:-4% 0 0 53.8%;
+  }
+}
+  
+@media(min-width: 600px){
+  .cont{
+    position:absolute;
+    margin:-65% 0 0 0;
+    width:73%;
+  }
+ .leftcont{
+    width:100%;
+    position:absolute;
+  }
+  .hdr1{
+    padding-left:12%;
+    width:100%;
+    font-size:70px;  
+  }
+  .hdr2{
+    margin: -3% 0 0 0;
+    font-size:31px;
+    width: 100%;
+    padding-left:12% ;
+  }
+  .btnSeeker {
+    margin:2% 0 0 16%;
+    height:55px;
+    width: 175px;
+  } 
+ .btnEmployer{
+    margin:2% 0 0 56%;
+    height:55px;
+    width: 175px;
+  } 
+  .txt1{ 
+    margin: 17% 0 0 18%;
+    color: white;
+    font-size:13px;
+  }
+  .txt2{
+    margin:-1% 0 0 37%;
+    font-size:13px;
+  }
+  .txt3{
+    margin: 1% 0 0 70%;
+    font-size:13px;
+  }
+  .imgseagull{
+    height:40%;
+    width:23%;
+    margin:-4% 0 0 53.8%;
+  }
+}
+
+@media (min-width:768px){
+  .cont{
+    position:absolute;
+    margin:-52% 0 0 0;
+    width:70%;
+  }
+ .leftcont{
+    width:100%;
+    position:absolute;
+  }
+  .hdr1{
+    padding-left:12%;
+    width:100%;
+    font-size:80px;  
+  }
+  .hdr2{
+    margin: -5% 0 0 0;
+    font-size:37px;
+    width: 100%;
+    padding-left:12% ;
+  }
+  .btnSeeker {
+    margin:2% 0 0 16%;
+    height:55px;
+    width: 200px;
+  } 
+ .btnEmployer{
+    margin:2% 0 0 56%;
+    height:55px;
+    width: 200px;
+  } 
+  .txt1{ 
+    margin: 15% 0 0 21%;
+    color: white;
+    font-size:13px;
+  }
+  .txt2{
+    margin:-1% 0 0 37%;
+    font-size:13px;
+  }
+  .txt3{
+    margin: 1% 0 0 70%;
+    font-size:13px;
+  }
+  .imgseagull{
+    height:40%;width:23%;
+    margin:-4% 0 0 53.8%;
+  }
+}
+@media (min-width:992px){
+  .cont{
+    position:absolute;
+    margin:-43% 0 0 0;
+    width:55%;
+  }
+ .leftcont{
+    width:100%;
+    position:absolute;
+  }
+  .hdr1{
+    padding-left:12%;
+    width:100%;
+    font-size:80px;  
+  }
+  .hdr2{
+    margin: -5% 0 0 0;
+    font-size:37px;
+    width: 100%;
+    padding-left:12% ;
+  }
+  .btnSeeker {
+    margin:2% 0 0 16%;
+    height:55px;width: 200px;
+  } 
+ .btnEmployer{
+    margin:2% 0 0 54%;
+    height:55px;width: 200px;
+  } 
+  .txt1{ 
+    margin: 15% 0 0 21%;
+    color: white;font-size:13px;
+  }
+  .txt2{
+    margin:-1% 0 0 37%;
+    font-size:13px;
+  }
+  .txt3{
+    margin: 1% 0 0 70%;
+    font-size:13px;
+  }
+  .imgseagull{
+    height:40%;width:23%;
+    margin:-4% 0 0 53.8%;
+  }
+} 
+@media (min-width:1200px){
+  .cont{
+    position:absolute;
+    margin:-40% 0 0 0;
+    width:55%;
+  }
+ .leftcont{
+    width:100%;
+    position:absolute;
+  }
+  .hdr1{
+    padding-left:12%;
+    width:100%;
+    font-size:100px;  
+  }
+  .hdr2{
+    margin: -5% 0 0 0;
+    font-size:46px;
+    width: 100%;
+    padding-left:12% ;
+  }
+  .btnSeeker {
+    margin:2% 0 0 16%;
+    height:55px;
+    width: 240px;
+  } 
+ .btnEmployer{
+    margin:2% 0 0 53%;
+    height:55px;
+    width:240px;
+  } 
+  .txt1{ 
+    margin: 15% 0 0 21%;
+    color: white;
+    font-size:17px;
+  }
+  .txt2{
+    margin:-1% 0 0 37%;
+    font-size:17px;
+  }
+  .txt3{
+    margin: 1% 0 0 70%;
+    font-size:17px;
+  }
+  .imgseagull{
+    height:40%;width:23%;
+    margin:-4% 0 0 53.8%;
+  }
+}
+
+
+
+
+
+@media (min-width:1307px){
+.cont{
+    position:absolute;
+    margin:-37% 0 0 0;
+    width:55%;
+  }
+ .leftcont{
+    width:100%;
+    position:absolute;
+  }
+  .hdr1{
+    padding-left:12%;
+    width:100%;
+    font-size:100px;  
+  }
+  .hdr2{
+    margin: -5% 0 0 0;
+    font-size:47px;
+    width: 100%;
+    padding-left:12% ;
+  }
+  .btnSeeker {
+    margin:2% 0 0 16%;
+    height:55px;width: 250px;
+  } 
+ .btnEmployer{
+    margin:2% 0 0 52%;
+    height:55px;width: 250px;
+  } 
+  .txt1{ 
+    margin: 13% 0 0 21%;
+    color: white;
+    font-size:17px;
+  }
+  .txt2{
+    margin:-1% 0 0 37%;
+    font-size:17px;
+  }
+  .txt3{
+    margin: 1% 0 0 70%;
+    font-size:17px;
+
+  }
+  .imgseagull{
+    height:45%;width:25%;
+    margin:-4% 0 0 53.8%;
+  }
+}
+@media (min-width: 1440px) {
+.cont{
+    position:absolute;
+    margin:-37% 0 0 0;
+    width:50%;
+  }
+ .leftcont{
+    width:100%;
+    position:absolute;
+  }
+  .hdr1{
+    padding-left:12%;
+    width:100%;
+    font-size:100px;  
+  }
+  .hdr2{
+    margin: -5% 0 0 0;
+    font-size:47px;
+    width: 100%;
+    padding-left:12% ;
+  }
+  .btnSeeker {
+    margin:2% 0 0 16%;
+    height:55px;
+    width: 250px;
+  } 
+ .btnEmployer{
+    margin:2% 0 0 53%;
+    height:55px;
+    width: 250px;
+  } 
+  .txt1{ 
+    margin: 13% 0 0 21%;
+    color: white;
+    font-size:17px;
+  }
+  .txt2{
+    margin:-1% 0 0 37%;
+    font-size:17px;
+  }
+  .txt3{
+    margin: 1% 0 0 70%;
+    font-size:17px;
+  }
+  .imgseagull{
+    height:45%;
+    width:25%;
+    margin:-4% 0 0 53.8%;
+  }
+}
+@media (min-width: 1800px) {
+  .cont{
+    position:absolute;
+    margin:-35% 0 0 8%;
+    width:40%;
+  }
+ .leftcont{
+    width:100%;
+    position:absolute;
+  }
+  .hdr1{
+    padding-left:12%;
+    width:100%;
+    font-size:100px;  
+  }
+  .hdr2{
+    margin: -5% 0 0 0;
+    font-size:47px;
+    width: 100%;
+    padding-left:12% ;
+  }
+  .btnSeeker {
+    margin:2% 0 0 16%;
+    height:55px;
+    width: 250px;
+  } 
+ .btnEmployer{
+    margin:2% 0 0 53%;
+    height:55px;
+    width: 250px;
+  } 
+  .txt1{ 
+    margin: 13% 0 0 21%;
+    color:white;
+    font-size:17px;
+  }
+  .txt2{
+    margin:-1% 0 0 37%;
+    font-size:17px;
+  }
+  .txt3{
+    margin: 1% 0 0 70%;
+    font-size:17px;
+
+  }
+  .imgseagull{
+    height:45%;
+    width:25%;
+    margin:-4% 0 0 53.8%;
+  }
+}
+
+@media (min-width: 2500px) {
+  .cont{
+    position:absolute;
+    margin:-35% 0 0 2%;
+    width:40%;
+  }
+ .leftcont{
+    width:100%;
+    position:absolute;
+  }
+  .hdr1{
+    padding-left:12%;
+    width:100%;
+    font-size:140px;  
+  }
+  .hdr2{
+    margin: -5% 0 0 0;
+    font-size:68px;
+    width: 100%;
+    padding-left:12% ;
+  }
+  .btnSeeker {
+    margin:2% 0 0 16%;
+    height:55px;
+    width: 350px;
+  } 
+ .btnEmployer{
+    margin:2% 0 0 57%;
+    height:55px;
+    width: 350px;
+  } 
+  .txt1{ 
+    margin: 13% 0 0 21%;
+    color:white;
+    font-size:27px;
+  }
+  .txt2{
+    margin:-1% 0 0 37%;
+    font-size:27px;
+  }
+  .txt3{
+    margin: 1% 0 0 70%;
+    font-size:27px;
+
+  }
+  .imgseagull{
+    height:45%;
+    width:25%;
+    margin:-4% 0 0 53.8%;
+  }
+}
+
