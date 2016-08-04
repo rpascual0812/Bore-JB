@@ -11,9 +11,18 @@ $tags = $_POST['details']['required_skills'];
 	print_r($tags);
 
 unset($_POST['details']['required_skills']);
-	print_r("details: ");
-	print_r($_POST['details']);
+    print_r("details: ");
+    print_r($_POST['details']);
 
+$required_skills = array();
+
+for ($i=0; $i<count($tags); $i++) {
+    foreach ($tags[$i] as $key => $value){
+        array_push($required_skills, $value);
+    }
+}
+
+    print_r($required_skills);
 
 $class = new Job_posts(
                         NULL,
@@ -25,7 +34,7 @@ $class = new Job_posts(
                         NULL
                         );
 
-$data = $class->create($tags);
+$data = $class->create($required_skills);
 
 
 header("HTTP/1.0 404 Error saving job post");

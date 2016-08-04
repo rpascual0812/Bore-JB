@@ -61,7 +61,7 @@ class Job_posts extends ClassParent{
             );
 
             UPDATE job_posts
-                SET details = jsonb_set(details, '{tags}', '$tags', true)
+                SET details = jsonb_set(details, '{required_skills}', '$tags', true)
                 WHERE pk = currval('job_posts_pk_seq');
 
 EOT;
