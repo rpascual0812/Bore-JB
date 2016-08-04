@@ -1,21 +1,52 @@
 
 <link href='../CSS/profile_login.css' rel='stylesheet' type='text/css'>
+ <!-- Note: This APP RUNS Only on localhost domain if be transfered to other domains my Google Cloud Platform must be configured to set to a new or a sub domain - Ken  -->
 
+    <!-- Client ID is on the content tag it can be found on my account on Google Cloud Platform,
+    configurations can be found there, this app authenticates with google - Ken -->
+    <meta name="google-signin-client_id" content="186397944996-cf8pdf74qpj7dvleubue5a6ha9noget4.apps.googleusercontent.com">
 <div>
 
 	<p class="welcome-emp">WELCOME !</p>
-	<input type="text" data-ng-model="user.pin" class="username" maxlength="30" placeholder="APP PIN" enter-key="onKeypress();"/>
+	<input type="text" class="username" ng-model="user.pin" ui-mask="9999-AA"  ui-mask-placeholder ui-mask-placeholder-char="_" enter-key="onKeypress();" style="text-transform: uppercase"/>
 	<input type="password" data-ng-model="user.password" class="password" maxlength="30" placeholder="PASSWORD" enter-key="onKeypress();" />
 	<input type="button" class="login" value="LOGIN" enter-key="onKeypress();" data-ng-click="login()">
+
 	<div class="or"> <span> OR </span> </div>
 	<a href="#/register"><input type="button" class="signup" value="SIGN UP" data-ng-click="register()"></a>
+
 	<img class="c-briefcase" src="../ASSETS/img/briefcase_jobseeker.png"/>
+
 	<img class="jonathan" src="../ASSETS/img/jonathan_jr.gif"/>
+
 
 	<div class="message-spacing">
 		<span class="message">Get your resume noticed within minutes.</span>
 		<span class="messagepop">{{user.error_msg}}</span>
+        <div id="GoogleSign"></div>
 	</div>
+	
 </div>
+<script>
+    function onSuccess(googleUser) {
+        // this is to fetch full name and email
+      console.log('Logged in as: ' + googleUser.getBasicProfile().getName()); 
+      console.log('Your Email is: ' + googleUser.getBasicProfile().getEmail());
+    }
+    function onFailure(error) {
+      console.log(error);
+    }
+    function renderButton() {
+      gapi.signin2.render('GoogleSign', {
+        'scope': 'profile email',
+        'width': 240,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
+  </script>
 
-
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>

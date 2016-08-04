@@ -1,0 +1,197 @@
+	<div ng-include src="'templates/header.html'">
+	    <!-- <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+	        <div class="container topnav" style="color:#FFF !important;">
+
+	            <div class="navbar-header">
+	                <a class="navbar-brand topnav" href="#/">
+	                	Joberfied
+	                </a>
+	            </div>
+
+	            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+	            </div>
+	        </div>
+	    </nav> -->
+	</div>
+	<div style="clear:both;"></div>
+	
+	<div style="height:20px;"></div>
+
+	<div class="main">
+		<div style="clear:both;"></div>
+		<div class="profile">
+
+			<div class="c-menu megamenu">
+				<ul>
+					<li class="active">
+						<a href="#/home">
+							<img src="../ASSETS/img/profile.png">
+						</a>
+					</li>
+					<li>
+						<a href="#/">
+							<img src="../ASSETS/img/attache.png">
+						</a>
+					</li>
+					<li>
+						<a>
+							<img src="../ASSETS/img/message.png">
+						</a>
+					</li>
+					<li>
+						<a>
+							<img src="../ASSETS/img/bookmark.png">
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="menu">
+				<div>
+					<img src="../ASSETS/img/home.png" style="width:16px;">
+					<a href="#/"><span class="font12 link">Home</span></a>
+				</div>
+				<div>
+					<img src="../ASSETS/img/attache.png" style="width:16px;">
+					<span class="font12 link">Applications</span>
+				</div>
+				<div>
+					<img src="../ASSETS/img/message.png" style="width:16px;">
+					<span class="font12 link">Messages</span>
+				</div>
+				<div>
+					<img src="../ASSETS/img/bookmark.png" style="width:16px;">
+					<span class="font12 link">Bookmarks</span>
+				</div>
+				<div>
+					<img src="../ASSETS/img/star.png" style="width:16px;">
+					<span class="font12 link">Referrals</span>
+				</div>
+
+				<div class="credit">
+					<span class="label" style="padding:0.2em 0 0 0;">Available</span>
+					<span class="label" style="padding:0.3em 0 0.5em 0;">Wallet</span> <br />
+					<span class="amount">{{profile.data.currency}} {{profile.data.available}}</span>
+				</div>
+			</div>
+
+			<div class="left CprofileMargin">
+				<div ng-if="job_post.status">
+
+
+					<div>
+						<span class="half-hidden-medium" style="float:right;">Date Posted: {{job_post.data.date}}</span>
+						<div style="clear:both"></div>
+					</div>
+						
+					<div style="text-align:center;">
+						<p class="font35 title">{{job_post.data.details.title}}</p>
+
+
+
+						
+					</div>
+
+					<div>
+						<button type="button" class="btn btn-default" style="width:48%; float:left; margin-left:1%; margin-right:1%;">Bookmark this Job Post</button>
+
+						<button type="button" class="btn btn-default" style="width:48%; float:left; margin-left:1%; margin-right:1%;">Apply Now</button>
+					</div>
+				</div>
+
+				<div ng-if="!job_post.status">
+					No job post found
+				</div>
+			</div>
+
+			<div class="right">
+				<div class="statistics">
+					<span class="header3">Statistics</span>
+
+					<div>
+						<img src="../ASSETS/img/view.png" style="width:16px;">
+						<span class="font12">Viewed 1,500 times since May 10</span>
+					</div>
+					<div>
+						<img src="../ASSETS/img/person-add.png" style="width:16px;">
+						<span class="font12">30 Jobbers applied for this post</span>
+					</div>
+					<div>
+						<img src="../ASSETS/img/compare.png" style="width:16px;">
+						<span class="font12 link">777 Profiles matches this job post</span>
+					</div>
+				</div>
+
+				<div class="break"></div>
+
+				<div>
+					<!-- <button type="button" class="btn btn-default" style="width:100%; margin-bottom:5px;">Apply Now</button>
+
+					<button type="button" class="btn btn-default" style="width:100%; margin-bottom:5px;">Bookmark this Job Post</button> -->
+
+					<div class="updates">
+						<span class="header3">Similar Job Posts</span>
+
+					</div>
+
+				</div>
+
+				<div class="break"></div>
+
+				<!-- <div class="updates">
+					<span class="header3">Latest Updates</span>
+
+					<div>
+						<div>
+							<span class="sub">June 10, 2016 12:00 PM</span>
+						</div>
+						<div style="margin-top:-10px;">
+							<span class="font12">Updated profile picture</span>
+						</div>
+					</div>
+					<div>
+						<div>
+							<span class="sub">May 31, 2016 06:00 PM</span>
+						</div>
+						<div style="margin-top:-10px;">
+							<span class="font12">Added new employer</span>
+						</div>
+					</div>
+					<div>
+						<div>
+							<span class="sub">January 01, 2016 08:00 PM</span>
+						</div>
+						<div style="margin-top:-10px;">
+							<span class="font12">Receives Recruitment Feedback</span>
+						</div>
+					</div>
+				</div> -->
+			</div>
+			<div style="clear:both;"></div>
+		</div>
+
+
+
+		<!-- <div class="div-profile">
+			<table class="row-border hover report table table-bordered" cellspacing="0" style="width:50%;">
+				<tr>
+					<td class="leftside">Applicant ID</td>
+					<td>{{profile.data.applicant_id}}</td>
+				</tr>
+				<tr>
+					<td class="leftside">First Name</td>
+					<td>{{profile.data.first_name}}</td>
+				</tr>
+				<tr>
+					<td class="leftside">Middle Name</td>
+					<td>{{profile.data.middle_name}}</td>
+				</tr>
+				<tr>
+					<td class="leftside">Last Name</td>
+					<td>{{profile.data.last_name}}</td>
+				</tr>
+			</table>
+		</div> -->
+	</div>
+</div>

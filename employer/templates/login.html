@@ -2,7 +2,7 @@
 
 <div ng-controller="Background" style="background-color: #f02921">
 	<p class="welcome-emp">WELCOME !</p>
-	<input type="text" data-ng-model="user.pin" class="username" maxlength="20" placeholder="PIN" enter-key="onKeypress();"/>
+	<input type="text" class="username" ng-model="user.pin" ui-mask="AA-9999-AA"  ui-mask-placeholder ui-mask-placeholder-char="_" enter-key="onKeypress();" style="text-transform: uppercase"/>
 	<input type="password" data-ng-model="user.password" class="password" maxlength="20" placeholder="PASSWORD" enter-key="onKeypress();" />
 	<input type="button" class="login" value="LOGIN" enter-key="onKeypress();" data-ng-click="login()">
 	<div class="or"> <span> OR </span> </div>

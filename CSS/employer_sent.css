@@ -1,7 +1,7 @@
-.sent{
-	width: 500px;
+.email_sent{
+	width: 100%;
     margin:0 auto;
-	min-height: 450px;
+	min-height: 600px;
 	background-color: #FFF;
     text-align:justify;
 	padding: 50px;
@@ -15,6 +15,30 @@
     -webkit-border-radius: 0px;
 }
 .footer{
-    position:absolute;
-    margin:1% 0% 0% 2%;
+    display: block;
+    margin:50px auto 0px auto;
+    width:100%;
+}
+.footer img{
+    width:100%;
+    display: block;
+    margin:0 auto;
+}
+@media(min-width: 768px){
+    .email_sent{
+        width: 500px;
+        margin:65px auto 0px auto;
+        min-height: 450px;
+        background-color: #FFF;
+        text-align:justify;
+        padding: 50px;
+
+        border: 1px solid #CCC;
+        box-shadow: 0 4px 8px -2px #000;
+        -moz-box-shadow: 0 4px 8px -2px #000;
+        -webkit-box-shadow: 0 4px 8px -2px #000;
+        border-radius: 8px;
+        -moz-border-radius: 8px;
+        -webkit-border-radius: 8px;
+    }
 }

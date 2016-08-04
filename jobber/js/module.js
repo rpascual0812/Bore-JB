@@ -1,7 +1,9 @@
 var app = angular.module('onload', [
                                     'ngRoute',
                                     'ngCookies',
-                                    'angular-md5'
+                                    'angular-md5',
+                                    'ui.mask',
+                                    'autocomplete'
                                 ]);
 
 app.config(function($routeProvider){
@@ -15,6 +17,11 @@ app.config(function($routeProvider){
         {
             controller: 'Register',
             templateUrl: 'templates/register.html'
+        })
+    .when('/messages',
+        {
+            controller: 'Messages',
+            templateUrl: 'templates/messages.html'
         })
     .when('/:pin',
     {
@@ -30,6 +37,11 @@ app.config(function($routeProvider){
     {
         controller: 'Confirm',
         templateUrl: 'templates/confirm.html'
+    })
+    .when('/ad/:id',
+    {
+        controller: 'Jobpost',
+        templateUrl: 'templates/jobpost.html'
     })
     .otherwise(
     {

@@ -4,7 +4,10 @@ var app = angular.module('onload', [
                                     'angular-md5',
                                     'textAngular',
                                     'ui.tinymce',
-                                    'autocomplete'
+                                    'autocomplete',
+                                    'ngTagsInput',
+                                    'ui.mask',
+                                    'ngFileUpload'
                                 ]);
 
 app.config(function($routeProvider){
@@ -24,6 +27,16 @@ app.config(function($routeProvider){
         controller: 'Posts',
         templateUrl: 'templates/posts.html'
     })
+    .when('/messages',
+    {
+        controller: 'Messages',
+        templateUrl: 'templates/messages.html'
+    })
+    .when('/admired',
+    {
+        controller: 'Admired',
+        templateUrl: 'templates/admired.html'
+    })
     .when('/register',
     {
         controller: 'Register',
@@ -33,6 +46,11 @@ app.config(function($routeProvider){
     {
         controller: 'Register',
         templateUrl: 'templates/sent.html'
+    })
+    .when('/admin/companies/new',
+    {
+        controller: 'Employers',
+        templateUrl: 'templates/admin/new_employers.html'
     })
     .when('/',
     {

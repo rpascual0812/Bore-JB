@@ -4,12 +4,14 @@ class Profiles extends ClassParent{
     var $pin = NULL;
     var $profile = array();
     var $date_created = NULL;
+    var $tsv = NULL;
     var $archived = NULL;
 
     public function __construct(
                                     $pin,
                                     $profile,
                                     $date_created,
+                                    $tsv,
                                     $archived
                                 ){
         
@@ -103,7 +105,7 @@ EOT;
                     '$json_profile'
                 );
 EOT;
-
+        
         if ($usertype == 'recruiter'){
             $company_name = $data['company_name'];
             $sql .= <<<EOT
@@ -164,6 +166,18 @@ EOT;
         return ClassParent::get($sql);
     }
 
+    public function update($info,$type){   
+        $personal_info = json_encode($info);
+        $sql = "begin;";
+        $sql .= <<<EOT
+            UPDATE profiles
+            SET profile = jsonb_set(profile,'{"$type"}',
+                '$personal_info',true) WHERE md5(pin)= '$this->pin';
+EOT;
+        $sql .= "commit;";
+        return ClassParent::update($sql);
+    }
+
     private function generateRandomString($length) {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
         $charactersLength = strlen($characters);
@@ -174,6 +188,37 @@ EOT;
         }
 
         return $randomString;
+    }
+
+    public function fetch_new_employers(){
+        $sql = <<<EOT
+                select
+                    (select email_address from accounts where pin = profiles.pin) as email_address,
+                    profiles.pin,
+                    profile,
+                    date_created,
+                    accounts.usertype
+                from profiles left join accounts on (profiles.pin = accounts.pin)
+                where accounts.usertype = 'recruiter' 
+                ;
+EOT;
+
+        return ClassParent::get($sql);
+    }
+
+    public function search($str){
+        $str = strtolower(pg_escape_string(trim(strip_tags($str))));
+
+        $sql = <<<EOT
+                SELECT pin, profile, statuses.status FROM (
+                    SELECT pin, profile, tsv
+                    FROM profiles, plainto_tsquery('$str') AS q
+                    WHERE (tsv @@ q)
+                ) AS t1 left join statuses on (profile->>'statuses_pk' = statuses.pk::text) ORDER BY ts_rank_cd(t1.tsv, plainto_tsquery('$str')) DESC LIMIT 5
+                ;
+EOT;
+
+        return ClassParent::get($sql);
     }
 }
 ?>

@@ -41,9 +41,12 @@ class Job_posts extends ClassParent{
         return(true);
     }
 
-    public function create(){
+    public function create($tags){
         $json_details = json_encode($this->details);
-        $sql = <<<EOT
+        $tags = json_encode($tags);
+            
+            $sql = "BEGIN;";
+            $sql .= <<<EOT
             INSERT INTO job_posts
             (
                 pin,
@@ -55,8 +58,15 @@ class Job_posts extends ClassParent{
                 (SELECT pin FROM accounts WHERE md5(pin)='$this->pin'),
                 '$this->type',
                 '$json_details'
-            )
+            );
+
+            UPDATE job_posts
+                SET details = jsonb_set(details, '{tags}', '$tags', true)
+                WHERE pk = currval('job_posts_pk_seq');
+
 EOT;
+        
+        $sql .= "COMMIT;";
 
         return ClassParent::insert($sql);
     }
@@ -77,6 +87,33 @@ EOT;
 
         return ClassParent::get($sql);
     }
+
+    public function feeds(){
+        $sql = <<<EOT
+            select
+                *
+            from job_posts
+            ;
+EOT;
+        return ClassParent::get($sql);
+    }
+
+    public function job_post(){
+        $sql = <<<EOT
+            select
+                pk,
+                pin,
+                type,
+                details,
+                date_created::date as date,
+                date_created,
+                archived
+            from job_posts
+            where pk = $this->pk
+            ;
+EOT;
+        return ClassParent::get($sql);
+    }    
 
 }
 ?>

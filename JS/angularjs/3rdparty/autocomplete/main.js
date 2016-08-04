@@ -42,7 +42,6 @@ app.directive('autocomplete', function() {
 
             // starts autocompleting on typing in something
             $scope.$watch('searchParam', function(newValue, oldValue){
-
                 if (oldValue === newValue || (!oldValue && $scope.initLock)) {
                     return;
                 }
@@ -50,12 +49,14 @@ app.directive('autocomplete', function() {
                 if(watching && typeof $scope.searchParam !== 'undefined' && $scope.searchParam !== null) {
                     $scope.completing = true;
                     $scope.searchFilter = $scope.searchParam;
-                    $scope.selectedIndex = -1;
+                    $scope.selectedIndex = 0;
                 }
 
                 // function thats passed to on-type attribute gets executed
-                if($scope.onType)
+
+                if($scope.onType){
                     $scope.onType($scope.searchParam);
+                }
             });
 
             // for hovering over suggestions
@@ -83,11 +84,25 @@ app.directive('autocomplete', function() {
             // selecting a suggestion with RIGHT ARROW or ENTER
             $scope.select = function(suggestion){
                 if(suggestion){
-                    $scope.searchParam = suggestion;
-                    $scope.searchFilter = suggestion;
-                    
+                    $scope.searchParam = suggestion.title;
+                    $scope.searchFilter = suggestion.details;
+
                     if($scope.onSelect)
-                        $scope.onSelect(suggestion);
+                        var data = {
+                            mode : 'specific',
+                            suggestion : suggestion
+                        }
+
+                        $scope.onSelect(data);
+                }
+                //if undefined, select all
+                else {
+                    var data = {
+                        mode : 'all',
+                        suggestion : $scope.searchParam
+                    }
+
+                    $scope.onSelect(data);
                 }
         
                 watching = false;
@@ -95,13 +110,19 @@ app.directive('autocomplete', function() {
                 
                 setTimeout(function(){watching = true;},1000);
                 
-                $scope.setIndex(-1);
+                $scope.setIndex(0);
             };
 
 
         }],
         
         link: function(scope, element, attrs){
+
+            element.bind('click', function(){
+                if(scope.onType){
+                    scope.onType(scope.searchParam);
+                }
+            });
 
             setTimeout(function() {
                 scope.initLock = false;
@@ -147,10 +168,12 @@ app.directive('autocomplete', function() {
                 switch (keycode){
                     case key.esc:
                         // disable suggestions on escape
-                        scope.select();
-                        scope.setIndex(-1);
+                        //scope.select();
+                        scope.setIndex(0);
                         scope.$apply();
-                        e.preventDefault();
+                        // e.preventDefault();
+
+                        scope.completing = false;                
                 }
             }, true);
 
@@ -158,7 +181,11 @@ app.directive('autocomplete', function() {
                 // disable suggestions on blur
                 // we do a timeout to prevent hiding it before a click event is registered
                 setTimeout(function() {
-                    scope.select();
+                    //scope.select();
+
+                    scope.watching = false;
+                    scope.completing = false;
+                    
                     scope.setIndex(-1);
                     scope.$apply();
                 }, 150);
@@ -167,7 +194,7 @@ app.directive('autocomplete', function() {
             element[0].addEventListener("keydown",function (e){
 
                 var keycode = e.keyCode || e.which;
-
+                
                 var l = angular.element(this).find('li').length;
 
                 // this allows submitting forms by pressing Enter in the autocompleted field
@@ -176,14 +203,16 @@ app.directive('autocomplete', function() {
                 // implementation of the up and down movement in the list of suggestions
                 switch (keycode){
                     case key.up:
-
                         index = scope.getIndex()-1;
-                        if(index<-1){
-                            index = l-1;
-                        } else if (index >= l ){
-                            index = -1;
+                        
+                        //index = scope.getIndex(); //removed minus for view all
+                        if(index<0){
+                            index = l;
+                        } else if (index > l ){
+                            index = 0;
                             scope.setIndex(index);
                             scope.preSelectOff();
+                            scope.$apply();
                             break;
                         }
 
@@ -197,10 +226,11 @@ app.directive('autocomplete', function() {
                         break;
                     case key.down:
                         index = scope.getIndex()+1;
-                        if(index<-1){
-                            index = l-1;
-                        } else if (index >= l ){
-                            index = -1;
+                        
+                        if(index<=0){
+                            index = l;
+                        } else if (index > l ){
+                            index = 0;
                             scope.setIndex(index);
                             scope.preSelectOff();
                             scope.$apply();
@@ -212,16 +242,16 @@ app.directive('autocomplete', function() {
                             scope.preSelect(angular.element(angular.element(this).find('li')[index]).text());
 
                         break;
-                    case key.left:
-                        break;
-                    case key.right:
+                    //case key.left:
+                    //    break;
+                    //case key.right:
                     case key.enter:
-                    case key.tab:
-
+                    //case key.tab:
                         index = scope.getIndex();
                         // scope.preSelectOff();
                         if(index !== -1) {
-                            scope.select(angular.element(angular.element(this).find('li')[index]).text());
+                            //scope.select(angular.element(angular.element(this).find('li')[index]).text());
+                            scope.select(scope.suggestions[index]);
                             if(keycode == key.enter) {
                                 e.preventDefault();
                             }
@@ -235,13 +265,13 @@ app.directive('autocomplete', function() {
                         scope.$apply();
 
                         break;
-                    case key.esc:
-                        // disable suggestions on escape
-                        scope.select();
-                        scope.setIndex(-1);
-                        scope.$apply();
-                        e.preventDefault();
-                        break;
+                    // case key.esc:
+                    //     // disable suggestions on escape
+                    //     scope.select();
+                    //     scope.setIndex(-1);
+                    //     scope.$apply();
+                    //     e.preventDefault();
+                    //     break;
                     default:
                         return;
                 }
@@ -258,15 +288,30 @@ app.directive('autocomplete', function() {
                     class="{{ attrs.inputclass }}"\
                     id="{{ attrs.inputid }}"\
                     ng-required="{{ autocompleteRequired }}" />\
-                <ul ng-show="completing && (suggestions | filter:searchFilter).length > 0">\
+                <ul ng-show="completing && suggestions && searchFilter.length > 0">\
                     <li suggestion\
                         index="{{ $index }}"\
                         ng-class="{ active: ($index === selectedIndex) }"\
                         ng-click="select(suggestion)"\
-                        ng-repeat="suggestion in suggestions | filter:searchFilter | orderBy:\'toString()\' track by $index">\
-                            <div>{{suggestion}}</div>\
-                            <div style="color:#949494;">{{suggestion}}</div>\
+                        class="cursor:pointer"\
+                        ng-repeat="suggestion in suggestions | orderBy:\'toString()\' track by $index">\
+                            <div>\
+                                <div style="width:30%;float:left;">TITLE</div>\
+                                <div style="width:70%;float:left;text-align:right;">{{suggestion.status}}</div>\
+                                <div style="clear:both;"></div>\
+                            </div>\
+                            <div>\
+                                <div style="width:65%;float:left;color:#949494;" ng-bind-html="suggestion.details | highlight:searchParam">{{suggestion.details}}</div>\
+                                <div style="width:35%;float:left;color:#949494;">Last Position held</div>\
+                                <div style="clear:both;"></div>\
+                            </div>\
                     </li>\
+                    <li suggestion\
+                        index="{{suggestions.length}}"\
+                        ng-class="{ active: (suggestions.length === selectedIndex) }"\
+                        ng-click="select(suggestions[suggestions.length])"\
+                        class="cursor:pointer"\
+                        ><img src="../ASSETS/img/find.png" style="height:24px">View All</li>\
                 </ul>\
             </div>'
         };

@@ -18,6 +18,8 @@ app.controller('Home', function(
     $scope.prices = {};
     $scope.employer_bucket = [];
 
+    $scope.picFile = null;
+
     $scope.pics = [
         '../ASSETS/Uploads/jobseeker/rafael1.jpg',
         '../ASSETS/Uploads/jobseeker/eli.png',
@@ -32,13 +34,13 @@ app.controller('Home', function(
     ];
     //
 
-    $scope.movies = [
-                        "Lord of the Rings",
-                        "Drive",
-                        "Science of Sleep",
-                        "Back to the Future",
-                        "Oldboy"
-                    ];
+    // $scope.movies = [
+    //                     "Lord of the Rings",
+    //                     "Drive",
+    //                     "Science of Sleep",
+    //                     "Back to the Future",
+    //                     "Oldboy"
+    //                 ];
 
     init();
 
@@ -57,20 +59,49 @@ app.controller('Home', function(
         else {
             get_profile();
 
-            feeds();
+            
             //set_search_box();
-
-            initialize_search();
         }
     }
 
-    function initialize_search(){
+    $scope.bigsearch_changed = function(str){
+        if(str.replace(/\s/g, '') == ''){
+            return false;
+        }
 
+        var filter = {
+            'str' : str
+        };
+
+        $scope.candidates.data = [];
+        var promise = CandidatesFactory.search_candidates(filter);
+        promise.then(function(data){
+            var a = data.data.result;
+            
+            for(var i in a){
+                a[i].profile = JSON.parse(a[i].profile);
+
+                $scope.candidates.data.push({
+                                                title : a[i].pin,
+                                                status : a[i].status,
+                                                details : a[i].profile.skills.join(', ')
+                                            });
+            }
+        })
+        .then(null, function(data){
+            $scope.candidates.status = false;
+        });
+
+        //$scope.candidates.data = ["The Wolverine", "The Smurfs 2", "The Mortal Instruments: City of Bones", "Drinking Buddies", "All the Boys Love Mandy Lane", "The Act Of Killing", "Red 2", "Jobs", "Getaway", "Red Obsession", "2 Guns", "The World's End", "Planes", "Paranoia", "The To Do List", "Man of Steel", "The Way Way Back", "Before Midnight", "Only God Forgives", "I Give It a Year", "The Heat", "Pacific Rim", "Pacific Rim", "Kevin Hart: Let Me Explain", "A Hijacking", "Maniac", "After Earth", "The Purge", "Much Ado About Nothing", "Europa Report", "Stuck in Love", "We Steal Secrets: The Story Of Wikileaks", "The Croods", "This Is the End", "The Frozen Ground", "Turbo", "Blackfish", "Frances Ha", "Prince Avalanche", "The Attack", "Grown Ups 2", "White House Down", "Lovelace", "Girl Most Likely", "Parkland", "Passion", "Monsters University", "R.I.P.D.", "Byzantium", "The Conjuring", "The Internship"];
     }
 
-    $scope.doSomething = function(typedthings){
-        $scope.movies = ["The Wolverine", "The Smurfs 2", "The Mortal Instruments: City of Bones", "Drinking Buddies", "All the Boys Love Mandy Lane", "The Act Of Killing", "Red 2", "Jobs", "Getaway", "Red Obsession", "2 Guns", "The World's End", "Planes", "Paranoia", "The To Do List", "Man of Steel", "The Way Way Back", "Before Midnight", "Only God Forgives", "I Give It a Year", "The Heat", "Pacific Rim", "Pacific Rim", "Kevin Hart: Let Me Explain", "A Hijacking", "Maniac", "After Earth", "The Purge", "Much Ado About Nothing", "Europa Report", "Stuck in Love", "We Steal Secrets: The Story Of Wikileaks", "The Croods", "This Is the End", "The Frozen Ground", "Turbo", "Blackfish", "Frances Ha", "Prince Avalanche", "The Attack", "Grown Ups 2", "White House Down", "Lovelace", "Girl Most Likely", "Parkland", "Passion", "Monsters University", "R.I.P.D.", "Byzantium", "The Conjuring", "The Internship"];
-      }
+    $scope.run_search = function(data){
+        if(data.mode == "specific"){
+            window.location = "../jobber/#/" + data.suggestion.title;
+        }
+    }
+
+    
 
     function feeds(){
         var filter = {
@@ -110,10 +141,11 @@ app.controller('Home', function(
             pin : PINService.get()
         }
 
-        var promise = EmployersFactory.profile(filter);
+        var promise = EmployersFactory.fetch(filter);
         promise.then(function(data){
             $scope.employer = data.data.result[0];
 
+            feeds();
             get_prices();
             get_employer_bucket();
         })
@@ -124,14 +156,14 @@ app.controller('Home', function(
             currencies_pk : $scope.employer.currencies_pk
         }
 
-        var promise = EmployersFactory.prices(filter);
-        promise.then(function(data){
-            var a = data.data.result;
+        // var promise = EmployersFactory.prices(filter);
+        // promise.then(function(data){
+        //     var a = data.data.result;
             
-            for(var i in a){
-                $scope.prices[a[i].type] = parseFloat(a[i].price);
-            }
-        })
+        //     for(var i in a){
+        //         $scope.prices[a[i].type] = parseFloat(a[i].price);
+        //     }
+        // })
     }
 
     function get_employer_bucket(){
@@ -139,14 +171,14 @@ app.controller('Home', function(
             pin : $scope.employer.pin
         }
 
-        var promise = EmployersFactory.employer_bucket(filter);
-        promise.then(function(data){
-            var a = data.data.result;
+        // var promise = EmployersFactory.employer_bucket(filter);
+        // promise.then(function(data){
+        //     var a = data.data.result;
 
-            for(var i in a){
-                $scope.employer_bucket.push(a[i].applicant_id)    
-            }
-        })
+        //     for(var i in a){
+        //         $scope.employer_bucket.push(a[i].applicant_id)    
+        //     }
+        // })
     }
 
     $scope.searchbig = function(){
@@ -219,11 +251,11 @@ app.controller('Home', function(
             deduction : $scope.prices.CV
         }
 
-        var promise = EmployersFactory.update_credit(filter);
-        promise.then(function(data){                
-            //console.log(data.data);
-            //do nothing for now
-        })
+        // var promise = EmployersFactory.update_credit(filter);
+        // promise.then(function(data){                
+        //     //console.log(data.data);
+        //     //do nothing for now
+        // })
     }
 
     function update_employer_bucket(applicant_id){
@@ -232,11 +264,11 @@ app.controller('Home', function(
             applicant_id : applicant_id
         }
 
-        var promise = EmployersFactory.update_employer_bucket(filter);
-        promise.then(function(data){
-            //console.log(data.data);
-            //do nothing for now
-        })   
+        // var promise = EmployersFactory.update_employer_bucket(filter);
+        // promise.then(function(data){
+        //     //console.log(data.data);
+        //     //do nothing for now
+        // })   
     }
 
     $scope.videochat = function(){

@@ -5,13 +5,15 @@ app.controller('Posts', function(
                                     CandidatesFactory,
                                     EmployersFactory,
                                     PINService,
-                                    JobPostsFactory
+                                    JobPostsFactory,
+                                    Upload,
+                                    $timeout
 								){
 
-    // $scope.candidates = {
-    //     data : [],
-    //     status : false
-    // };
+    $scope.candidates = {
+        data : [],
+        status : false
+    };
 
     //MENU
     $scope.newad = {
@@ -23,12 +25,15 @@ app.controller('Posts', function(
     //FORMS
     $scope.new_job_post = {};
     $scope.new_job_post.ad = {};
+    $scope.new_job_post.ad.commission_type = "monetary";
     $scope.new_job_post.video = {};
     $scope.new_job_post.job = {};
 
     //LIST OF PREVIOUS POSTS
     $scope.job_posts = {};
     $scope.job_posts.data = [];
+
+    $scope.picFile = null;
     
     // $scope.job_posts.data = 
     // [
@@ -78,6 +83,21 @@ app.controller('Posts', function(
         toolbar: 'styleselect formatselect fontselect fontsizeselect | undo redo | cut copy paste | bold italic underline | bullist numlist alignleft aligncenter alignright alignjustify '
     };
 
+    $scope.picFile = {};
+
+    var currentDate = new Date();
+    var postDate = currentDate;
+    
+    postDate.setMonth(postDate.getMonth() + 1);
+
+    $scope.currentDate = currentDate.getFullYear() + "-" + zerofy(currentDate.getMonth()) + "-" + zerofy(currentDate.getDate());
+    $scope.postDate = postDate.getFullYear() + "-" + zerofy(postDate.getMonth()+1) + "-" + zerofy(postDate.getDate());
+
+    $scope.comm_val = {
+        money : true,
+        points : false
+    };
+
     /*
     toolbar: "bold italic underline strikethrough| undo redo",//" | cut copy paste | styleselect print forecolor backcolor",
     toolbar1: "bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect",
@@ -109,7 +129,7 @@ app.controller('Posts', function(
             pin : PINService.get()
         }
 
-        var promise = EmployersFactory.profile(filter);
+        var promise = EmployersFactory.fetch(filter);
         promise.then(function(data){
             $scope.employer = data.data.result[0];
 
@@ -118,19 +138,50 @@ app.controller('Posts', function(
         })
     }
 
+    $scope.bigsearch_changed = function(str){
+        if(str.replace(/\s/g, '') == ''){
+            return false;
+        }
+
+        var filter = {
+            'str' : str
+        };
+
+        $scope.candidates.data = [];
+        var promise = CandidatesFactory.search_candidates(filter);
+        promise.then(function(data){
+            var a = data.data.result;
+            
+            for(var i in a){
+                a[i].profile = JSON.parse(a[i].profile);
+
+                $scope.candidates.data.push({
+                                                title : a[i].pin,
+                                                status : a[i].status,
+                                                details : a[i].profile.skills.join(', ')
+                                            });
+            }
+        })
+        .then(null, function(data){
+            $scope.candidates.status = false;
+        });
+
+        //$scope.candidates.data = ["The Wolverine", "The Smurfs 2", "The Mortal Instruments: City of Bones", "Drinking Buddies", "All the Boys Love Mandy Lane", "The Act Of Killing", "Red 2", "Jobs", "Getaway", "Red Obsession", "2 Guns", "The World's End", "Planes", "Paranoia", "The To Do List", "Man of Steel", "The Way Way Back", "Before Midnight", "Only God Forgives", "I Give It a Year", "The Heat", "Pacific Rim", "Pacific Rim", "Kevin Hart: Let Me Explain", "A Hijacking", "Maniac", "After Earth", "The Purge", "Much Ado About Nothing", "Europa Report", "Stuck in Love", "We Steal Secrets: The Story Of Wikileaks", "The Croods", "This Is the End", "The Frozen Ground", "Turbo", "Blackfish", "Frances Ha", "Prince Avalanche", "The Attack", "Grown Ups 2", "White House Down", "Lovelace", "Girl Most Likely", "Parkland", "Passion", "Monsters University", "R.I.P.D.", "Byzantium", "The Conjuring", "The Internship"];
+    }
+
     function get_prices(){
         var filter = {
             currencies_pk : $scope.employer.currencies_pk
         }
 
-        var promise = EmployersFactory.prices(filter);
-        promise.then(function(data){
-            var a = data.data.result;
+        // var promise = EmployersFactory.prices(filter);
+        // promise.then(function(data){
+        //     var a = data.data.result;
             
-            for(var i in a){
-                $scope.prices[a[i].type] = parseFloat(a[i].price);
-            }
-        })
+        //     for(var i in a){
+        //         $scope.prices[a[i].type] = parseFloat(a[i].price);
+        //     }
+        // })
     }
 
     function get_employer_bucket(){
@@ -138,14 +189,14 @@ app.controller('Posts', function(
             pin : $scope.employer.pin
         }
 
-        var promise = EmployersFactory.employer_bucket(filter);
-        promise.then(function(data){
-            var a = data.data.result;
+        // var promise = EmployersFactory.employer_bucket(filter);
+        // promise.then(function(data){
+        //     var a = data.data.result;
 
-            for(var i in a){
-                $scope.employer_bucket.push(a[i].applicant_id)    
-            }
-        })
+        //     for(var i in a){
+        //         $scope.employer_bucket.push(a[i].applicant_id)    
+        //     }
+        // })
     }
 
 	function job_posts(){
@@ -175,6 +226,16 @@ app.controller('Posts', function(
         .then(null, function(data){
             
         });
+    }
+
+    function zerofy(num) {
+        var str = num.toString();
+
+        if (num>=1 && num<=9) {
+            str = "0" + str;
+        }
+
+        return str;
     }
 
     $scope.navigate_ads = function(type){
@@ -211,5 +272,49 @@ app.controller('Posts', function(
             //failed to save
         });
     };
+
+    $scope.uploadPic = function(file) {
+        console.log(file);
+        Upload.upload({
+            url: "./functions/employers/upload.php",
+            data: {file: file}
+        }).then(function (resp) {
+            $scope.cv = resp.data.file;
+            $scope.picFile.result = true;
+        }, function (resp) {
+            $scope.errorMsg = true;
+            //console.log('Error status: ' + resp.status);
+        }, function (evt) {
+            var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+            //console.log('progress: ' + progressPercentage + '% ');
+        });
+
+    }
+
+    $scope.nav_select = function(){
+        $scope.comm_val.money = !$scope.comm_val.money;
+        $scope.comm_val.points = !$scope.comm_val.points;
+    }
+    
+    $scope.upload_pic = function(file){
+        var file_data = $('#picnic').prop('files')[0];   
+        var form_data = new FormData();
+        form_data.append('file', file_data);
+        $.ajax({
+            type : "POST",
+            url: "./functions/employers/upload_image.php",
+            //dataType: 'text',
+            data : form_data,//{file:file},
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function(php_script_response){
+                //alert(php_script_response);
+            }
+        });
+    }
+
+
+
 
 });
