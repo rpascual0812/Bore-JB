@@ -21,6 +21,7 @@ app.controller('Profile', function(
         var promise = ProfileFactory.profile(filter);
         promise.then(function(data){
             $scope.profile.status = true;
+            console.log($scope.profile.data);
             $scope.profile.data = data.data.result[0];
 
             $scope.profile.data.currency = 'PHP';

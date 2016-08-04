@@ -1,20 +1,18 @@
 <?php
-require_once('../../../Functions/connect.php');
-require_once('../../../Classes/Job_posts.php');
-
-$_POST['details'] = json_decode($_POST['details'], true);
+require_once('../../Functions/connect.php');
+require_once('../../Classes/Job_posts.php');
 
 $class = new Job_posts(
                         NULL,
-                        $_POST['profpin'],
-                        $_POST['type'],
-                        $_POST['details'],
+                        $_GET['pin'],
                         NULL,
                         NULL,
+                        NULL,
+                        $_GET['archived'],
                         NULL
                         );
 
-$data = $class->create();
+$data = $class->fetch();
 
 
 header("HTTP/1.0 404 Error saving job post");

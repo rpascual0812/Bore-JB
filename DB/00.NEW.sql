@@ -22,6 +22,7 @@ drop table if exists profiles;
 create table profiles (
 	pin text references accounts(pin),
 	profile jsonb not null,
+	date_created timestamptz default now(),
 	archived boolean default false
 );
 alter table profiles owner to chrs;
@@ -186,6 +187,33 @@ values
 	'recruiter'
 )
 ;
+
+insert into profiles 
+(
+	pin,
+	profile
+)
+values
+(
+	'1234-JJ',
+	'{
+		"personal" : {
+			"last_name" : "Pascual",
+			"first_name" : "Rafael"
+		},
+		"confirmed" : "false"
+	}'
+),
+(
+	'JJ-1234-JJ',
+	'{
+		"personal" : {
+			"last_name" : "Martin",
+			"first_name" : "Coco"
+		},
+		"confirmed" : "false"	
+	}'
+);
 
 insert into currencies 
 (

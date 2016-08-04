@@ -9,8 +9,6 @@ app.controller('Feeds', function(
                                     PINService
 								){
 
-    $scope.confirmed ='';
-
     $scope.apppin = md5.createHash('APPPIN');
     $scope.pitch = 'Make a pitch!';
 
@@ -19,7 +17,6 @@ app.controller('Feeds', function(
     $scope.feeds = {};
     $scope.feeds.ad = {};
     $scope.hide = 'ng-hide';
-
     
     $scope.feeds.data = 
     [
@@ -183,14 +180,17 @@ app.controller('Feeds', function(
         var filter = {
             pin : PINService.get()
         }
-
+        
         var promise = ProfileFactory.profile(filter);
         promise.then(function(data){
             $scope.profile = data.data.result[0];
-
-            reload_ads();
-            reload_feeds();
-            check_profile();
+            $scope.profile.profile = JSON.parse($scope.profile.profile);
+            console.log($scope.profile);
+            
+            if($scope.profile.suspended == false){
+                reload_ads();
+                reload_feeds();
+            }            
         })
     }
 
@@ -266,20 +266,6 @@ app.controller('Feeds', function(
 
         console.log($scope.hide);
         $scope.hide = 'ng-show';
-
-    }
-
-    $scope.check_info= function(){
-        check_profile();
-
-    }
-    function check_profile(){
-        if($scope.profile[]===null){
-
-            console.log("empty");
-        }else{
-            console.log("not empty");
-        }
 
     }
 });

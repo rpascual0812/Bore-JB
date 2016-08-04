@@ -3,11 +3,13 @@ require_once('../../../Classes/ClassParent.php');
 class Profiles extends ClassParent{
     var $pin = NULL;
     var $profile = array();
+    var $date_created = NULL;
     var $archived = NULL;
 
     public function __construct(
                                     $pin,
                                     $profile,
+                                    $date_created,
                                     $archived
                                 ){
         
@@ -57,6 +59,10 @@ class Profiles extends ClassParent{
                 'extensions' => $this->profile['extensions'],
                 'mobile_number' => $this->profile['mobile_number']
         );
+
+        if($usertype == 'candidate'){
+            $json_profile['confirmed'] = 'false';
+        }
 
         $json_profile = json_encode($json_profile);
 
@@ -136,17 +142,6 @@ EOT;
                     ;
 EOT;
 
-            $sql .= <<<EOT
-                    insert into confirmation
-                    (
-                        pin
-                    )
-                    values
-                    (
-                        '$this->pin'
-                    );
-EOT;
-
         }
 
         $sql .= 'commit;';
@@ -157,9 +152,12 @@ EOT;
     public function fetch(){
         $sql = <<<EOT
                 select
-                    *
+                    pin,
+                    profile,
+                    case when (date_created + interval '30 days')::date - now()::date > 0 then false else true end as suspended,
+                    archived
                 from profiles
-                where pin = '$this->pin'
+                where md5(pin) = '$this->pin'
                 ;
 EOT;
 
