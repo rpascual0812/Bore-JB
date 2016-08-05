@@ -1,0 +1,117 @@
+<tr><td style="padding-top: 15px;">
+	<fieldset><legend>Title</legend>
+		<input type="text" class="form-control" placeholder="Web Developer"
+		ng-model="new_job_post.ad.title" />
+	</fieldset>
+</td></tr>
+
+<tr><td style="padding-top: 15px;">
+	<fieldset><legend>Required Skills</legend>
+		<tags-input
+			ng-model="new_job_post.ad.required_skills"
+			placeholder="HTML, CSS, Javascript, PHP"
+			template="my-custom-template">
+		</tags-input>
+	</fieldset>
+</td></tr>
+
+<tr><td style="padding-top: 15px;">
+	<fieldset><legend>Years of Experience</legend>
+		<input type="number" class="form-control" placeholder="3"
+		ng-model="new_job_post.ad.years_experience" />
+	</fieldset>
+</td></tr>
+
+<tr><td>
+	<fieldset><legend>Effectivity of Job Post</legend>
+		<input class="form-control effectivity" style="width:46%;float:left" type="date" min="{{currentDate}}" value="{{currentDate}}"
+		ng-model="new_job_post.ad.effectDate1"/>
+		<div style="float:left;width:8%;text-align:center;">
+			<span> to </span>
+		</div>
+		<input class="form-control effectivity" style="width:46%;float:left" type="date" min="{{postDate}}" value="{{postDate}}"
+		ng-model="new_job_post.ad.effectDate2"/>
+	</fieldset>
+</td></tr>
+
+<tr><td>
+	<fieldset><legend>Commission Type</legend>
+		<ul class="ca-menu">
+            <li id="li-integrity" style="display:block;margin:0 auto 0 -40px;width:40%">
+                <a ng-click="nav_select('a')">
+                    <span class="ca-icon">
+                    	<img src="../ASSETS/img/money.png" />
+                    </span>
+                    <div class="ca-content">
+                        <h2 class="ca-main">Monetary</h2>
+                    </div>
+                </a>
+            </li>
+            <li style="display:block;margin:0 0 0 8px;width:40%">
+                <a ng-click="nav_select('b')">
+                    <span class="ca-icon">
+                    	<img src="../ASSETS/img/star.png" />
+                    </span>
+                    <div class="ca-content">
+                        <h2 class="ca-main">Points</h2>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </fieldset>
+</td></tr>
+
+<tr><td>
+	<fieldset><legend>Commission Value</legend>
+		<div ng-show="comm_val.money">
+			<select class="comval" ng-model="new_job_post.ad.commission_value">
+				<option disabled value="" selected>Select Money Value</option>
+				<option value="1000">1,000</option>
+				<option value="2000">2,000</option>
+				<option value="3000">3,000</option>
+				<option value="4000">4,000</option>
+				<option value="5000">5,000</option>
+				<option value="6000">6,000</option>
+				<option value="7000">7,000</option>
+				<option value="8000">8,000</option>
+				<option value="9000">9,000</option>
+				<option value="10000">10,000</option>
+			</select>
+		</div>
+		<div ng-show="comm_val.points">
+			<select class="comval" ng-model="new_job_post.ad.commission_value">
+				<option disabled value="" selected>Select Point Value</option>
+				<option value="500">500</option>
+				<option value="1000">1,000</option>
+				<option value="2000">2,000</option>
+				<option value="3000">3,000</option>
+				<option value="4000">4,000</option>
+				<option value="5000">5,000</option>
+			</select>
+		</div>
+	</fieldset>
+</td></tr>
+
+<!-- <tr><td>
+	<fieldset><legend>Salary Range</legend>
+		<p>negotiable</p>
+	</fieldset>
+</td></tr> -->
+
+<tr><td style="padding-top: 15px;">
+	<fieldset><legend>Work Location</legend>
+		<input type="text" class="form-control" ng-model="new_job_post.ad.work_location" placeholder="Unit 109 De Oro Bldg., Boni Ave., Mandaluyong" />
+	</fieldset>
+</td></tr>
+
+<tr><td>
+	<fieldset><legend>Work Shift</legend>
+		<select ng-model="new_job_post.ad.work_shift">
+			<option disabled value="" selected>Select Work Shift</option>
+			<option value="Day Shift">Day Shift</option>
+			<option value="Night Shift">Night Shift</option>
+			<option value="Shifting Schedule">Shifting Schedule</option>
+			<option value="Rotational">Rotational</option>
+		</select>
+	</fieldset>
+</td></tr>
