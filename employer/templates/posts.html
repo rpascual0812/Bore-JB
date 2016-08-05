@@ -146,30 +146,8 @@ form .progress {
 									<h3 style="color:#669999">Create Ads</h3>
 
 									<table style="width:100%;">
-										<tr>
-											<td style="padding-top: 15px;">
-												<input type="text" class="form-control" placeholder="Title"
-												ng-model="new_job_post.ad.title" />
-											</td>
-										</tr>
-										<tr>
-											<td style="padding-top: 15px;">
-												<tags-input
-													ng-model="new_job_post.ad.required_skills"
-													placeholder="Required Skills"
-													template="my-custom-template">
-												</tags-input>
-											</td>
-										</tr>
-										<tr>
-											<td style="padding-top: 15px;">
-												<input type="number" class="form-control" placeholder="Years of Experience"
-												ng-model="new_job_post.ad.years_experience" />
-											</td>
-										</tr>
-										<tr>
-											<td style="padding-top: 15px;">
-
+										<!-- <tr><td style="padding-top: 15px;"> -->
+											<fieldset><legend>File</legend>
 			                                    <div class="myfileupload">
 				                                    <form enctype="multipart/form-data">
 					                                    <div class="fileleft">
@@ -181,86 +159,40 @@ form .progress {
 				                                        </div>
 			                                        </form>
 		                                        </div>
-												
-			                                    
-
-											</td>
-										</tr>
-										<tr>
-											<td>
-											<br>
-											<h5>Effectivity of Job Post</h5>
-												<input class="form-control effectivity" style="width:46%;float:left" type="date" min="{{currentDate}}" value="{{currentDate}}"
-												ng-model="new_job_post.ad.effectDate1"/>
-												<div style="float:left;width:8%;text-align:center;">
-													<span> to </span>
-												</div>
-												<input class="form-control effectivity" style="width:46%;float:left" type="date" min="{{postDate}}" value="{{postDate}}"
-												ng-model="new_job_post.ad.effectDate2"/>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<h5>Commission Type</h5>
-												<!-- <select ng-model="new_job_post.ad.commission_type" ng-change="nav_select()">
-													<option value="monetary">Monetary</option>
-													<option value="points">Points</option>
-												</select> -->
-
-												<ul class="ca-menu">
-									                <li id="li-integrity" style="display:block;margin:0 auto 0 -40px;width:40%">
-									                    <a onclick="open_tool('integrity')">
-									                        <span class="ca-icon">
-									                        	<img src="../ASSETS/img/money.png" />
-									                        </span>
-									                        <div class="ca-content">
-									                            <h2 class="ca-main">Monetary</h2>
-									                        </div>
-									                    </a>
-									                </li>
-									                <li style="display:block;margin:0 0 0 8px;width:40%">
-									                    <a onclick="open_tool('cats')">
-									                        <span class="ca-icon">
-									                        	<img src="../ASSETS/img/star.png" />
-									                        </span>
-									                        <div class="ca-content">
-									                            <h2 class="ca-main">Points</h2>
-									                        </div>
-									                    </a>
-									                </li>
-									            </ul>
-									        </td>
-									    </tr>
-									    <tr>
-											<td>
-											<h5>Value:</h5>
-												<div ng-show="comm_val.money">
-													<select class="comval" ng-model="new_job_post.ad.commission_value">
-														<option value="1000">1,000</option>
-														<option value="2000">2,000</option>
-														<option value="3000">3,000</option>
-														<option value="4000">4,000</option>
-														<option value="5000">5,000</option>
-														<option value="6000">6,000</option>
-														<option value="7000">7,000</option>
-														<option value="8000">8,000</option>
-														<option value="9000">9,000</option>
-														<option value="10000">10,000</option>
-													</select>
-												</div>
-												<div class="comval" ng-show="comm_val.points">
-													<select ng-model="new_job_post.ad.commission_value">
-														<option value="500">500</option>
-														<option value="1000">1,000</option>
-														<option value="2000">2,000</option>
-														<option value="3000">3,000</option>
-														<option value="4000">4,000</option>
-														<option value="5000">5,000</option>
-													</select>
-												</div>
-											</td>
-										</tr>
+											</fieldset>
+										
+										<div ng-include src="'./templates/includes/posts-ad.html'"></div>
 									</table>
+<!-- <div id="exTab3" class="container">	
+<ul class="nav nav-pills">
+	<li class="active">
+		<a ng-click="tabSwitch('1b')">Overview</a>
+	</li>
+	<li>
+		<a ng-click="tabSwitch('2b')">Using nav-pills</a>
+	</li>
+	<li>
+		<a ng-click="tabSwitch('3b')">Applying clearfix</a>
+	</li>
+	<li>
+		<a href="#4a" data-toggle="tab">Background color</a>
+	</li>
+</ul>
+<div class="tab-content clearfix">
+	<div class="tab-pane active" ng-show="poached">
+		<h3>Same as example 1 but we have now styled the tab's corner</h3>
+	</div>
+	<div class="tab-pane " ng-show="boiled">
+		<h3>We use the class nav-pills instead of nav-tabs which automatically creates a background color for the tab</h3>
+	</div>
+	<div class="tab-pane " ng-show="fried">
+		<h3>We applied clearfix to the tab-content to rid of the gap between the tab and the content</h3>
+	</div>
+	<div class="tab-pane" id="4b">
+		<h3>We use css to change the background color of the content to be equal to the tab</h3>
+	</div>
+</div>
+</div> -->
 									<div style="width: 80%; margin: 20px auto 0px auto; text-align:right;">
 										<button type="submit" class="btn btn-primary postbutton" ng-click="post_job(1)">POST AD</button>
 									</div>
@@ -268,86 +200,23 @@ form .progress {
 								</div>
 								
 							</div>
+
+
 							<div ng-if="newad.link">
 								<form>
 								<div style="width: 88%; margin: 0 auto; padding:10px 0px;">
 									<h3 style="color:#669999">Link a video</h3>
 
 									<table style="width:100%;">
-										<tr>
-											<td style="padding-top: 15px;">
-												<input type="text" class="form-control" placeholder="Title"
-												ng-model="new_job_post.video.title" required/>
-											</td>
-										</tr>
-										<tr>
-											<td style="padding-top: 15px;">
-												<textarea type="text" class="form-control" placeholder="Description"
-												ng-model="new_job_post.video.description" required></textarea>
-											</td>
-										</tr>
-										<tr>
-											<td style="padding-top: 15px;">
-												<tags-input
-															ng-model="new_job_post.video.required_skills"
-															placeholder="Required Skills"
-															template="my-custom-template">
-												</tags-input>
-											</td>
-										</tr>
-										<tr>
-											<td style="padding-top: 15px;">
-												<input type="url" class="form-control" style="border-radius:0px" placeholder="Link"
-												ng-model="new_job_post.video.link" required/>
-											</td>
-										</tr>
-										<tr>
-											<td>
-											<br>
-											<h5>Effectivity of Job Post</h5>
-												<input class="form-control effectivity" style="width:46%;float:left" type="date" min="{{currentDate}}" value="{{currentDate}}"
-												ng-model="new_job_post.ad.effectDate1"/>
-												<div style="float:left;width:8%;text-align:center;">
-													<span> to </span>
-												</div>
-												<input class="form-control effectivity" style="width:46%;float:left" type="date" min="{{postDate}}" value="{{postDate}}"
-												ng-model="new_job_post.ad.effectDate2"/>
-											</td>
-										</tr>
-										<tr>
-											<td>
-											<h5>Commission Type</h5>
-												<select class="comval"  ng-model="new_job_post.ad.commission.type" ng-change="nav_select()">
-													<option value="monetary" selected>Monetary</option>
-													<option value="points">Points</option>
-												</select>
-											<h5>Value:</h5>
-												<div ng-show="comm_val.money">
-													<select class="comval" ng-model="new_job_post.ad.commission.value">
-														<option value="500">500</option>
-														<option value="1000">1000</option>
-														<option value="2000">2000</option>
-														<option value="3000">3000</option>
-														<option value="4000">4000</option>
-														<option value="5000">5000</option>
-													</select>
-												</div>
-												<div ng-show="comm_val.points">
-													<select class="comval" ng-model="new_job_post.ad.commission.value">
-														<option value="100">100</option>
-														<option value="200">200</option>
-														<option value="300">300</option>
-														<option value="400">400</option>
-														<option value="500">500</option>
-														<option value="600">600</option>
-														<option value="700">700</option>
-														<option value="800">800</option>
-														<option value="900">900</option>
-														<option value="1000">1000</option>
-													</select>
-												</div>
-											</td>
-										</tr>
+										<!-- <tr><td style="padding-top: 15px;"> -->
+											<input type="url" class="form-control" style="border-radius:0px" placeholder="Link"
+											ng-model="new_job_post.video.link" required/>
+										<!-- </td></tr>
+										<tr><td style="padding-top: 15px;"> -->
+											<textarea type="text" class="form-control" placeholder="Description"
+											ng-model="new_job_post.video.description" required></textarea>
+										<!-- </td></tr> -->
+										<div ng-include src="'./templates/includes/posts-video.html'"></div>
 									</table>
 								</div>
 								<div style="width: 80%; margin: 0 auto; text-align:right; margin-top:20px;">
@@ -355,78 +224,23 @@ form .progress {
 								</div>
 								</form>
 							</div>
+
+
 							<div ng-if="newad.post">
 								<div class="filloutform">
 									<h3 style="color:#669999">Post a job</h3>
-
 									<div style="width:100%">
-										<div style="padding-top: 15px;">
-											<input type="text" class="form-control" placeholder="Title"
-											ng-model="new_job_post.job.title"/>
-										</div>
 										<div style="padding-top: 15px;">
 											<textarea ui-tinymce="tinymceOptions" class="form-control" placeholder="Job Requirements" ng-model="new_job_post.job.requirements">
 											</textarea>
 										</div>
+
 										<div style="padding-top: 15px;">
 											<textarea ui-tinymce="tinymceOptions" class="form-control" placeholder="Job Qualifications" ng-model="new_job_post.job.qualifications">
 											</textarea>
 										</div>
-										<div style="padding-top: 15px;">
-											<tags-input
-												ng-model="new_job_post.job.required_skills"
-												placeholder="Required Skills"
-												template="my-custom-template">
-											</tags-input>
-										</div>
-										<div style="padding-top: 15px;">
-											<input type="text" class="form-control" style="border-radius:0px" placeholder="Years of Experience" 
-											ng-model="new_job_post.job.years_experience"/>
-										</div>
-										<div style="padding-top: 15px;">
-											<h5>Effectivity of Job Post</h5>
-												<input class="form-control effectivity" style="width:46%;float:left" type="date" min="{{currentDate}}" value="{{currentDate}}"
-												ng-model="new_job_post.ad.effectDate1"/>
-												<div style="float:left;width:8%;text-align:center;">
-													<span> to </span>
-												</div>
-												<input class="form-control effectivity" style="width:46%;float:left" type="date" min="{{postDate}}" value="{{postDate}}"
-												ng-model="new_job_post.ad.effectDate2"/>
-										</div>
-										<div style="padding-top: 40px;">
-											<h5>Commission Type</h5>
-											<select class="comval" ng-model="new_job_post.ad.commission.type" ng-change="nav_select()">
-												<option value="monetary" selected>Monetary</option>
-												<option value="points">Points</option>
-											</select>
-										</div>
-										<div style="padding-top: 0px;">
-											<h5>Value:</h5>
-											<div ng-show="comm_val.money">
-												<select class="comval" ng-model="new_job_post.ad.commission.value">
-													<option value="500">500</option>
-													<option value="1000">1000</option>
-													<option value="2000">2000</option>
-													<option value="3000">3000</option>
-													<option value="4000">4000</option>
-													<option value="5000">5000</option>
-												</select>
-											</div>
-											<div ng-show="comm_val.points">
-												<select class="comval" ng-model="new_job_post.ad.commission.value">
-													<option value="100">100</option>
-													<option value="200">200</option>
-													<option value="300">300</option>
-													<option value="400">400</option>
-													<option value="500">500</option>
-													<option value="600">600</option>
-													<option value="700">700</option>
-													<option value="800">800</option>
-													<option value="900">900</option>
-													<option value="1000">1000</option>
-												</select>
-											</div>
-										</div>
+
+										<div ng-include src="'./templates/includes/posts-job.html'"></div>
 									</div>
 								</div>
 								<div style="width: 80%; margin: 0 auto; text-align:right; margin-top:20px;">
