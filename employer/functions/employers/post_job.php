@@ -18,7 +18,8 @@ $required_skills = array();
 
 for ($i=0; $i<count($tags); $i++) {
     foreach ($tags[$i] as $key => $value){
-        array_push($required_skills, $value);
+        $v = pg_escape_string(trim(strip_tags($value)));
+        array_push($required_skills, $v);
     }
 }
 

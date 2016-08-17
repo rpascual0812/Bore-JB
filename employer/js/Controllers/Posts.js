@@ -8,6 +8,8 @@ app.controller('Posts', function(
                                     JobPostsFactory,
                                     Upload,
                                     $timeout
+                                    // $rootScope,
+                                    // $uibModal
 								){
 
     $scope.candidates = {
@@ -273,7 +275,7 @@ app.controller('Posts', function(
         });
     };
 
-    $scope.uploadPic = function(file) {
+    /*$scope.uploadPic = function(file) {
         console.log(file);
         Upload.upload({
             url: "./functions/employers/upload.php",
@@ -289,14 +291,51 @@ app.controller('Posts', function(
             //console.log('progress: ' + progressPercentage + '% ');
         });
 
+    }*/
+
+    $scope.nav_select = function(x){
+        switch (x) {
+            case 'a': {
+                $scope.comm_val.money = true;
+                $scope.comm_val.points = false;
+                break;
+            }
+            case 'b': {
+                $scope.comm_val.money = false;
+                $scope.comm_val.points = true;
+                break;
+            }
+        }
     }
 
-    $scope.nav_select = function(){
-        $scope.comm_val.money = !$scope.comm_val.money;
-        $scope.comm_val.points = !$scope.comm_val.points;
+    $scope.poached = true;
+    $scope.boiled = false;
+    $scope.fried = false;
+
+    $scope.tabSwitch = function(x){
+        switch (x) {
+            case "1b": {
+                $scope.poached = true;
+                $scope.boiled = false;
+                $scope.fried = false;
+                break;
+            }
+            case "2b": {
+                $scope.poached = false;
+                $scope.boiled = true;
+                $scope.fried = false;
+                break;
+            }
+            case "3b": {
+                $scope.poached = false;
+                $scope.boiled = false;
+                $scope.fried = true;
+                break;
+            }
+        }
     }
     
-    $scope.upload_pic = function(file){
+    /*$scope.upload_pic = function(file){
         var file_data = $('#picnic').prop('files')[0];   
         var form_data = new FormData();
         form_data.append('file', file_data);
@@ -312,9 +351,6 @@ app.controller('Posts', function(
                 //alert(php_script_response);
             }
         });
-    }
-
-
-
+    }*/
 
 });

@@ -7,6 +7,12 @@ body {
   	color: #34495e;
   	background-color: #ffffff;
 }
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+     color:#F02921;
+     background-color: #1B3033;
+
+}
 .searchbar input {
 	border: 0;
 	background-color: #1b3033;

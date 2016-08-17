@@ -44,7 +44,7 @@ class Job_posts extends ClassParent{
     public function create($tags){
         $json_details = json_encode($this->details);
         $tags = json_encode($tags);
-            
+
             $sql = "BEGIN;";
             $sql .= <<<EOT
             INSERT INTO job_posts
