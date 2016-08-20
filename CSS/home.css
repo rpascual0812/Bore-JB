@@ -1,3 +1,355 @@
+.overall{
+	background-color:#DC381F;
+	padding-top: 30px;
+}
+@media(min-width: 768px){
+	.overall{
+		background-color:#DC381F;
+		padding-top: 60px;
+	}
+}
+@media(min-width: 850px){
+	.overall{
+		background-color:#DC381F;
+		padding-top: 40px;
+	}
+}
+@media(min-width: 900px){
+	.overall{
+		background-color:#DC381F;
+		padding-top: 20px;
+	}
+}
+@media(min-width: 951px){
+	.overall{
+		background-color:#DC381F;
+		padding-top: 10px;
+	}
+}
+@media(min-width: 990px){
+	.overall{
+		background-color:#DC381F;
+		padding-top: 7px;
+	}
+}
+@media(min-width: 1000px){
+	.overall{
+		background-color:#DC381F;
+		padding-top: 5px;
+	}
+}
+@media(min-width: 1100px){
+	.overall{
+		background-color:#DC381F;
+		padding-top: 0px;
+	}
+}
+
+
+.vidsize{
+	width:250px;
+	margin:0 auto;
+	display: block;
+	border:5px solid #F9966B;
+	border-radius: 4px;
+}
+@media(min-width: 425px){
+	.vidsize{
+		width:300px;
+	}
+}
+@media(min-width: 500px){
+	.vidsize{
+		width:350px;
+	}
+}
+
+@media(min-width: 768px){
+	.vidsize{
+		width:100%;
+		margin:0 auto;
+		display: block;
+		border:0px solid #F9966B;
+		border-radius: 0px;
+	}
+}
+.sectionbox{
+	width:100%;
+	display: block;
+	margin: 20px auto 0 auto;
+	text-align: center;
+	position:absolute;
+	background-color:#DC381F;
+}
+@media(min-width: 768px){
+	.sectionbox{
+		width:100%;
+		display: block;
+		margin: -400px 0 0 -130px;
+		text-align: left;
+		position:absolute;
+		background-color:transparent;
+	}
+}
+@media(min-width: 992px){
+	.sectionbox{
+		margin: -500px 0 0 -240px;
+	}
+}
+@media(min-width: 1000px){
+	.sectionbox{
+		margin: -525px 0 0 -270px;
+	}
+}
+@media(min-width: 1200px){
+	.sectionbox{
+		margin: -600px 0 0 -300px;
+	}
+}
+@media(min-width: 1300px){
+	.sectionbox{
+		margin: -650px 0 0 -380px;
+	}
+}
+@media(min-width: 1700px){
+	.sectionbox{
+		margin: -50% 0 0 -20%;
+	}
+}
+@media(min-width: 2200px){
+	.sectionbox{
+		margin: -45% 0 0 -28%;
+	}
+}
+
+.textalign1{
+	text-align: center;
+	color:white;
+	font-size:2.5em;
+}
+@media(min-width: 500px){
+	.textalign1{
+		font-size:300%;
+		letter-spacing: 12px;
+	}
+}
+@media(min-width: 1700px){
+	.textalign1{
+		font-size:500%;
+		letter-spacing: 12px;
+	}
+}
+.textalign2{
+	text-align: center;
+	display: block;
+	margin: 0 auto;
+	color:white;
+	font-size: 125%;
+}
+@media(min-width: 500px){
+	.textalign2{
+		letter-spacing: 5px;
+	}
+}
+@media(min-width: 1700px){
+	.textalign2{
+		font-size: 200%;
+	}
+}
+.textalign3{
+	text-align: center;
+	display: block;
+	margin: 30px auto 0 auto;
+	float:none;
+}
+.buttonmodif{
+	color:white;
+	font-size: 1em;
+	border:2px solid white;
+	border-radius:4px;
+	padding: 15px;
+	margin:0 5px;
+}
+@media(min-width: 500px){
+	.buttonmodif{
+		font-size: 150%;
+	}
+}
+@media(min-width: 1700px){
+	.buttonmodif{
+		font-size: 275%;
+		padding: 25px;
+	}
+}
+.imgsize{
+	width:130px;
+	display: block;
+	margin:0px auto 0 auto;
+	padding-bottom: 20px;
+}
+@media(min-width: 375px){
+	.imgsize{
+		width:150px;
+		display: block;
+		margin:0px auto 0 auto;
+	}
+}
+@media(min-width: 425px){
+	.imgsize{
+		width:120px;
+		display: block;
+		margin:0px auto 0 auto;
+	}
+}
+@media(min-width: 500px){
+	.imgsize{
+		width:150px;
+		display: block;
+		margin:-70px 60% 0 auto;
+	}
+}
+@media(min-width: 992px){
+	.imgsize{
+		width:180px;
+		display: block;
+		margin:0px auto 0 auto;
+	}
+}
+@media(min-width: 1200px){
+	.imgsize{
+		width:210px;
+		display: block;
+		margin:0px auto 0 auto;
+	}
+}
+@media(min-width: 1500px){
+	.imgsize{
+		width:320px;
+		display: block;
+		margin:0px auto 0 auto;
+	}
+}
+
+
+.quotesize{
+	font-size: 65%;
+	color:white;
+}
+.quotesize2{
+	font-size: 65%;
+	color:white;
+	text-align: right;
+	margin-top: 10px;
+}
+@media(min-width: 500px){
+
+	.quotesize{
+		font-size: 75%;
+		text-align: right;
+	}
+	.quotesize2{
+		font-size: 75%;
+		text-align: right;
+	}
+}
+@media(min-width: 601px){
+
+	.quotesize{
+		font-size: 80%;
+		text-align: right;
+	}
+	.quotesize2{
+		font-size: 80%;
+		text-align: right;
+	}
+}
+@media(min-width: 992px){
+
+	.quotesize{
+		font-size: 90%;
+		text-align: center;
+	}
+	.quotesize2{
+		font-size: 90%;
+		text-align: right;
+		margin-right: 150px;
+	}
+}
+@media(min-width: 1100px){
+	.quotesize2{
+		font-size: 90%;
+		text-align: right;
+		margin-right: 200px;
+	}
+}
+@media(min-width: 1200px){
+	.quotesize2{
+		font-size: 90%;
+		text-align: right;
+		margin-right: 250px;
+	}
+}
+@media(min-width: 1300px){
+	.quotesize2{
+		font-size: 90%;
+		text-align: right;
+		margin-right: 300px;
+	}
+}
+@media(min-width:1500px){
+	.quotesize{
+		font-size: 130%;
+	}
+	.quotesize2{
+		font-size: 130%;
+		margin-right: 250px;
+	}
+}
+@media(min-width:2200px){
+	.quotesize2{
+		margin-right: 400px;
+	}
+}
+
+
+.quote{
+	margin-top: 35px;
+	padding:0 7%;
+}
+@media(min-width: 425px){
+	.quote{
+		margin-top: 35px;
+		padding:0 15%;
+	}
+}
+@media(min-width: 500px){
+	.quote{
+		margin-top: 35px;
+		padding:0 25% 0 auto;
+	}
+}
+@media(min-width: 601px){
+	.quote{
+		margin:35px 3% 0 auto;
+	}
+}
+@media(min-width: 700px){
+	.quote{
+		margin:35px 8% 0 auto;
+	}
+}
+@media(min-width: 992px){
+	.quote{
+		margin:35px auto 0 auto;
+	}
+}
+
+
+
+
+
+
+
 .c-jumbotron-footer-box{
 	margin-bottom:0px;
 	text-align:center;

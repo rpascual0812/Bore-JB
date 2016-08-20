@@ -7,6 +7,28 @@ body {
   	color: #34495e;
   	background-color: #ffffff;
 }
+.titlesize{
+	font-size: 13px;
+}
+@media(min-width: 768px){
+	.titlesize{
+		font-size: 16px;
+	}
+}
+.ctoggle{
+	width:100%;
+	display:block;
+	margin: -50px 10% 0 0;
+	float: right;
+}
+	@media(min-width: 381px){
+
+	.ctoggle{
+		display:block;
+		margin: -5px 0 0 70%;
+		float: none;
+	}
+}
 .c-size{
 	width:95%;
 }
@@ -27,11 +49,11 @@ body {
 	border-bottom: solid 1px #CCC;
 	border-radius: 0.5;
 
-	width: 60%;
+	width: 70%;
 	height: 40px;
-	font-size: 15px;
+	font-size: 13px;
 	padding: 5px;
-	margin-top: 5px;
+	margin: 5px 0 0 0;
 }
 @media(min-width: 381px){
 	.searchbar {
@@ -41,6 +63,7 @@ body {
 @media(min-width: 768px){
 	.searchbar {
 	width: 400px;
+	font-size: 15px;
 	}
 }
 
