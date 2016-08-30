@@ -19,11 +19,9 @@ app.controller('Feeds', function(
     $scope.feeds = {};
     $scope.feeds.ad = {};
     $scope.hide = 'ng-hide';
-
         
     $scope.feeds.data = [];
     $scope.confirmed='';
-
     $scope.profile_form = {}
     $scope.profile_form.personal = {};
     $scope.profile_form.achievements = {};
@@ -39,13 +37,20 @@ app.controller('Feeds', function(
     $scope.view.work='ng-hide';
     $scope.months=["January","February","March","April","May","June","July","August","September","October","November","December"];
     $scope.gender=["Male","Female","Other"];
-    $scope.countries=["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua & Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia &amp; Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Cape Verde","Cayman Islands","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cruise Ship","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kuwait","Kyrgyz Republic","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Mauritania","Mauritius","Mexico","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Namibia","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","Norway","Oman","Pakistan","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre &amp; Miquelon","Samoa","San Marino","Satellite","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","South Africa","South Korea","Spain","Sri Lanka","St Kitts &amp; Nevis","St Lucia","St Vincent","St. Lucia","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad &amp; Tobago","Tunisia","Turkey","Turkmenistan","Turks &amp; Caicos","Uganda","Ukraine","United Arab Emirates","United Kingdom","Uruguay","Uzbekistan","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];
+    $scope.countries=["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua & Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia & Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Cape Verde","Cayman Islands","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cruise Ship","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kuwait","Kyrgyz Republic","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Mauritania","Mauritius","Mexico","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Namibia","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","Norway","Oman","Pakistan","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre & Miquelon","Samoa","San Marino","Satellite","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","South Africa","South Korea","Spain","Sri Lanka","St Kitts & Nevis","St Lucia","St Vincent","St. Lucia","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad & Tobago","Tunisia","Turkey","Turkmenistan","Turks & Caicos","Uganda","Ukraine","United Arab Emirates","United Kingdom","Uruguay","Uzbekistan","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];
     $scope.educational_attainment=["Highschool", "Vocational Course","Associate's Degree","Bachelor's Degree","Master's Degree","Doctorate"];
     $scope.days=[];
+    $scope.profile_form.education.prompt= false;
+    $scope.profile_form.personal.prompt= false;
+    $scope.profile_form.work.prompt= false;
+    $scope.profile_form.achievements.prompt= false;
     $scope.work_end='ng-show';
     $scope.graduation_years=[];
-    $scope.completed= 'ng-hide';
+    $scope.completed= 'ng-show';
     $scope.present='ng-hide';
+    $scope.present_extend=[];
+    $scope.completed_extend=[];
+    $scope.employed_extended=[];
     $scope.feeds.data = 
     [
         {
@@ -214,14 +219,13 @@ app.controller('Feeds', function(
         promise.then(function(data){
             $scope.profile = data.data.result[0];
             $scope.profile.profile = JSON.parse($scope.profile.profile);
-          // $scope.name = $scope.profile.profile.personal.first_name + " " + $scope.profile.profile.personal.last_name;
-          // console.log($scope.profile.profile);
-            //if($scope.profile.suspended == false){
+      
+            if($scope.profile.suspended == "f"){
                 reload_ads();
                 reload_feeds();
                 check();
                 count();
-            //}            
+            }            
             
         });
     }
@@ -301,15 +305,6 @@ app.controller('Feeds', function(
             $scope.pitch = "";
         }
     }
-
-
-    $scope.show =function(status){
-        if(status==true){
-            $scope.confirmed= false;
-            return true;
-        }
-
-    } 
     
     $scope.searchbig = function(){
 
@@ -317,7 +312,24 @@ app.controller('Feeds', function(
         $scope.hide = 'ng-show';
 
     }
+        $scope.special_update = function(word){
+            var form ={};
+            if(word==='education'){
+                form.info = JSON.stringify($scope.profile_form.education);
+                form.type = word;
+                $scope.view.education = 'ng-hide';
+                $scope.view.work = 'ng-show';
+            }
+            form.pin = PINService.get();
+            var promise =ProfileFactory.special_update(form);
+            promise.then(function(data){
 
+                console.log(' Successful Update');
+            })
+            .then(null, function(data){ 
+                console.log('Failed Update');
+            });
+        }
 
         $scope.update = function(word){
 
@@ -339,14 +351,18 @@ app.controller('Feeds', function(
                 $scope.view.work = 'ng-hide';
             }
             else if(word === 'education'){
+
                 form.info = JSON.stringify($scope.profile_form.education);
                 form.type = word;
+                form.extended= JSON.stringify($scope.extended);
                 $scope.view.education = 'ng-hide';
                 $scope.view.work = 'ng-show';
             
-            }else if(word === 'work'){
+            }
+            else if(word === 'work'){
                 form.info = JSON.stringify($scope.profile_form.work);
                 form.type = word;
+                form.extended= JSON.stringify($scope.extended);
                 $scope.view.work = 'ng-hide';
             }
             form.pin = PINService.get();
@@ -385,17 +401,16 @@ app.controller('Feeds', function(
         function check(){
             if(!$scope.profile.profile.hasOwnProperty('personal_info')){
                 $scope.view.personal_info='ng-show';
-                 // document.getElementById("name").value = $scope.name;
-                //console.log("personal_info");
+                console.log("personal_info");
             }else if(!$scope.profile.profile.hasOwnProperty('achievements')){
                 $scope.view.achievements='ng-show';
-                //console.log("achievements");
+                console.log("achievements");
             }else if(!$scope.profile.profile.hasOwnProperty('education')){
                 $scope.view.education='ng-show';
-                //console.log("education");
+                console.log("education");
             }else if(!$scope.profile.profile.hasOwnProperty('work')){
                 $scope.view.work='ng-show';
-              //  console.log("WORK");
+              console.log("WORK");
             }else{
                 $scope.view.personal_info='ng-hide';
                 $scope.view.education='ng-hide';
@@ -420,6 +435,7 @@ app.controller('Feeds', function(
         }
 
         $scope.status = function(value){
+
             if(value=='ongoing'){
                 $scope.present='ng-show';
                 $scope.completed='ng-hide';
@@ -432,8 +448,36 @@ app.controller('Feeds', function(
             }
 
         }
+
+       $scope.extended_status = function(value,num){
+            $scope.num=num;
+            console.log($scope.num); 
+            console.log(value); 
+            if(value=='ongoing'){
+                $scope.present_extend[$scope.num]='ng-show';
+                $scope.completed_extend[$scope.num]='ng-hide';
+
+
+            console.log($scope.present_extend[$scope.num]);
+            console.log($scope.completed_extend[$scope.num]);
+            }else if(value=='completed'){
+                $scope.completed_extend[$scope.num]='ng-show';
+                $scope.present_extend[$scope.num]='ng-hide';
+
+
+            console.log($scope.present_extend[$scope.num]);
+            console.log($scope.completed_extend[$scope.num]);
+            }else{
+            $scope.completed_extend[$scope.num]='ng-show';
+            $scope.present_extend[$scope.num]='ng-hide';
+            }
+            console.log($scope.present_extend);
+            console.log($scope.completed_extend);
+            
+
+        }
         $scope.isEmployed = function(value){
-            console.log(value);
+            
             if(value){
                 $scope.work_end='ng-hide';
                 }else{
@@ -441,5 +485,36 @@ app.controller('Feeds', function(
             }
 
         }
+
+        $scope.skip = function(word){
+            if(word==='achievements'){
+                $scope.profile_form.achievements.data= null;
+                $scope.profile_form.achievements.prompt= true;
+                $scope.update('achievements');
+            }else if(word==='work'){
+
+                $scope.profile_form.work.data= null;
+                $scope.profile_form.work.prompt= true;
+                $scope.update('work');
+            }
+
+        }
+
+    $scope.number=10;
+    $scope.telephone = [];
+    $scope.inputCounter = 0;
+    $scope.limit =3;
+    $scope.text = "completed";
+    $scope.default_date="N/A";
+    
+
+    $scope.removeElement = function(elementID) {
+       
+       var elem = document.getElementById(elementID);
+        elem.remove();
+        console.log(elementID); 
+    };
+    
+
 
 });

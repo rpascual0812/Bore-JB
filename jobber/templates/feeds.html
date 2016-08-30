@@ -1,9 +1,28 @@
 <style>
+table,td{
+	padding-bottom: 2%;
+
+	border:3px solid black;
+}
+.labels{
+	text-align: right;
+	width:30%;
+	padding-right: 2%;
+}
 .input{
 		padding: 5%;
 		background-color: #E5E5E5;
 		width:100%;
-		padding-left: 2%
+		padding-left: 2%;
+}
+.dropdown{
+		border:none;
+		background-color: white;
+		padding:1%;
+		border-right:none; 
+		border-left:none;
+		border-top:none;
+		border-bottom: 2px solid #f46963;
 }
 
 .btnsubmit{
@@ -11,7 +30,26 @@
 		color: white;
 		border:none;
 		padding: 7px;
-		width:40%;
+		width:20%;
+
+}
+.btnadd{
+		background-color: #f46963;
+		color: white;
+		border:none;
+		height:25px;
+		width:25px;
+		padding:0 ;
+		border-radius:15px 15px 15px 15px;
+		float:right;
+}
+.btnskip{
+		background-color: #77b562;
+		color: white;
+		border:none;
+		width:10%;
+		padding: 3px;
+		float:right;
 
 }
 .btnreset{
@@ -19,10 +57,22 @@
 		color: white;
 		border:none;
 		padding: 7px;
-		width:40%;
+		width:20%;
 }
+/*.dropdown:hover{
+
+		border: 1px solid #f46963;
+}*/
+.dropdown:active{
+		color:black;
+}
+
 .btnsubmit:hover{
 		background-color: #F02921;
+		cursor: pointer;
+}
+.btnskip:hover{
+		background-color: #56a33b;
 		cursor: pointer;
 }
 .btnreset:hover{
@@ -34,6 +84,7 @@
 }
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   		padding-left: 6px;
+  		color:;
 }
 .autoform *:focus{	
 	outline: none;
@@ -159,7 +210,7 @@
 						<p style="text-align:justify; font-size:0.9em; color:black;">Your account has been suspended. Please confirm your email address to reactivated your account. Would you like us to <a href="#">resend</a> a new confirmation email?</p>
 					</div>
 					
-					<div class="autoform" >
+					<div class="autoform"  ng-if="profile.suspended == 'f' && profile.profile.confirmed == 'true'">
 						<div class="personalinfo" ng-class="view.personal_info" >
 							<p style="text-align:justify; font-size:0.9em">
 								<span style="cursor:pointer">
@@ -168,168 +219,217 @@
 									<a style="text-decoration:none" >Personal Information</a>
 								</span>
 							</p>
-							<div>
 							<hr>
 					
-							<h4 style="background-color:#F79490;margin-bottom:-10px;font-weight:bold; padding:4% 4% 4% 2%;">Personal Information</h4>
+							<h4 style="background-color:#F79490;margin-bottom:-10px;font-weight:bold; padding:4% 4% 4% 2%;">Personal Information</h5></h4>
 						    <form name="personal_form">
-							
 						    	<div class="input">
-						    	<div style="padding-top:2%">
-						    	<div>
-						    	<label style="padding-left:12%">Name:</label>
-						    	<input style="margin-left:3.8%; width: 26%; margin-right:2%;  border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="name_first" ng-model="profile_form.personal.name.first" placeholder="First Name" required/>
-						    	
-					
-								<input style=" width: 6%; margin-right:2%;  border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963
-								;" type="text" name="name_middle" ng-model="profile_form.personal.name.MI" placeholder="MI"   required/>
+						    	<table   width=100%>
+						    		<tr>
+						    			<td colspan=2></td>
+						    		</tr>
+						    		<tr>
+						    			<td class="labels"><label style="">Name:</label></td>
+						    			<td style=" "><input style=" width: 26%; margin-right:2%;border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="name_first" ng-model="profile_form.personal.name.first" placeholder="First Name" tabindex= required/>
+						    			<input style=" width: 6%; margin-right:2%;  border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963
+										;" type="text" name="name_middle" ng-model="profile_form.personal.name.MI" placeholder="MI"  tabindex= required/>
+										<input style=" width: 26%; margin-right:2%;  border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963
+										;" type="text" name="name_last" ng-model="profile_form.personal.name.last" placeholder="Last Name" tabindex= required/>
+										</td>
+						    		</tr>
+						    		<tr>
+						    			<td class="labels"></td>
+						    			<td style=" ">
+						    				<span style="color:#a81c17; font-size: 13px;" ng-show="personal_form.name_first.$invalid && !personal_form.name_first.$pristine">*First Name is required.</span>
+						    				<span style="color:#a81c17; font-size: 13px;" ng-show="personal_form.name_last.$invalid && !personal_form.name_last.$pristine">*Last Name is required.</span>
+										</td>
+						    		</tr>
+						    		<tr>
+						    			<td class="labels">Address Line 1:</td>
+						    			<td style=" ">
+						    				<input style="width: 65%; margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="address_line1" placeholder="Street address,P.O.box, company name" size="50" ng-model="profile_form.personal.address.line1" tabindex= required/>
+										</td>
+						    		</tr>
+						    		<tr>
+						    			<td class="labels"></td>
+						    			<td style=" ">
+											<span style="color:#a81c17; font-size: 13px;" ng-show="personal_form.address_line1.$invalid && personal_form.address_line1.$dirty ">*Address is required.</span>
+										</td>
+						    		</tr>
+						    		<tr>
+						    			<td class="labels">Address Line 2:</td>
+						    			<td style=" ">
+											<input style="width: 65%; margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="address_line2" placeholder="Apartment,suite,unit,building,floor,etc" size="50" ng-model="profile_form.personal.address.line2" tabindex=/>
+		
+						    			</td>
+						    		</tr>
+						    		<tr>
+						    			<td class="labels">
+						    					<label style="">City:</label>
+						    			</td>
+						    			<td style=" ">
+						   					<input style="width: 36%; margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="address_city" placeholder="City" size="50" ng-model="profile_form.personal.address.City"  tabindex= required/>
 								
-								<input style=" width: 26%; margin-right:2%;  border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963
-								;" type="text" name="name_last" ng-model="profile_form.personal.name.last" placeholder="Last Name" required/>
+						    			</td>
+						    		</tr>
+						    		<tr>
+						    			<td class="labels">
+						    				<label style="">Zip Code:</label>
+						    			</td>
+						    			<td style=" ">
+						    				<input style="width: 20%; margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="address_zip" placeholder="XXXX" size="50" ng-model="profile_form.personal.address.zip" maxlength=4 is-number tabindex= required/>
+								
+						    			</td>
+						    		</tr>
+						    		<tr>
+						    			<td class="labels"></td>
+						    			<td style=" ">
+						    				<span style="color:#a81c17; font-size: 13px;" ng-show="personal_form.address_zip.$invalid && personal_form.address_zip.$dirty">*Zip code is invalid.</span>
+						    			</td>
+						    		</tr>
+						    		<tr>
+						    			<td class="labels">
+											<label >Country:</label>
+										</td>
+						    			<td style=" ">
+						    				<select class="dropdown" ng-model="profile_form.personal.address.country" name="country" default="Country" style="margin-right:2%; " 
+						    				tabindex= required>		
+                           					 <option value="" disabled selected style="display:none">Country</option>
+											<option ng-repeat="v in countries" value="{{v}}">{{v}}</option>
+											</select>
+						    			</td>
+						    		</tr>
+						    		<tr>
+						    			<td class="labels">
+						    				<label>Gender:</label>
+						    			</td>
+						    			<td style=" ">
+						    				<select class="dropdown" ng-model="profile_form.personal.gender" name="Gender" default="Gender" style="margin-right:2%; " tabindex=>		
+			                           		 <option value="" disabled selected style="display:none">Gender</option>
+											<option ng-repeat="v in gender" value="{{v}}">{{v}}</option>
+											</select>
+
+						    			</td>
+						    		</tr>
+						    		<tr>
+						    			<td class="labels">
+						    				<label style="">Birthday:</label>
+								
+						    			</td>
+						    			<td style=" ">
+					    					<select class="dropdown" ng-model="profile_form.personal.birthday.month" name="month" default="Month" style="margin" tabindex= required> 
+			                           		 <option value="" disabled selected style="display:none">Month</option>
+											<option ng-repeat="v in months" value="{{v}}">{{v}}</option>
+											</select>
+
+											<select class="dropdown" ng-model="profile_form.personal.birthday.day" name="day" default="Day" style="margin-right:2%; " tabindex= required>		
+			                           		 <option value="" disabled selected style="display:none">Day</option>
+											<option ng-repeat="v in days" value="{{v}}">{{v}}</option>
+											</select>
+											
+											<input style=" width: 20%; margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="year" placeholder="Year" ng-model="profile_form.personal.birthday.year" is-number maxlength=4 tabindex=/> 
+
+						    			</td>
+						    		</tr>
+						    		<tr>
+						    			<td class="labels">
+						    				Mobile Number:
+						    			</td>
+						    			<td style=" ">
+						    				<input style=" width: 10%; margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="phonenumber_network" placeholder="0917" ng-model="profile_form.personal.number.network" is-number maxlength=4 tabindex= required/>
+											<input style=" width: 20%; margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="phonenumber_digits" placeholder="XXXXXXX" ng-model="profile_form.personal.number.digits" is-number maxlength=7 tabindex= required/>
+											
+						    			</td>
+						    		</tr>
+						    		<tr>
+						    			<td class="labels"></td>
+						    			<td style=" ">
+						    				<span style="color:#a81c17; font-size: 13px;" ng-show="personal_form.phonenumber_digits.$invalid && personal_form.phonenumber_digits.$dirty || personal_form.phonenumber_network.$invalid && personal_form.phonenumber_network.$dirty">*Phone Number is required.</span>
 							
-								<div style="margin:%; display:inline;">
-								<div style="position:absolute; margin-left:30%">
-								<span style="color:#a81c17; font-size: 13px;" ng-show="personal_form.name_last.$invalid && !personal_form.name_last.$pristine">*Last Name is required.</span>
-								</div>
-								<div style="position:absolute;  margin-left: 12%">
-								<span style="color:#a81c17; font-size: 13px;" ng-show="personal_form.name_first.$invalid && !personal_form.name_first.$pristine">*First Name is required.</span>
-								</div>
-								</div>
-								</div>
-								<br>
-								<div style="padding-bottom:1%; ">
-								<div style="">
-								Address Line 1:
-								<input style="margin-left:3.4%;  width: 60%; margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="address_line1" placeholder="Street address,P.O. box, company name" size="50" ng-model="profile_form.personal.address.line1" required/>
-								</div>
-								<div style="margin:%;">
-								<span style="color:#a81c17; font-size: 13px; position:absolute;  margin-left:12%; padding-top:2px;" ng-show="personal_form.address_line1.$invalid && personal_form.address_line1.$dirty ">*Address is required.</span>
-								</div>
+						    			</td>
+						    		</tr>
+						    		<tr>
+						    			<td class="labels">
+						    				<label style="">Home Number:</label>
+						    			</td>
+						    			<td style=" ">
+						    				<input style=" width: 30%;margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="phonenumber_home" placeholder="639XXXX" ng-model="profile_form.personal.number.home" is-number maxlength=7 required tabindex=/>
 								
-
-								<br>
-								<div style="">
-								Address Line 2:
-								<input style="margin-left:3.1%; width: 60%; margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="address_line2" placeholder="Apartment,suite,unit,building,floor,etc" size="50" ng-model="profile_form.personal.address.line2"/>
-								</div>
-								<br>
-								<div style=" margin-bottom:-10px">
-								<label style="padding-left:16%">City:</label>
-								<input style="margin-left: 3%;width: 36%; margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="address_city" placeholder="City" size="50" ng-model="profile_form.personal.address.City"  required/>
-								<br>
-								<div style="padding-top:2%">
-								<label style="padding-left:9%">Zip Code:</label>
-								<input style="width: 20%;margin-left: 2.5%; margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="address_zip" placeholder="XXXX" size="50" ng-model="profile_form.personal.address.zip" maxlength=4 is-number required/>
-								</div>
-								<span style="color:#a81c17; font-size: 13px; margin-left:12%; position:absolute;" ng-show="personal_form.address_zip.$invalid && personal_form.address_zip.$dirty">*Zip code is invalid.</span>
-								</div>
-
-								<div  style="margin-top:6%">
-								<label style="padding-left:10%">Country:</label>
-								<select ng-model="profile_form.personal.address.country" name="country" default="Country" style="margin-left: 3%;padding:1%;margin-right:2%; " required>		
-                           		 <option value="" disabled selected style="display:none">Country</option>
-								<option ng-repeat="v in countries" value="{{v}}">{{v}}</option>
-								</select>
-								</div>
-								</div>
-
-								<div style="padding-top:3%;">
-								<label style="padding-left:11%">Gender:</label>
-								<select ng-model="profile_form.personal.gender" name="Gender" default="Gender" style="padding:1%;margin-right:2%;margin-left: 3%; ">		
-                           		 <option value="" disabled selected style="display:none">Gender</option>
-								<option ng-repeat="v in gender" value="{{v}}">{{v}}</option>
-								</select>
-
-								</div>
-
-								<div style="padding-top:4%;">
-								<label style="padding-left:10%">Birthday:</label>
+						    			</td>
+						    		</tr>
+						    		<tr>
+						    			<td class="labels"></td>
+						    			<td style=" ">
+						    				<span style="color:#a81c17; font-size: 13px; " ng-show="personal_form.phonenumber_home.$invalid && personal_form.phonenumber_home.$dirty ">*Home Number is required.</span>
+										</td>
+						    		</tr>
+						    		<tr>
+						    			<td class="labels">
+						    				<label style="padding-left:14%">Email:</label>
+						    			</td>
+						    			<td style=" ">
+						    				<input style="width: 50%; margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="email" name="email" placeholder="Email" style="width:20%" ng-model="profile_form.personal.email" tabindex= required/>
 								
-								
-								<select ng-model="profile_form.personal.birthday.month" name="month" default="Month" style="padding:1%;margin-right:2%; margin-left: 2%;">
-                           		 <option value="" disabled selected style="display:none">Month</option>
-								<option ng-repeat="v in months" value="{{v}}">{{v}}</option>
-								</select>
-
-								<select ng-model="profile_form.personal.birthday.day" name="day" default="Day" style=";padding:1%;margin-right:2%; " required>		
-                           		 <option value="" disabled selected style="display:none">Day</option>
-								<option ng-repeat="v in days" value="{{v}}">{{v}}</option>
-								</select>
-								
-
-								<!-- <input style=" width: 1s0%; margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="number" name="day" placeholder="Day" ng-model="profile_form.personal.birthday.day" maxlength=2  min="1" max="31" required/>
-								 --><input style=" width: 20%; margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="year" placeholder="Year" ng-model="profile_form.personal.birthday.year" is-number maxlength=4/>
-
-								</div>
-								
-								<div style="padding-top:4%;">
-								<div>
-								Mobile Number:
-								<input style=" margin-left: 2%; width: 8%; margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="phonenumber_network" placeholder="0917" ng-model="profile_form.personal.number.network" is-number maxlength=4 required/>
-
-
-								<input style=" width: 20%; margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="phonenumber_digits" placeholder="XXXXXXX" ng-model="profile_form.personal.number.digits" is-number maxlength=7 required/>
-								
-								</div>
-								<div style="margin:%">
-								<span style="color:#a81c17; font-size: 13px; margin-left:12%; position:absolute;" ng-show="personal_form.phonenumber_digits.$invalid && personal_form.phonenumber_digits.$dirty || personal_form.phonenumber_network.$invalid && personal_form.phonenumber_network.$dirty">*Phone Number is required.</span>
-								</div>
-								<br>
-								<div>
-								<label style="padding-left:1%">Home Number:</label>
-								<input style=" width: 30%; margin-left: 2%;margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="phonenumber_home" placeholder="639XXXX" ng-model="profile_form.personal.number.home" is-number maxlength=7 required/>
-								</div>
-								<div style="margin:%">
-								<span style="color:#a81c17; font-size: 13px; margin-left:12%; position:absolute;" ng-show="personal_form.phonenumber_home.$invalid && personal_form.phonenumber_home.$dirty ">*Home Number is required.</span>
-								</div>
-								
-								</div>
-
-								<div style="padding-top:4%;">
-								<label style="padding-left:14%">Email:</label>
-								<input style=" margin-left: 2%; width: 50%; margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="email" name="email" placeholder="Email" style="width:20%" ng-model="profile_form.personal.email" required/>
-								<!--note-->
-								<div >
-								<span style="color:#a81c17; font-size: 13px; margin-bottom:2%; margin-left:12%; position:absolute;" ng-show="personal_form.email.$dirty && personal_form.email.$invalid">
-								<span style="color:#a81c17; font-size: 13px;" ng-show="personal_form.email.$error.required">*Email is required.</span>
-								<span style="color:#a81c17; font-size: 13px; " ng-show="personal_form.email.$error.email">*Invalid Email</span></span>
-								</div>
-								</div>
-								<div style="padding-top:4%; padding-left:15%; padding-bottom:2%;">
-									<p>
-										<input class="btnsubmit" type="submit" value="Submit" ng-click="update('personal_info')" ng-disabled="personal_form.$invalid"/>
-										<input class="btnreset"type="reset" value="Reset" />
-									</p>
-								</div>
-							</div>
-						</div>
+						    			</td>
+						    		</tr>
+						    		<tr>
+						    			<td sclass="labels"></td>
+						    			<td style=" ">
+						    				<span style="color:#a81c17; font-size: 13px;" ng-show="personal_form.email.$dirty && personal_form.email.$invalid">
+											<span style="color:#a81c17; font-size: 13px;" ng-show="personal_form.email.$error.required">*Email is required.</span>
+											<span style="color:#a81c17; font-size: 13px; " ng-show="personal_form.email.$error.email">*Invalid Email</span></span>
+											
+						    			</td>
+						    		</tr>
+						    		<tr>
+						    			<td style=" " colspan=2 style="">
+						    				<hr>
+						    				<div style="text-align:center;">
+											<input class="btnsubmit" type="submit" value="Submit" ng-click="update('personal_info')" ng-disabled="personal_form.$invalid"/>
+											<input class="btnreset"type="reset" value="Reset" />
+											</div>
+										</td>
+						    		</tr>
+						    	</table>
+						    </div>
 						    </form>
-							
 						 </div>
 						</div>
-						<div class="achievements" ng-class="view.achievements">
 
+
+						<div class="achievements" ng-class="view.achievements">
 							<p style="text-align:justify; font-size:0.9em">
 								<span style="cursor:pointer">You have not yet filled up your 
-									<a style="text-decoration:none">Achievements</a>
+									<a style="text-decoration:none">Achievements</a><button style=""class="btnskip" style="margin-:-100%" type="submit" ng-click="skip('achievements')" title="Skip">Skip</button>
 								</span>
 							</p>
 							<hr>
-							<h4 style="background-color:#F79490;margin-bottom:-10px;font-weight:bold; padding:4% 4% 4% 2%;">Achievements</h4>
+							<div style="background-color:#F79490;margin-bottom:-10px;font-weight:bold; padding:4% 4% 4% 2%;"><h4>Achievements (Optional)</h4>
+									</p></div>
 							<div class="input">
 							<form name="achievements_form">
-								<p>
-									<textarea style="background-color: #FCFCFC;border:none; margin-top:2%; width:98%;" name="achievements" rows="8" cols="44" ng-model="profile_form.achievements.achievements" placeholder="Awards, achievements, titles" required></textarea>
-								</p
-								<span style="color:red; font-size: 12px;" ng-show="achievements_form.achievements.$invalid && !achievements_form.achievements.$pristine"></span>
-								<div style="padding-top:2%; padding-left:2%; padding-bottom:2%;">
-								<p><input style="margin-left:8%" class="btnsubmit" type="submit" value="Submit" ng-click="update('achievements')" ng-disabled="achievements_form.$invalid"/> <input style="margin-left:%" class="btnreset" type="reset" value="Reset" /></p>
-								</div>
+							<table width=100%>
+								<tr>
+						    			<td colspan=2></td>
+						    		</tr>
+								<tr>
+									<td>
+										<textarea style="background-color: #FCFCFC;border:none; width:98%;" name="achievements" rows="8" cols="44" ng-model="profile_form.achievements.data" placeholder="Awards, achievements, titles"></textarea>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<hr>
+						    			<div style="text-align:center;">
+										<input style="" class="btnsubmit" type="submit" value="Submit" ng-click="update('achievements')" ng-disabled="achievements_form.$invalid"/> <input style="" class="btnreset" type="reset" value="Reset" />
+										</div>
+									</td>
+								</tr>
+							</table>
 							</form>
-						</div>
-						</div>
-						
-
+							</div>
+							</div>
+							
 						<div class="education" ng-class="view.education">
 							<p style="text-align:justify; font-size:0.9em">
 								<span style="cursor:pointer">You have not yet filled up your
@@ -338,223 +438,240 @@
 							</p>
 							<hr>
 							<h4 style="background-color:#F79490;margin-bottom:-10px;font-weight:bold; padding:4% 4% 4% 2%;">Education</h4>
+							<div class="input">
 							<form name="education_form">
-								<div class="input">
-								<div style="padding-top:2%">
-
-								<div style="padding-bottom:%;">
-								<label style="padding-left:5.5%">Educational<br>Attainment:</label>
-								<div style="margin-top:-50px; margin-left:24%;">
-								<select ng-model="profile_form.education.educational_attainment" name="educational_attainment" default="" style="padding:1%;margin-right:2%;margin-left: 3%;margin-bottom:5%" required>
-
-                           		 <option value="" disabled selected style="display:none">Degree</option>
-								<option ng-repeat="v in educational_attainment" value="{{v}}">{{v}}</option>
-								</select>
-								</div>
-								<!-- <div  style="position:absolute; margin-left:28.5%;margin-top:-6%;">
-								<span style="color:#a81c17; font-size: 30px;" ng-show="education_form.educational_attainment.$pristine">*</span>
-								</div>
-								 --></div>
-
-
-								<label style="padding-left:12%">School:</label>
-								<input style="margin-left:3%; width: 57%; margin-right:2%;  border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="school"placeholder="School" ng-model="profile_form.education.school" required/>
-
-								<div  style="position:absolute; margin-left:12%">
-								<span style="color:#a81c17; font-size: 13px;" ng-show="education_form.school.$invalid && !education_form.school.$pristine">*School is required</span>
-								</div>
-<!-- 
-								<div style="margin:%; display:inline;">
-								<div style="position:absolute; margin-left:32%">
-								<span style="color:#a81c17; font-size: 13px;" ng-show="personal_form.name_last.$invalid && !personal_form.name_last.$pristine">*Last Name is required.</span>
-								</div>
-								<div style="position:absolute;  margin-left: 12%">
-								<span style="color:#a81c17; font-size: 13px;" ng-show="personal_form.name_first.$invalid && !personal_form.name_first.$pristine">*First Name is required.</span>
-								</div>
-								</div> -->
-
-
 								
-								<div style="padding-top:4%;">
-								<label style="padding-left:14%">Major:</label>
-								<input style="margin-left:3%; width: 57%; margin-right:2%;  border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;"  type="text" name="major" placeholder="Major" ng-model="profile_form.education.major"/>
+								<table width=100%>
+									<tr>
+						    			<td colspan=2></td>
+						    		</tr>
+									<tr>
+										<td class="labels"><label>Educational<br>Attainment:</label></td>
+										<td>
+											<select class="dropdown" ng-model="profile_form.education.educational_attainment" name="educational_attainment" default="" style="margin-right:2%" tabindex= required>
 
+			                           		 <option value="" disabled selected style="display:none">Degree</option>
+											<option ng-repeat="v in educational_attainment" value="{{v}}">{{v}}</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td class="labels"><label>School:</label></td>
+										<td>
+											<input style="width: 57%; margin-right:2%;  border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="school"placeholder="School" ng-model="profile_form.education.school" tabindex= required/>
+
+										</td>
+									</tr>
+									<tr>
+										<td class="labels"></td>
+										<td>
+											<span style="color:#a81c17; font-size: 13px;" ng-show="education_form.school.$invalid && !education_form.school.$pristine">*School is required</span>
+										</td>
+									</tr>
+									<tr>
+										<td class="labels"><label>Major:</label></td>
+										<td>
+											<input style=" width: 57%; margin-right:2%;  border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;"  type="text" name="major" placeholder="Major" ng-model="profile_form.education.major" tabindex=/>
+										</td>
+									</tr>
+									<tr>
+										<td class="labels"><label >Date From:</label></td>
+										<td>
+											<select class="dropdown" ng-model="profile_form.education.start_date.month" name="start_month" default="Month" style="padding:1%;margin-right:2%;" tabindex= required>
+			                           		 <option value="" disabled selected style="display:none">Month</option>
+											<option ng-repeat="v in months" value="{{v}}">{{v}}</option>
+											</select>
+
+											<input style=" width: 20%; margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="start_year" placeholder="Year" ng-model="profile_form.education.start_date.year" is-number maxlength=4 tabindex= required/>
+									
+										</td>
+									</tr>
+									<tr>
+										<td class="labels"><label style="padding-left:9.5%">Status of<br>Degree:</label></td>
+										<td>
+											<div ng-init="profile_form.education.status='completed'">
+											<input type="radio" ng-model="profile_form.education.status" value="ongoing" ng-change='status(profile_form.education.status)'tabindex= ><label style="margin-right:3%;" enter-Key>Ongoing</label></input>
+											<input type="radio" ng-model="profile_form.education.status" value="completed" ng-change='status(profile_form.education.status)' tabindex= ng-checked=true enter-Key><label>Completed</label></input>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td class="labels">
+											<div ng-class="completed">
+												<label>Date To:</labeL>
+											</div>
+											<div ng-class="present">
+												<label >Expected Date<br> of Graduation :</label>
+											</div>
+										</td>
+										<td>
+											<div ng-class="present" >
+											 
+											<select class="dropdown" ng-model="profile_form.education.expected_graduation.month" name="month" default="Month" style="padding:1%; margin-right:2%;" tabindex= >
+			                           		 <option value="" disabled selected style="display:none" >Month</option>
+											<option ng-repeat="v in months" value="{{v}}">{{v}}</option>
+											</select>
+											
+
+											
+											<select class="dropdown" ng-model="profile_form.education.expected_graduation.year" name="year" default="Year" style="padding:1%; margin-right:2%;" tabindex= placeholder="Year">
+			                           		 <option value="" disabled selected style="display:none">Year</option>
+											<option ng-repeat="v in graduation_years" value="{{v}}">{{v}}</option>
+											</select>
+											</div>
+
+											<div ng-class="completed">
+											<select class="dropdown" ng-model="profile_form.education.end_date.month" name="month" default="Month" style="padding:1%;margin-right:2%;" tabindex=>
+			                           		 <option value="" disabled selected style="display:none">Month</option>
+											<option ng-repeat="v in months" value="{{v}}">{{v}}</option>
+											</select>
+
+											<input style=" width: 20%; margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="year" placeholder="Year" ng-model="profile_form.education.end_date.year" is-number maxlength=4 tabindex=/>
+											</div>
 								
-								</div>
-								</div>
-								<div style="padding-top:2%;">
-								<div style="padding-top:2%;"><label style="padding-left:6%">Date From:</label>
+										</td>
+									</tr>
+									</table>
 
-								<select ng-model="profile_form.education.start_date.month" name="start_month" default="Month" style="padding:1%;margin-right:2%; margin-left: 3%;" tabindex=10 required>
-                           		 <option value="" disabled selected style="display:none">Month</option>
-								<option ng-repeat="v in months" value="{{v}}">{{v}}</option>
-								</select>
-
-								<!-- <select ng-model="profile_form.education.start_date.day" name="start_day" default="Day" style=";padding:1%;margin-right:2%; " required>		
-                           		 <option value="" disabled selected style="display:none">Day</option>
-								<option ng-repeat="v in days" value="{{v}}">{{v}}</option>
-								</select> -->
-								<!-- 
-								<input style=" width: 10%; margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="number" name="day" placeholder="Day" ng-model="profile_form.education.start_date.day" maxlength=2  min="1" max="31" required/> -->
-								<input style=" width: 20%; margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="start_year" placeholder="Year" ng-model="profile_form.education.start_date.year" is-number maxlength=4 required/>
-								
-
-								<!-- <input style="margin-left:3.5%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;"type="date"name="school_dateFrom" ng-model="profile_form.education.datefrom" max="{{ today | date: 'yyyy-MM-dd' }}"required/> -->
-								</div>
-								<div style="margin-top:2%;margin-bottom:2%;">
-								<label style="padding-left:9.5%">Status of<br>Degree:</label>
-								<div style="margin-top:-9%;margin-left:30%;">
-								<input type="radio" ng-model="profile_form.education.status" value="ongoing" ng-change='status(profile_form.education.status)'><label style="margin-right:3%;">Ongoing</label></input>
-								<input type="radio" ng-model="profile_form.education.status" value="completed" ng-change='status(profile_form.education.status)'><label>Completed</label></input>
-								</div>
-								</div>
-								
-								<div ng-class="present" style="margin-top:4%;">
-								<label style="padding-left:2%">Expected Date<br> of Graduation :</label>
-								<div style="margin-top:-9%;margin-left:25%;">
-								<select ng-model="profile_form.education.expected_graduation.month" name="month" default="Month" style="padding:1%; margin-right:2%; margin-left: 3%;" >
-                           		 <option value="" disabled selected style="display:none">Month</option>
-								<option ng-repeat="v in months" value="{{v}}">{{v}}</option>
-								</select>
-
-
-								<select ng-model="profile_form.education.expected_graduation.year" name="year" default="Year" style="padding:1%; margin-right:2%; margin-left: 3%;">
-                           		 <option value="" dsabled selected style="display:none">Year</option>
-								<option ng-repeat="v in graduation_years" value="{{v}}">{{v}}</option>
-								</select>
-								</div>
-								</div>
-
-								<div ng-class="completed" style="margin-top:4%;">
-								<label style="padding-left:10%">Date To:</labe>
-								<select ng-model="profile_form.education.end_date.month" name="month" default="Month" style="padding:1%;margin-right:2%; margin-left: 4%;" >
-                           		 <option value="" disabled selected style="display:none">Month</option>
-								<option ng-repeat="v in months" value="{{v}}">{{v}}</option>
-								</select>
-
-								<!-- <select ng-model="profile_form.education.end_date.day" name="day" default="Day" style=";padding:1%;margin-right:2%; " required>		
-                           		 <option value="" disabled selected style="display:none">Day</option>
-								<option ng-repeat="v in days" value="{{v}}">{{v}}</option>
-								</select>
- -->
-								<input style=" width: 20%; margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="year" placeholder="Year" ng-model="profile_form.education.end_date.year" is-number maxlength=4 />
-								</div>
-								
-
-								
-								
-								<!-- 
-								<input style=" width: 10%; margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="number" name="day" placeholder="Day" ng-model="profile_form.education.end_date.day" maxlength=2  min="1" max="31"/> -->
-								
-								<!-- 
-								<input style="margin-left:3.5%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="date" name="school_dateTo" ng-model="profile_form.education.dateto" max="{{ today | date: 'yyyy-MM-dd' }}" required/> -->
-								
-								</div>
-								<div style="padding-top:4%; padding-left:15%; padding-bottom:2%;">
-									<p><input class="btnsubmit" type="submit" value="Submit" ng-click="update('education')" ng-disabled="education_form.$invalid"/> <input class="btnreset"type="reset" value="Reset" /></p>
-								</div>
-							</div>
+									<div add-input style="width:100%;">
+									<table width="100%">
+									<button class="btnadd" formnovalidate >+</button><br>
+									</table>
+									</div>
+									
+									
+									
+									<table width=100%>
+									<tr>
+										<td colspan=2>
+											<hr>
+											
+											<div style="text-align:center;">
+											<br><input class="btnsubmit" type="submit" value="Submit" ng-click="update('education')" ng-disabled="education_form.$invalid"/> <input class="btnreset"type="reset" value="Reset" />
+											</div>
+											</td>
+									</tr>
+									</table>
 							</form>
-						
-						</div>
+								</div>
+								</div>
 					
 						<div class="work" ng-class="view.work">
 							<p style="text-align:justify; font-size:0.9em">
 								<span style="cursor:pointer">You have not yet filled up your
-									<a style="text-decoration:none">Work Experience</a>
+									<a style="text-decoration:none">Work Experience</a><input style=""class="btnskip" type="submit" ng-click="skip('work')"value="Skip" formnovalidate/>
 								</span>
 							</p>
 							<hr>
-							<h4 style="background-color:#F79490;margin-bottom:-10px;font-weight:bold; padding:4% 4% 4% 2%;">Work Experience</h4>
+							<h4 style="background-color:#F79490;margin-bottom:-10px;font-weight:bold; padding:4% 4% 4% 2%;">Work Experience (Optional)</h4>
 							<div>
 							<form name="work_form">
 								<div class="input">
-									<div style="padding-top:2%">
-									<label style="padding-left:10%">Company:</label>
-									<input style="margin-left:3%; width: 56%; margin-right:2%;  border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;"  type="text" name="company" placeholder="Company" ng-model="profile_form.work.company" required/>
 
+
+									<table width=100%>
+										<tr>
+						    				<td colspan=2></td>
+						    			</tr>
+										<tr>
+											<td class="labels"><label>Company:</label></td>
+											<td>
+												<input style="width: 56%; margin-right:2%;  border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;"  type="text" name="company" placeholder="Company" ng-model="profile_form.work.company" tabindex=  required/>
+											</td>
+										</tr>
+										<tr>
+											<td class="labels"></td>
+											<td>
+												<span style="color:#a81c17; font-size: 13px;" ng-show="work_form.company.$invalid && !work_form.company.$pristine">*Company is required</span>
+
+											</td>
+										</tr>
+										<tr>
+											<td class="labels"><label>Position:</label></td>
+											<td>
+												<input style="width: 56%; margin-right:2%;  border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="position" placeholder="Position" ng-model="profile_form.work.position" tabindex=  required/>
+											</td>
+										</tr>
+										<tr>
+											<td class="labels"></td>
+											<td>	
+												<span style="color:#a81c17; font-size: 13px;" ng-show="work_form.position.$invalid && !work_form.position.$pristine">*Position is required</span>
+											</td>
+										</tr>
+										<tr>
+											<td class="labels"><label>Date From:</label></td>
+											<td>
+												<select class="dropdown" ng-model="profile_form.work.start_date.month" name="month" default="Month" style="margin-right:2%;" tabindex= >
+				                           		 <option value="" disabled selected style="display:none" >Month</option>
+												<option ng-repeat="v in months" value="{{v}}">{{v}}</option>
+												</select>
+
+												<select class="dropdown" ng-model="profile_form.work.start_date.day" name="day" default="Day" style="margin-right:2%; " tabindex= required>		
+				                           		 <option value="" disabled selected style="display:none">Day</option>
+												<option ng-repeat="v in days" value="{{v}}">{{v}}</option>
+												</select>
+
+												<input style=" width: 16%; margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="year" placeholder="Year" ng-model="profile_form.work.start_date.year" is-number maxlength=4 tabindex=/>
+											</td>
+										</tr>
+										<tr>
+											<td class="labels"></td>
+											<td>
+												<input type="checkbox" ng-model="profile_form.work.isEmployed" value="Employed" ng-change='isEmployed(profile_form.work.isEmployed)' tabindex= enter-key><label> Present</label></input>				
+											</td>
+										</tr>
+										<tr>
+											<td class="labels"><div ng-class="work_end"><label>Date To:</label></td></div>
+											<td>
+											<div ng-class="work_end">
+												<select class="dropdown" ng-model="profile_form.work.end_date.month" name="month" default="Month" style="margin-right:2%;" tabindex= >
+				                           		 <option value="" disabled selected style="display:none">Month</option>
+												<option ng-repeat="v in months" value="{{v}}">{{v}}</option>
+												</select>
+
+												<select class="dropdown" ng-model="profile_form.work.end_date.day" name="day" default="Day" style="margin-right:2%; " tabindex=>		
+				                           		 <option value="" disabled selected style="display:none">Day</option>
+												<option ng-repeat="v in days" value="{{v}}">{{v}}</option>
+												</select>
+
+												<input style=" width: 16%; margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="year" placeholder="Year" ng-model="profile_form.work.end_date.year" is-number maxlength=4 tabindex=/>
+											</div>
+											</td>
+										</tr>
+										<tr>
+											<td class="labels"><label>Experience<br>Description:</label></td>
+											<td>
+												<textarea style="background-color: #FCFCFC;border:none;width:78%;" name="experience_description" rows="5" ng-model="profile_form.work.experience_description" placeholder="Accomplishments, notable projects, etc." tabindex=></textarea>
 									
-									<div style="position:absolute; margin-left:13%">
-									<span style="color:#a81c17; font-size: 13px;" ng-show="work_form.company.$invalid && !work_form.company.$pristine">*Company is required</span>
-									</div>
-									</div>
-									<br>
-									<label style="padding-left:12%">Position:</label>
-									<input style="margin-left:3%; width: 56%; margin-right:2%;  border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="position" placeholder="Position" ng-model="profile_form.work.position" required/>
-
-									<div style="position:absolute; margin-left:13%">
-									<span style="color:#a81c17; font-size: 13px;" ng-show="work_form.position.$invalid && !work_form.position.$pristine">*Position is required</span>
-									</div>
-
-									<br>
-									<div style="padding-top:2%"> 
-									<div style="padding-top:2%;"><label style="padding-left:8%">Date From:</label>
-
-									<select ng-model="profile_form.work.start_date.month" name="month" default="Month" style="padding:1%;margin-right:2%; margin-left: 3%;" >
-	                           		 <option value="" disabled selected style="display:none">Month</option>
-									<option ng-repeat="v in months" value="{{v}}">{{v}}</option>
-									</select>
-
-									<select ng-model="profile_form.work.start_date.day" name="day" default="Day" style=";padding:1%;margin-right:2%; " required>		
-	                           		 <option value="" disabled selected style="display:none">Day</option>
-									<option ng-repeat="v in days" value="{{v}}">{{v}}</option>
-									</select><!-- 
-									<input style=" width: 10%; margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="number" name="day" placeholder="Day" ng-model="profile_form.work.start_date.day" maxlength=2  min="1" max="31" /> -->
-									<input style=" width: 16%; margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="year" placeholder="Year" ng-model="profile_form.work.start_date.year" is-number maxlength=4 />
-									</div>
-
-									</div>
-									<div style="margin-top:2%;margin-bottom:2%;">
-									<div style="margin-left:28%;">
-									<input type="checkbox" ng-model="profile_form.work.isEmployed" value="Employed" ng-change='isEmployed(profile_form.work.isEmployed)'><label> Present</label></input>									
-									</div>
-									</div>
-
-									<div style="padding-top:%;" ng-class="work_end">
-									<label style="padding-left:12%">Date To:</label>
-
-									<select ng-model="profile_form.work.end_date.month" name="month" default="Month" style="padding:1%;margin-right:2%; margin-left: 3%;" >
-	                           		 <option value="" disabled selected style="display:none">Month</option>
-									<option ng-repeat="v in months" value="{{v}}">{{v}}</option>
-									</select>
-
-									<select ng-model="profile_form.work.end_date.day" name="day" default="Day" style=";padding:1%;margin-right:2%; ">		
-	                           		 <option value="" disabled selected style="display:none">Day</option>
-									<option ng-repeat="v in days" value="{{v}}">{{v}}</option>
-									</select><!-- 
-									<input style=" width: 10%; margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="number" name="day" placeholder="Day" ng-model="profile_form.work.end_date.day" maxlength=2  min="1" max="31" /> -->
-									<input style=" width: 16%; margin-right:2%; border-right:none; border-left:none;border-top:none;border-bottom: 2px solid #f46963;" type="text" name="year" placeholder="Year" ng-model="profile_form.work.end_date.year" is-number maxlength=4 />
-									</div>
-
-
-									<div style="margin-top:2%;">
-									<div  style="margin-top:6%;margin-left:5%;">
-									<label>Experience<br>Description:</label>
-									</div>
-									<div 
-									<div  style="margin-top:-14%;margin-left:28%;">
-									<textarea style="background-color: #FCFCFC;border:none; margin-top:2%; width:78%;" name="experience_description" rows="5" ng-model="profile_form.work.experience_description" placeholder="Accomplishments, notable projects, etc."></textarea>
-									</div>
-									</div>
-									<!-- <div>Date From:
-									<br>
-									<input style="border-radius: 5px; border: 2px solid #f46963;"  type="date"name="work_dateFrom" ng-model="profile_form.work.datefrom" max="{{ today | date: 'yyyy-MM-dd' }}" required/>
-									</div>
-									<div  style="margin: -12.5% 0 0 45%">
-									Date To:
-									<br>
-									<input style="border-radius: 5px; border: 2px solid #f46963;"  type="date" name="work_dateTo" ng-model="profile_form.work.dateto" max="{{ today | date: 'yyyy-MM-dd' }}" required/> -->
+											</td>
+										</tr>
+										<tr>
+											<td class="labels"></td>
+											<td></td>
+										</tr>
+									</table>
+										<div add-work style="width:100%;">
+										<table width="100%">
+										<button class="btnadd" formnovalidate >+</button><br>
+										</table>
+										</div>
 									
-								
-									<div style="padding-top:4%; padding-left:15%; padding-bottom:2%;">
-									<p><input class="btnsubmit" type="submit" value="Submit" ng-click="update('work')" ng-disabled="work_form.$invalid"/> <input class="btnreset" type="reset" value="Reset" /></p>
-								</div>
+									<table width=100%>
+										<tr>
+											<td colspan=2>
+												<hr>
+												
+												<div style="text-align:center;">
+												<input style=";" class="btnsubmit" type="submit" value="Submit" ng-click="update('work')" ng-disabled="work_form.$invalid"/> <input style="" class="btnreset" type="reset" value="Reset" />
+												</div>
+											</td>
+										</tr>
+									</table>
 								</div>
 							</form>
-						</div>
+						
 					</div>
 				</div>
-
 				</div>
 				<div class="CbreakThr" style="width:100%; border:1px solid #f02921"></div>
 				<div class="CbreakSec" style="margin-bottom:1em"></div>

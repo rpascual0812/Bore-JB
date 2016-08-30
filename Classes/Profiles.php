@@ -1,4 +1,4 @@
-<?php
+    <?php
 require_once('../../../Classes/ClassParent.php');
 class Profiles extends ClassParent{
     var $pin = NULL;
@@ -49,6 +49,11 @@ class Profiles extends ClassParent{
             }
         }        
 
+        $pin = $this->pin;
+        $email_address = $data['email_address'];
+        $password = $data['password'];
+        $usertype = $data['usertype'];
+
         $json_profile = array(
             'personal' => array(
                 'first_name' => $this->profile['first_name'],
@@ -70,10 +75,7 @@ class Profiles extends ClassParent{
 
         $sql = 'begin;';
 
-        $pin = $this->pin;
-        $email_address = $data['email_address'];
-        $password = $data['password'];
-        $usertype = $data['usertype'];
+        
 
 
         $sql .= <<<EOT
@@ -166,15 +168,16 @@ EOT;
         return ClassParent::get($sql);
     }
 
-    public function update($info,$type){   
+    public function update($info,$type){ 
         $personal_info = json_encode($info);
         $sql = "begin;";
-        $sql .= <<<EOT
-            UPDATE profiles
+    $sql .= <<<EOT
+          UPDATE profiles
             SET profile = jsonb_set(profile,'{"$type"}',
                 '$personal_info',true) WHERE md5(pin)= '$this->pin';
 EOT;
         $sql .= "commit;";
+    
         return ClassParent::update($sql);
     }
 
